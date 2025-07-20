@@ -42,6 +42,8 @@ node fesa.js [-h] [-p] [-m <node.js module path>] [-q] [-s] [-a] [--timeout TIME
 
 - The `curated_vul.csv` is the information of the vulnerabilitys in the curated datasets and the detection results.
 
+- The `vul_inthewild.csv` contains the vulnerabilities detected in the wild collected from npm.
+
 ### References
 
 - [ObjLupAnsys](https://github.com/song-li/objlupansys)
