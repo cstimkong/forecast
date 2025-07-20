@@ -24,8 +24,9 @@ Please check out [INSTALL.md](INSTALL.md) for the detailed instruction of the in
 Use the following command:
 
 ```bash
-node fesa.js [-h] [-p] [-m <node.js module path>] [-q] [-s] [-a] [--timeout TIMEOUT] [-l] [--install] [--max-fe-iteration]
+node fesa.js [-h] [-p] [-m <node.js module path>] [-q] [-s] [-a] [--timeout TIMEOUT] [-l] [--install] [--max-fe-iteration] [--detection-only]
 ```
+
 
 ### Requirements
 
@@ -33,3 +34,10 @@ node fesa.js [-h] [-p] [-m <node.js module path>] [-q] [-s] [-a] [--timeout TIME
 - Neo4j v5.0 and later
 - Libev 
 
+### Content
+
+- The `curated_datasets` directory contains the NPM packages that are from Ferreira et al.'s works (we also check them manually).
+
+- `npm_packages.json` is the package list that are used in our evaluation.
+
+- The `curated_vul.csv` is the information of the vulnerabilitys in the curated datasets and the detection results.
