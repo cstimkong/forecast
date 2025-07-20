@@ -1,0 +1,16 @@
+/**
+ * Create a new context
+ * @function create
+ */
+'use strict';
+
+var Objnest = require('./objnest');
+/** @lends create */
+
+
+function create(config) {
+  return new Objnest(config);
+}
+
+module.exports = create;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNyZWF0ZS5qcyJdLCJuYW1lcyI6WyJPYmpuZXN0IiwicmVxdWlyZSIsImNyZWF0ZSIsImNvbmZpZyIsIm1vZHVsZSIsImV4cG9ydHMiXSwibWFwcGluZ3MiOiJBQUFBOzs7O0FBSUE7O0FBRUEsSUFBTUEsT0FBTyxHQUFHQyxPQUFPLENBQUMsV0FBRCxDQUF2QjtBQUVBOzs7QUFDQSxTQUFTQyxNQUFULENBQWlCQyxNQUFqQixFQUF5QjtBQUN2QixTQUFPLElBQUlILE9BQUosQ0FBWUcsTUFBWixDQUFQO0FBQ0Q7O0FBRURDLE1BQU0sQ0FBQ0MsT0FBUCxHQUFpQkgsTUFBakIiLCJzb3VyY2VSb290IjoiLi4vLi4vbGliIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBDcmVhdGUgYSBuZXcgY29udGV4dFxuICogQGZ1bmN0aW9uIGNyZWF0ZVxuICovXG4ndXNlIHN0cmljdCdcblxuY29uc3QgT2JqbmVzdCA9IHJlcXVpcmUoJy4vb2JqbmVzdCcpXG5cbi8qKiBAbGVuZHMgY3JlYXRlICovXG5mdW5jdGlvbiBjcmVhdGUgKGNvbmZpZykge1xuICByZXR1cm4gbmV3IE9iam5lc3QoY29uZmlnKVxufVxuXG5tb2R1bGUuZXhwb3J0cyA9IGNyZWF0ZSJdfQ==

@@ -1,0 +1,30 @@
+{
+  "name": "get-setter",
+  "version": "0.0.0",
+  "description": "Simple getter and setter methods using strings and dot notation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pajtai/get-setter.git"
+  },
+  "keywords": [
+    "get",
+    "set",
+    "getter",
+    "setter",
+    "dot",
+    "notation"
+  ],
+  "author": "Peter Ajtai <peter.ajtai@thinksolid.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pajtai/get-setter/issues"
+  },
+  "homepage": "https://github.com/pajtai/get-setter#readme",
+  "devDependencies": {
+    "chai": "^3.4.1"
+  }
+}

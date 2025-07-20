@@ -1,0 +1,31 @@
+{
+  "name": "arr-flatten-unflatten",
+  "version": "1.1.4",
+  "description": "non-recursive method of flattening an array or arrays and unflattening the result",
+  "main": "index.js",
+  "author": "Quernest",
+  "repository": {
+    "url": "git@github.com:Quernest/arr-flatten-unflatten.git"
+  },
+  "keywords": [
+    "flatten",
+    "unflatten",
+    "flat",
+    "unflat",
+    "deflat",
+    "flattendeep",
+    "flatdeep",
+    "non-recursive",
+    "array-flattening",
+    "array",
+    "arrays",
+    "flatten-array"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^24.0.0"
+  }
+}

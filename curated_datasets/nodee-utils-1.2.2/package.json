@@ -1,0 +1,30 @@
+{
+  "name": "nodee-utils",
+  "preferGlobal": false,
+  "version": "1.2.2",
+  "author": "NODEE - Matus Szabo <matus@nodee.io>",
+  "description": "set of useful helpers",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodee-apps/utils.git"
+  },
+  "keywords": [
+    "utils",
+    "helpers"
+  ],
+  "dependencies": {
+    "validator": "~3.40.1",
+    "shortid": "~2.2.2",
+    "superagent": "5.0.2",
+    "superagent-retry": "~0.6.0",
+    "jwt-simple": "0.5.6"
+  },
+  "analyze": false,
+  "devDependencies": {},
+  "bundledDependencies": [],
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "field",
+  "version": "1.0.1",
+  "description": "Easily set, get, stub values of a field in a JavaScript object.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jprichardson/field"
+  },
+  "keywords": [
+    "stub",
+    "field",
+    "fields",
+    "set",
+    "get",
+    "object",
+    "property",
+    "properties",
+    "accessor",
+    "accessors",
+    "configuration",
+    "config"
+  ],
+  "author": "JP Richardson <jprichardson@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "main": "./lib/field.js",
+  "scripts": {
+    "test": "mocha test"
+  }
+}

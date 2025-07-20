@@ -1,0 +1,39 @@
+{
+  "name": "x-assign",
+  "version": "0.1.4",
+  "description": "A better Object.assign that merges object properties and concatenates arrays.",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "np",
+    "test": "cross-env NODE_ENV=test nyc mocha",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvoorberg/x-assign.git"
+  },
+  "keywords": [
+    "object.assign",
+    "merge"
+  ],
+  "author": "Mark Voorberg <mark@binaryops.ca>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mvoorberg/x-assign/issues"
+  },
+  "homepage": "https://github.com/mvoorberg/x-assign#readme",
+  "engines": {
+    "node": ">= 8"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
+    "cross-env": "^7.0.3",
+    "mocha": "^8.2.1",
+    "mocha-lcov-reporter": "^1.3.0",
+    "np": "^7.2.0",
+    "nyc": "^15.1.0",
+    "shelljs": "^0.8.4"
+  },
+  "dependencies": {}
+}

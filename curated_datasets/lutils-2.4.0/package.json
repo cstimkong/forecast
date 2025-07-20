@@ -1,0 +1,49 @@
+{
+  "name": "lutils",
+  "description": "A few reliable utils.",
+  "version": "2.4.0",
+  "author": {
+    "name": "nfour"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nfour/lutils"
+  },
+  "main": "./index",
+  "typings": "index.d.ts",
+  "scripts": {
+    "build": "./scripts/build",
+    "test": "jest src/**/*.spec.ts",
+    "coverage": "jest src/**/*.spec.ts --coverage",
+    "lint": "tslint src/**/*.ts",
+    "lint:types": "tslint src/**/*.ts --type-check --project src",
+    "test:dist": "jest -c '{}' dist/**/*.spec.js",
+    "release": "cd dist && npm publish"
+  },
+  "keywords": [
+    "merge",
+    "extend",
+    "clone",
+    "type",
+    "recursive",
+    "assign",
+    "deep",
+    "immutable",
+    "mutate",
+    "typeof",
+    "type",
+    "guard"
+  ],
+  "devDependencies": {
+    "@types/jest": "^19.2.3",
+    "jest": "^20.0.1",
+    "lutils-clone": "0",
+    "lutils-merge": "0",
+    "lutils-typeof": "0",
+    "ts-jest": "^20.0.3",
+    "tslint": "^5.2.0",
+    "tslint-config-standard": "^5.0.2",
+    "tslint-eslint-rules": "^4.0.0",
+    "typescript": "^2.3.2"
+  }
+}
