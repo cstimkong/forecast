@@ -41,3 +41,17 @@ node fesa.js [-h] [-p] [-m <node.js module path>] [-q] [-s] [-a] [--timeout TIME
 - `npm_packages.json` is the package list that are used in our evaluation.
 
 - The `curated_vul.csv` is the information of the vulnerabilitys in the curated datasets and the detection results.
+
+### References
+
+- [ObjLupAnsys](https://github.com/song-li/objlupansys)
+
+- [ODGen](https://github.com/song-li/ODGen)
+
+- [Explode.js](https://github.com/formalsec/explode-js)
+
+- [Graph.js](https://github.com/formalsec/graphjs)
+
+- [Secbench.js](https://github.com/cristianstaicu/SecBench.js)
+
+- [VulcaN](https://github.com/VulcaN-Study/Supplementary-Material)
