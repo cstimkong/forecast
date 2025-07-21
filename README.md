@@ -24,15 +24,21 @@ Please check out [INSTALL.md](INSTALL.md) for the detailed instruction of the in
 Use the following command:
 
 ```bash
-node fesa.js [-h] [-p] [-m <node.js module path>] [-q] [-s] [-a] [--timeout TIMEOUT] [-l] [--install] [--max-fe-iteration] [--detection-only]
+node fesa.js [-h] [-p] [-m <node.js module path>] [-q | --quiet]  [-a | --all] [--timeout <timeout>] [--install] [--max-fe-iteration] [--detection-only]
 ```
 
 
 ### Requirements
 
 - Node.js v20 and later
+
 - Neo4j v5.0 and later
-- Libev 
+
+- node-gyp
+
+- Libev
+
+- Python 3.9 or later
 
 ### Content
 
@@ -43,6 +49,19 @@ node fesa.js [-h] [-p] [-m <node.js module path>] [-q] [-s] [-a] [--timeout TIME
 - The `curated_vul.csv` is the information of the vulnerabilitys in the curated datasets and the detection results.
 
 - The `vul_inthewild.csv` contains the vulnerabilities detected in the wild collected from npm.
+
+### Installation
+
+1. Install node gyp from `npm`
+
+2. Install Build Tools (Visual Studio Build Tools on Windows, or Xcode Application / Command Line Tools on macOS, or GCC on general UNIX/Linux systems)
+
+3. Install Neo4j
+
+4. Build libev
+
+5. Using node gyp build the project
+
 
 ### References
 
