@@ -1,0 +1,16 @@
+{
+    "package": "json-pointer",
+    "version": "0.6.0",
+    "cve_id": "CVE-2021-23820",
+    "links": [
+        "https://security.snyk.io/vuln/SNYK-JS-JSONPOINTER-596925",
+        "https://github.com/advisories/GHSA-v5vg-g7rq-363w"
+    ],
+    "sinks": [
+        {
+            "file": "index.js",
+            "line": 91,
+            "content": "obj[nextTok] = value"
+        }
+    ]
+}

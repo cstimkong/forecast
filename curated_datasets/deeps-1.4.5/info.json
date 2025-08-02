@@ -1,0 +1,16 @@
+{
+    "package": "deeps",
+    "version": "1.4.5",
+    "cve_id": "CVE-2020-7716",
+    "links": [
+        "https://security.snyk.io/vuln/SNYK-JS-DEEPS-598667",
+        "https://github.com/advisories/GHSA-rgfv-v3jh-7ffp"
+    ],
+    "sinks": [
+        {
+            "file": "index.js",
+            "line": 226,
+            "content": "if (isObject(object) || (Array.isArray(object) && !Number.isNaN(keys[i]))) object[keys[i]] = value;"
+        }
+    ]
+}
