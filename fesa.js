@@ -46,6 +46,10 @@ let argv = yargs(hideBin(process.argv))
     type: 'string',
     description: 'Only detect the vulnerability, without exploitation'
   })
+  .option('max-execution-time', {
+    type: 'string',
+    description: 'max forced execution time'
+  })
   .demandOption(['library', 'client'])
   .help().parse();
 
