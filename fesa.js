@@ -19,29 +19,32 @@ const assert = require('assert');
 const logger = pino(pretty({sync: true}));
 
 let argv = yargs(hideBin(process.argv))
-  .usage('Generate an API model for a library based on the given client code').option('library', {
+  .usage('Run FesaJS for a JavaScript library').option('library', {
     alias: 'l',
     type: 'string',
     description: 'Library name (used in require call)'
   })
   .option('client', {
-    alias: 'c',
+    alias: 'm',
     type: 'string',
-    description: 'The path of client JavaScript file or project (if the specified path is a directory, all JavaScript files in the diretory will be executed)'
+    description: 'A node.js module'
   })
   .option('mocha', {
     type: 'boolean',
     description: 'Client JavaScript file or project use mocha as the test framework'
   })
-  .option('compress', {
+  .option('all', {
+    alias: 'a',
     type: 'boolean',
-    description: 'Whether to compress the model',
-    default: true
+    description: 'Try to detect all paths'
   })
-  .option('output', {
-    alias: 'o',
+  .option('timeout', {
     type: 'string',
-    description: 'Output path for the generated model'
+    description: 'Timeout of the Fesa execution'
+  })
+  .option('detection-only', {
+    type: 'string',
+    description: 'Only detect the vulnerability, without exploitation'
   })
   .demandOption(['library', 'client'])
   .help().parse();
@@ -304,10 +307,6 @@ let argv = yargs(hideBin(process.argv))
         return false;
     }
 
-    // function tryRemovePath(currentNode, accumulatedPath) {
-    //     for (let c of )
-        
-    // }
 
     function compress() {
         let iteration = 0;
