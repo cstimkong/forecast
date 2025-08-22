@@ -1,4 +1,4 @@
-# FesaJS
+# FesaJS (The project is being reorganized)
 
 This is the repository for `FesaJS`, a tool for detecting prototype pollution vulnerability.
 
