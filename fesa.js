@@ -8,8 +8,9 @@
 const yargs = require('yargs/yargs')
 const {hideBin} = require('yargs/helpers')
 
-const loadNodeJSModule = require('./loadmodule');
-const { generateTemplateArgArrays } = require('./engine')
+const loadNodeJSModule = require('./lib/loadmodule');
+const { generateTemplateArgArrays } = require('./lib/engine');
+const { solve } = require('./lib/staticanalysis');
 
 let argv = yargs(hideBin(process.argv))
 .usage('FesaJS executable file').option('path', {
@@ -55,27 +56,3 @@ let argv = yargs(hideBin(process.argv))
   )
   .demandOption(['path'])
   .help().parse();
-
-let lib = loadNodeJSModule(argv.path);
-
-let funcs = [];
-if (typeof lib === 'function') {
-    funcs.push({func: lib, name: '<root>'});
-}
-for (let k in lib) {
-    if (typeof lib[k] === 'function') {
-        funcs.push({func: lib[k], name: `<root>.${k}`});
-    }
-}
-
-console.log(funcs);
-for (let item of funcs) {
-    try {
-        let tempelateArgArrays = generateTemplateArgArrays(item.func, undefined);
-        for (let x of tempelateArgArrays) {
-            
-        }
-    } catch (e) {
-        console.error(e.message);
-    }
-}
