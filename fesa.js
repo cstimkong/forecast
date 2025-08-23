@@ -47,7 +47,12 @@ let argv = yargs(hideBin(process.argv))
     default: true,
     description: 'Mock slow functions'
   })
-
+  .option('debug',
+    {
+        type: 'boolean',
+        default: false
+    }
+  )
   .demandOption(['path'])
   .help().parse();
 
