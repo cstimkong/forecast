@@ -1,4 +1,5 @@
 {
+  "name": "fesa-js",
   "devDependencies": {
     "@babel/cli": "^7.28.0",
     "mocha": "^11.7.1"
@@ -11,5 +12,6 @@
     "object-hash": "^3.0.0",
     "pirates": "^4.0.7",
     "yargs": "^18.0.0"
-  }
+  },
+  "type": "module"
 }

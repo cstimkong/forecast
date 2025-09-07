@@ -5,12 +5,14 @@
  * 
  */
 
-const yargs = require('yargs/yargs')
-const {hideBin} = require('yargs/helpers')
+import yargs from 'yargs/yargs';
+import { hideBin } from 'yargs/helpers';
 
-const loadNodeJSModule = require('./lib/loadmodule');
-const { generateTemplateArgArrays } = require('./lib/engine');
-const { solve } = require('./lib/staticanalysis');
+import loadNodeJSModule from './lib/loadmodule';
+import  { generateTemplateArgArrays } from './lib/engine';
+import { solve } from './lib/staticanalysis';
+
+import { mainProcess } from './lib/engine';
 
 let argv = yargs(hideBin(process.argv))
 .usage('FesaJS executable file').option('path', {
@@ -56,3 +58,6 @@ let argv = yargs(hideBin(process.argv))
   )
   .demandOption(['path'])
   .help().parse();
+
+mainProcess(argv.path, {});
+// TODO
