@@ -3,10 +3,10 @@
  * This file is part of FesaJS
  */
 
-import { makeProxyString } from './proxy';
+import { makeProxyString, ProxyString } from './proxy';
 
 export let globalObject = {
-    encodeURI: function (uri) {
+    encodeURI: function (uri: string | ProxyString) {
         if (typeof uri === 'string') {
             return encodeURI(uri);
         }
@@ -16,7 +16,7 @@ export let globalObject = {
 
         throw new Error('URI should be a string.');
     },
-    decodeURI: function (encodedURI) {
+    decodeURI: function (encodedURI: string | ProxyString) {
         if (typeof encodedURI === 'string') {
             return decodeURI(encodedURI);
         }
@@ -26,7 +26,7 @@ export let globalObject = {
 
         throw new Error('URI should be a string.');
     },
-    encodeURIComponent: function (uri) {
+    encodeURIComponent: function (uri: string | ProxyString) {
         if (typeof uri === 'string') {
             return encodeURIComponent(uri);
         }
@@ -36,7 +36,7 @@ export let globalObject = {
 
         throw new Error('URI should be a string.');
     },
-    decodeURIComponent: function (encodedURI) {
+    decodeURIComponent: function (encodedURI: string | ProxyString) {
         if (typeof encodedURI === 'string') {
             return decodeURIComponent(encodedURI);
         }
@@ -46,21 +46,22 @@ export let globalObject = {
 
         throw new Error('URI should be a string.');
     },
-    escape: function(s) {
+    escape: function(s: string) {
         return globalObject.decodeURI(s);
     },
     JSON: {
         parse(_: any) {
-            let obj = JSON.parse.apply(undefined, arguments);
+            let obj = JSON.parse.apply(undefined, arguments as any);
             return (function _replace(o) {
                 if (typeof o === 'string') {
                     return makeProxyString(o);
                 }
 
                 if (typeof o === 'object' && o !== null) {
-                    let x = {};
+                    let x: any = {};
                     for (let p in o) {
-                        x[Symbol.for(`__tainted__${p}`)] = _replace(o[p]);
+                        if (typeof p === 'string')
+                            x[Symbol.for(`__tainted__${p}`)] = _replace(o[p]);
                     }
                     return x;
                 }
