@@ -34,7 +34,7 @@ import {identifier,
     Identifier,
     MemberExpression
 } from '@babel/types';
-import {default as babelGenerator} from '@babel/generator';
+import babelGenerator from '@babel/generator';
 
 export type ProgramLocation = {
     line: number,

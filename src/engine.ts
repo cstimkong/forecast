@@ -6,16 +6,28 @@
 
 import { makeProxyArray, makeProxyString, makeProxyObject } from './proxy';
 import { generateTemplateString } from './template';
-import { randomChoice } from './helper.js';
-import { solve } from './staticanalysis.js';
+import { makeArbitraryString, randomChoice } from './helper.js';
+import { Hint, solve } from './staticanalysis.js';
 import objectHash from 'object-hash';
-import babelTraverse from '@babel/traverse';
+import babelTraverse, { Node } from '@babel/traverse';
 import loadNodeJSModule from './loadmodule';
-import { instrumentCodeWithTaints } from './instrumentation';
+import { instrumentCodeWithTaints, ProgramLocation  } from './instrumentation';
 import {globalObject} from './globalobject';
+import { TaintInfo } from './instrumentation';
 
 const MAX_FORCED_EXECUTION_COUNT = 1000;
 const MAX_TEMPLATE_COUNT = 100;
+
+type Skeleton = {
+    type: 'primitive',
+    value: string | number | boolean
+} | {
+    type: 'array',
+    elements: Skeleton[]
+} | { type: 'string' } | {
+    type: 'object',
+    properties: { [key: string | symbol]: Skeleton }
+}
 
 /**
  * 
@@ -24,13 +36,13 @@ const MAX_TEMPLATE_COUNT = 100;
  * @param {Object} obj proxy input after the forced execution
  * @returns the object representing the skeleton
  */
-function generateSkeleton(obj) {
+function generateSkeleton(obj: any): Skeleton {
     if (typeof obj === 'string' || typeof obj === 'number' || obj === undefined || obj === null) {
         return {type: 'primitive', value: obj};
     }
 
     if (typeof obj === 'object' && obj instanceof Array) {
-        let ret = {type: 'array', elements: []};
+        let ret: any = {type: 'array', elements: []};
         for (let x of obj) {
             ret.elements.push(generateSkeleton(x));
         }
@@ -44,14 +56,16 @@ function generateSkeleton(obj) {
 
     if (typeof obj === 'object' && obj !== null) {
         let internalObj = obj.__internalobj__;
-        let ret = {type: 'object', properties: {}};
-        for (let k of Object.getOwnPropertyNames(internalObj).concat(Object.getOwnPropertySymbols(internalObj))) {
+        let ret: Skeleton = {type: 'object', properties: {}};
+        for (let k of (Object.getOwnPropertyNames(internalObj) as Array<any>).concat(Object.getOwnPropertySymbols(internalObj))) {
             let s = generateSkeleton(internalObj[k]);
-            ret.properties[k] = s;
+            (ret.properties as any)[k] = s;
         }
         
         return ret;
     }
+
+    throw new Error('Unsupported input type');
 }
 
 
@@ -61,9 +75,9 @@ function generateSkeleton(obj) {
  * @param {Function} func the instrumented function to be used in forced execution
  * @param {Object} thisArg thisArg in execution
  */
-function preAnalysis(func, thisArg, globalContext, opts) {
-    let skeletenArrayHashMap = {};
-    let totalRuntimeHints = {};
+function preAnalysis(func: Function, thisArg: any, globalContext: any, opts: any): [any[], Hint[]] {
+    let skeletenArrayHashMap: NodeJS.Dict<Skeleton[]> = {};
+    let totalRuntimeHints: any = {};
     let maxForcedExecutionCount = (opts && opts['max-execution-time']) ? opts['max-execution-time'] : MAX_FORCED_EXECUTION_COUNT;
     for (let i = 0; i < maxForcedExecutionCount; i++) {
         try {
@@ -72,7 +86,7 @@ function preAnalysis(func, thisArg, globalContext, opts) {
                 let hash = objectHash(h);
                 totalRuntimeHints[hash] = h;
             }
-            let skeletonArray = [];
+            let skeletonArray: Skeleton[] = [];
             for (let e of argArray) {
                 skeletonArray.push(generateSkeleton(e));
             }
@@ -83,11 +97,11 @@ function preAnalysis(func, thisArg, globalContext, opts) {
         }
     }
     
-    let templateArgArrayHashMap = {};
+    let templateArgArrayHashMap: any = {};
     for (let skeletonArray of Object.values(skeletenArrayHashMap)) {
         for (let i = 0; i < MAX_TEMPLATE_COUNT; i++) {
             let templateArgs = [];
-            for (let e of skeletonArray) {
+            for (let e of skeletonArray!) {
                 templateArgs.push(generateInputTemplate(e));
             }
             let hash = objectHash(templateArgs);
@@ -105,20 +119,20 @@ function preAnalysis(func, thisArg, globalContext, opts) {
  * rather than concrete strings.
  * @param {Object} skeleton 
  */
-function generateInputTemplate(skeleton) {
+function generateInputTemplate(skeleton: Skeleton): any {
     if (skeleton.type === 'string') {
         return generateTemplateString('any');
     }
 
     if (skeleton.type === 'object') {
-        let o = {};
+        let o: any = {};
         for (let p in skeleton.properties) {
-            o[p] = generateInputTemplate(skeleton.properties[p]);
+            o[p] = generateInputTemplate(skeleton.properties[p]!);
         }
         
         for (let p of Object.getOwnPropertySymbols(skeleton.properties)) {
-            if (skeleton.properties[p].description.startsWith('__tainted__')) {
-                o[generateTemplateString('any')] = generateInputTemplate(skeleton.properties[p]);
+            if (p.description && p.description.startsWith('__tainted__')) {
+                o[generateTemplateString('any')] = generateInputTemplate(skeleton.properties[p]!);
             }
         }
         return o;
@@ -140,14 +154,14 @@ function generateInputTemplate(skeleton) {
 
 /**
  * 
- * @param {Function} f instrumented function with `taint information`
- * @param {Array<Object>} templateArgArray to generated skeleton for arguments from 
+ * @param f instrumented function with `taint information`
+ * @param templateArgArray to generated skeleton for arguments from 
  * the forced execution
- * @returns {Boolean} whether the input pattern can be accepted
+ * @returns whether the input pattern can be accepted
  */
-function checkTemplateArgArray(f, templateArgArray, thisArg) {
+function checkTemplateArgArray(f: Function, templateArgArray: Array<any>, thisArg: any, globalContext: any) {
     let argArray = [];
-    let totalPatternMap = {}
+    let totalPatternMap: any = {}
     for (let [k, obj] of Object.entries(templateArgArray)) {
         let patternMap = getPatternMap(obj);
         for (let p in patternMap) {
@@ -157,14 +171,17 @@ function checkTemplateArgArray(f, templateArgArray, thisArg) {
         argArray.push(newObj);
     }
 
-    let runtimeHints = [];
-    globalThis.__record__ = function(start, end, filename, content) {
+    let runtimeHints: Array<Hint> = [];
+    if (!globalContext)
+        globalContext = globalThis; // fallback choice
+
+    globalContext.__record__ = function(start: ProgramLocation, end: ProgramLocation, filename: string, content: any) {
         runtimeHints.push({ start, end, filename, content });
     };
 
     f.apply(thisArg, argArray);
     let taintedPatterns = new Set();
-    let totalPatternTaintPositionMap = {};
+    let totalPatternTaintPositionMap: any = {};
     for (let h of runtimeHints) {
         if (h.content.type === 'taintValue') {
             for (let [k, v] of Object.entries(totalPatternMap)) {
@@ -176,7 +193,7 @@ function checkTemplateArgArray(f, templateArgArray, thisArg) {
         }
     }
 
-    if ((taintedPatterns.size() === Object.keys(totalPatternMap).length)) {
+    if ((taintedPatterns.size === Object.keys(totalPatternMap).length)) {
         return [true, totalPatternTaintPositionMap]
     } else {
         return [false, undefined];
@@ -185,11 +202,11 @@ function checkTemplateArgArray(f, templateArgArray, thisArg) {
 
 /**
  * @private
- * @param {object | string} obj 
- * @param {*} patternMap 
+ * @param obj 
+ * @param patternMap 
  * @returns 
  */
-function replacePatterns(obj, patternMap) {
+function replacePatterns(obj: any, patternMap: NodeJS.Dict<any>) {
     if (typeof obj === 'string') {
         for (let [k, v] of Object.entries(patternMap)) {
             obj = obj.replace(k, v).replace('\\{', '{').replace('\\}', '}');
@@ -198,10 +215,10 @@ function replacePatterns(obj, patternMap) {
     }
 
     if (typeof obj === 'object') {
-        let newObj = {};
+        let newObj: any = {};
         for (let k in obj) {
-            let v = replacePatterns(obj[k]);
-            newObj[replacePatterns(k)] = v;
+            let v = replacePatterns(obj[k], patternMap);
+            newObj[replacePatterns(k, patternMap)] = v;
         }
         return newObj;
     }
@@ -214,9 +231,9 @@ function replacePatterns(obj, patternMap) {
  * @param {Object} obj 
  * @returns 
  */
-function getPatternMap(obj) {
+function getPatternMap(obj: any) {
     let patterns = findPatterns(obj);
-    let patternMap = {};
+    let patternMap: NodeJS.Dict<any> = {};
     for (let p of patterns) {
         patternMap[p] = makeArbitraryString();
     }
@@ -225,15 +242,15 @@ function getPatternMap(obj) {
 
 /**
  * Replace the string values in a template object
- * @param {*} obj 
+ * @param  obj 
  */
-function findPatterns(obj) {
+function findPatterns(obj: any): Array<string> {
     if (typeof obj === 'string') {
         return findPatternStrings(obj);
     }
 
     if (typeof obj === 'object') {
-        let p = [];
+        let p: Array<string> = [];
         for (let [k, v] of Object.entries(obj)) {
             p = p.concat(findPatternStrings(k)).concat(findPatterns(v));
         }
@@ -248,7 +265,7 @@ function findPatterns(obj) {
  * @param {String} s the input string
  * @returns 
  */
-function findPatternStrings(s) {
+function findPatternStrings(s: string): Array<string> {
     let p = 0;
     while (p < s.length) {
         let idx = s.indexOf('{', p);
@@ -299,7 +316,7 @@ function findPatternStrings(s) {
  * @param {any} thisArg `this` in the function execution (optional). `thisArg` should be 
  * retrieved in other forced executions (typically as the return object).
  */
-function forcedExecution(f, argCount, thisArg, globalContext) {
+function forcedExecution(f: Function, argCount: number, thisArg: any, globalContext: any): [any[], Hint[]] {
     let argArray = [];
     for (let i = 0; i < argCount; i++) {
         argArray.push(randomChoice([
@@ -311,17 +328,18 @@ function forcedExecution(f, argCount, thisArg, globalContext) {
         ]));
     }
     try {
-        let runtimeHints = [];
+        let runtimeHints: Array<Hint> = [];
         if (!globalContext)
             globalContext = globalThis; // fallback choice
-        globalContext.__record__ = function(start, end, filename, content) {
+
+        globalContext.__record__ = function(start: ProgramLocation, end: ProgramLocation, filename: string, content: any) {
             runtimeHints.push({ start, end, filename, content });
         };
         globalContext.__getdeflocation__ = __getdeflocation__;
         globalContext.__getcreationlocation__ = __getcreationlocation__;
         f.apply(thisArg, argArray);
         return [argArray, runtimeHints];
-    } catch (e) {
+    } catch (e: any) {
         throw new Error(`Error in forced execution: ${e.message}`);
     } finally {
         delete globalContext.__record__;
@@ -330,6 +348,10 @@ function forcedExecution(f, argCount, thisArg, globalContext) {
     }
 }
 
+type PossibleInstrumentedFunction = {
+    (): any,
+    ['__deflocation__']?: any
+}
 
 /**
  * 
@@ -338,12 +360,12 @@ function forcedExecution(f, argCount, thisArg, globalContext) {
  * @private
  * @param {Function} f input function
  */
-function __getdeflocation__(f) {
+function __getdeflocation__(f: PossibleInstrumentedFunction) {
     if (f.__deflocation__) {
         return f.__deflocation__;
     }
 
-    let descriptors = Object.getOwnPropertyDescriptors(String.prototype);
+    let descriptors: NodeJS.Dict<any> = Object.getOwnPropertyDescriptors(String.prototype);
     for (let [k, v] of Object.entries(descriptors)) {
         if (typeof v.value === 'function' && f === v.value) {
             return { internalFunc: `String.prototype.${k}` };
@@ -474,9 +496,9 @@ function __getcreationlocation__(obj) {
 }
 
 
-function collectTaintInfo(ast) {
-    let taintInfo = [];
-    babelTraverse.default(ast, {
+function collectTaintInfo(ast: Node) {
+    let taintInfo: Array<TaintInfo> = [];
+    babelTraverse(ast, {
         exit(path) {
             if (path.node.__tainted__) {
                 taintInfo.push({
@@ -548,7 +570,7 @@ export function mainProcess(modulePath, opts) {
         // TODO: more conditions on f
         let f = getFunctionByName(newLib, funcname);
         for (let templateArgArray of totalTemplateArgArrays[funcname]) {
-            let [accepted, patternTaintPositionMap] =  checkTemplateArgArray(f, templateArgArray, _this);
+            let [accepted, patternTaintPositionMap] =  checkTemplateArgArray(f, templateArgArray, _this, globalContext);
             if (accepted) {
                 generateExploit(templateArgArray, patternTaintPositionMap);
             }
