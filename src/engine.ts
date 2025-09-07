@@ -10,10 +10,10 @@ import { makeArbitraryString, randomChoice } from './helper';
 import { Hint, solve } from './staticanalysis';
 import objectHash from 'object-hash';
 import babelTraverse, { Node } from '@babel/traverse';
-import loadNodeJSModule from './loadmodule';
-import { instrumentCodeWithTaints, ProgramLocation  } from './instrumentation';
+import loadNodeJSModule from './moduleloader';
+import { instrumentCodeWithTaints, ProgramLocation  } from './sourcecode';
 import {globalObject} from './globalobject';
-import { TaintInfo } from './instrumentation';
+import { TaintInfo } from './sourcecode';
 
 const MAX_FORCED_EXECUTION_COUNT = 1000;
 const MAX_TEMPLATE_COUNT = 100;

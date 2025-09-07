@@ -30,7 +30,6 @@ import {identifier,
     variableDeclarator,
     Statement,
     Expression,
-    BinaryExpression,
     Identifier,
     MemberExpression
 } from '@babel/types';

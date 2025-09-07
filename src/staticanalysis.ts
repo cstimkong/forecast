@@ -9,7 +9,7 @@ import babelParser from '@babel/parser';
 import babelTraverse from '@babel/traverse';
 import babelGenerator from '@babel/generator';
 import objectHash from 'object-hash';
-import { ProgramLocation } from './instrumentation';
+import { ProgramLocation } from './sourcecode';
 
 export type Hint = {
     start: ProgramLocation,
