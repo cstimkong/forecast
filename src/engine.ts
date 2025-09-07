@@ -6,8 +6,8 @@
 
 import { makeProxyArray, makeProxyString, makeProxyObject } from './proxy';
 import { generateTemplateString } from './template';
-import { makeArbitraryString, randomChoice } from './helper.js';
-import { Hint, solve } from './staticanalysis.js';
+import { makeArbitraryString, randomChoice } from './helper';
+import { Hint, solve } from './staticanalysis';
 import objectHash from 'object-hash';
 import babelTraverse, { Node } from '@babel/traverse';
 import loadNodeJSModule from './loadmodule';
