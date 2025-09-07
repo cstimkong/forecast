@@ -36,7 +36,7 @@ function isNodeJSModule(modulePath: string): boolean {
  * 
  */
 function transformImportMeta(ast: Node) {
-    traverse.default(ast, {
+    traverse(ast, {
         MetaProperty: {
             exit(path: NodePath) {
                 path.replaceWith(identifier('__importmeta'));
@@ -211,7 +211,7 @@ function loadNodeJSModule(modulePath: string, async: boolean, options?: LoadOpti
                     })!.code!;
                 }
 
-                rawCode = babelGenerator.default(transformImportMeta(parse(rawCode, { sourceType: 'module' }))).code;
+                rawCode = babelGenerator(transformImportMeta(parse(rawCode, { sourceType: 'module' }))).code;
 
                 let instrumentedCode;
                 if (options && options.instrumentFunc !== undefined) {
@@ -222,7 +222,7 @@ function loadNodeJSModule(modulePath: string, async: boolean, options?: LoadOpti
 
                 let ast = parse(instrumentedCode, { sourceFilename: path.resolve(modulePath) });
 
-                traverse.default(ast, {
+                traverse(ast, {
                     Program: {
                         exit(path) {
                             let funcExpr = functionExpression(
@@ -249,7 +249,7 @@ function loadNodeJSModule(modulePath: string, async: boolean, options?: LoadOpti
                     }
                 });
 
-                instrumentedCode = babelGenerator.default(ast).code;
+                instrumentedCode = babelGenerator(ast).code;
 
                 let compiledFunction = vm.runInNewContext(instrumentedCode,
                     context,
@@ -420,7 +420,7 @@ function loadNodeJSModule(modulePath: string, async: boolean, options?: LoadOpti
                     }))!.code!;
                 }
 
-                rawCode = babelGenerator.default(transformImportMeta(parse(rawCode, { sourceType: 'module' }))).code;
+                rawCode = babelGenerator(transformImportMeta(parse(rawCode, { sourceType: 'module' }))).code;
 
                 let instrumentedCode;
                 if (options && options.instrumentFunc !== undefined) {
@@ -431,7 +431,7 @@ function loadNodeJSModule(modulePath: string, async: boolean, options?: LoadOpti
 
                 let ast = parse(instrumentedCode, { sourceFilename: path.resolve(modulePath), sourceType: 'module' });
 
-                traverse.default(ast, {
+                traverse(ast, {
                     Program: {
                         exit(path) {
                             let funcExpr = functionExpression(
@@ -460,7 +460,7 @@ function loadNodeJSModule(modulePath: string, async: boolean, options?: LoadOpti
                     }
                 });
 
-                instrumentedCode = babelGenerator.default(ast).code;
+                instrumentedCode = babelGenerator(ast).code;
 
                 let compiledFunction = vm.runInNewContext(instrumentedCode,
                     context,

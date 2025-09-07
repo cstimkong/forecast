@@ -1081,7 +1081,7 @@ function isTainted(start: number, end: number, filename: string, taintInfo: Arra
  * @param sourceCode source code for instrumentation
  * @param taintInfo taint information
  */
-export function instrumentCodeWithTaints(sourceCode: string, filename: string, taintInfo: Array<TaintInfo>) {
+export function instrumentCodeWithTaints(sourceCode: string, filename: string, taintInfo: Array<TaintInfo>): string {
     let ast = parse(sourceCode);
     babelTraverse(ast, {
         exit: function (path) {
@@ -1161,4 +1161,6 @@ export function instrumentCodeWithTaints(sourceCode: string, filename: string, t
             }
         }
     })
+
+    return babelGenerator(ast).code;
 }

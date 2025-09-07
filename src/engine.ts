@@ -470,7 +470,7 @@ function __getdeflocation__(f: PossibleInstrumentedFunction) {
  * Implementation of `__getcreationlocation__` in the instrumented code
  * @returns 
  */
-function __getcreationlocation__(obj) {
+function __getcreationlocation__(obj: any) {
     if (typeof obj === 'object' && obj !== null && obj.__tainted__) {
         return 'tainted';
     }
@@ -500,11 +500,12 @@ function collectTaintInfo(ast: Node) {
     let taintInfo: Array<TaintInfo> = [];
     babelTraverse(ast, {
         exit(path) {
-            if (path.node.__tainted__) {
+            if ((path.node as any).__tainted__) {
                 taintInfo.push({
-                    start: path.node.loc.start,
-                    end: path.node.loc.end,
-                    filename: path.node.loc.filename
+                    start: path.node.loc!.start,
+                    end: path.node.loc!.end,
+                    filename: path.node.loc!.filename,
+                    type: 'taint'
                 })
             }
         }
@@ -512,16 +513,16 @@ function collectTaintInfo(ast: Node) {
     return taintInfo;
 }
 
-function getFunctionByName(libObj, name) {
+function getFunctionByName(libObj: any, name: string): Function {
     let parts = name.split('.');
     let o = libObj;
     for (let p of parts.slice(1)) {
         o = o[p];
     }
-    return o;
+    return o as Function;
 }
 
-function generateExploit(templateArgArray, patternTaintPositionMap) {
+function generateExploit(templateArgArray: any[], patternTaintPositionMap: any) {
     // TODO
 }
 
@@ -530,13 +531,13 @@ function generateExploit(templateArgArray, patternTaintPositionMap) {
  * @param {String} modulePath 
  * @param {Object} opts 
  */
-export function mainProcess(modulePath, opts) {
+export function mainProcess(modulePath: string, opts: any) {
     let globalContext = {};
     Object.assign(globalContext, globalObject);
 
-    let [lib, sourceFiles] = loadNodeJSModule(modulePath, {returnSourceFiles: true, globalThis: globalContext});
+    let [lib, sourceFiles] = loadNodeJSModule(modulePath, false, {returnSourceFiles: true, globalThis: globalContext});
     
-    let funcs = [];
+    let funcs: any[] = [];
     if (typeof lib === 'function') {
         funcs.push({func: lib, name: '<root>', _this: undefined});
     }
@@ -546,8 +547,8 @@ export function mainProcess(modulePath, opts) {
         }
     }
 
-    let totalRuntimeHints = {};
-    let totalTemplateArgArrays = {};
+    let totalRuntimeHints: { [key: string]: Hint } = {};
+    let totalTemplateArgArrays: NodeJS.Dict<any[]> = {};
     for (let [f, functionName, _this] of funcs) {
         let [templateArgArrays, runtimeHints] = preAnalysis(f, _this, globalContext, opts);
         totalTemplateArgArrays[functionName] = templateArgArrays;
@@ -560,16 +561,16 @@ export function mainProcess(modulePath, opts) {
     let modifiedAst = solve(sourceFiles, Object.values(totalRuntimeHints));
     let taintInfo = collectTaintInfo(modifiedAst);
 
-    let [newLib, _] = loadNodeJSModule(modulePath, {
+    let [newLib, _] = (loadNodeJSModule(modulePath, false, {
         returnSourceFiles: true,
-        instrumentFunc: function(sourceCode, filename) {
+        instrumentFunc: function(sourceCode: string, filename: string) {
             return instrumentCodeWithTaints(sourceCode, filename, taintInfo);
         }
-    });
+    })) as [any, any];
     for (let [_, funcname, _this] of funcs) {
         // TODO: more conditions on f
         let f = getFunctionByName(newLib, funcname);
-        for (let templateArgArray of totalTemplateArgArrays[funcname]) {
+        for (let templateArgArray of totalTemplateArgArrays[funcname]!) {
             let [accepted, patternTaintPositionMap] =  checkTemplateArgArray(f, templateArgArray, _this, globalContext);
             if (accepted) {
                 generateExploit(templateArgArray, patternTaintPositionMap);
