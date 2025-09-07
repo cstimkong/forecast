@@ -32,7 +32,7 @@ node fesa.js [-h] [-p] [-m <node.js module path>] [-q | --quiet]  [-a | --all] [
 
 - Node.js v20 and later
 
-- Neo4j v5.0 and later
+- TypeScript 5.9
 
 - node-gyp
 
