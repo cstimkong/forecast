@@ -1,1 +1,9 @@
 **/node_modules/
+
+# distribution files
+/lib/
+
+# macOS
+**/.DS_Store
+
+**/package-lock.json
