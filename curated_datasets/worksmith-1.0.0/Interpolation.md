@@ -1,2 +1,0 @@
-#worksmith interpolation guide
-
