@@ -16,7 +16,7 @@ import { transformSync, transformAsync } from '@babel/core';
 import { identifier, blockStatement, functionExpression, parenthesizedExpression, expressionStatement } from '@babel/types';
 
 /* require is only to load internal modules */
-const _require = Module.createRequire(import.meta.url);
+const _require = Module.createRequire(__dirname);
 const internalModules: readonly string[] = Module.builtinModules;
 
 /**
