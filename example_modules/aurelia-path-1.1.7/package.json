@@ -1,0 +1,72 @@
+{
+  "name": "aurelia-path",
+  "version": "1.1.7",
+  "description": "Utilities for path manipulation.",
+  "keywords": [
+    "aurelia",
+    "path"
+  ],
+  "homepage": "http://aurelia.io",
+  "bugs": {
+    "url": "https://github.com/aurelia/path/issues"
+  },
+  "license": "MIT",
+  "author": "Rob Eisenberg <rob@bluespire.com> (http://robeisenberg.com/)",
+  "main": "dist/commonjs/aurelia-path.js",
+  "module": "dist/native-modules/aurelia-path.js",
+  "typings": "dist/types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/aurelia/path"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "test": "cross-env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha --require ts-node/register test/*.spec.ts",
+    "build": "npm run clean && npm run rollup && npm run build:types",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "doc": "typedoc --entryPoints src/index.ts --json doc/api.json",
+    "lint": "eslint ./src ./test --ext .ts,.tsx",
+    "rollup": "rollup -c",
+    "cut-release": "gulp prepare-release"
+  },
+  "files": [
+    "dist",
+    "doc",
+    "src",
+    "typings.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "jspm": {
+    "registry": "npm",
+    "main": "aurelia-path",
+    "format": "amd",
+    "directories": {
+      "dist": "dist/amd"
+    }
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.2.1",
+    "@types/mocha": "^8.2.2",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.28.0",
+    "gulp": "^4.0.2",
+    "gulp-bump": "^3.2.0",
+    "gulp-conventional-changelog": "^2.0.35",
+    "gulp-util": "^3.0.8",
+    "mocha": "^9.0.0",
+    "require-dir": "^0.3.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.51.1",
+    "run-sequence": "^1.2.2",
+    "through2": "^2.0.1",
+    "ts-node": "^10.0.0",
+    "typedoc": "^0.20.36",
+    "typescript": "^4.2.4",
+    "vinyl": "^2.2.1",
+    "vinyl-paths": "^3.0.1",
+    "yargs": "^4.8.1"
+  }
+}

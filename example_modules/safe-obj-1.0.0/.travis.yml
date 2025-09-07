@@ -1,0 +1,15 @@
+language: node_js
+before_install:
+  - "export CODECLIMATE_REPO_TOKEN=606b56cc419af0c67af6c5522ab7647e00d31221115bb859d7db641d7c3ef99b"
+install:
+  - "npm install npm -g"
+  - "npm install grunt-cli -g"
+  - "npm install codeclimate-test-reporter -g"
+  - "npm install"
+script:
+  - "grunt travis"
+    # only run coverage once
+  - "if [[ $(node -v) == v0.10* ]]; then codeclimate < coverage/coverage.lcov; fi"
+node_js:
+  - "0.8"
+  - "0.10"

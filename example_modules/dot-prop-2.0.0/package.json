@@ -1,0 +1,35 @@
+{
+  "name": "dot-prop",
+  "version": "2.0.0",
+  "description": "Get or set a property from a nested object using a dot path",
+  "license": "MIT",
+  "repository": "sindresorhus/dot-prop",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "obj",
+    "object",
+    "prop",
+    "property",
+    "dot",
+    "path",
+    "get",
+    "access",
+    "notation"
+  ],
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}

@@ -1,0 +1,4 @@
+Added Set#add function.
+Changed get to return a property if available. Otherwise return the whole set as an array.
+Added tests. TODO add vows.
+

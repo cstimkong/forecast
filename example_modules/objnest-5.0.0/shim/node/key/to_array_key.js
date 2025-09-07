@@ -1,0 +1,16 @@
+/**
+ * Convert to array key.
+ * @function toArrayKey
+ * @param {string} key - Key to convert.
+ * @returns {string} - Converted key.
+ */
+'use strict';
+/** @lends toArrayKey */
+
+function toArrayKey(key) {
+  var components = key.split(/\./g);
+  return ['[' + components[0] + ']'].concat(components.slice(1)).join('.');
+}
+
+module.exports = toArrayKey;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRvX2FycmF5X2tleS5qcyJdLCJuYW1lcyI6WyJ0b0FycmF5S2V5Iiwia2V5IiwiY29tcG9uZW50cyIsInNwbGl0IiwiY29uY2F0Iiwic2xpY2UiLCJqb2luIiwibW9kdWxlIiwiZXhwb3J0cyJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztBQU1BO0FBRUE7O0FBQ0EsU0FBU0EsVUFBVCxDQUFxQkMsR0FBckIsRUFBMEI7QUFDeEIsTUFBTUMsVUFBVSxHQUFHRCxHQUFHLENBQUNFLEtBQUosQ0FBVSxLQUFWLENBQW5CO0FBQ0EsU0FBTyxDQUNMLE1BQU1ELFVBQVUsQ0FBQyxDQUFELENBQWhCLEdBQXNCLEdBRGpCLEVBRUxFLE1BRkssQ0FFRUYsVUFBVSxDQUFDRyxLQUFYLENBQWlCLENBQWpCLENBRkYsRUFFdUJDLElBRnZCLENBRTRCLEdBRjVCLENBQVA7QUFHRDs7QUFFREMsTUFBTSxDQUFDQyxPQUFQLEdBQWlCUixVQUFqQiIsInNvdXJjZVJvb3QiOiIuLi8uLi9saWIiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIENvbnZlcnQgdG8gYXJyYXkga2V5LlxuICogQGZ1bmN0aW9uIHRvQXJyYXlLZXlcbiAqIEBwYXJhbSB7c3RyaW5nfSBrZXkgLSBLZXkgdG8gY29udmVydC5cbiAqIEByZXR1cm5zIHtzdHJpbmd9IC0gQ29udmVydGVkIGtleS5cbiAqL1xuJ3VzZSBzdHJpY3QnXG5cbi8qKiBAbGVuZHMgdG9BcnJheUtleSAqL1xuZnVuY3Rpb24gdG9BcnJheUtleSAoa2V5KSB7XG4gIGNvbnN0IGNvbXBvbmVudHMgPSBrZXkuc3BsaXQoL1xcLi9nKVxuICByZXR1cm4gW1xuICAgICdbJyArIGNvbXBvbmVudHNbMF0gKyAnXSdcbiAgXS5jb25jYXQoY29tcG9uZW50cy5zbGljZSgxKSkuam9pbignLicpXG59XG5cbm1vZHVsZS5leHBvcnRzID0gdG9BcnJheUtleVxuIl19
