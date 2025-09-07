@@ -2,12 +2,11 @@
 /**
  * 
  * This file is part of FesaJS
- *
  */
 
 /* Helper functions for FesaJS  */
 
-export function makeArbitraryString() {
+export function makeArbitraryString(): string {
     let length = Math.floor(Math.random() * 10);
     let str = '';
     for (let i = 0; i < length; i++) {
@@ -16,31 +15,31 @@ export function makeArbitraryString() {
     return str;
 }
 
-export function makeArbitraryNumber() {
-    return randomChoice(
-        function() {
+export function makeArbitraryNumber(): number {
+    return randomChoice([
+        function () {
             return Math.floor(Math.random() * 10);
         },
-        function() {
+        function () {
             return Math.floor(Math.random() * 100);
         },
-        function() {
+        function () {
             return Math.floor(Math.random() * 1000);
         },
-        function() {
+        function () {
             return Math.floor(Math.random() * 10000);
         },
-        function() {
+        function () {
             return Math.floor(Math.random() * 100000);
         },
-    )
+    ])
 }
 
 export function makeRandomId() {
-    return makeArbitraryString(5);
+    return makeArbitraryString();
 }
 
-export function randomChoice(funcs) {
+export function randomChoice(funcs: Function[]) {
     let idx = Math.floor(Math.random() * funcs.length);
-    return funcs[idx]();
+    return funcs[idx]!();
 }

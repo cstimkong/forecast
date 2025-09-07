@@ -46,8 +46,11 @@ export let globalObject = {
 
         throw new Error('URI should be a string.');
     },
+    escape: function(s) {
+        return globalObject.decodeURI(s);
+    },
     JSON: {
-        parse(_) {
+        parse(_: any) {
             let obj = JSON.parse.apply(undefined, arguments);
             return (function _replace(o) {
                 if (typeof o === 'string') {
@@ -68,7 +71,7 @@ export let globalObject = {
 
         },
 
-        stringify(obj) {
+        stringify(obj: any) {
             return JSON.stringify(obj);
         }
     }

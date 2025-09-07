@@ -4,15 +4,13 @@
  * This file is part of FesaJS
  */
 
-'use strict';
-
 import { makeRandomId, randomChoice } from './helper';
 /**
  * 
- * @param {String | Array<String>} grammarType 
- * @returns {String}
+ * @param grammarType type of grammar
+ * @returns template string
  */
-export function generateTemplateString(grammarType) {
+export function generateTemplateString(grammarType: string | Array<string>) {
     if (Array.isArray(grammarType)) {
         let funcs = [];
         for (let t of grammarType) {

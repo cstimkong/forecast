@@ -5,11 +5,21 @@
  *
  */
 
-'use strict';
-
 import { makeArbitraryString, randomChoice } from './helper';
 
-export function makeProxyArray() {
+export type ProxyString = {
+    ['__tainted__']: true,
+    ['__internalstr__']: string,
+    ['__typeof__']: 'string'
+};
+
+export type ProxyObject = {
+    ['__tainted__']: true,
+    ['__internalobj__']: NodeJS.Dict<any>,
+    ['__typeof__']: 'string'
+}
+
+export function makeProxyArray(): Array<any> {
     let array = [];
     let count = Math.floor(Math.random() * 10);
     for (let i = 0; i < count; i++) {
@@ -22,13 +32,13 @@ export function makeProxyArray() {
 }
 
 
-export function makeProxyString(value) {
-    let __concreteval__ = null;
+export function makeProxyString(value?: string | ProxyString): ProxyString {
+    let concreteVal: any = null;
     if (typeof value === 'string') {
-        __concreteval__ = value;
+        concreteVal = value;
     }
     
-    return new Proxy({}, {
+    return (new Proxy({}, {
         get(target, p, receiver) {
             /* Sign of a tainted string */
             if (p === '__tainted__') {
@@ -42,26 +52,26 @@ export function makeProxyString(value) {
 
             /* Return the internal string. For internal use only */
             if (p === '__internalstr__') {
-                return __concreteval__;
+                return concreteVal;
             }
 
-            if (!__concreteval__) {
-                __concreteval__ = makeRandomString();
+            if (!concreteVal) {
+                concreteVal = makeArbitraryString();
             }
 
             if (p === 'length') {
-                return __concreteval__.length;
+                return concreteVal.length;
             }
 
             else if (p === 'toString') {
                 return function() {
-                    return makeProxyString(__concreteval__)
+                    return makeProxyString(concreteVal)
                 }
             }
 
             else if (p === 'charAt') {
                 return function() {
-                    return String.prototype.charAt.apply(__concreteval__, arguments);
+                    return String.prototype.charAt.apply(concreteVal, arguments as any);
                 }
             }
 
@@ -69,13 +79,13 @@ export function makeProxyString(value) {
                 || p === 'trim' || p === 'trimLeft' || p === 'trimRight' || p === 'trimStart' || p === 'trimEnd'
                 || p === 'sub' || p === 'sup') {
                 return function() {
-                    return makeProxyString(String.prototype[p].apply(__concreteval__, arguments));
+                    return makeProxyString((String.prototype[p] as Function).apply(concreteVal, arguments as any));
                 }
             }
 
             else if (p === 'split') {
                 return function() {
-                    let array = String.prototype.split.apply(__concreteval__, arguments);
+                    let array: Array<string | ProxyString> = String.prototype.split.apply(concreteVal, arguments as any);
                     for (let i = 0; i < array.length; i++) {
                         array[i] = makeProxyString(array[i]);
                     }
@@ -85,18 +95,18 @@ export function makeProxyString(value) {
 
             else if (p === 'slice') {
                 return function() {
-                    return makeProxyString(String.prototype.slice.apply(__concreteval__, arguments));
+                    return makeProxyString(String.prototype.slice.apply(concreteVal, arguments as any));
                 }
             }
             
             else if (p === 'indexOf' || p === 'lastIndexOf' || p === 'includes' || p === 'startsWith') {
-                return String.prototype.indexOf.apply(__concreteval__, arguments);
+                return String.prototype.indexOf.apply(concreteVal, arguments as any);
             }
 
             else if (p === Symbol.toPrimitive) {
-                return function(hint) {
+                return function(hint: string) {
                     if (hint === 'string') {
-                        return __concreteval__;
+                        return concreteVal;
                     }
                     throw new Error('Unexpected hint for string.');
                 }
@@ -115,17 +125,17 @@ export function makeProxyString(value) {
         deleteProperty(_) {
             throw new Error('Delete key operation cannot be applied to a string.');
         }
-    });
+    })) as ProxyString;
 }
 
 /**
  * 
  * @returns a proxy `Object`
  */
-export function makeProxyObject() {
+export function makeProxyObject(): ProxyObject {
 
-    return new Proxy(function() { }, {
-        get: function(target, p, receiver) {
+    return (new Proxy((function() { }) as any, {
+        get: function(target, p, _) {
             /* Sign of a proxy object */
             if (p === '__tainted__') {
                 return true;
@@ -142,7 +152,7 @@ export function makeProxyObject() {
             }
 
             if (p === Symbol.toPrimitive) {
-                return function(hint) {
+                return function() {
                     throw new Error('Unexpected hint for object.');
                 }
             }
@@ -151,7 +161,7 @@ export function makeProxyObject() {
                 return target[p];
             }
 
-            if (Object.hasOwn(target, Symbol.for(`__tainted__${p}`))) {
+            if (typeof p === 'string' && Object.hasOwn(target, Symbol.for(`__tainted__${p}`))) {
                 return target[Symbol.for(`__tainted__${p}`)];
             }
 
@@ -180,9 +190,9 @@ export function makeProxyObject() {
         },
 
         ownKeys: function(target) {
-            let keys = Object.keys(target);
+            let keys: Array<string | ProxyString> = Object.keys(target);
             if (keys.length === 0) {
-                return randomChoice(
+                return randomChoice([
                     function() { return []; },
                     function() {
                         let arbitraryString = makeArbitraryString();
@@ -195,7 +205,7 @@ export function makeProxyObject() {
                         );
                         return [makeProxyString(arbitraryString)];
                     }
-                )
+                ])
             }
             for (let [idx, elem] of keys.entries()) {
                 keys[idx] = makeProxyString(elem);
@@ -208,5 +218,5 @@ export function makeProxyObject() {
             return true;
         }
 
-    })
+    })) as ProxyObject;
 }

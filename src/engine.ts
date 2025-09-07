@@ -6,8 +6,8 @@
 
 import { makeProxyArray, makeProxyString, makeProxyObject } from './proxy';
 import { generateTemplateString } from './template';
-import { randomChoice } from './helper';
-import { solve } from './staticanalysis';
+import { randomChoice } from './helper.js';
+import { solve } from './staticanalysis.js';
 import objectHash from 'object-hash';
 import babelTraverse from '@babel/traverse';
 import loadNodeJSModule from './loadmodule';
@@ -441,7 +441,6 @@ function __getdeflocation__(f) {
     if (f.toString().indexOf('{ [native code] }') >= 0) {
         return { internalFunc: 'unknown' };
     }
-    
 }
 
 /**
