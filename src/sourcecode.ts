@@ -1035,30 +1035,6 @@ export function instrumentCodeForForcedExecution(source: string, filename: strin
                 path.replaceWith(newFuncExpression);
                 path.skip();
             }
-
-            else if (path.isProgram()) {
-                let funcExpr = functionExpression(
-                    null,
-                    [
-                        identifier('module'),
-                        identifier('exports'),
-                        identifier('require'),
-                        identifier('__filename'),
-                        identifier('__dirname'),
-                        identifier('__record__')
-                    ],
-                    blockStatement(
-                        path.node.body,
-                        path.node.directives
-                    )
-                );
-
-                path.node.body = [expressionStatement(parenthesizedExpression(funcExpr))];
-                path.node.directives = [];
-                path.skip();
-
-            }
-
         }
     });
 
