@@ -59,7 +59,7 @@ export function instrumentCodeForForcedExecution(source: string, filename: strin
 
     let ast = parse(source, { sourceFilename: filename });
 
-    babelTraverse(ast, {
+    babelTraverse.default(ast, {
         enter: function (path) {
             /* Function hoisting */
             if (path.isProgram() || path.isBlockStatement()) {
@@ -76,7 +76,7 @@ export function instrumentCodeForForcedExecution(source: string, filename: strin
             }
         },
 
-        exit: function (path, state) {
+        exit: function (path: NodePath) {
             if (path.isMemberExpression() && !(path.parentPath.isAssignmentExpression() && path.parentKey === 'left')) {
                 if (path.get('property').isExpression() && path.node.computed) {
                     let newFuncExpr = functionExpression(null, [identifier('x')], blockStatement(
@@ -1062,7 +1062,7 @@ export function instrumentCodeForForcedExecution(source: string, filename: strin
         }
     });
 
-    return babelGenerator(ast).code;
+    return babelGenerator.default(ast).code;
 }
 
 function isTainted(start: number, end: number, filename: string, taintInfo: Array<TaintInfo>) {
@@ -1082,7 +1082,7 @@ function isTainted(start: number, end: number, filename: string, taintInfo: Arra
  */
 export function instrumentCodeWithTaints(sourceCode: string, filename: string, taintInfo: Array<TaintInfo>): string {
     let ast = parse(sourceCode);
-    babelTraverse(ast, {
+    babelTraverse.default(ast, {
         exit: function (path) {
             if (path.isExpression() && isTainted(path.node.start!, path.node.end!, filename, taintInfo)) {
                 path.replaceWith(
@@ -1161,5 +1161,5 @@ export function instrumentCodeWithTaints(sourceCode: string, filename: string, t
         }
     })
 
-    return babelGenerator(ast).code;
+    return babelGenerator.default(ast).code;
 }

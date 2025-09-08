@@ -3,7 +3,7 @@
  * This file is part of FesaJS
  */
 
-import { makeProxyString, ProxyString } from './proxy';
+import { makeProxyString, ProxyString } from './proxy.js';
 
 export let globalObject = {
     encodeURI: function (uri: string | ProxyString) {

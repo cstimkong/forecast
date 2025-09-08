@@ -4,7 +4,7 @@
  * This file is part of FesaJS
  */
 
-import { makeRandomId, randomChoice } from './helper';
+import { makeRandomId, randomChoice } from './helper.js';
 /**
  * 
  * @param grammarType type of grammar

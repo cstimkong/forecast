@@ -8,10 +8,10 @@
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 
-import loadNodeJSModule from './moduleloader';
-import { solve } from './staticanalysis';
+import loadNodeJSModule from './moduleloader.js';
+import { solve } from './analysis.js';
 
-import { mainProcess } from './engine';
+import { mainProcess } from './engine.js';
 
 let argv: any = yargs(hideBin(process.argv))
 .usage('FesaJS executable file').option('path', {

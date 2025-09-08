@@ -4,16 +4,15 @@
  * 
  */
 
-import { makeProxyArray, makeProxyString, makeProxyObject } from './proxy';
-import { generateTemplateString } from './template';
-import { makeArbitraryString, randomChoice } from './helper';
-import { Hint, solve } from './staticanalysis';
+import { makeProxyArray, makeProxyString, makeProxyObject } from './proxy.js';
+import { generateTemplateString } from './template.js';
+import { makeArbitraryString, randomChoice } from './helper.js';
+import { Hint, solve } from './analysis.js';
 import objectHash from 'object-hash';
 import babelTraverse, { Node } from '@babel/traverse';
-import loadNodeJSModule from './moduleloader';
-import { instrumentCodeWithTaints, ProgramLocation  } from './sourcecode';
-import {globalObject} from './globalobject';
-import { TaintInfo } from './sourcecode';
+import loadNodeJSModule from './moduleloader.js';
+import { instrumentCodeWithTaints, ProgramLocation, TaintInfo } from './sourcecode.js';
+import {globalObject} from './globalobject.js';
 
 const MAX_FORCED_EXECUTION_COUNT = 1000;
 const MAX_TEMPLATE_COUNT = 100;
@@ -498,7 +497,7 @@ function __getcreationlocation__(obj: any) {
 
 function collectTaintInfo(ast: Node) {
     let taintInfo: Array<TaintInfo> = [];
-    babelTraverse(ast, {
+    babelTraverse.default(ast, {
         exit(path) {
             if ((path.node as any).__tainted__) {
                 taintInfo.push({

@@ -9,7 +9,7 @@ import babelParser from '@babel/parser';
 import babelTraverse from '@babel/traverse';
 import babelGenerator from '@babel/generator';
 import objectHash from 'object-hash';
-import { ProgramLocation } from './sourcecode';
+import { ProgramLocation } from './sourcecode.js';
 
 export type Hint = {
     start: ProgramLocation,
@@ -43,7 +43,7 @@ function attachRuntimeHints(fileSet: Array<string>, runtimeHints: Array<any>) {
     for (let f of fileSet) {
         let content = fs.readFileSync(f, {encoding: 'utf-8'});
         let ast = babelParser.parse(content, { sourceFilename: f });
-        babelTraverse(ast, {
+        babelTraverse.default(ast, {
             exit: function(path) {
                 if (path.isExpression()) {
                     let hints = getRuntimeHints(runtimeHints, path.node.start!, path.node.end!);
@@ -69,7 +69,7 @@ function propagate(astMap: NodeJS.Dict<any>): Array<any>{
     // let updates = [];
     for (let filename in astMap) {
         let ast = astMap[filename];
-        babelTraverse(ast, {
+        babelTraverse.default(ast, {
             enter(path) {
                 if (path.isMemberExpression() && ! (path.parentPath.isAssignmentExpression() && path.parentKey === 'left')) {
                     if ((path.get('property').node as any).__tainted__) {
@@ -87,7 +87,7 @@ function propagate(astMap: NodeJS.Dict<any>): Array<any>{
                     if (path.get('left').isExpression() && (path.get('left').node as any).__evaluateto__.hasOwnProperty(objectHash({internalObj: 'Object.prototyoe'}))) {
                         if ((path.get('right').node as any).__tainted__) {
                             /* Report prototype pollution */
-                            console.log({taintPosition: path.node.loc, content: babelGenerator(path.node).code});
+                            console.log({taintPosition: path.node.loc, content: babelGenerator.default(path.node).code});
                         }
                     }
                 }

@@ -5,7 +5,7 @@
  *
  */
 
-import { makeArbitraryString, randomChoice } from './helper';
+import { makeArbitraryString, randomChoice } from './helper.js';
 
 export type ProxyString = {
     ['__tainted__']: true,
