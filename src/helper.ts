@@ -39,7 +39,7 @@ export function makeRandomId() {
     return makeArbitraryString();
 }
 
-export function randomChoice(funcs: Function[]) {
+export function randomChoice<T>(funcs: {(): T}[]) {
     let idx = Math.floor(Math.random() * funcs.length);
     return funcs[idx]!();
 }

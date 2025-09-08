@@ -10,7 +10,7 @@ import { makeRandomId, randomChoice } from './helper.js';
  * @param grammarType type of grammar
  * @returns template string
  */
-export function generateTemplateString(grammarType: string | Array<string>) {
+export function generateTemplateString(grammarType: string | Array<string>): string {
     if (Array.isArray(grammarType)) {
         let funcs = [];
         for (let t of grammarType) {

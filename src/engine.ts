@@ -318,7 +318,7 @@ function findPatternStrings(s: string): Array<string> {
 function forcedExecution(f: Function, argCount: number, thisArg: any, globalContext: any): [any[], Hint[]] {
     let argArray = [];
     for (let i = 0; i < argCount; i++) {
-        argArray.push(randomChoice([
+        argArray.push(randomChoice<any>([
             function() { return makeProxyObject(); },
             function() { return makeProxyString(); },
             function() { return makeProxyArray(); },
