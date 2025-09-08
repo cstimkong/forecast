@@ -41,6 +41,14 @@ export type ProgramLocation = {
     index: number
 }
 
+export type FunctionDefLocation = {
+    start: ProgramLocation,
+    end: ProgramLocation,
+    filename: string
+} | {
+    internalFunc: string
+}
+
 export type TaintInfo = {
     start: ProgramLocation,
     end: ProgramLocation,
