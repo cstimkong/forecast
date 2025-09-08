@@ -16,7 +16,8 @@ export type ProxyString = {
 export type ProxyObject = {
     ['__tainted__']: true,
     ['__internalobj__']: NodeJS.Dict<any>,
-    ['__typeof__']: 'string'
+    ['__typeof__']: 'object',
+    ['__ownKeys__']: any
 }
 
 export function makeProxyArray(): Array<any> {
@@ -150,7 +151,7 @@ export function makeProxyObject(): ProxyObject {
             if (p === '__typeof__') {
                 return 'object';
             }
-            
+
             // Trap ownKey operator. Since the keys may be tainted (a ProxyString), we do not directly
             // trap ownKey in ProxyHandler
             if (p === '__ownKeys__') {

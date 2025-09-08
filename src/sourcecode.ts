@@ -77,6 +77,19 @@ export function instrumentCodeForForcedExecution(source: string, filename: strin
         },
 
         exit: function (path: NodePath) {
+
+            // A simple implementation for intercepting special methods. May be replaced with more elegant implementation.
+            if (path.isMemberExpression() && path.get('object').isIdentifier() && path.get('property').isIdentifier()) {
+                if ((path.get('object').node as Identifier).name === 'Object' && (path.get('property').node as Identifier).name === 'keys') {
+                    path.replaceWith(identifier('__getOwnKeys__'));
+                    path.skip();
+                }
+                if ((path.get('object').node as Identifier).name === 'Object' && (path.get('property').node as Identifier).name === 'getOwnPropertyNames') {
+                    path.replaceWith(identifier('__getOwnStringKeys__'));
+                    path.skip();
+                }
+            }
+
             if (path.isMemberExpression() && !(path.parentPath.isAssignmentExpression() && path.parentKey === 'left')) {
                 if (path.get('property').isExpression() && path.node.computed) {
                     let newFuncExpr = functionExpression(null, [identifier('x')], blockStatement(
@@ -640,7 +653,7 @@ export function instrumentCodeForForcedExecution(source: string, filename: strin
                                 [identifier('e')],
                                 blockStatement(
                                     [
-                                        variableDeclaration("const",
+                                        variableDeclaration('const',
                                             [
                                                 variableDeclarator(
                                                     identifier('f'),
