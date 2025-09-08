@@ -336,6 +336,7 @@ function forcedExecution(f: Function, argCount: number, thisArg: any, globalCont
         };
         globalContext.__getdeflocation__ = __getdeflocation__;
         globalContext.__getcreationlocation__ = __getcreationlocation__;
+        globalContext.__patchbuiltinfunc__ = __patchbuiltinfunc__;
         f.apply(thisArg, argArray);
         return [argArray, runtimeHints];
     } catch (e: any) {
@@ -344,12 +345,46 @@ function forcedExecution(f: Function, argCount: number, thisArg: any, globalCont
         delete globalContext.__record__;
         delete globalContext.__getdeflocation__;
         delete globalContext.__getcreationlocation__;
+        delete globalContext.__patchbuiltinfunc__;
     }
 }
 
 type PossibleInstrumentedFunction = {
     (): any,
     ['__deflocation__']?: any
+}
+
+/**
+ * Patch the builtin function `
+ * @param f the function to patch
+ */
+function __patchbuiltinfunc__(f: Function): Function {
+    if (f === Object.keys) {
+        return function(o: any) {
+            if (typeof o === 'object' && o !== null && o.__typeof__ === 'object') {
+                return o.__ownKeys__;
+            }
+        }
+    }
+
+    if (f === Object.getOwnPropertyNames) {
+        return function(o: any) {
+            if (typeof o === 'object' && o !== null && o.__typeof__ === 'object') {
+                let results: any[] = [];
+                for (let k of o.__ownKeys__) {
+                    if (typeof k === 'string')
+                        results.push(k);
+                    if (typeof k === 'object' && k! == null && k.__typeof__ === 'string') {
+                        results.push(k);
+                    }
+                }
+                return results;
+            }
+        }
+    }
+
+    // TODO: more functions in Object
+    return f;
 }
 
 /**
