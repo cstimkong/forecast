@@ -5,12 +5,18 @@
  */
 
 import { makeRandomId, randomChoice } from './helper.js';
+
+export type GrammarType = 'normalstring' | 'xml' | 'json' | 'url' | 'filepath' | 'split' | 'querystring' | 'surroundedtext' | 'toml' | 'yaml' | 'any';
+
+export function generateTemplateString(grammarType: GrammarType): string;
+export function generateTemplateString(grammarTypes: GrammarType[]): string;
+
 /**
  * 
  * @param grammarType type of grammar
  * @returns template string
  */
-export function generateTemplateString(grammarType: string | Array<string>): string {
+export function generateTemplateString(grammarType: GrammarType | GrammarType[]): string {
     if (Array.isArray(grammarType)) {
         let funcs = [];
         for (let t of grammarType) {
@@ -22,7 +28,7 @@ export function generateTemplateString(grammarType: string | Array<string>): str
     if (grammarType === 'any') {
         let funcs = [];
         for (let t of ['normalstring', 'url', 'filepath', 'querystring', 'split', 'surroundedtext', 'toml', 'yaml', 'xml']) {
-            funcs.push(function() { return generateTemplateString(t); });
+            funcs.push(function() { return generateTemplateString(t as GrammarType); });
         }
         return randomChoice(funcs);
     }
