@@ -49,12 +49,31 @@ export type FunctionDefLocation = {
     internalFunc: string
 }
 
+export type ObjectCreationLocation = {
+    start: ProgramLocation,
+    end: ProgramLocation,
+    filename: string
+}
+
 export type TaintInfo = {
     start: ProgramLocation,
     end: ProgramLocation,
     filename: string,
     type: string
 }
+
+export type HintType = 'objectCreation' | 'funcDef' | 'taintInfo' | 'taintValue';
+
+export type Hint = {
+    start: ProgramLocation,
+    end: ProgramLocation,
+    filename: string,
+    content: {
+        type: HintType,
+        value: any
+    }
+}
+
 
 /**
  * 

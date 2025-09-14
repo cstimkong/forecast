@@ -6,20 +6,11 @@
 import fs from 'fs';
 
 import babelParser from '@babel/parser';
-import babelTraverse from '@babel/traverse';
+import babelTraverse, { Node } from '@babel/traverse';
 import babelGenerator from '@babel/generator';
 import objectHash from 'object-hash';
-import { ProgramLocation } from './sourcecode.js';
+import { ProgramLocation, ObjectCreationLocation, Hint, HintType } from './sourcecode.js';
 
-export type Hint = {
-    start: ProgramLocation,
-    end: ProgramLocation,
-    filename: string,
-    content: {
-        type: string,
-        value: any
-    }
-}
 
 function getRuntimeHints(runtimeHints: Hint[], sourceCodeStart: number, sourceCodeEnd: number) {
     let result = [];
@@ -31,6 +22,17 @@ function getRuntimeHints(runtimeHints: Hint[], sourceCodeStart: number, sourceCo
     return result;
 }
 
+function searchNode(ast: any, source: ObjectCreationLocation): Node | undefined {
+    babelTraverse.default(ast, {
+        enter(path) {
+            if (path.node.start === source.start.index && path.node.end === source.end.index) {
+                return path.node
+            }
+        }
+    })
+    return undefined;
+}
+
 /**
  * 
  * Attach the runtime hints to the AST
@@ -38,7 +40,7 @@ function getRuntimeHints(runtimeHints: Hint[], sourceCodeStart: number, sourceCo
  * @param {Array} runtimeHints 
  * @returns 
  */
-function attachRuntimeHints(fileSet: Array<string>, runtimeHints: Array<any>) {
+function attachRuntimeHints(fileSet: Array<string>, runtimeHints: Hint[]) {
     let astMap: any = {}
     for (let f of fileSet) {
         let content = fs.readFileSync(f, {encoding: 'utf-8'});
@@ -50,10 +52,15 @@ function attachRuntimeHints(fileSet: Array<string>, runtimeHints: Array<any>) {
                     (path.node as any).__hints__ = hints;
                     (path.node as any).__evaluateto__ = {};
                     (path.node as any).__funcdef__ = {};
-                    for (let h of (path.node as any).__hints__) {
+                    for (let h of hints) {
                         if (h.type === 'taintInfo') {
                             (path.node as any).__tainted__ = true;
                             break;
+                        }
+                        else if (h.type === 'objectCreation') {
+                            if (h.value.prototype) {
+                                (path.node as any).__prototype__ = h.value.prototype;
+                            }
                         }
                     }
                     
@@ -73,8 +80,10 @@ function propagate(astMap: NodeJS.Dict<any>): Array<any>{
             enter(path) {
                 if (path.isMemberExpression() && ! (path.parentPath.isAssignmentExpression() && path.parentKey === 'left')) {
                     if ((path.get('property').node as any).__tainted__) {
-                        let v = {internalObj: 'Object.prototype'};
-                        (path.node as any).__evaluateto__[objectHash(v)] = v;
+                        if ((path.get('object').node as any).__prototype__ === 'Object.prototype') {
+                            let v = {internalObj: 'Object.prototype'};
+                            (path.node as any).__evaluateto__[objectHash(v)] = v;
+                        }
                     }
                 }
 
@@ -99,7 +108,7 @@ function propagate(astMap: NodeJS.Dict<any>): Array<any>{
     // return updates;
 }
 
-export function solve(sourceFiles: Array<string>, runtimeHints: Array<Hint>) {
+export function solve(sourceFiles: Array<string>, runtimeHints: Hint[]) {
     let astMap = attachRuntimeHints(sourceFiles, runtimeHints);
     while (true) {
         let updates = propagate(astMap);

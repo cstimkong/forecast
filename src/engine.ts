@@ -7,11 +7,11 @@
 import { makeProxyArray, makeProxyString, makeProxyObject } from './proxy.js';
 import { generateTemplateString } from './template.js';
 import { makeArbitraryString, randomChoice } from './helper.js';
-import { Hint, solve } from './analysis.js';
+import { solve } from './analysis.js';
 import objectHash from 'object-hash';
 import babelTraverse, { Node } from '@babel/traverse';
 import loadNodeJSModule from './moduleloader.js';
-import { instrumentCodeWithTaints, ProgramLocation, TaintInfo } from './sourcecode.js';
+import { instrumentCodeWithTaints, ProgramLocation, TaintInfo, Hint } from './sourcecode.js';
 import {globalObject} from './globalobject.js';
 
 const MAX_FORCED_EXECUTION_COUNT = 1000;
@@ -71,8 +71,8 @@ function generateSkeleton(obj: any): Skeleton {
 
 /**
  * @private
- * @param {Function} func the instrumented function to be used in forced execution
- * @param {Object} thisArg thisArg in execution
+ * @param func the instrumented function to be used in forced execution
+ * @param thisArg thisArg in execution
  */
 function preAnalysis(func: Function, thisArg: any, globalContext: any, opts: any): [any[], Hint[]] {
     let skeletenArrayHashMap: NodeJS.Dict<Skeleton[]> = {};
@@ -158,7 +158,7 @@ function generateInputTemplate(skeleton: Skeleton): any {
  * the forced execution
  * @returns whether the input pattern can be accepted
  */
-function checkTemplateArgArray(f: Function, templateArgArray: Array<any>, thisArg: any, globalContext: any) {
+function checkTemplateArgArray(f: Function, templateArgArray: any[], thisArg: any, globalContext: any) {
     let argArray = [];
     let totalPatternMap: any = {}
     for (let [k, obj] of Object.entries(templateArgArray)) {
@@ -310,9 +310,9 @@ function findPatternStrings(s: string): Array<string> {
 /**
  * Forcefully execute a function. The executed function should be instrumented first.
  * 
- * @param {Function} f function to be execute
- * @param {Number} argCount number of arguments
- * @param {any} thisArg `this` in the function execution (optional). `thisArg` should be 
+ * @param f function to be execute
+ * @param argCount number of arguments
+ * @param thisArg `this` in the function execution (optional). `thisArg` should be 
  * retrieved in other forced executions (typically as the return object).
  */
 function forcedExecution(f: Function, argCount: number, thisArg: any, globalContext: any): [any[], Hint[]] {
@@ -530,7 +530,7 @@ function __getcreationlocation__(obj: any) {
 }
 
 
-function collectTaintInfo(ast: Node) {
+function collectTaintInfo(ast: Node): TaintInfo[] {
     let taintInfo: Array<TaintInfo> = [];
     babelTraverse.default(ast, {
         exit(path) {
