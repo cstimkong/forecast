@@ -1,6 +1,6 @@
-# FesaJS (The project is being reorganized)
+# Forecast (The project is being reorganized)
 
-This is the repository for `FesaJS`, a tool for detecting prototype pollution vulnerability.
+This is the repository for `Forecast`, a tool for detecting prototype pollution vulnerability.
 
 For the information of prototype pollution, please refer to [Synk.io](https://learn.snyk.io/lesson/prototype-pollution/)
 
@@ -8,15 +8,11 @@ For the information of prototype pollution, please refer to [Synk.io](https://le
 
 The `FesaJS` framework comprises three phases:
 
-- Forced execution assisted analysis
+- Forced execution based Fuzzing
 
-- Payload template generation
+- Function Call Template Refinement
 
-- Exploitation generation
-
-### Installation
-
-Please check out [INSTALL.md](INSTALL.md) for the detailed instruction of the installation.
+- Exploitation
 
 
 ### Usage
@@ -24,7 +20,7 @@ Please check out [INSTALL.md](INSTALL.md) for the detailed instruction of the in
 Use the following command:
 
 ```bash
-node fesa.js [-h] [-p] [-m <node.js module path>] [-q | --quiet]  [-a | --all] [--timeout <timeout>] [--install] [--max-fe-iteration] [--detection-only]
+node forecast.js [-h] [-p] [-m <node.js module path>] [-q | --quiet]  [-a | --all] [--timeout <timeout>] [--install] [--max-fe-iteration] [--detection-only]
 ```
 
 
@@ -34,33 +30,11 @@ node fesa.js [-h] [-p] [-m <node.js module path>] [-q | --quiet]  [-a | --all] [
 
 - TypeScript 5.9
 
-- node-gyp
+### Other Supplementaries
 
-- Libev
+- The `benchmark1` directory contains the NPM packages that are from prior works and the detected results.
 
-- Python 3.9 or later
-
-### Content
-
-- The `curated_datasets` directory contains the NPM packages that are from Ferreira et al.'s works (we also check them manually).
-
-- `npm_packages.json` is the package list that are used in our evaluation.
-
-- The `curated_vul.csv` is the information of the vulnerabilitys in the curated datasets and the detection results.
-
-- The `vul_inthewild.csv` contains the vulnerabilities detected in the wild collected from npm.
-
-### Installation
-
-1. Install node gyp from `npm`
-
-2. Install Build Tools (Visual Studio Build Tools on Windows, or Xcode Application / Command Line Tools on macOS, or GCC on general UNIX/Linux systems)
-
-3. Install Neo4j
-
-4. Build libev
-
-5. Using node gyp build the project
+- The `benchmark2` directory contains the package list that are used in our evaluation and the detected results.
 
 
 ### References
