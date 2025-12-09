@@ -1,5 +1,5 @@
 {
-  "name": "fesa-js",
+  "name": "forecast-js",
   "devDependencies": {
     "@babel/cli": "^7.28.0",
     "@types/babel__core": "^7.20.5",
