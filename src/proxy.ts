@@ -1,7 +1,6 @@
-
 /**
  * 
- * This file is part of FesaJS
+ * This file is part of Forecast.
  *
  */
 
@@ -26,108 +25,75 @@ export function makeProxyArray(): Array<any> {
     for (let i = 0; i < count; i++) {
         array.push(randomChoice<any>([
             function () { return makeProxyObject(); },
-            function () { return makeProxyString(); },
+            function () { return proxyString; },
         ]));
     }
     return array;
 }
 
+export const proxyString: any = (function() {
+    let o: any = {
+        [Symbol.toPrimitive]() {
+            return "__taintedstr__";
+        }
+    };
 
-export function makeProxyString(value?: string | ProxyString): ProxyString {
-    let concreteVal: any = null;
-    if (typeof value === 'string') {
-        concreteVal = value;
+    for (let m of ['charAt', 'substring', 'slice', 'replace', 'trim', 'trimLeft', 'trimRight', 'toUpperCase', 'toLowerCase', 'toLocaleUpperCase', 'toLocaleLowerCase']) {
+        o[m] = function() {
+            return o;
+        }
     }
 
-    return (new Proxy({}, {
-        get(target, p, receiver) {
-            /* Sign of a tainted string */
-            if (p === '__tainted__') {
-                return true;
-            }
+    for (let m of ['indexOf', 'lastIndexOf']) {
+        o[m] = function() { return 0; }
+    }
 
-            /* Trap typeof operator, see code instrumentation */
-            if (p === '__typeof__') {
-                return 'string';
-            }
-
-            /* Return the internal string. For internal use only */
-            if (p === '__internalstr__') {
-                return concreteVal;
-            }
-
-            if (!concreteVal) {
-                concreteVal = makeArbitraryString();
-            }
-
-            if (p === 'length') {
-                return concreteVal.length;
-            }
-
-            else if (p === 'toString') {
-                return function () {
-                    return makeProxyString(concreteVal)
-                }
-            }
-
-            else if (p === 'charAt') {
-                return function () {
-                    return String.prototype.charAt.apply(concreteVal, arguments as any);
-                }
-            }
-
-            else if (p === 'substring' || p === 'replace' || p === 'toLowerCase' || p === 'toUpperCase'
-                || p === 'trim' || p === 'trimLeft' || p === 'trimRight' || p === 'trimStart' || p === 'trimEnd'
-                || p === 'sub' || p === 'sup') {
-                return function () {
-                    return makeProxyString((String.prototype[p] as Function).apply(concreteVal, arguments as any));
-                }
-            }
-
-            else if (p === 'split') {
-                return function () {
-                    let array: Array<string | ProxyString> = String.prototype.split.apply(concreteVal, arguments as any);
-                    for (let i = 0; i < array.length; i++) {
-                        array[i] = makeProxyString(array[i]);
-                    }
-                    return array;
-                }
-            }
-
-            else if (p === 'slice') {
-                return function () {
-                    return makeProxyString(String.prototype.slice.apply(concreteVal, arguments as any));
-                }
-            }
-
-            else if (p === 'indexOf' || p === 'lastIndexOf' || p === 'includes' || p === 'startsWith') {
-                return String.prototype.indexOf.apply(concreteVal, arguments as any);
-            }
-
-            else if (p === Symbol.toPrimitive) {
-                return function (hint: string) {
-                    if (hint === 'string') {
-                        return concreteVal;
-                    }
-                    throw new Error('Unexpected hint for string.');
-                }
-            }
-
-        },
-
-        set(_) {
-            return false; // prevent setting properties
-        },
-
-        ownKeys(_) {
-            throw new Error('Get own key operation cannot be applied to a string.');
-        },
-
-        deleteProperty(_) {
-            throw new Error('Delete key operation cannot be applied to a string.');
+    for (let m of ['startsWith', 'endsWith', 'match']) {
+        o[m] = function() {
+            return randomChoice([
+                function() { return true; },
+                function() { return false; }
+            ])
         }
-    })) as ProxyString;
-}
+    }
+
+    o['split'] = function() {
+        return randomChoice([
+            function() { return [o]},
+            function() { return [o, o]},
+            function() { return [o, o, o]}
+        ]);
+    }
+    return o;
+})();
+
+const mockedObjectPrototype = (function() {
+    return new Proxy(Object.prototype, {
+        get(target, p) {
+            if (p === '__proto__') {
+                return null;
+            }
+            if (p === 'constructor') {
+                return mockedObject;
+            }
+            return (target as any)[p];
+        },
+        set(target, p) {
+            return false;
+        }
+    })
+})();
+
+const mockedObject = (function() {
+    return new Proxy(Object, {
+        get(target, p) {
+            if (p === 'prototype') {
+                return mockedObjectPrototype;
+            }
+            return (target as any)[p];
+        }
+    })
+})();
 
 /**
  * 
@@ -164,7 +130,7 @@ export function makeProxyObject(): ProxyObject {
                             target[Symbol.for(`__tainted__${arbitraryString}`)] = randomChoice<any>(
                                 [
                                     function () { return makeProxyObject(); },
-                                    function () { return makeProxyString(); },
+                                    function () { return proxyString },
                                     function () { return makeProxyArray(); }
                                 ]
                             );
@@ -188,8 +154,16 @@ export function makeProxyObject(): ProxyObject {
                 return target[p];
             }
 
-            if (typeof p === 'string' && Object.hasOwn(target, Symbol.for(`__tainted__${p}`))) {
-                return target[Symbol.for(`__tainted__${p}`)];
+            if (p === '__taintedstr__') {
+                return randomChoice([
+                    function() {
+                        return Object.prototype;
+                    },
+                    function() {
+                        target[p] = makeProxyObject();
+                        return target[p];
+                    }
+                ])
             }
 
             return randomChoice([
@@ -198,7 +172,7 @@ export function makeProxyObject(): ProxyObject {
                     return target[p];
                 },
                 function () {
-                    target[p] = makeProxyString();
+                    target[p] = proxyString;
                     return target[p];
                 },
                 function () {

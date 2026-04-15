@@ -1,7 +1,7 @@
 
 /**
  * 
- * This file is part of FesaJS
+ * This file is part of Forecast
  * 
  */
 
@@ -14,7 +14,7 @@ import { solve } from './analysis.js';
 import { mainProcess } from './engine.js';
 
 let argv: any = yargs(hideBin(process.argv))
-.usage('FesaJS executable file').option('path', {
+.usage('Forecast executable file').option('path', {
     alias: 'p',
     type: 'string',
     description: 'CommonJS librarh path (used in require call)'
