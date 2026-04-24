@@ -4,7 +4,7 @@
  *
  */
 
-import { makeArbitraryString, randomChoice } from './helper.js';
+import { randomChoice, ModifyPrototypeSignal } from './helper.js';
 
 const TAINT_STRING_LITERAL = '__taintstr__';
 
@@ -73,8 +73,8 @@ const mockedObjectPrototype = (function() {
             }
             return (target as any)[p];
         },
-        set() {
-            throw new Error('Attempt to modify the prototype object.');
+        set(_, p, v) {
+            throw new ModifyPrototypeSignal('Object.prototype', p, v);
         }
     })
 })();

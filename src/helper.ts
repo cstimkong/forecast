@@ -43,3 +43,14 @@ export function randomChoice<T>(funcs: {(): T}[]) {
     let idx = Math.floor(Math.random() * funcs.length);
     return funcs[idx]!();
 }
+
+export class ModifyPrototypeSignal {
+    obj: any;
+    prop: any;
+    value: any;
+    constructor(obj: any, prop: any, value: any) {
+        this.obj = obj;
+        this.prop = prop;
+        this.value = value;
+    }
+}
