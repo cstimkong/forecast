@@ -6,18 +6,7 @@
 
 import { makeArbitraryString, randomChoice } from './helper.js';
 
-export type ProxyString = {
-    ['__tainted__']: true,
-    ['__internalstr__']: string,
-    ['__typeof__']: 'string'
-};
-
-export type ProxyObject = {
-    ['__tainted__']: true,
-    ['__internalobj__']: NodeJS.Dict<any>,
-    ['__typeof__']: 'object',
-    ['__ownKeys__']: any
-}
+const TAINT_STRING_LITERAL = '__taintstr__';
 
 export function makeProxyArray(): Array<any> {
     let array = [];
@@ -34,8 +23,9 @@ export function makeProxyArray(): Array<any> {
 export const proxyString: any = (function() {
     let o: any = {
         [Symbol.toPrimitive]() {
-            return "__taintedstr__";
-        }
+            return TAINT_STRING_LITERAL;
+        },
+        ['__TYPEOF__']: 'string'
     };
 
     for (let m of ['charAt', 'substring', 'slice', 'replace', 'trim', 'trimLeft', 'trimRight', 'toUpperCase', 'toLowerCase', 'toLocaleUpperCase', 'toLocaleLowerCase']) {
@@ -110,49 +100,23 @@ const MockedObject = (function() {
  * 
  * @returns a proxy `Object`
  */
-export function makeProxyObject(): ProxyObject {
+export function makeProxyObject() {
 
-    return (new Proxy((function () { }) as any, {
+    return new Proxy((function () { }) as any, {
         get: function (target, p, _) {
             // Sign of a proxy object
-            if (p === '__tainted__') {
+            if (p === '__ISTAINTED__') {
                 return true;
             }
 
             // Return the internal `target`
-            if (p === '__internalobj__') {
+            if (p === '__INTERNAL__') {
                 return target;
             }
 
             // Trap typeof operator
-            if (p === '__typeof__') {
+            if (p === '__TYPEOF__') {
                 return 'object';
-            }
-
-            // Trap ownKey operator. Since the keys may be tainted (a ProxyString), we do not directly
-            // trap ownKey in ProxyHandler
-            if (p === '__ownKeys__') {
-                let keys: any[] = Object.keys(target);
-                if (keys.length === 0) {
-                    return randomChoice([
-                        function () { return []; },
-                        function () {
-                            let arbitraryString = makeArbitraryString();
-                            target[Symbol.for(`__tainted__${arbitraryString}`)] = randomChoice<any>(
-                                [
-                                    function () { return makeProxyObject(); },
-                                    function () { return proxyString },
-                                    function () { return makeProxyArray(); }
-                                ]
-                            );
-                            return [makeProxyString(arbitraryString)];
-                        }
-                    ])
-                }
-                for (let [idx, elem] of keys.entries()) {
-                    keys[idx] = makeProxyString(elem);
-                }
-                return keys;
             }
 
             if (p === Symbol.toPrimitive) {
@@ -165,7 +129,7 @@ export function makeProxyObject(): ProxyObject {
                 return target[p];
             }
 
-            if (p === '__taintedstr__') {
+            if (p === TAINT_STRING_LITERAL) {
                 return randomChoice([
                     function() {
                         return Object.prototype;
@@ -206,5 +170,5 @@ export function makeProxyObject(): ProxyObject {
             return true;
         }
 
-    })) as ProxyObject;
+    });
 }
