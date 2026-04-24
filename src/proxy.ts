@@ -74,23 +74,29 @@ const mockedObjectPrototype = (function() {
                 return null;
             }
             if (p === 'constructor') {
-                return mockedObject;
+                return MockedObject;
             }
             return (target as any)[p];
         },
-        set(target, p) {
-            return false;
+        set() {
+            throw new Error('Attempt to modify the prototype object.');
         }
     })
 })();
 
-const mockedObject = (function() {
+const MockedObject = (function() {
     return new Proxy(Object, {
         get(target, p) {
             if (p === 'prototype') {
                 return mockedObjectPrototype;
             }
             return (target as any)[p];
+        },
+        construct() {
+            return Object.create(mockedObjectPrototype);
+        },
+        apply() {
+            return Object.create(mockedObjectPrototype);
         }
     })
 })();
