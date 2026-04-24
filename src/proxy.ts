@@ -45,7 +45,12 @@ export const proxyString: any = (function() {
     }
 
     for (let m of ['indexOf', 'lastIndexOf']) {
-        o[m] = function() { return 0; }
+        o[m] = function() {
+            return randomChoice([
+                function() { return 0; },
+                function() { return -1; }
+            ])
+        }
     }
 
     for (let m of ['startsWith', 'endsWith', 'match']) {
