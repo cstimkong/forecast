@@ -11,7 +11,7 @@ import { solve } from './analysis.js';
 import objectHash from 'object-hash';
 import babelTraverse, { Node } from '@babel/traverse';
 import loadNodeJSModule from './moduleloader.js';
-import { instrumentCodeWithTaints, ProgramLocation, TaintInfo, Hint } from './sourcecode.js';
+import { instrumentCodeWithTaints, ProgramLocation, TaintInfo, Hint } from './instrument.js';
 import {globalObject} from './globalobject.js';
 
 const MAX_FORCED_EXECUTION_COUNT = 1000;

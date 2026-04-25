@@ -9,7 +9,7 @@ import babelParser from '@babel/parser';
 import babelTraverse, { Node } from '@babel/traverse';
 import babelGenerator from '@babel/generator';
 import objectHash from 'object-hash';
-import { ProgramLocation, ObjectCreationLocation, Hint, HintType } from './sourcecode.js';
+import { ProgramLocation, ObjectCreationLocation, Hint, HintType } from './instrument.js';
 
 
 function getRuntimeHints(runtimeHints: Hint[], sourceCodeStart: number, sourceCodeEnd: number) {
