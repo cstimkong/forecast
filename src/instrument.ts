@@ -86,6 +86,19 @@ export function instrument(source: string, filename: string, opts: any) {
                 path.skip();
             }
 
+            else if (path.isFunctionDeclaration()) {
+                let inserted = path.insertAfter([
+                    expressionStatement(mockPrototypeTemplate({objexpr: path.node.id, proto: identifier('__mockedFunctionPrototype')})),
+                    expressionStatement(mockPrototypeTemplate({objexpr: memberExpression(path.node.id as Identifier, identifier('prototype')), proto: identifier('__mockedObjectPrototype')}))
+                ]);
+                inserted.forEach(x => x.skip());
+            }
+
+            else if (path.isClassDeclaration() && !path.get('superClass').node) {
+                let inserted = path.insertAfter(expressionStatement(mockPrototypeTemplate({objexpr: memberExpression(path.get('id').node as Identifier, identifier('prototype'), false), proto: identifier('__mockedObjectPrototype')})));
+                inserted.forEach(x => x.skip());
+            }
+
             else if (path.isArrayExpression()) {
                 path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedArrayPrototype')}));
                 path.skip();
