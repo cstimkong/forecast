@@ -38,13 +38,13 @@ import babelGenerator from '@babel/generator';
 
 const mockPrototypeTemplate = babelTemplate.expression('Object.setPrototypeOf(%%objexpr%%, %%proto%%)');
 
-const mockTypeofTemplate = babelTemplate.expression('typeof %%varname%% === "undefined" ? "undefined" : typeof %%varname%% === "object" ? %%varname%%.__TYPEOF__ !== undefined ? %%varname%%.__TYPEOF__ : "object" : typeof %%varname%%');
+const mockTypeofTemplate = babelTemplate.expression('typeof %%varname%% === "undefined" ? "undefined" : typeof %%varname%% === "object" && %%varname%% !== null ? %%varname%%.__TYPEOF__ !== undefined ? %%varname%%.__TYPEOF__ : "object" : typeof %%varname%%');
 
-const mockTypeofExprTemplate = babelTemplate.expression('(function(x) { typeof x === "object" ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x})(%%expr%%)');
+const mockTypeofExprTemplate = babelTemplate.expression('(function(x) { return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x})(%%expr%%)');
 
-export function instrument(source: string, filename: string, opts: any) {
-
-    let ast = parse(source, { sourceFilename: filename });
+export function instrument(source: string, opts?: any) {
+    opts = opts || {};
+    let ast = parse(source, { sourceFilename: opts.filename });
 
     babelTraverse.default(ast, {
         enter: function (path) {
@@ -76,7 +76,7 @@ export function instrument(source: string, filename: string, opts: any) {
 
             }
 
-            else if (path.isObjectExpression() || path.isNewExpression()) {
+            else if (path.isObjectExpression()) {
                 path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedObjectPrototype')}));
                 path.skip();
             }

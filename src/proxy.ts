@@ -62,7 +62,7 @@ export const proxyString: any = (function() {
     return o;
 })();
 
-const mockedObjectPrototype = (function() {
+export const mockedObjectPrototype = (function() {
     return new Proxy(Object.prototype, {
         get(target, p) {
             if (p === '__proto__') {
@@ -73,13 +73,42 @@ const mockedObjectPrototype = (function() {
             }
             return (target as any)[p];
         },
-        set(_, p, v) {
-            throw new ModifyPrototypeSignal('Object.prototype', p, v);
+        set(_, p, v, receiver) {
+            if (receiver === mockedObjectPrototype) {
+                throw new ModifyPrototypeSignal('Object.prototype', p, v);
+            }
+            Object.defineProperty(receiver, p, {value: v, writable: true, configurable: true, enumerable: true});
+            return true;
+            
         }
     })
 })();
 
-const MockedObject = (function() {
+export const mockedFunctionPrototype = (function() {
+    return new Proxy(Function.prototype, {
+        set(_, p, v, receiver) {
+            if (receiver === mockedObjectPrototype) {
+                throw new ModifyPrototypeSignal('Function.prototype', p, v);
+            }
+            Object.defineProperty(receiver, p, {value: v, writable: true, configurable: true, enumerable: true});
+            return true;
+        }
+    });
+})();
+
+export const mockedArrayPrototype = (function() {
+    return new Proxy(Array.prototype, {
+        set(_, p, v, receiver) {
+            if (receiver === mockedObjectPrototype) {
+                throw new ModifyPrototypeSignal('Array.prototype', p, v);
+            }
+            Object.defineProperty(receiver, p, {value: v, writable: true, configurable: true, enumerable: true});
+            return true;
+        }
+    });
+})();
+
+export const MockedObject = (function() {
     return new Proxy(Object, {
         get(target, p) {
             if (p === 'prototype') {
@@ -95,6 +124,7 @@ const MockedObject = (function() {
         }
     })
 })();
+
 
 /**
  * 

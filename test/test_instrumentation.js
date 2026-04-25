@@ -1,35 +1,24 @@
-const fs = require('fs');
-const {instrumentCodeForForcedExecution} = require('../lib/instrumentation');
+import fs from 'fs';
+import path from 'path';
+import module from 'module';
+import {instrument} from '../lib/instrument.js';
+import {mockedArrayPrototype, mockedFunctionPrototype, mockedObjectPrototype} from '../lib/proxy.js'
 it('test instrumentation', function(done) {
 
-    let functionContent = 'function f() { while (a < 3) {let a = () => { c = a[b]; }; a(c[d]);} }';
+    let functionContent = 'var a = typeof "a";';
 
-    console.log(instrumentCodeForForcedExecution(functionContent));
+    console.log(instrument(functionContent));
     done();
-})
+});
 
-it('test instrumentation 2', function(done) {
-
-    let functionContent = 'function f(a, b) { a.b(3); }';
-
-    console.log(instrumentCodeForForcedExecution(functionContent));
+it('test instrumentation of joi', function(done) {
+    let content = fs.readFileSync(path.join(import.meta.dirname, 'joi-18.1.2.min.cjs'), {encoding: 'utf-8'});
+    let instrumentedCode = instrument(content);
+    fs.writeFileSync('joi-instrumented.cjs', instrumentedCode);
+    let require = module.createRequire(import.meta.dirname);
+    globalThis.__mockedObjectPrototype = mockedObjectPrototype;
+    globalThis.__mockedArrayPrototype = mockedArrayPrototype;
+    globalThis.__mockedFunctionPrototype = mockedFunctionPrototype;
+    console.log(require('./joi-instrumented.cjs'));
     done();
-})
-
-it('test instrumentation file', function(done) {
-    fs.readFile('./node_modules/json-pointer/index.js', {encoding: 'utf-8'}, (err, content) => {
-        if (err) {
-            console.error(err);
-            done(err);
-        } else {
-            let c = instrumentCodeForForcedExecution(content, './node_modules/json-pointer/index.js');
-            fs.writeFile('./instrumented-json-pointer.js', c, (err) => {
-                if (err) {
-                    done(err);
-                } else {
-                    done();
-                }
-            })
-        }
-    })
-})
+});
