@@ -44,6 +44,8 @@ const mockTypeofExprTemplate = babelTemplate.expression('(function(x) { return t
 
 const mockClassExprTemplate = babelTemplate.expression('(function(c) { return Object.setPrototypeOf(c, __mockedObjectPrototype); })(%%classexpr%%)');
 
+const mockComparisonTemplate = babelTemplate.expression('__mockedCompare(%%left%%, %%right%%, %%cmpop%%)');
+
 export function instrument(source: string, opts?: any) {
     opts = opts || {};
     let ast = parse(source, { sourceFilename: opts.filename });
@@ -126,6 +128,13 @@ export function instrument(source: string, opts?: any) {
             else if (path.isArrayExpression()) {
                 path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedArrayPrototype')}));
                 path.skip();
+            }
+
+            else if (path.isBinaryExpression() ) {
+                if (path.node.operator === '===' || path.node.operator === '!==' || path.node.operator === '==' || path.node.operator === '!=') {
+                    path.replaceWith(mockComparisonTemplate({left: path.get('left').node, right: path.get('right').node, cmpop: stringLiteral(path.node.operator)}));
+                    path.skip();
+                }
             }
 
             /* Limit the iteration count */

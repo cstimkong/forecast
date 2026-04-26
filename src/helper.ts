@@ -54,3 +54,31 @@ export class ModifyPrototypeSignal {
         this.value = value;
     }
 }
+
+export function mockedCompare(a: any, b: any, op: string) {
+    let tainted = [false, false];
+    if (typeof a === 'object' && a !== null && a.__TYPEOF__ === 'string') {
+        tainted[0] = true;
+    }
+    if (typeof b === 'object' && b !== null && b.__TYPEOF__ === 'string') {
+        tainted[1] = true;
+    }
+    if (!tainted[0] && !tainted[1]) {
+        switch (op) {
+            case '===':
+                return a === b;
+            case '!==':
+                return a !== b;
+            case '==':
+                return a == b;
+            case '!=':
+                return a != b;
+        }
+    }
+    else {
+        return randomChoice([
+            function() { return true; },
+            function() { return false; }
+        ]);
+    }
+}

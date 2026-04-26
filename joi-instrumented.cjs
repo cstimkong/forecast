@@ -1,9 +1,9 @@
 !Object.setPrototypeOf(function (e, t) {
-  "object" == (typeof exports === "undefined" ? "undefined" : typeof exports === "object" && exports !== null ? exports.__TYPEOF__ !== undefined ? exports.__TYPEOF__ : "object" : typeof exports) && "object" == (typeof module === "undefined" ? "undefined" : typeof module === "object" && module !== null ? module.__TYPEOF__ !== undefined ? module.__TYPEOF__ : "object" : typeof module) ? module.exports = t() : "function" == (typeof define === "undefined" ? "undefined" : typeof define === "object" && define !== null ? define.__TYPEOF__ !== undefined ? define.__TYPEOF__ : "object" : typeof define) && define.amd ? define(Object.setPrototypeOf([], __mockedArrayPrototype), t) : "object" == (typeof exports === "undefined" ? "undefined" : typeof exports === "object" && exports !== null ? exports.__TYPEOF__ !== undefined ? exports.__TYPEOF__ : "object" : typeof exports) ? exports.joi = t() : e.joi = t();
+  __mockedCompare("object", typeof exports === "undefined" ? "undefined" : typeof exports === "object" && exports !== null ? exports.__TYPEOF__ !== undefined ? exports.__TYPEOF__ : "object" : typeof exports, "==") && __mockedCompare("object", typeof module === "undefined" ? "undefined" : typeof module === "object" && module !== null ? module.__TYPEOF__ !== undefined ? module.__TYPEOF__ : "object" : typeof module, "==") ? module.exports = t() : __mockedCompare("function", typeof define === "undefined" ? "undefined" : typeof define === "object" && define !== null ? define.__TYPEOF__ !== undefined ? define.__TYPEOF__ : "object" : typeof define, "==") && define.amd ? define(Object.setPrototypeOf([], __mockedArrayPrototype), t) : __mockedCompare("object", typeof exports === "undefined" ? "undefined" : typeof exports === "object" && exports !== null ? exports.__TYPEOF__ !== undefined ? exports.__TYPEOF__ : "object" : typeof exports, "==") ? exports.joi = t() : e.joi = t();
 }, __mockedFunctionPrototype)(this, () => (() => {
   function r(s) {
     var n = t[s];
-    if (void 0 !== n) return n.exports;
+    if (__mockedCompare(void 0, n, "!==")) return n.exports;
     var a = t[s] = Object.setPrototypeOf({
       exports: Object.setPrototypeOf({}, __mockedObjectPrototype)
     }, __mockedObjectPrototype);
@@ -53,27 +53,27 @@
                 }, __mockedObjectPrototype);
               }
               describe() {
-                return s("function" == function (x) {
+                return s(__mockedCompare("function", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(m.describe), "Manifest functionality disabled"), m.describe(this);
+                }(m.describe), "=="), "Manifest functionality disabled"), m.describe(this);
               }
               $_jsonSchema(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
                 var r;
-                if (void 0 !== t.target && t.target !== v.jsonSchemaTarget) throw new Error(`Unsupported JSON Schema target: ${t.target}`);
+                if (__mockedCompare(void 0, t.target, "!==") && __mockedCompare(t.target, v.jsonSchemaTarget, "!==")) throw new Error(`Unsupported JSON Schema target: ${t.target}`);
                 const s = !t.$defs,
-                  n = null !== (r = t.$defs) && void 0 !== r ? r : Object.setPrototypeOf({}, __mockedObjectPrototype);
+                  n = __mockedCompare(null, r = t.$defs, "!==") && __mockedCompare(void 0, r, "!==") ? r : Object.setPrototypeOf({}, __mockedObjectPrototype);
                 let i = Object.setPrototypeOf({}, __mockedObjectPrototype);
-                const o = "any" === this.type,
+                const o = __mockedCompare("any", this.type, "==="),
                   c = this._flags.only,
-                  u = this._valids && Array.from(this._valids._values).filter(e => null !== e);
+                  u = this._valids && Array.from(this._valids._values).filter(e => __mockedCompare(null, e, "!=="));
                 let f = !0;
                 if (u && u.length && c && !o) {
                   const e = new Set(u.map(e => typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e));
-                  f = e.has(this.type) || "date" === this.type && e.has("object");
+                  f = e.has(this.type) || __mockedCompare("date", this.type, "===") && e.has("object");
                 }
-                !o && f && v.standardTypes.has(this.type) && (i.type = this.type), this._flags.description && (i.description = this._flags.description), void 0 !== this._flags.default && "function" != function (x) {
+                !o && f && v.standardTypes.has(this.type) && (i.type = this.type), this._flags.description && (i.description = this._flags.description), __mockedCompare(void 0, this._flags.default, "!==") && __mockedCompare("function", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(this._flags.default) && (i.default = this._flags.default);
+                }(this._flags.default), "!=") && (i.default = this._flags.default);
                 const m = Object.setPrototypeOf({
                   ...t,
                   $defs: n
@@ -85,16 +85,16 @@
                 }
                 if (this.$_terms.shared) for (const t of this.$_terms.shared) n[t._flags.id] = t.$_jsonSchema(e, m);
                 if (s && Object.keys(n).length && (i.$defs = n), this._valids) {
-                  const e = u.filter(e => "symbol" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e));
+                  const e = u.filter(e => __mockedCompare("symbol", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!="));
                   if (e.length) if (this._flags.only) {
                     i.enum = e;
                     const t = l.intersect(new Set(e.map(e => typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)), v.primitiveTypes);
                     if (t.size) {
                       const e = Object.setPrototypeOf([...t], __mockedArrayPrototype);
-                      i.type = 1 === e.length ? e[0] : e;
+                      i.type = __mockedCompare(1, e.length, "===") ? e[0] : e;
                     }
                   } else {
-                    const t = e.filter(e => (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) !== this.type || o);
+                    const t = e.filter(e => __mockedCompare(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, this.type, "!==") || o);
                     !t.length || o && !c || (i.anyOf || (i = Object.setPrototypeOf({
                       anyOf: Object.setPrototypeOf([i], __mockedArrayPrototype)
                     }, __mockedObjectPrototype)), i.anyOf.push(Object.setPrototypeOf({
@@ -102,7 +102,7 @@
                     }, __mockedObjectPrototype)));
                   }
                 }
-                if (this._valids && this._valids.has(null) && (!o || c) && (1 === this._valids.length && (o || c) ? i.type = "null" : i.type ? i.type = Object.setPrototypeOf([i.type, "null"], __mockedArrayPrototype) : i.anyOf ? i.anyOf.unshift(v.nullSchema()) : i = Object.setPrototypeOf({
+                if (this._valids && this._valids.has(null) && (!o || c) && (__mockedCompare(1, this._valids.length, "===") && (o || c) ? i.type = "null" : i.type ? i.type = Object.setPrototypeOf([i.type, "null"], __mockedArrayPrototype) : i.anyOf ? i.anyOf.unshift(v.nullSchema()) : i = Object.setPrototypeOf({
                   anyOf: Object.setPrototypeOf([v.nullSchema(), i], __mockedArrayPrototype)
                 }, __mockedObjectPrototype)), this.$_terms.whens) {
                   const t = this.clone();
@@ -112,7 +112,7 @@
                     const n = s.is ? Object.setPrototypeOf([s], __mockedArrayPrototype) : s.switch;
                     for (let s = 0; s < n.length; ++s) {
                       const a = n[s];
-                      a.then && r.push(t.concat(a.then).$_jsonSchema(e, m)), a.otherwise && r.push(t.concat(a.otherwise).$_jsonSchema(e, m)), a.then && (s !== n.length - 1 || a.otherwise) || r.push(t.$_jsonSchema(e, m));
+                      a.then && r.push(t.concat(a.then).$_jsonSchema(e, m)), a.otherwise && r.push(t.concat(a.otherwise).$_jsonSchema(e, m)), a.then && (__mockedCompare(s, n.length - 1, "!==") || a.otherwise) || r.push(t.$_jsonSchema(e, m));
                     }
                   }
                   const s = Object.setPrototypeOf([], __mockedArrayPrototype);
@@ -127,12 +127,12 @@
                 return l.verifyFlat(e, "allow"), this._values(e, "_valids");
               }
               alter(e) {
-                s(e && "object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && !Array.isArray(e), "Invalid targets argument"), s(!this._inRuleset(), "Cannot set alterations inside a ruleset");
+                s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && !Array.isArray(e), "Invalid targets argument"), s(!this._inRuleset(), "Cannot set alterations inside a ruleset");
                 const t = this.clone();
                 t.$_terms.alterations = t.$_terms.alterations || Object.setPrototypeOf([], __mockedArrayPrototype);
                 for (const r in e) {
                   const n = e[r];
-                  s("function" == (typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n), "Alteration adjuster for", r, "must be a function"), t.$_terms.alterations.push(Object.setPrototypeOf({
+                  s(__mockedCompare("function", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "=="), "Alteration adjuster for", r, "must be a function"), t.$_terms.alterations.push(Object.setPrototypeOf({
                     target: r,
                     adjuster: n
                   }, __mockedObjectPrototype));
@@ -140,36 +140,36 @@
                 return t.$_temp.ruleset = !1, t;
               }
               artifact(e) {
-                return s(void 0 !== e, "Artifact cannot be undefined"), s(!this._cache, "Cannot set an artifact with a rule cache"), this.$_setFlag("artifact", e);
+                return s(__mockedCompare(void 0, e, "!=="), "Artifact cannot be undefined"), s(!this._cache, "Cannot set an artifact with a rule cache"), this.$_setFlag("artifact", e);
               }
               cast(e) {
-                return s(!1 === e || "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Invalid to value"), s(!1 === e || this._definition.cast[e], "Type", this.type, "does not support casting to", e), this.$_setFlag("cast", !1 === e ? void 0 : e);
+                return s(__mockedCompare(!1, e, "===") || __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid to value"), s(__mockedCompare(!1, e, "===") || this._definition.cast[e], "Type", this.type, "does not support casting to", e), this.$_setFlag("cast", __mockedCompare(!1, e, "===") ? void 0 : e);
               }
               default(e, t) {
                 return this._default("default", e, t);
               }
               description(e) {
-                return s(e && "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Description must be a non-empty string"), this.$_setFlag("description", e);
+                return s(e && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Description must be a non-empty string"), this.$_setFlag("description", e);
               }
               empty(e) {
                 const t = this.clone();
-                return void 0 !== e && (e = t.$_compile(e, Object.setPrototypeOf({
+                return __mockedCompare(void 0, e, "!==") && (e = t.$_compile(e, Object.setPrototypeOf({
                   override: !1
                 }, __mockedObjectPrototype))), t.$_setFlag("empty", e, Object.setPrototypeOf({
                   clone: !1
                 }, __mockedObjectPrototype));
               }
               error(e) {
-                return s(e, "Missing error"), s(e instanceof Error || "function" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Must provide a valid Error object or a function"), this.$_setFlag("error", e);
+                return s(e, "Missing error"), s(e instanceof Error || __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Must provide a valid Error object or a function"), this.$_setFlag("error", e);
               }
               example(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                return s(void 0 !== e, "Missing example"), l.assertOptions(t, Object.setPrototypeOf(["override"], __mockedArrayPrototype)), this._inner("examples", e, Object.setPrototypeOf({
+                return s(__mockedCompare(void 0, e, "!=="), "Missing example"), l.assertOptions(t, Object.setPrototypeOf(["override"], __mockedArrayPrototype)), this._inner("examples", e, Object.setPrototypeOf({
                   single: !0,
                   override: t.override
                 }, __mockedObjectPrototype));
               }
               external(e, t) {
-                return "object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && (s(!t, "Cannot combine options with description"), t = e.description, e = e.method), s("function" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Method must be a function"), s(void 0 === t || t && "string" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), "Description must be a non-empty string"), this._inner("externals", Object.setPrototypeOf({
+                return __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (s(!t, "Cannot combine options with description"), t = e.description, e = e.method), s(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Method must be a function"), s(__mockedCompare(void 0, t, "===") || t && __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Description must be a non-empty string"), this._inner("externals", Object.setPrototypeOf({
                   method: e,
                   description: t
                 }, __mockedObjectPrototype), Object.setPrototypeOf({
@@ -183,32 +183,32 @@
                 return this.presence("forbidden");
               }
               id(e) {
-                return e ? (s("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "id must be a non-empty string"), s(/^[^\.]+$/.test(e), "id cannot contain period character"), this.$_setFlag("id", e)) : this.$_setFlag("id", void 0);
+                return e ? (s(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "id must be a non-empty string"), s(/^[^\.]+$/.test(e), "id cannot contain period character"), this.$_setFlag("id", e)) : this.$_setFlag("id", void 0);
               }
               invalid(...e) {
                 return this._values(e, "_invalids");
               }
               label(e) {
-                return s(e && "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Label name must be a non-empty string"), this.$_setFlag("label", e);
+                return s(e && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Label name must be a non-empty string"), this.$_setFlag("label", e);
               }
               meta(e) {
-                return s(void 0 !== e, "Meta cannot be undefined"), this._inner("metas", e, Object.setPrototypeOf({
+                return s(__mockedCompare(void 0, e, "!=="), "Meta cannot be undefined"), this._inner("metas", e, Object.setPrototypeOf({
                   single: !0
                 }, __mockedObjectPrototype));
               }
               note(...e) {
                 s(e.length, "Missing notes");
-                for (const t of e) s(t && "string" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), "Notes must be non-empty strings");
+                for (const t of e) s(t && __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Notes must be non-empty strings");
                 return this._inner("notes", e);
               }
               only(e = !0) {
-                return s("boolean" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Invalid mode:", e), this.$_setFlag("only", e);
+                return s(__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid mode:", e), this.$_setFlag("only", e);
               }
               optional() {
                 return this.presence("optional");
               }
               prefs(e) {
-                s(e, "Missing preferences"), s(void 0 === e.context, "Cannot override context"), s(void 0 === e.externals, "Cannot override externals"), s(void 0 === e.warnings, "Cannot override warnings"), s(void 0 === e.debug, "Cannot override debug"), l.checkPreferences(e);
+                s(e, "Missing preferences"), s(__mockedCompare(void 0, e.context, "==="), "Cannot override context"), s(__mockedCompare(void 0, e.externals, "==="), "Cannot override externals"), s(__mockedCompare(void 0, e.warnings, "==="), "Cannot override warnings"), s(__mockedCompare(void 0, e.debug, "==="), "Cannot override debug"), l.checkPreferences(e);
                 const t = this.clone();
                 return t._preferences = l.preferences(t._preferences, e), t;
               }
@@ -226,7 +226,7 @@
               }
               strict(e) {
                 const t = this.clone(),
-                  r = void 0 !== e && !e;
+                  r = __mockedCompare(void 0, e, "!==") && !e;
                 return t._preferences = l.preferences(t._preferences, Object.setPrototypeOf({
                   convert: r
                 }, __mockedObjectPrototype)), t;
@@ -236,11 +236,11 @@
               }
               tag(...e) {
                 s(e.length, "Missing tags");
-                for (const t of e) s(t && "string" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), "Tags must be non-empty strings");
+                for (const t of e) s(t && __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Tags must be non-empty strings");
                 return this._inner("tags", e);
               }
               unit(e) {
-                return s(e && "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Unit name must be a non-empty string"), this.$_setFlag("unit", e);
+                return s(e && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Unit name must be a non-empty string"), this.$_setFlag("unit", e);
               }
               valid(...e) {
                 l.verifyFlat(e, "valid");
@@ -255,12 +255,12 @@
                 const n = c.when(r, e, t);
                 if (!Object.setPrototypeOf(["any", "link"], __mockedArrayPrototype).includes(r.type)) {
                   const e = n.is ? Object.setPrototypeOf([n], __mockedArrayPrototype) : n.switch;
-                  for (const t of e) s(!t.then || "any" === t.then.type || t.then.type === r.type, "Cannot combine", r.type, "with", t.then && t.then.type), s(!t.otherwise || "any" === t.otherwise.type || t.otherwise.type === r.type, "Cannot combine", r.type, "with", t.otherwise && t.otherwise.type);
+                  for (const t of e) s(!t.then || __mockedCompare("any", t.then.type, "===") || __mockedCompare(t.then.type, r.type, "==="), "Cannot combine", r.type, "with", t.then && t.then.type), s(!t.otherwise || __mockedCompare("any", t.otherwise.type, "===") || __mockedCompare(t.otherwise.type, r.type, "==="), "Cannot combine", r.type, "with", t.otherwise && t.otherwise.type);
                 }
                 return r.$_terms.whens.push(n), r.$_mutateRebuild();
               }
               cache(e) {
-                s(!this._inRuleset(), "Cannot set caching inside a ruleset"), s(!this._cache, "Cannot override schema cache"), s(void 0 === this._flags.artifact, "Cannot cache a rule with an artifact");
+                s(!this._inRuleset(), "Cannot set caching inside a ruleset"), s(!this._cache, "Cannot override schema cache"), s(__mockedCompare(void 0, this._flags.artifact, "==="), "Cannot cache a rule with an artifact");
                 const t = this.clone();
                 return t._cache = e || o.provider.provision(), t.$_temp.ruleset = !1, t;
               }
@@ -269,15 +269,15 @@
                 return this._assign(e);
               }
               concat(e) {
-                s(l.isSchema(e), "Invalid schema object"), s("any" === this.type || "any" === e.type || e.type === this.type, "Cannot merge type", this.type, "with another type:", e.type), s(!this._inRuleset(), "Cannot concatenate onto a schema with open ruleset"), s(!e._inRuleset(), "Cannot concatenate a schema with open ruleset");
+                s(l.isSchema(e), "Invalid schema object"), s(__mockedCompare("any", this.type, "===") || __mockedCompare("any", e.type, "===") || __mockedCompare(e.type, this.type, "==="), "Cannot merge type", this.type, "with another type:", e.type), s(!this._inRuleset(), "Cannot concatenate onto a schema with open ruleset"), s(!e._inRuleset(), "Cannot concatenate a schema with open ruleset");
                 let t = this.clone();
-                if ("any" === this.type && "any" !== e.type) {
+                if (__mockedCompare("any", this.type, "===") && __mockedCompare("any", e.type, "!==")) {
                   const r = e.clone();
-                  for (const e of Object.keys(t)) "type" !== e && (r[e] = t[e]);
+                  for (const e of Object.keys(t)) __mockedCompare("type", e, "!==") && (r[e] = t[e]);
                   t = r;
                 }
                 t._ids.concat(e._ids), t._refs.register(e, d.toSibling), t._preferences = t._preferences ? l.preferences(t._preferences, e._preferences) : e._preferences, t._valids = b.merge(t._valids, e._valids, e._invalids), t._invalids = b.merge(t._invalids, e._invalids, e._valids);
-                for (const r of e._singleRules.keys()) t._singleRules.has(r) && (t._rules = t._rules.filter(e => e.keep || e.name !== r), t._singleRules.delete(r));
+                for (const r of e._singleRules.keys()) t._singleRules.has(r) && (t._rules = t._rules.filter(e => e.keep || __mockedCompare(e.name, r, "!==")), t._singleRules.delete(r));
                 for (const r of e._rules) e._definition.rules[r.method].multi || t._singleRules.set(r.name, r), t._rules.push(r);
                 if (t._flags.empty && e._flags.empty) {
                   t._flags.empty = t._flags.empty.concat(e._flags.empty);
@@ -308,30 +308,30 @@
               }
               isAsync() {
                 var e;
-                if (Boolean(null === (e = this.$_terms.externals) || void 0 === e ? void 0 : e.length)) return !0;
+                if (Boolean(__mockedCompare(null, e = this.$_terms.externals, "===") || __mockedCompare(void 0, e, "===") ? void 0 : e.length)) return !0;
                 if (this.$_terms.whens) for (const e of this.$_terms.whens) {
                   var t, r;
-                  if (null !== (t = e.then) && void 0 !== t && t.isAsync()) return !0;
-                  if (null !== (r = e.otherwise) && void 0 !== r && r.isAsync()) return !0;
+                  if (__mockedCompare(null, t = e.then, "!==") && __mockedCompare(void 0, t, "!==") && t.isAsync()) return !0;
+                  if (__mockedCompare(null, r = e.otherwise, "!==") && __mockedCompare(void 0, r, "!==") && r.isAsync()) return !0;
                   if (e.switch) for (const t of e.switch) {
                     var s, n;
-                    if (null !== (s = t.then) && void 0 !== s && s.isAsync()) return !0;
-                    if (null !== (n = t.otherwise) && void 0 !== n && n.isAsync()) return !0;
+                    if (__mockedCompare(null, s = t.then, "!==") && __mockedCompare(void 0, s, "!==") && s.isAsync()) return !0;
+                    if (__mockedCompare(null, n = t.otherwise, "!==") && __mockedCompare(void 0, n, "!==") && n.isAsync()) return !0;
                   }
                 }
                 return !1;
               }
               rule(e) {
                 const t = this._definition;
-                l.assertOptions(e, Object.keys(t.modifiers)), s(!1 !== this.$_temp.ruleset, "Cannot apply rules to empty ruleset or the last rule added does not support rule properties");
-                const r = null === this.$_temp.ruleset ? this._rules.length - 1 : this.$_temp.ruleset;
+                l.assertOptions(e, Object.keys(t.modifiers)), s(__mockedCompare(!1, this.$_temp.ruleset, "!=="), "Cannot apply rules to empty ruleset or the last rule added does not support rule properties");
+                const r = __mockedCompare(null, this.$_temp.ruleset, "===") ? this._rules.length - 1 : this.$_temp.ruleset;
                 s(r >= 0 && r < this._rules.length, "Cannot apply rules to empty ruleset");
                 const a = this.clone();
                 for (let i = r; i < a._rules.length; ++i) {
                   const r = a._rules[i],
                     o = n(r);
-                  for (const n in e) t.modifiers[n](o, e[n]), s(o.name === r.name, "Cannot change rule name");
-                  a._rules[i] = o, a._singleRules.get(o.name) === r && a._singleRules.set(o.name, o);
+                  for (const n in e) t.modifiers[n](o, e[n]), s(__mockedCompare(o.name, r.name, "==="), "Cannot change rule name");
+                  a._rules[i] = o, __mockedCompare(a._singleRules.get(o.name), r, "===") && a._singleRules.set(o.name, o);
                 }
                 return a.$_temp.ruleset = !1, a.$_mutateRebuild();
               }
@@ -365,12 +365,12 @@
                 return y.entryAsync(e, this, t);
               }
               $_addRule(e) {
-                "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && (e = Object.setPrototypeOf({
+                __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (e = Object.setPrototypeOf({
                   name: e
-                }, __mockedObjectPrototype)), s(e && "object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Invalid options"), s(e.name && "string" == function (x) {
+                }, __mockedObjectPrototype)), s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid options"), s(e.name && __mockedCompare("string", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.name), "Invalid rule name");
-                for (const t in e) s("_" !== t[0], "Cannot set private rule properties");
+                }(e.name), "=="), "Invalid rule name");
+                for (const t in e) s(__mockedCompare("_", t[0], "!=="), "Cannot set private rule properties");
                 const t = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e);
                 t._resolve = Object.setPrototypeOf([], __mockedArrayPrototype), t.method = t.method || t.name;
                 const r = this._definition.rules[t.method],
@@ -378,7 +378,7 @@
                 s(r, "Unknown rule", t.method);
                 const a = this.clone();
                 if (n) {
-                  s(1 === Object.keys(n).length || Object.keys(n).length === this._definition.rules[t.name].args.length, "Invalid rule definition for", this.type, t.name);
+                  s(__mockedCompare(1, Object.keys(n).length, "===") || __mockedCompare(Object.keys(n).length, this._definition.rules[t.name].args.length, "==="), "Invalid rule definition for", this.type, t.name);
                   for (const e in n) {
                     let i = n[e];
                     if (r.argsByName) {
@@ -388,18 +388,18 @@
                         s(!t, t, "or reference");
                       }
                     }
-                    void 0 !== i ? n[e] = i : delete n[e];
+                    __mockedCompare(void 0, i, "!==") ? n[e] = i : delete n[e];
                   }
                 }
                 return r.multi || (a._ruleRemove(t.name, Object.setPrototypeOf({
                   clone: !1
-                }, __mockedObjectPrototype)), a._singleRules.set(t.name, t)), !1 === a.$_temp.ruleset && (a.$_temp.ruleset = null), r.priority ? a._rules.unshift(t) : a._rules.push(t), a;
+                }, __mockedObjectPrototype)), a._singleRules.set(t.name, t)), __mockedCompare(!1, a.$_temp.ruleset, "===") && (a.$_temp.ruleset = null), r.priority ? a._rules.unshift(t) : a._rules.push(t), a;
               }
               $_compile(e, t) {
                 return c.schema(this.$_root, e, t);
               }
               $_createError(e, t, r, s, n, a = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                const i = !1 !== a.flags ? this._flags : Object.setPrototypeOf({}, __mockedObjectPrototype),
+                const i = __mockedCompare(!1, a.flags, "!==") ? this._flags : Object.setPrototypeOf({}, __mockedObjectPrototype),
                   o = a.messages ? h.merge(this._definition.messages, a.messages) : this._definition.messages;
                 return new u.Report(e, t, r, i, o, s, n);
               }
@@ -429,7 +429,7 @@
                     key: n
                   }) => {
                     const a = this._definition[t][r] && this._definition[t][r].register;
-                    !1 !== a && this.$_mutateRegister(e, Object.setPrototypeOf({
+                    __mockedCompare(!1, a, "!==") && this.$_mutateRegister(e, Object.setPrototypeOf({
                       family: a,
                       key: n
                     }, __mockedObjectPrototype));
@@ -454,11 +454,11 @@
                 return this._refs.roots();
               }
               $_setFlag(e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                s("_" === e[0] || !this._inRuleset(), "Cannot set flag inside a ruleset");
+                s(__mockedCompare("_", e[0], "===") || !this._inRuleset(), "Cannot set flag inside a ruleset");
                 const n = this._definition.flags[e] || Object.setPrototypeOf({}, __mockedObjectPrototype);
                 if (a(t, n.default) && (t = void 0), a(t, this._flags[e])) return this;
-                const i = !1 !== r.clone ? this.clone() : this;
-                return void 0 !== t ? (i._flags[e] = t, i.$_mutateRegister(t)) : delete i._flags[e], "_" !== e[0] && (i.$_temp.ruleset = !1), i;
+                const i = __mockedCompare(!1, r.clone, "!==") ? this.clone() : this;
+                return __mockedCompare(void 0, t, "!==") ? (i._flags[e] = t, i.$_mutateRegister(t)) : delete i._flags[e], __mockedCompare("_", e[0], "!==") && (i.$_temp.ruleset = !1), i;
               }
               $_parent(e, ...t) {
                 return this[e][l.symbols.parent].call(this, ...t);
@@ -486,7 +486,7 @@
                 return e.$_mutateRebuild();
               }
               _default(e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                return l.assertOptions(r, "literal"), s(void 0 !== t, "Missing", e, "value"), s("function" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t) || !r.literal, "Only function value supports literal option"), "function" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t) && r.literal && (t = Object.setPrototypeOf({
+                return l.assertOptions(r, "literal"), s(__mockedCompare(void 0, t, "!=="), "Missing", e, "value"), s(__mockedCompare("function", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") || !r.literal, "Only function value supports literal option"), __mockedCompare("function", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") && r.literal && (t = Object.setPrototypeOf({
                   [l.symbols.literal]: !0,
                   literal: t
                 }, __mockedObjectPrototype)), this.$_setFlag(e, t);
@@ -557,29 +557,29 @@
                 return n.$_terms[e] && !r.override || (n.$_terms[e] = Object.setPrototypeOf([], __mockedArrayPrototype)), r.single ? n.$_terms[e].push(t) : n.$_terms[e].push(...t), n.$_temp.ruleset = !1, n;
               }
               _inRuleset() {
-                return null !== this.$_temp.ruleset && !1 !== this.$_temp.ruleset;
+                return __mockedCompare(null, this.$_temp.ruleset, "!==") && __mockedCompare(!1, this.$_temp.ruleset, "!==");
               }
               _ruleRemove(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
                 if (!this._singleRules.has(e)) return this;
-                const r = !1 !== t.clone ? this.clone() : this;
+                const r = __mockedCompare(!1, t.clone, "!==") ? this.clone() : this;
                 r._singleRules.delete(e);
                 const s = Object.setPrototypeOf([], __mockedArrayPrototype);
                 for (let t = 0; t < r._rules.length; ++t) {
                   const n = r._rules[t];
-                  n.name !== e || n.keep ? s.push(n) : r._inRuleset() && t < r.$_temp.ruleset && --r.$_temp.ruleset;
+                  __mockedCompare(n.name, e, "!==") || n.keep ? s.push(n) : r._inRuleset() && t < r.$_temp.ruleset && --r.$_temp.ruleset;
                 }
                 return r._rules = s, r;
               }
               _values(e, t) {
                 l.verifyFlat(e, t.slice(1, -1));
                 const r = this.clone(),
-                  n = e[0] === l.symbols.override;
+                  n = __mockedCompare(e[0], l.symbols.override, "===");
                 if (n && (e = e.slice(1)), !r[t] && e.length ? r[t] = new b() : n && (r[t] = e.length ? new b() : null, r.$_mutateRebuild()), !r[t]) return r;
                 n && r[t].override();
                 for (const n of e) {
-                  s(void 0 !== n, "Cannot call allow/valid/invalid with undefined"), s(n !== l.symbols.override, "Override must be the first value");
-                  const e = "_invalids" === t ? "_valids" : "_invalids";
-                  r[e] && (r[e].remove(n), r[e].length || (s("_valids" === t || !r._flags.only, "Setting invalid value", n, "leaves schema rejecting all values due to previous valid rule"), r[e] = null)), r[t].add(n, r._refs);
+                  s(__mockedCompare(void 0, n, "!=="), "Cannot call allow/valid/invalid with undefined"), s(__mockedCompare(n, l.symbols.override, "!=="), "Override must be the first value");
+                  const e = __mockedCompare("_invalids", t, "===") ? "_valids" : "_invalids";
+                  r[e] && (r[e].remove(n), r[e].length || (s(__mockedCompare("_valids", t, "===") || !r._flags.only, "Setting invalid value", n, "leaves schema rejecting all values due to previous valid rule"), r[e] = null)), r[t].add(n, r._refs);
                 }
                 return r;
               }
@@ -640,13 +640,13 @@
           return Object.setPrototypeOf(c, __mockedObjectPrototype);
         }(class {
           constructor(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-            a.assertOptions(e, Object.setPrototypeOf(["max"], __mockedArrayPrototype)), s(void 0 === e.max || e.max && e.max > 0 && isFinite(e.max), "Invalid max cache size"), this._max = e.max || i.max, this._map = new Map(), this._list = new i.List();
+            a.assertOptions(e, Object.setPrototypeOf(["max"], __mockedArrayPrototype)), s(__mockedCompare(void 0, e.max, "===") || e.max && e.max > 0 && isFinite(e.max), "Invalid max cache size"), this._max = e.max || i.max, this._map = new Map(), this._list = new i.List();
           }
           get length() {
             return this._map.size;
           }
           set(e, t) {
-            if (null !== e && !i.supported.has(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return;
+            if (__mockedCompare(null, e, "!==") && !i.supported.has(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return;
             let r = this._map.get(e);
             if (r) return r.value = t, void this._list.first(r);
             r = this._list.unshift(Object.setPrototypeOf({
@@ -674,7 +674,7 @@
             return e.next = null, e.prev = this.head, this.head && (this.head.next = e), this.head = e, this.tail || (this.tail = e), e;
           }
           first(e) {
-            e !== this.head && (this._remove(e), this.unshift(e));
+            __mockedCompare(e, this.head, "!==") && (this._remove(e), this.unshift(e));
           }
           pop() {
             return this._remove(this.tail);
@@ -684,7 +684,7 @@
               next: t,
               prev: r
             } = e;
-            return t.prev = r, r && (r.next = t), e === this.tail && (this.tail = t), e.prev = null, e.next = null, e;
+            return t.prev = r, r && (r.next = t), __mockedCompare(e, this.tail, "===") && (this.tail = t), e.prev = null, e.next = null, e;
           }
         });
       },
@@ -740,9 +740,9 @@
           template: Symbol("template"),
           values: Symbol("values")
         }, __mockedObjectPrototype), t.assertOptions = Object.setPrototypeOf(function (e, t, r = "Options") {
-          s(e && "object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && !Array.isArray(e), "Options must be of type object");
+          s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && !Array.isArray(e), "Options must be of type object");
           const n = Object.keys(e).filter(e => !t.includes(e));
-          s(0 === n.length, `${r} contain unknown keys: ${n}`);
+          s(__mockedCompare(0, n.length, "==="), `${r} contain unknown keys: ${n}`);
         }, __mockedFunctionPrototype), t.checkPreferences = Object.setPrototypeOf(function (e) {
           o = o || r(1688);
           const t = o.preferences.validate(e);
@@ -750,7 +750,7 @@
         }, __mockedFunctionPrototype), t.compare = Object.setPrototypeOf(function (e, t, r) {
           switch (r) {
             case "=":
-              return e === t;
+              return __mockedCompare(e, t, "===");
             case ">":
               return e > t;
             case "<":
@@ -761,23 +761,23 @@
               return e <= t;
           }
         }, __mockedFunctionPrototype), t.default = Object.setPrototypeOf(function (e, t) {
-          return void 0 === e ? t : e;
+          return __mockedCompare(void 0, e, "===") ? t : e;
         }, __mockedFunctionPrototype), t.intersect = Object.setPrototypeOf(function (e, t) {
-          if ("function" == function (x) {
+          if (__mockedCompare("function", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(e.intersection)) return e.intersection(t);
+          }(e.intersection), "==")) return e.intersection(t);
           const r = new Set();
           for (const s of e) t.has(s) && r.add(s);
           return r;
         }, __mockedFunctionPrototype), t.isIsoDate = Object.setPrototypeOf(function (e) {
           return l.isoDate.test(e);
         }, __mockedFunctionPrototype), t.isNumber = Object.setPrototypeOf(function (e) {
-          return "number" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && !isNaN(e);
+          return __mockedCompare("number", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && !isNaN(e);
         }, __mockedFunctionPrototype), t.isResolvable = Object.setPrototypeOf(function (e) {
           return !!e && (e[t.symbols.ref] || e[t.symbols.template]);
         }, __mockedFunctionPrototype), t.isSchema = Object.setPrototypeOf(function (e, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
           const n = e && e[t.symbols.any];
-          return !!n && (s(r.legacy || n.version === t.version, "Cannot mix different versions of joi schemas"), !0);
+          return !!n && (s(r.legacy || __mockedCompare(n.version, t.version, "==="), "Cannot mix different versions of joi schemas"), !0);
         }, __mockedFunctionPrototype), t.isValues = Object.setPrototypeOf(function (e) {
           return e[t.symbols.values];
         }, __mockedFunctionPrototype), t.limit = Object.setPrototypeOf(function (e) {
@@ -790,7 +790,7 @@
           try {
             return e();
           } catch (e) {
-            throw void 0 !== e.path ? e.path = t + "." + e.path : e.path = t, r.append && (e.message = `${e.message} (${e.path})`), e;
+            throw __mockedCompare(void 0, e.path, "!==") ? e.path = t + "." + e.path : e.path = t, r.append && (e.message = `${e.message} (${e.path})`), e;
           }
         }, __mockedFunctionPrototype), t.validateArg = Object.setPrototypeOf(function (e, r, {
           assert: s,
@@ -820,27 +820,27 @@
           try {
             return i.schema(e, t, r);
           } catch (e) {
-            throw r.appendPath && void 0 !== e.path && (e.message = `${e.message} (${e.path})`), e;
+            throw r.appendPath && __mockedCompare(void 0, e.path, "!==") && (e.message = `${e.message} (${e.path})`), e;
           }
         }, __mockedFunctionPrototype), i.schema = Object.setPrototypeOf(function (e, t, r) {
-          s(void 0 !== t, "Invalid undefined schema"), Array.isArray(t) && (s(t.length, "Invalid empty array schema"), 1 === t.length && (t = t[0]));
-          const a = (t, ...s) => !1 !== r.override ? t.valid(e.override, ...s) : t.valid(...s);
+          s(__mockedCompare(void 0, t, "!=="), "Invalid undefined schema"), Array.isArray(t) && (s(t.length, "Invalid empty array schema"), __mockedCompare(1, t.length, "===") && (t = t[0]));
+          const a = (t, ...s) => __mockedCompare(!1, r.override, "!==") ? t.valid(e.override, ...s) : t.valid(...s);
           if (i.simple(t)) return a(e, t);
-          if ("function" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t)) return e.custom(t);
-          if (s("object" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), "Invalid schema content:", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), n.isResolvable(t)) return a(e, t);
+          if (__mockedCompare("function", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==")) return e.custom(t);
+          if (s(__mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Invalid schema content:", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), n.isResolvable(t)) return a(e, t);
           if (n.isSchema(t)) return t;
           if (Array.isArray(t)) {
             for (const r of t) if (!i.simple(r)) return e.alternatives().try(...t);
             return a(e, ...t);
           }
-          return t instanceof RegExp ? e.string().regex(t) : t instanceof Date ? a(e.date(), t) : (s(Object.getPrototypeOf(t) === Object.getPrototypeOf(Object.setPrototypeOf({}, __mockedObjectPrototype)), "Schema can only contain plain objects"), e.object().keys(t));
+          return t instanceof RegExp ? e.string().regex(t) : t instanceof Date ? a(e.date(), t) : (s(__mockedCompare(Object.getPrototypeOf(t), Object.getPrototypeOf(Object.setPrototypeOf({}, __mockedObjectPrototype)), "==="), "Schema can only contain plain objects"), e.object().keys(t));
         }, __mockedFunctionPrototype), t.ref = Object.setPrototypeOf(function (e, t) {
           return a.isRef(e) ? e : a.create(e, t);
         }, __mockedFunctionPrototype), t.compile = Object.setPrototypeOf(function (e, r, a = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
           n.assertOptions(a, Object.setPrototypeOf(["legacy"], __mockedArrayPrototype));
           const o = r && r[n.symbols.any];
-          if (o) return s(a.legacy || o.version === n.version, "Cannot mix different versions of joi schemas:", o.version, n.version), r;
-          if ("object" != (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) || !a.legacy) return t.schema(e, r, Object.setPrototypeOf({
+          if (o) return s(a.legacy || __mockedCompare(o.version, n.version, "==="), "Cannot mix different versions of joi schemas:", o.version, n.version), r;
+          if (__mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") || !a.legacy) return t.schema(e, r, Object.setPrototypeOf({
             appendPath: !0
           }, __mockedObjectPrototype));
           const l = i.walk(r);
@@ -848,7 +848,7 @@
             appendPath: !0
           }, __mockedObjectPrototype));
         }, __mockedFunctionPrototype), i.walk = Object.setPrototypeOf(function (e) {
-          if ("object" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return null;
+          if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return null;
           if (Array.isArray(e)) {
             for (const t of e) {
               const e = i.walk(t);
@@ -861,33 +861,33 @@
             root: e[t.root],
             compile: t.compile
           }, __mockedObjectPrototype);
-          s(Object.getPrototypeOf(e) === Object.getPrototypeOf(Object.setPrototypeOf({}, __mockedObjectPrototype)), "Schema can only contain plain objects");
+          s(__mockedCompare(Object.getPrototypeOf(e), Object.getPrototypeOf(Object.setPrototypeOf({}, __mockedObjectPrototype)), "==="), "Schema can only contain plain objects");
           for (const t in e) {
             const r = i.walk(e[t]);
             if (r) return r;
           }
           return null;
         }, __mockedFunctionPrototype), i.simple = Object.setPrototypeOf(function (e) {
-          return null === e || Object.setPrototypeOf(["boolean", "string", "number"], __mockedArrayPrototype).includes(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e);
+          return __mockedCompare(null, e, "===") || Object.setPrototypeOf(["boolean", "string", "number"], __mockedArrayPrototype).includes(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e);
         }, __mockedFunctionPrototype), t.when = Object.setPrototypeOf(function (e, r, o) {
-          if (void 0 === o && (s(r && "object" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r), "Missing options"), o = r, r = a.create(".")), Array.isArray(o) && (o = Object.setPrototypeOf({
+          if (__mockedCompare(void 0, o, "===") && (s(r && __mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Missing options"), o = r, r = a.create(".")), Array.isArray(o) && (o = Object.setPrototypeOf({
             switch: o
-          }, __mockedObjectPrototype)), n.assertOptions(o, Object.setPrototypeOf(["is", "not", "then", "otherwise", "switch", "break"], __mockedArrayPrototype)), n.isSchema(r)) return s(void 0 === o.is, '"is" can not be used with a schema condition'), s(void 0 === o.not, '"not" can not be used with a schema condition'), s(void 0 === o.switch, '"switch" can not be used with a schema condition'), i.condition(e, Object.setPrototypeOf({
+          }, __mockedObjectPrototype)), n.assertOptions(o, Object.setPrototypeOf(["is", "not", "then", "otherwise", "switch", "break"], __mockedArrayPrototype)), n.isSchema(r)) return s(__mockedCompare(void 0, o.is, "==="), '"is" can not be used with a schema condition'), s(__mockedCompare(void 0, o.not, "==="), '"not" can not be used with a schema condition'), s(__mockedCompare(void 0, o.switch, "==="), '"switch" can not be used with a schema condition'), i.condition(e, Object.setPrototypeOf({
             is: r,
             then: o.then,
             otherwise: o.otherwise,
             break: o.break
           }, __mockedObjectPrototype));
-          if (s(a.isRef(r) || "string" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r), "Invalid condition:", r), s(void 0 === o.not || void 0 === o.is, 'Cannot combine "is" with "not"'), void 0 === o.switch) {
+          if (s(a.isRef(r) || __mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Invalid condition:", r), s(__mockedCompare(void 0, o.not, "===") || __mockedCompare(void 0, o.is, "==="), 'Cannot combine "is" with "not"'), __mockedCompare(void 0, o.switch, "===")) {
             let l = o;
-            void 0 !== o.not && (l = Object.setPrototypeOf({
+            __mockedCompare(void 0, o.not, "!==") && (l = Object.setPrototypeOf({
               is: o.not,
               then: o.otherwise,
               otherwise: o.then,
               break: o.break
             }, __mockedObjectPrototype));
-            let c = void 0 !== l.is ? e.$_compile(l.is) : e.$_root.invalid(null, !1, 0, "").required();
-            return s(void 0 !== l.then || void 0 !== l.otherwise, 'options must have at least one of "then", "otherwise", or "switch"'), s(void 0 === l.break || void 0 === l.then || void 0 === l.otherwise, "Cannot specify then, otherwise, and break all together"), void 0 === o.is || a.isRef(o.is) || n.isSchema(o.is) || (c = c.required()), i.condition(e, Object.setPrototypeOf({
+            let c = __mockedCompare(void 0, l.is, "!==") ? e.$_compile(l.is) : e.$_root.invalid(null, !1, 0, "").required();
+            return s(__mockedCompare(void 0, l.then, "!==") || __mockedCompare(void 0, l.otherwise, "!=="), 'options must have at least one of "then", "otherwise", or "switch"'), s(__mockedCompare(void 0, l.break, "===") || __mockedCompare(void 0, l.then, "===") || __mockedCompare(void 0, l.otherwise, "==="), "Cannot specify then, otherwise, and break all together"), __mockedCompare(void 0, o.is, "===") || a.isRef(o.is) || n.isSchema(o.is) || (c = c.required()), i.condition(e, Object.setPrototypeOf({
               ref: t.ref(r),
               is: c,
               then: l.then,
@@ -895,7 +895,7 @@
               break: l.break
             }, __mockedObjectPrototype));
           }
-          s(Array.isArray(o.switch), '"switch" must be an array'), s(void 0 === o.is, 'Cannot combine "switch" with "is"'), s(void 0 === o.not, 'Cannot combine "switch" with "not"'), s(void 0 === o.then, 'Cannot combine "switch" with "then"');
+          s(Array.isArray(o.switch), '"switch" must be an array'), s(__mockedCompare(void 0, o.is, "==="), 'Cannot combine "switch" with "is"'), s(__mockedCompare(void 0, o.not, "==="), 'Cannot combine "switch" with "not"'), s(__mockedCompare(void 0, o.then, "==="), 'Cannot combine "switch" with "then"');
           const l = Object.setPrototypeOf({
             ref: t.ref(r),
             switch: Object.setPrototypeOf([], __mockedArrayPrototype),
@@ -903,22 +903,22 @@
           }, __mockedObjectPrototype);
           for (let t = 0; t < o.switch.length; ++t) {
             const r = o.switch[t],
-              i = t === o.switch.length - 1;
-            n.assertOptions(r, i ? Object.setPrototypeOf(["is", "then", "otherwise"], __mockedArrayPrototype) : Object.setPrototypeOf(["is", "then"], __mockedArrayPrototype)), s(void 0 !== r.is, 'Switch statement missing "is"'), s(void 0 !== r.then, 'Switch statement missing "then"');
+              i = __mockedCompare(t, o.switch.length - 1, "===");
+            n.assertOptions(r, i ? Object.setPrototypeOf(["is", "then", "otherwise"], __mockedArrayPrototype) : Object.setPrototypeOf(["is", "then"], __mockedArrayPrototype)), s(__mockedCompare(void 0, r.is, "!=="), 'Switch statement missing "is"'), s(__mockedCompare(void 0, r.then, "!=="), 'Switch statement missing "then"');
             const c = Object.setPrototypeOf({
               is: e.$_compile(r.is),
               then: e.$_compile(r.then)
             }, __mockedObjectPrototype);
             if (a.isRef(r.is) || n.isSchema(r.is) || (c.is = c.is.required()), i) {
-              s(void 0 === o.otherwise || void 0 === r.otherwise, 'Cannot specify "otherwise" inside and outside a "switch"');
-              const t = void 0 !== o.otherwise ? o.otherwise : r.otherwise;
-              void 0 !== t && (s(void 0 === l.break, "Cannot specify both otherwise and break"), c.otherwise = e.$_compile(t));
+              s(__mockedCompare(void 0, o.otherwise, "===") || __mockedCompare(void 0, r.otherwise, "==="), 'Cannot specify "otherwise" inside and outside a "switch"');
+              const t = __mockedCompare(void 0, o.otherwise, "!==") ? o.otherwise : r.otherwise;
+              __mockedCompare(void 0, t, "!==") && (s(__mockedCompare(void 0, l.break, "==="), "Cannot specify both otherwise and break"), c.otherwise = e.$_compile(t));
             }
             l.switch.push(c);
           }
           return l;
         }, __mockedFunctionPrototype), i.condition = Object.setPrototypeOf(function (e, t) {
-          for (const r of Object.setPrototypeOf(["then", "otherwise"], __mockedArrayPrototype)) void 0 === t[r] ? delete t[r] : t[r] = e.$_compile(t[r]);
+          for (const r of Object.setPrototypeOf(["then", "otherwise"], __mockedArrayPrototype)) __mockedCompare(void 0, t[r], "===") ? delete t[r] : t[r] = e.$_compile(t[r]);
           return t;
         }, __mockedFunctionPrototype);
       },
@@ -932,13 +932,13 @@
           return Object.setPrototypeOf(c, __mockedObjectPrototype);
         }(class {
           constructor(e, r, s, n, a, i, o) {
-            if (this.code = e, this.flags = n, this.messages = a, this.path = i.path, this.prefs = o, this.state = i, this.value = r, this.message = null, this.template = null, this.local = s || Object.setPrototypeOf({}, __mockedObjectPrototype), this.local.label = t.label(this.flags, this.state, this.prefs, this.messages), void 0 === this.value || this.local.hasOwnProperty("value") || (this.local.value = this.value), this.path.length) {
+            if (this.code = e, this.flags = n, this.messages = a, this.path = i.path, this.prefs = o, this.state = i, this.value = r, this.message = null, this.template = null, this.local = s || Object.setPrototypeOf({}, __mockedObjectPrototype), this.local.label = t.label(this.flags, this.state, this.prefs, this.messages), __mockedCompare(void 0, this.value, "===") || this.local.hasOwnProperty("value") || (this.local.value = this.value), this.path.length) {
               const e = this.path[this.path.length - 1];
-              "object" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && (this.local.key = e);
+              __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") && (this.local.key = e);
             }
           }
           _setTemplate(e) {
-            if (this.template = e, !this.flags.label && 0 === this.path.length) {
+            if (this.template = e, !this.flags.label && __mockedCompare(0, this.path.length, "===")) {
               const e = this._template(this.template, "root");
               e && (this.local.label = e);
             }
@@ -948,7 +948,7 @@
             const e = this.code;
             if (!this.prefs.errors.render) return this.code;
             const t = this._template(this.template) || this._template(this.prefs.messages) || this._template(this.messages);
-            return void 0 === t ? `Error code "${e}" is not defined, your custom type is missing the correct messages definition` : (this.message = t.render(this.value, this.state, this.prefs, this.local, Object.setPrototypeOf({
+            return __mockedCompare(void 0, t, "===") ? `Error code "${e}" is not defined, your custom type is missing the correct messages definition` : (this.message = t.render(this.value, this.state, this.prefs, this.local, Object.setPrototypeOf({
               errors: this.prefs.errors,
               messages: Object.setPrototypeOf([this.prefs.messages, this.messages], __mockedArrayPrototype)
             }, __mockedObjectPrototype)), this.prefs.errors.label || (this.message = this.message.replace(/^"" /, "").trim()), this.message);
@@ -958,22 +958,22 @@
           }
         }), t.path = Object.setPrototypeOf(function (e) {
           let t = "";
-          for (const r of e) "object" != (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) && ("string" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) ? (t && (t += "."), t += r) : t += `[${r}]`);
+          for (const r of e) __mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") && (__mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "==") ? (t && (t += "."), t += r) : t += `[${r}]`);
           return t;
         }, __mockedFunctionPrototype), t.template = Object.setPrototypeOf(function (e, t, r, s, i) {
           if (!t) return;
-          if (a.isTemplate(t)) return "root" !== r ? t : null;
+          if (a.isTemplate(t)) return __mockedCompare("root", r, "!==") ? t : null;
           let o = i.errors.language;
           if (n.isResolvable(o) && (o = o.resolve(e, s, i)), o && t[o]) {
-            if (void 0 !== t[o][r]) return t[o][r];
-            if (void 0 !== t[o]["*"]) return t[o]["*"];
+            if (__mockedCompare(void 0, t[o][r], "!==")) return t[o][r];
+            if (__mockedCompare(void 0, t[o]["*"], "!==")) return t[o]["*"];
           }
           return t[r] ? t[r] : t["*"];
         }, __mockedFunctionPrototype), t.label = Object.setPrototypeOf(function (e, r, s, n) {
           if (!s.errors.label) return "";
           if (e.label) return e.label;
           let a = r.path;
-          "key" === s.errors.label && r.path.length > 1 && (a = r.path.slice(-1));
+          __mockedCompare("key", s.errors.label, "===") && r.path.length > 1 && (a = r.path.slice(-1));
           return t.path(a) || t.template(null, s.messages, "root", r, s) || n && t.template(null, n, "root", r, s) || "value";
         }, __mockedFunctionPrototype), t.process = Object.setPrototypeOf(function (e, r, s) {
           if (!e) return null;
@@ -993,7 +993,7 @@
           const s = Object.setPrototypeOf([], __mockedArrayPrototype);
           for (const n of e) {
             if (n instanceof Error) {
-              if (!1 !== t.override) return Object.setPrototypeOf({
+              if (__mockedCompare(!1, t.override, "!==")) return Object.setPrototypeOf({
                 override: n
               }, __mockedObjectPrototype);
               const e = n.toString();
@@ -1009,7 +1009,7 @@
             const e = n.toString();
             r.push(e), s.push(Object.setPrototypeOf({
               message: e,
-              path: n.path.filter(e => "object" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)),
+              path: n.path.filter(e => __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")),
               type: n.code,
               context: n.local
             }, __mockedObjectPrototype));
@@ -1048,11 +1048,11 @@
           const m = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), f.terms);
           if (u.terms) for (const e in u.terms) {
             const t = u.terms[e];
-            s(void 0 === c.$_terms[e], "Invalid term override for", u.type, e), c.$_terms[e] = t.init, m[e] = t;
+            s(__mockedCompare(void 0, c.$_terms[e], "==="), "Invalid term override for", u.type, e), c.$_terms[e] = t.init, m[e] = t;
           }
-          u.terms = m, u.args || (u.args = f.args), u.prepare = o.prepare(u.prepare, f.prepare), u.coerce && ("function" == function (x) {
+          u.terms = m, u.args || (u.args = f.args), u.prepare = o.prepare(u.prepare, f.prepare), u.coerce && (__mockedCompare("function", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(u.coerce) && (u.coerce = Object.setPrototypeOf({
+          }(u.coerce), "==") && (u.coerce = Object.setPrototypeOf({
             method: u.coerce
           }, __mockedObjectPrototype)), u.coerce.from && !Array.isArray(u.coerce.from) && (u.coerce = Object.setPrototypeOf({
             method: u.coerce.method,
@@ -1061,15 +1061,15 @@
           const h = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), f.rules);
           if (u.rules) for (const e in u.rules) {
             const t = u.rules[e];
-            s("object" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), "Invalid rule definition for", u.type, e);
+            s(__mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Invalid rule definition for", u.type, e);
             let r = t.method;
-            if (void 0 === r && (r = Object.setPrototypeOf(function () {
+            if (__mockedCompare(void 0, r, "===") && (r = Object.setPrototypeOf(function () {
               return this.$_addRule(e);
             }, __mockedFunctionPrototype)), r && (s(!l[e], "Rule conflict in", u.type, e), l[e] = r), s(!h[e], "Rule conflict in", u.type, e), h[e] = t, t.alias) {
               const e = Object.setPrototypeOf([], __mockedArrayPrototype).concat(t.alias);
               for (const r of e) l[r] = t.method;
             }
-            t.args && (t.argsByName = new Map(), t.args = t.args.map(e => ("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && (e = Object.setPrototypeOf({
+            t.args && (t.argsByName = new Map(), t.args = t.args.map(e => (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (e = Object.setPrototypeOf({
               name: e
             }, __mockedObjectPrototype)), s(!t.argsByName.has(e.name), "Duplicated argument name", e.name), a.isSchema(e.assert) && (e.assert = e.assert.strict().label(e.name)), t.argsByName.set(e.name, e), e)));
           }
@@ -1078,7 +1078,7 @@
           if (u.modifiers) for (const e in u.modifiers) {
             s(!l[e], "Rule conflict in", u.type, e);
             const t = u.modifiers[e];
-            s("function" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), "Invalid modifier definition for", u.type, e);
+            s(__mockedCompare("function", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Invalid modifier definition for", u.type, e);
             const r = Object.setPrototypeOf(function (t) {
               return this.rule(Object.setPrototypeOf({
                 [e]: t
@@ -1104,7 +1104,7 @@
             method(r, s) {
               let n;
               if ((!t.from || t.from.includes(typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r)) && (n = t.method(r, s), n)) {
-                if (n.errors || void 0 === n.value) return n;
+                if (n.errors || __mockedCompare(void 0, n.value, "===")) return n;
                 r = n.value;
               }
               if (!e.from || e.from.includes(typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r)) {
@@ -1118,7 +1118,7 @@
           return e && t ? Object.setPrototypeOf(function (r, s) {
             const n = e(r, s);
             if (n) {
-              if (n.errors || void 0 === n.value) return n;
+              if (n.errors || __mockedCompare(void 0, n.value, "===")) return n;
               r = n.value;
             }
             return t(r, s) || n;
@@ -1201,9 +1201,9 @@
           },
           attempt: (e, t, ...r) => d.assert(e, t, !1, r),
           build(e) {
-            return s("function" == function (x) {
+            return s(__mockedCompare("function", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(u.build), "Manifest functionality disabled"), u.build(this, e);
+            }(u.build), "=="), "Manifest functionality disabled"), u.build(this, e);
           },
           checkPreferences(e) {
             i.checkPreferences(e);
@@ -1212,7 +1212,7 @@
             return o.compile(this, e, t);
           },
           defaults(e) {
-            s("function" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "modifier must be a function");
+            s(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "modifier must be a function");
             const t = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), this);
             for (const r of t._types) {
               const n = e(t[r]());
@@ -1228,10 +1228,10 @@
             const t = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), this);
             t._types = new Set(t._types);
             for (let r of e) {
-              "function" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) && (r = r(t)), this.assert(r, p.extension);
+              __mockedCompare("function", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "==") && (r = r(t)), this.assert(r, p.extension);
               const e = d.expandExtension(r, t);
               for (const r of e) {
-                s(void 0 === t[r.type] || t._types.has(r.type), "Cannot override name", r.type);
+                s(__mockedCompare(void 0, t[r.type], "===") || t._types.has(r.type), "Cannot override name", r.type);
                 const e = r.base || this.any(),
                   n = c.type(e, r);
                 t._types.add(r.type), t[r.type] = Object.setPrototypeOf(function (...e) {
@@ -1255,10 +1255,10 @@
             return e;
           }
         }, __mockedObjectPrototype), d.assert = Object.setPrototypeOf(function (e, t, r, s) {
-          const a = s[0] instanceof Error || "string" == function (x) {
+          const a = s[0] instanceof Error || __mockedCompare("string", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(s[0]) ? s[0] : null,
-            o = null !== a ? s[1] : s[0],
+            }(s[0]), "==") ? s[0] : null,
+            o = __mockedCompare(null, a, "!==") ? s[1] : s[0],
             c = t.validate(e, i.preferences(Object.setPrototypeOf({
               errors: Object.setPrototypeOf({
                 stack: !0
@@ -1267,16 +1267,16 @@
           let u = c.error;
           if (!u) return c.value;
           if (a instanceof Error) throw a;
-          const f = r && "function" == function (x) {
+          const f = r && __mockedCompare("function", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(u.annotate) ? u.annotate() : u.message;
-          throw u instanceof l.ValidationError == 0 && (u = n(u)), u.message = a ? `${a} ${f}` : f, u;
+          }(u.annotate), "==") ? u.annotate() : u.message;
+          throw __mockedCompare(u instanceof l.ValidationError, 0, "==") && (u = n(u)), u.message = a ? `${a} ${f}` : f, u;
         }, __mockedFunctionPrototype), d.generate = Object.setPrototypeOf(function (e, t, r) {
           return s(e, "Must be invoked on a Joi instance."), t.$_root = e, t._definition.args && r.length ? t._definition.args(t, ...r) : t;
         }, __mockedFunctionPrototype), d.expandExtension = Object.setPrototypeOf(function (e, t) {
-          if ("string" == function (x) {
+          if (__mockedCompare("string", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(e.type)) return Object.setPrototypeOf([e], __mockedArrayPrototype);
+          }(e.type), "==")) return Object.setPrototypeOf([e], __mockedArrayPrototype);
           const r = Object.setPrototypeOf([], __mockedArrayPrototype);
           for (const s of t._types) if (e.type.test(s)) {
             const n = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e);
@@ -1294,24 +1294,24 @@
           } = r(2116),
           a = r(1532);
         t.compile = Object.setPrototypeOf(function (e, t) {
-          if ("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return s(!t, "Cannot set single message string"), new a(e);
+          if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) return s(!t, "Cannot set single message string"), new a(e);
           if (a.isTemplate(e)) return s(!t, "Cannot set single message template"), e;
-          s("object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && !Array.isArray(e), "Invalid message options"), t = t ? n(t) : Object.setPrototypeOf({}, __mockedObjectPrototype);
+          s(__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && !Array.isArray(e), "Invalid message options"), t = t ? n(t) : Object.setPrototypeOf({}, __mockedObjectPrototype);
           for (let r in e) {
             const n = e[r];
-            if ("root" === r || a.isTemplate(n)) {
+            if (__mockedCompare("root", r, "===") || a.isTemplate(n)) {
               t[r] = n;
               continue;
             }
-            if ("string" == (typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n)) {
+            if (__mockedCompare("string", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "==")) {
               t[r] = new a(n);
               continue;
             }
-            s("object" == (typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n) && !Array.isArray(n), "Invalid message for", r);
+            s(__mockedCompare("object", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "==") && !Array.isArray(n), "Invalid message for", r);
             const i = r;
             for (r in t[i] = t[i] || Object.setPrototypeOf({}, __mockedObjectPrototype), n) {
               const e = n[r];
-              "root" === r || a.isTemplate(e) ? t[i][r] = e : (s("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Invalid message for", r, "in", i), t[i][r] = new a(e));
+              __mockedCompare("root", r, "===") || a.isTemplate(e) ? t[i][r] = e : (s(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid message for", r, "in", i), t[i][r] = new a(e));
             }
           }
           return t;
@@ -1319,7 +1319,7 @@
           const t = Object.setPrototypeOf({}, __mockedObjectPrototype);
           for (let r in e) {
             const s = e[r];
-            if ("root" === r) {
+            if (__mockedCompare("root", r, "===")) {
               t.root = s;
               continue;
             }
@@ -1332,7 +1332,7 @@
             const n = r;
             for (r in t[n] = Object.setPrototypeOf({}, __mockedObjectPrototype), s) {
               const e = s[r];
-              "root" !== r ? t[n][r] = e.describe(Object.setPrototypeOf({
+              __mockedCompare("root", r, "!==") ? t[n][r] = e.describe(Object.setPrototypeOf({
                 compact: !0
               }, __mockedObjectPrototype)) : t[n].root = e;
             }
@@ -1341,24 +1341,24 @@
         }, __mockedFunctionPrototype), t.merge = Object.setPrototypeOf(function (e, r) {
           if (!e) return t.compile(r);
           if (!r) return e;
-          if ("string" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r)) return new a(r);
+          if (__mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "==")) return new a(r);
           if (a.isTemplate(r)) return r;
           const i = n(e);
           for (let e in r) {
             const t = r[e];
-            if ("root" === e || a.isTemplate(t)) {
+            if (__mockedCompare("root", e, "===") || a.isTemplate(t)) {
               i[e] = t;
               continue;
             }
-            if ("string" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t)) {
+            if (__mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==")) {
               i[e] = new a(t);
               continue;
             }
-            s("object" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t) && !Array.isArray(t), "Invalid message for", e);
+            s(__mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") && !Array.isArray(t), "Invalid message for", e);
             const n = e;
             for (e in i[n] = i[n] || Object.setPrototypeOf({}, __mockedObjectPrototype), t) {
               const r = t[e];
-              "root" === e || a.isTemplate(r) ? i[n][e] = r : (s("string" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r), "Invalid message for", e, "in", n), i[n][e] = new a(r));
+              __mockedCompare("root", e, "===") || a.isTemplate(r) ? i[n][e] = r : (s(__mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Invalid message for", e, "in", n), i[n][e] = new a(r));
             }
           }
           return i;
@@ -1427,7 +1427,7 @@
             const r = e._flags.id;
             if (r) {
               const t = this._byId.get(r);
-              s(!t || t.schema === e, "Cannot add different schemas with the same id:", r), s(!this._byKey.has(r), "Schema id conflicts with existing key:", r), this._byId.set(r, Object.setPrototypeOf({
+              s(!t || __mockedCompare(t.schema, e, "==="), "Cannot add different schemas with the same id:", r), s(!this._byKey.has(r), "Schema id conflicts with existing key:", r), this._byId.set(r, Object.setPrototypeOf({
                 schema: e,
                 id: r
               }, __mockedObjectPrototype));
@@ -1455,7 +1455,7 @@
             each: (e, {
               key: t
             }) => {
-              if (r === (e._flags.id || t)) return s;
+              if (__mockedCompare(r, e._flags.id || t, "===")) return s;
             },
             ref: !1
           }, __mockedObjectPrototype));
@@ -1463,12 +1463,12 @@
         }, __mockedFunctionPrototype), t.schema = Object.setPrototypeOf(function (e, t) {
           let r;
           for (const s in e._flags) {
-            if ("_" === s[0]) continue;
+            if (__mockedCompare("_", s[0], "===")) continue;
             const n = i.scan(e._flags[s], Object.setPrototypeOf({
               source: "flags",
               name: s
             }, __mockedObjectPrototype), t);
-            void 0 !== n && (r = r || e.clone(), r._flags[s] = n);
+            __mockedCompare(void 0, n, "!==") && (r = r || e.clone(), r._flags[s] = n);
           }
           for (let s = 0; s < e._rules.length; ++s) {
             const n = e._rules[s],
@@ -1476,46 +1476,46 @@
                 source: "rules",
                 name: n.name
               }, __mockedObjectPrototype), t);
-            if (void 0 !== a) {
+            if (__mockedCompare(void 0, a, "!==")) {
               r = r || e.clone();
               const t = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), n);
-              t.args = a, r._rules[s] = t, r._singleRules.get(n.name) === n && r._singleRules.set(n.name, t);
+              t.args = a, r._rules[s] = t, __mockedCompare(r._singleRules.get(n.name), n, "===") && r._singleRules.set(n.name, t);
             }
           }
           for (const s in e.$_terms) {
-            if ("_" === s[0]) continue;
+            if (__mockedCompare("_", s[0], "===")) continue;
             const n = i.scan(e.$_terms[s], Object.setPrototypeOf({
               source: "terms",
               name: s
             }, __mockedObjectPrototype), t);
-            void 0 !== n && (r = r || e.clone(), r.$_terms[s] = n);
+            __mockedCompare(void 0, n, "!==") && (r = r || e.clone(), r.$_terms[s] = n);
           }
           return r;
         }, __mockedFunctionPrototype), i.scan = Object.setPrototypeOf(function (e, t, r, s, o) {
           const l = s || Object.setPrototypeOf([], __mockedArrayPrototype);
-          if (null === e || "object" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return;
+          if (__mockedCompare(null, e, "===") || __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return;
           let c;
           if (Array.isArray(e)) {
             for (let s = 0; s < e.length; ++s) {
-              const n = "terms" === t.source && "keys" === t.name && e[s].key,
+              const n = __mockedCompare("terms", t.source, "===") && __mockedCompare("keys", t.name, "===") && e[s].key,
                 a = i.scan(e[s], t, r, Object.setPrototypeOf([s, ...l], __mockedArrayPrototype), n);
-              void 0 !== a && (c = c || e.slice(), c[s] = a);
+              __mockedCompare(void 0, a, "!==") && (c = c || e.slice(), c[s] = a);
             }
             return c;
           }
-          if (!1 !== r.schema && n.isSchema(e) || !1 !== r.ref && a.isRef(e)) {
+          if (__mockedCompare(!1, r.schema, "!==") && n.isSchema(e) || __mockedCompare(!1, r.ref, "!==") && a.isRef(e)) {
             const s = r.each(e, Object.setPrototypeOf({
               ...t,
               path: l,
               key: o
             }, __mockedObjectPrototype));
-            if (s === e) return;
+            if (__mockedCompare(s, e, "===")) return;
             return s;
           }
           for (const s in e) {
-            if ("_" === s[0]) continue;
+            if (__mockedCompare("_", s[0], "===")) continue;
             const n = i.scan(e[s], t, r, Object.setPrototypeOf([s, ...l], __mockedArrayPrototype), o);
-            void 0 !== n && (c = c || Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e), c[s] = n);
+            __mockedCompare(void 0, n, "!==") && (c = c || Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e), c[s] = n);
           }
           return c;
         }, __mockedFunctionPrototype);
@@ -1542,18 +1542,18 @@
           }, __mockedObjectPrototype)
         }, __mockedObjectPrototype);
         t.create = Object.setPrototypeOf(function (e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-          s("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Invalid reference key:", e), i.assertOptions(t, Object.setPrototypeOf(["adjust", "ancestor", "in", "iterables", "map", "prefix", "render", "separator"], __mockedArrayPrototype)), s(!t.prefix || "object" == function (x) {
+          s(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid reference key:", e), i.assertOptions(t, Object.setPrototypeOf(["adjust", "ancestor", "in", "iterables", "map", "prefix", "render", "separator"], __mockedArrayPrototype)), s(!t.prefix || __mockedCompare("object", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(t.prefix), "options.prefix must be of type object");
+          }(t.prefix), "=="), "options.prefix must be of type object");
           const r = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), l.defaults, t);
           delete r.prefix;
           const n = r.separator,
             a = l.context(e, n, t.prefix);
-          if (r.type = a.type, e = a.key, "value" === r.type) if (a.root && (s(!n || e[0] !== n, "Cannot specify relative path with root prefix"), r.ancestor = "root", e || (e = null)), n && n === e) e = null, r.ancestor = 0;else if (void 0 !== r.ancestor) s(!n || !e || e[0] !== n, "Cannot combine prefix with ancestor option");else {
+          if (r.type = a.type, e = a.key, __mockedCompare("value", r.type, "===")) if (a.root && (s(!n || __mockedCompare(e[0], n, "!=="), "Cannot specify relative path with root prefix"), r.ancestor = "root", e || (e = null)), n && __mockedCompare(n, e, "===")) e = null, r.ancestor = 0;else if (__mockedCompare(void 0, r.ancestor, "!==")) s(!n || !e || __mockedCompare(e[0], n, "!=="), "Cannot combine prefix with ancestor option");else {
             const [t, s] = l.ancestor(e, n);
-            s && "" === (e = e.slice(s)) && (e = null), r.ancestor = t;
+            s && __mockedCompare("", e = e.slice(s), "===") && (e = null), r.ancestor = t;
           }
-          return r.path = n ? null === e ? Object.setPrototypeOf([], __mockedArrayPrototype) : e.split(n) : Object.setPrototypeOf([e], __mockedArrayPrototype), new l.Ref(r);
+          return r.path = n ? __mockedCompare(null, e, "===") ? Object.setPrototypeOf([], __mockedArrayPrototype) : e.split(n) : Object.setPrototypeOf([e], __mockedArrayPrototype), new l.Ref(r);
         }, __mockedFunctionPrototype), t.in = Object.setPrototypeOf(function (e, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
           return t.create(e, Object.setPrototypeOf({
             ...r,
@@ -1565,23 +1565,23 @@
           return Object.setPrototypeOf(c, __mockedObjectPrototype);
         }(class {
           constructor(e) {
-            s("object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Invalid reference construction"), i.assertOptions(e, Object.setPrototypeOf(["adjust", "ancestor", "in", "iterables", "map", "path", "render", "separator", "type", "depth", "key", "root", "display"], __mockedArrayPrototype)), s(Object.setPrototypeOf([!1, void 0], __mockedArrayPrototype).includes(e.separator) || "string" == function (x) {
+            s(__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid reference construction"), i.assertOptions(e, Object.setPrototypeOf(["adjust", "ancestor", "in", "iterables", "map", "path", "render", "separator", "type", "depth", "key", "root", "display"], __mockedArrayPrototype)), s(Object.setPrototypeOf([!1, void 0], __mockedArrayPrototype).includes(e.separator) || __mockedCompare("string", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(e.separator) && 1 === e.separator.length, "Invalid separator"), s(!e.adjust || "function" == function (x) {
+            }(e.separator), "==") && __mockedCompare(1, e.separator.length, "==="), "Invalid separator"), s(!e.adjust || __mockedCompare("function", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(e.adjust), "options.adjust must be a function"), s(!e.map || Array.isArray(e.map), "options.map must be an array"), s(!e.map || !e.adjust, "Cannot set both map and adjust options"), Object.assign(this, l.defaults, e), s("value" === this.type || void 0 === this.ancestor, "Non-value references cannot reference ancestors"), Array.isArray(this.map) && (this.map = new Map(this.map)), this.depth = this.path.length, this.key = this.path.length ? this.path.join(this.separator) : null, this.root = this.path[0], this.updateDisplay();
+            }(e.adjust), "=="), "options.adjust must be a function"), s(!e.map || Array.isArray(e.map), "options.map must be an array"), s(!e.map || !e.adjust, "Cannot set both map and adjust options"), Object.assign(this, l.defaults, e), s(__mockedCompare("value", this.type, "===") || __mockedCompare(void 0, this.ancestor, "==="), "Non-value references cannot reference ancestors"), Array.isArray(this.map) && (this.map = new Map(this.map)), this.depth = this.path.length, this.key = this.path.length ? this.path.join(this.separator) : null, this.root = this.path[0], this.updateDisplay();
           }
           resolve(e, t, r, n, a = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-            return s(!this.in || a.in, "Invalid in() reference usage"), "global" === this.type ? this._resolve(r.context, t, a) : "local" === this.type ? this._resolve(n, t, a) : this.ancestor ? "root" === this.ancestor ? this._resolve(t.ancestors[t.ancestors.length - 1], t, a) : (s(this.ancestor <= t.ancestors.length, "Invalid reference exceeds the schema root:", this.display), this._resolve(t.ancestors[this.ancestor - 1], t, a)) : this._resolve(e, t, a);
+            return s(!this.in || a.in, "Invalid in() reference usage"), __mockedCompare("global", this.type, "===") ? this._resolve(r.context, t, a) : __mockedCompare("local", this.type, "===") ? this._resolve(n, t, a) : this.ancestor ? __mockedCompare("root", this.ancestor, "===") ? this._resolve(t.ancestors[t.ancestors.length - 1], t, a) : (s(this.ancestor <= t.ancestors.length, "Invalid reference exceeds the schema root:", this.display), this._resolve(t.ancestors[this.ancestor - 1], t, a)) : this._resolve(e, t, a);
           }
           _resolve(e, t, r) {
             let s;
-            if ("value" === this.type && t.mainstay.shadow && !1 !== r.shadow && (s = t.mainstay.shadow.get(this.absolute(t))), void 0 === s && (s = a(e, this.path, Object.setPrototypeOf({
+            if (__mockedCompare("value", this.type, "===") && t.mainstay.shadow && __mockedCompare(!1, r.shadow, "!==") && (s = t.mainstay.shadow.get(this.absolute(t))), __mockedCompare(void 0, s, "===") && (s = a(e, this.path, Object.setPrototypeOf({
               iterables: this.iterables,
               functions: !0
             }, __mockedObjectPrototype))), this.adjust && (s = this.adjust(s)), this.map) {
               const e = this.map.get(s);
-              void 0 !== e && (s = e);
+              __mockedCompare(void 0, e, "!==") && (s = e);
             }
             return t.mainstay && t.mainstay.tracer.resolve(t, this, s), s;
           }
@@ -1598,38 +1598,38 @@
             const e = Object.setPrototypeOf({
               path: this.path
             }, __mockedObjectPrototype);
-            "value" !== this.type && (e.type = this.type), "." !== this.separator && (e.separator = this.separator), "value" === this.type && 1 !== this.ancestor && (e.ancestor = this.ancestor), this.map && (e.map = Object.setPrototypeOf([...this.map], __mockedArrayPrototype));
-            for (const t of Object.setPrototypeOf(["adjust", "iterables", "render"], __mockedArrayPrototype)) null !== this[t] && void 0 !== this[t] && (e[t] = this[t]);
-            return !1 !== this.in && (e.in = !0), Object.setPrototypeOf({
+            __mockedCompare("value", this.type, "!==") && (e.type = this.type), __mockedCompare(".", this.separator, "!==") && (e.separator = this.separator), __mockedCompare("value", this.type, "===") && __mockedCompare(1, this.ancestor, "!==") && (e.ancestor = this.ancestor), this.map && (e.map = Object.setPrototypeOf([...this.map], __mockedArrayPrototype));
+            for (const t of Object.setPrototypeOf(["adjust", "iterables", "render"], __mockedArrayPrototype)) __mockedCompare(null, this[t], "!==") && __mockedCompare(void 0, this[t], "!==") && (e[t] = this[t]);
+            return __mockedCompare(!1, this.in, "!==") && (e.in = !0), Object.setPrototypeOf({
               ref: e
             }, __mockedObjectPrototype);
           }
           updateDisplay() {
-            const e = null !== this.key ? this.key : "";
-            if ("value" !== this.type) return void (this.display = `ref:${this.type}:${e}`);
+            const e = __mockedCompare(null, this.key, "!==") ? this.key : "";
+            if (__mockedCompare("value", this.type, "!==")) return void (this.display = `ref:${this.type}:${e}`);
             if (!this.separator) return void (this.display = `ref:${e}`);
             if (!this.ancestor) return void (this.display = `ref:${this.separator}${e}`);
-            if ("root" === this.ancestor) return void (this.display = `ref:root:${e}`);
-            if (1 === this.ancestor) return void (this.display = `ref:${e || ".."}`);
+            if (__mockedCompare("root", this.ancestor, "===")) return void (this.display = `ref:root:${e}`);
+            if (__mockedCompare(1, this.ancestor, "===")) return void (this.display = `ref:${e || ".."}`);
             const t = Object.setPrototypeOf(new Array(this.ancestor + 1), __mockedArrayPrototype).fill(this.separator).join("");
             this.display = `ref:${t}${e || ""}`;
           }
         }), l.Ref.prototype[i.symbols.ref] = !0, t.build = Object.setPrototypeOf(function (e) {
-          return "value" === (e = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), l.defaults, e)).type && void 0 === e.ancestor && (e.ancestor = 1), new l.Ref(e);
+          return __mockedCompare("value", (e = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), l.defaults, e)).type, "===") && __mockedCompare(void 0, e.ancestor, "===") && (e.ancestor = 1), new l.Ref(e);
         }, __mockedFunctionPrototype), l.context = Object.setPrototypeOf(function (e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
           if (e = e.trim(), r) {
-            const s = void 0 === r.global ? "$" : r.global;
-            if (s !== t && e.startsWith(s)) return Object.setPrototypeOf({
+            const s = __mockedCompare(void 0, r.global, "===") ? "$" : r.global;
+            if (__mockedCompare(s, t, "!==") && e.startsWith(s)) return Object.setPrototypeOf({
               key: e.slice(s.length),
               type: "global"
             }, __mockedObjectPrototype);
-            const n = void 0 === r.local ? "#" : r.local;
-            if (n !== t && e.startsWith(n)) return Object.setPrototypeOf({
+            const n = __mockedCompare(void 0, r.local, "===") ? "#" : r.local;
+            if (__mockedCompare(n, t, "!==") && e.startsWith(n)) return Object.setPrototypeOf({
               key: e.slice(n.length),
               type: "local"
             }, __mockedObjectPrototype);
-            const a = void 0 === r.root ? "/" : r.root;
-            if (a !== t && e.startsWith(a)) return Object.setPrototypeOf({
+            const a = __mockedCompare(void 0, r.root, "===") ? "/" : r.root;
+            if (__mockedCompare(a, t, "!==") && e.startsWith(a)) return Object.setPrototypeOf({
               key: e.slice(a.length),
               type: "value",
               root: !0
@@ -1641,10 +1641,10 @@
           }, __mockedObjectPrototype);
         }, __mockedFunctionPrototype), l.ancestor = Object.setPrototypeOf(function (e, t) {
           if (!t) return Object.setPrototypeOf([1, 0], __mockedArrayPrototype);
-          if (e[0] !== t) return Object.setPrototypeOf([1, 0], __mockedArrayPrototype);
-          if (e[1] !== t) return Object.setPrototypeOf([0, 1], __mockedArrayPrototype);
+          if (__mockedCompare(e[0], t, "!==")) return Object.setPrototypeOf([1, 0], __mockedArrayPrototype);
+          if (__mockedCompare(e[1], t, "!==")) return Object.setPrototypeOf([0, 1], __mockedArrayPrototype);
           let r = 2;
-          for (; e[r] === t;) ++r;
+          for (; __mockedCompare(e[r], t, "===");) ++r;
           return Object.setPrototypeOf([r - 1, r], __mockedArrayPrototype);
         }, __mockedFunctionPrototype), t.toSibling = 0, t.toParent = 1, t.Manager = function (c) {
           return Object.setPrototypeOf(c, __mockedObjectPrototype);
@@ -1653,10 +1653,10 @@
             this.refs = Object.setPrototypeOf([], __mockedArrayPrototype);
           }
           register(e, s) {
-            if (e) if (s = void 0 === s ? t.toParent : s, Array.isArray(e)) for (const t of e) this.register(t, s);else if (i.isSchema(e)) for (const t of e._refs.refs) t.ancestor - s >= 0 && this.refs.push(Object.setPrototypeOf({
+            if (e) if (s = __mockedCompare(void 0, s, "===") ? t.toParent : s, Array.isArray(e)) for (const t of e) this.register(t, s);else if (i.isSchema(e)) for (const t of e._refs.refs) t.ancestor - s >= 0 && this.refs.push(Object.setPrototypeOf({
               ancestor: t.ancestor - s,
               root: t.root
-            }, __mockedObjectPrototype));else t.isRef(e) && "value" === e.type && e.ancestor - s >= 0 && this.refs.push(Object.setPrototypeOf({
+            }, __mockedObjectPrototype));else t.isRef(e) && __mockedCompare("value", e.type, "===") && e.ancestor - s >= 0 && this.refs.push(Object.setPrototypeOf({
               ancestor: e.ancestor - s,
               root: e.root
             }, __mockedObjectPrototype)), o = o || r(1532), o.isTemplate(e) && this.register(e.refs(), s);
@@ -1918,9 +1918,9 @@
           }
           set(e, t, r) {
             if (!e.length) return;
-            if ("strip" === r && "number" == function (x) {
+            if (__mockedCompare("strip", r, "===") && __mockedCompare("number", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(e[e.length - 1])) return;
+            }(e[e.length - 1]), "==")) return;
             this._values = this._values || new Map();
             let s = this._values;
             for (let t = 0; t < e.length; ++t) {
@@ -1978,12 +1978,12 @@
           return Object.setPrototypeOf(c, __mockedObjectPrototype);
         }(class {
           constructor(e, t) {
-            if (s("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Template source must be a string"), s(!e.includes("\0") && !e.includes(""), "Template source cannot contain reserved control characters"), this.source = e, this.rendered = e, this._template = null, t) {
+            if (s(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Template source must be a string"), s(!e.includes("\0") && !e.includes(""), "Template source cannot contain reserved control characters"), this.source = e, this.rendered = e, this._template = null, t) {
               const {
                 functions: e,
                 ...r
               } = t;
-              this._settings = Object.keys(r).length ? n(r) : void 0, this._functions = e, this._functions && (s(Object.keys(this._functions).every(e => "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)), "Functions keys must be strings"), s(Object.values(this._functions).every(e => "function" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)), "Functions values must be functions"));
+              this._settings = Object.keys(r).length ? n(r) : void 0, this._functions = e, this._functions && (s(Object.keys(this._functions).every(e => __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")), "Functions keys must be strings"), s(Object.values(this._functions).every(e => __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")), "Functions values must be functions"));
             } else this._settings = void 0, this._functions = void 0;
             this._parse();
           }
@@ -1996,21 +1996,21 @@
               n = t.shift();
             n && s.push(u.decode(n));
             for (const e of t) {
-              const t = "{" !== e[0],
+              const t = __mockedCompare("{", e[0], "!=="),
                 n = t ? "}" : "}}",
                 a = e.indexOf(n);
-              if (-1 === a || "{" === e[1]) {
+              if (__mockedCompare(-1, a, "===") || __mockedCompare("{", e[1], "===")) {
                 s.push(`{${u.decode(e)}`);
                 continue;
               }
               let i = e.slice(t ? 0 : 1, a);
-              const o = ":" === i[0];
+              const o = __mockedCompare(":", i[0], "===");
               o && (i = i.slice(1));
               const l = this._ref(u.decode(i), Object.setPrototypeOf({
                 raw: t,
                 wrapped: o
               }, __mockedObjectPrototype));
-              s.push(l), "string" != (typeof l === "undefined" ? "undefined" : typeof l === "object" && l !== null ? l.__TYPEOF__ !== undefined ? l.__TYPEOF__ : "object" : typeof l) && (r = !0);
+              s.push(l), __mockedCompare("string", typeof l === "undefined" ? "undefined" : typeof l === "object" && l !== null ? l.__TYPEOF__ !== undefined ? l.__TYPEOF__ : "object" : typeof l, "!=") && (r = !0);
               const c = e.slice(a + n.length);
               c && s.push(u.decode(c));
             }
@@ -2041,11 +2041,11 @@
           refs() {
             if (!this._template) return;
             const e = Object.setPrototypeOf([], __mockedArrayPrototype);
-            for (const t of this._template) "string" != (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t) && e.push(...t.refs);
+            for (const t of this._template) __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "!=") && e.push(...t.refs);
             return e;
           }
           resolve(e, t, r, s) {
-            return this._template && 1 === this._template.length ? this._part(this._template[0], e, t, r, s, Object.setPrototypeOf({}, __mockedObjectPrototype)) : this.render(e, t, r, s);
+            return this._template && __mockedCompare(1, this._template.length, "===") ? this._part(this._template[0], e, t, r, s, Object.setPrototypeOf({}, __mockedObjectPrototype)) : this.render(e, t, r, s);
           }
           _part(e, ...t) {
             return e.ref ? e.ref.resolve(...t) : e.formula.evaluate(t);
@@ -2053,11 +2053,11 @@
           render(e, t, r, s, n = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
             if (!this.isDynamic()) return this.rendered;
             const i = Object.setPrototypeOf([], __mockedArrayPrototype);
-            for (const o of this._template) if ("string" == (typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o)) i.push(o);else {
+            for (const o of this._template) if (__mockedCompare("string", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "==")) i.push(o);else {
               const l = this._part(o, e, t, r, s, n),
                 c = u.stringify(l, e, t, r, s, n);
-              if (void 0 !== c) {
-                const e = o.raw || !1 === (n.errors && n.errors.escapeHtml) ? c : a(c);
+              if (__mockedCompare(void 0, c, "!==")) {
+                const e = o.raw || __mockedCompare(!1, n.errors && n.errors.escapeHtml, "===") ? c : a(c);
                 i.push(u.wrap(e, o.wrapped && r.errors.wrap.label));
               }
             }
@@ -2072,7 +2072,7 @@
                 const t = c.create(e, this._settings);
                 return s.push(t), e => {
                   const r = t.resolve(...e);
-                  return void 0 !== r ? r : null;
+                  return __mockedCompare(void 0, r, "!==") ? r : null;
                 };
               };
             try {
@@ -2089,13 +2089,13 @@
               throw t.message = `Invalid template variable "${e}" fails due to: ${t.message}`, t;
             }
             if (a.single) {
-              if ("reference" === a.single.type) {
+              if (__mockedCompare("reference", a.single.type, "===")) {
                 const e = s[0];
                 return Object.setPrototypeOf({
                   ref: e,
                   raw: t,
                   refs: s,
-                  wrapped: r || "local" === e.type && "label" === e.key
+                  wrapped: r || __mockedCompare("local", e.type, "===") && __mockedCompare("label", e.key, "===")
                 }, __mockedObjectPrototype);
               }
               return u.stringify(a.single.value);
@@ -2118,15 +2118,15 @@
           let r = "";
           for (let s = 0; s < e.length; ++s) {
             const n = e[s];
-            if ("{" === n) {
+            if (__mockedCompare("{", n, "===")) {
               let n = "";
-              for (; s + 1 < e.length && "{" === e[s + 1];) n += "{", ++s;
+              for (; s + 1 < e.length && __mockedCompare("{", e[s + 1], "===");) n += "{", ++s;
               t.push(r), r = n;
             } else r += n;
           }
           return t.push(r), t;
         }, __mockedFunctionPrototype), u.wrap = Object.setPrototypeOf(function (e, t) {
-          return t ? 1 === t.length ? `${t}${e}${t}` : `${t[0]}${e}${t[1]}` : e;
+          return t ? __mockedCompare(1, t.length, "===") ? `${t}${e}${t}` : `${t[0]}${e}${t[1]}` : e;
         }, __mockedFunctionPrototype), u.stringify = Object.setPrototypeOf(function (e, t, r, s, n, a = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
           const i = typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e,
             o = s && s.errors && s.errors.wrap || Object.setPrototypeOf({}, __mockedObjectPrototype);
@@ -2134,10 +2134,10 @@
           if (c.isRef(e) && e.render && (l = e.in, e = e.resolve(t, r, s, n, Object.setPrototypeOf({
             in: e.in,
             ...a
-          }, __mockedObjectPrototype))), null === e) return "null";
-          if ("string" === i) return u.wrap(e, a.arrayItems && o.string);
-          if ("number" === i || "function" === i || "symbol" === i) return e.toString();
-          if ("object" !== i) return JSON.stringify(e);
+          }, __mockedObjectPrototype))), __mockedCompare(null, e, "===")) return "null";
+          if (__mockedCompare("string", i, "===")) return u.wrap(e, a.arrayItems && o.string);
+          if (__mockedCompare("number", i, "===") || __mockedCompare("function", i, "===") || __mockedCompare("symbol", i, "===")) return e.toString();
+          if (__mockedCompare("object", i, "!==")) return JSON.stringify(e);
           if (e instanceof Date) return u.Template.date(e, s);
           if (e instanceof Map) {
             const t = Object.setPrototypeOf([], __mockedArrayPrototype);
@@ -2161,7 +2161,7 @@
           day: 864e5
         }, __mockedObjectPrototype), u.functions = Object.setPrototypeOf({
           if: (e, t, r) => e ? t : r,
-          length: e => "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) ? e.length : e && "object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) ? Array.isArray(e) ? e.length : Object.keys(e).length : null,
+          length: e => __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? e.length : e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? Array.isArray(e) ? e.length : Object.keys(e).length : null,
           msg(e) {
             const [t, r, s, n, a] = this,
               i = a.messages;
@@ -2169,7 +2169,7 @@
             const o = l.template(t, i[0], e, r, s) || l.template(t, i[1], e, r, s);
             return o ? o.render(t, r, s, n, a) : "";
           },
-          number: e => "number" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) ? e : "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) ? parseFloat(e) : "boolean" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) ? e ? 1 : 0 : e instanceof Date ? e.getTime() : null
+          number: e => __mockedCompare("number", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? e : __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? parseFloat(e) : __mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? e ? 1 : 0 : e instanceof Date ? e.getTime() : null
         }, __mockedObjectPrototype);
       },
       4972(e, t, r) {
@@ -2198,7 +2198,7 @@
               register: c.toSibling
             }, __mockedObjectPrototype)
           }, __mockedObjectPrototype),
-          args: (e, ...t) => 1 === t.length && Array.isArray(t[0]) ? e.try(...t[0]) : e.try(...t),
+          args: (e, ...t) => __mockedCompare(1, t.length, "===") && Array.isArray(t[0]) ? e.try(...t[0]) : e.try(...t),
           validate(e, t) {
             const {
               schema: r,
@@ -2216,26 +2216,26 @@
                 const c = n.schema.$_validate(e, l, i);
                 c.errors ? (o.push(c.errors), l.restore()) : (t.push(c.value), l.commit());
               }
-              if (0 === t.length) return Object.setPrototypeOf({
+              if (__mockedCompare(0, t.length, "===")) return Object.setPrototypeOf({
                 errors: s("alternatives.any", Object.setPrototypeOf({
                   details: o.map(e => l.details(e, Object.setPrototypeOf({
                     override: !1
                   }, __mockedObjectPrototype)))
                 }, __mockedObjectPrototype))
               }, __mockedObjectPrototype);
-              if ("one" === r._flags.match) return 1 === t.length ? Object.setPrototypeOf({
+              if (__mockedCompare("one", r._flags.match, "===")) return __mockedCompare(1, t.length, "===") ? Object.setPrototypeOf({
                 value: t[0]
               }, __mockedObjectPrototype) : Object.setPrototypeOf({
                 errors: s("alternatives.one")
               }, __mockedObjectPrototype);
-              if (t.length !== r.$_terms.matches.length) return Object.setPrototypeOf({
+              if (__mockedCompare(t.length, r.$_terms.matches.length, "!==")) return Object.setPrototypeOf({
                 errors: s("alternatives.all", Object.setPrototypeOf({
                   details: o.map(e => l.details(e, Object.setPrototypeOf({
                     override: !1
                   }, __mockedObjectPrototype)))
                 }, __mockedObjectPrototype))
               }, __mockedObjectPrototype);
-              const c = e => e.$_terms.matches.some(e => "object" === e.schema.type || "alternatives" === e.schema.type && c(e.schema));
+              const c = e => e.$_terms.matches.some(e => __mockedCompare("object", e.schema.type, "===") || __mockedCompare("alternatives", e.schema.type, "===") && c(e.schema));
               return c(r) ? Object.setPrototypeOf({
                 value: t.reduce((e, t) => n(e, t, Object.setPrototypeOf({
                   mergeArrays: !1
@@ -2282,13 +2282,13 @@
               for (const t of e) t.then && n.push(t.then.$_jsonSchema(r, s)), t.otherwise && n.push(t.otherwise.$_jsonSchema(r, s));
             }
             var a;
-            n.length && (delete t.type, "one" === (null !== (a = e._flags.match) && void 0 !== a ? a : "any") ? t.oneOf = n : t.anyOf = n);
+            n.length && (delete t.type, __mockedCompare("one", __mockedCompare(null, a = e._flags.match, "!==") && __mockedCompare(void 0, a, "!==") ? a : "any", "===") ? t.oneOf = n : t.anyOf = n);
             return t;
           },
           rules: Object.setPrototypeOf({
             conditional: Object.setPrototypeOf({
               method(e, t) {
-                s(!this._flags._endedSwitch, "Unreachable condition"), s(!this._flags.match, "Cannot combine match mode", this._flags.match, "with conditional rule"), s(void 0 === t.break, "Cannot use break option with alternatives conditional");
+                s(!this._flags._endedSwitch, "Unreachable condition"), s(!this._flags.match, "Cannot combine match mode", this._flags.match, "with conditional rule"), s(__mockedCompare(void 0, t.break, "==="), "Cannot use break option with alternatives conditional");
                 const r = this.clone(),
                   n = o.when(r, e, t),
                   a = n.is ? Object.setPrototypeOf([n], __mockedArrayPrototype) : n.switch;
@@ -2303,7 +2303,7 @@
             }, __mockedObjectPrototype),
             match: Object.setPrototypeOf({
               method(e) {
-                if (s(Object.setPrototypeOf(["any", "one", "all"], __mockedArrayPrototype).includes(e), "Invalid alternatives match mode", e), "any" !== e) for (const t of this.$_terms.matches) s(t.schema, "Cannot combine match mode", e, "with conditional rules");
+                if (s(Object.setPrototypeOf(["any", "one", "all"], __mockedArrayPrototype).includes(e), "Invalid alternatives match mode", e), __mockedCompare("any", e, "!==")) for (const t of this.$_terms.matches) s(t.schema, "Cannot combine match mode", e, "with conditional rules");
                 return this.$_setFlag("match", e);
               }
             }, __mockedObjectPrototype),
@@ -2321,20 +2321,20 @@
           overrides: Object.setPrototypeOf({
             label(e) {
               return this.$_parent("label", e).$_modify(Object.setPrototypeOf({
-                each: (t, r) => "is" !== r.path[0] && "string" != function (x) {
+                each: (t, r) => __mockedCompare("is", r.path[0], "!==") && __mockedCompare("string", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(t._flags.label) ? t.label(e) : void 0,
+                }(t._flags.label), "!=") ? t.label(e) : void 0,
                 ref: !1
               }, __mockedObjectPrototype));
             },
             isAsync() {
               var e;
-              if (null !== (e = this.$_terms.externals) && void 0 !== e && e.length) return !0;
+              if (__mockedCompare(null, e = this.$_terms.externals, "!==") && __mockedCompare(void 0, e, "!==") && e.length) return !0;
               for (const e of this.$_terms.matches) {
                 var t, r, s;
-                if (null !== (t = e.schema) && void 0 !== t && t.isAsync()) return !0;
-                if (null !== (r = e.then) && void 0 !== r && r.isAsync()) return !0;
-                if (null !== (s = e.otherwise) && void 0 !== s && s.isAsync()) return !0;
+                if (__mockedCompare(null, t = e.schema, "!==") && __mockedCompare(void 0, t, "!==") && t.isAsync()) return !0;
+                if (__mockedCompare(null, r = e.then, "!==") && __mockedCompare(void 0, r, "!==") && r.isAsync()) return !0;
+                if (__mockedCompare(null, s = e.otherwise, "!==") && __mockedCompare(void 0, s, "!==") && s.isAsync()) return !0;
               }
               return !1;
             }
@@ -2342,7 +2342,7 @@
           rebuild(e) {
             e.$_modify(Object.setPrototypeOf({
               each: t => {
-                i.isSchema(t) && "array" === t.type && e.$_setFlag("_arrayItems", !0, Object.setPrototypeOf({
+                i.isSchema(t) && __mockedCompare("array", t.type, "===") && e.$_setFlag("_arrayItems", !0, Object.setPrototypeOf({
                   clone: !1
                 }, __mockedObjectPrototype));
               }
@@ -2387,7 +2387,7 @@
           if (!e.length) return Object.setPrototypeOf({
             errors: t("alternatives.any")
           }, __mockedObjectPrototype);
-          if (1 === e.length) return Object.setPrototypeOf({
+          if (__mockedCompare(1, e.length, "===")) return Object.setPrototypeOf({
             errors: e[0].reports
           }, __mockedObjectPrototype);
           const s = new Set(),
@@ -2398,25 +2398,25 @@
           } of e) {
             if (a.length > 1) return u.unmatched(e, t);
             const o = a[0];
-            if (o instanceof l.Report == 0) return u.unmatched(e, t);
-            if (o.state.path.length !== r.path.length) {
+            if (__mockedCompare(o instanceof l.Report, 0, "==")) return u.unmatched(e, t);
+            if (__mockedCompare(o.state.path.length, r.path.length, "!==")) {
               n.push(Object.setPrototypeOf({
                 type: i.type,
                 report: o
               }, __mockedObjectPrototype));
               continue;
             }
-            if ("any.only" === o.code) {
+            if (__mockedCompare("any.only", o.code, "===")) {
               for (const e of o.local.valids) s.add(e);
               continue;
             }
             const [c, f] = o.code.split(".");
-            "base" !== f ? n.push(Object.setPrototypeOf({
+            __mockedCompare("base", f, "!==") ? n.push(Object.setPrototypeOf({
               type: i.type,
               report: o
-            }, __mockedObjectPrototype)) : "object.base" === o.code ? s.add(o.local.type) : s.add(c);
+            }, __mockedObjectPrototype)) : __mockedCompare("object.base", o.code, "===") ? s.add(o.local.type) : s.add(c);
           }
-          return n.length ? 1 === n.length ? Object.setPrototypeOf({
+          return n.length ? __mockedCompare(1, n.length, "===") ? Object.setPrototypeOf({
             errors: n[0].report
           }, __mockedObjectPrototype) : u.unmatched(e, t) : Object.setPrototypeOf({
             errors: t("alternatives.types", Object.setPrototypeOf({
@@ -2478,7 +2478,7 @@
           rules: Object.setPrototypeOf({
             custom: Object.setPrototypeOf({
               method(e, t) {
-                return s("function" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Method must be a function"), s(void 0 === t || t && "string" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), "Description must be a non-empty string"), this.$_addRule(Object.setPrototypeOf({
+                return s(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Method must be a function"), s(__mockedCompare(void 0, t, "===") || t && __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Description must be a non-empty string"), this.$_addRule(Object.setPrototypeOf({
                   name: "custom",
                   args: Object.setPrototypeOf({
                     method: e,
@@ -2516,7 +2516,7 @@
             }, __mockedObjectPrototype),
             warning: Object.setPrototypeOf({
               method(e, t) {
-                return s(e && "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Invalid warning code"), this.$_addRule(Object.setPrototypeOf({
+                return s(e && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid warning code"), this.$_addRule(Object.setPrototypeOf({
                   name: "warning",
                   args: Object.setPrototypeOf({
                     code: e,
@@ -2549,7 +2549,7 @@
               for (const r in t) {
                 const s = t[r];
                 if (Object.setPrototypeOf(["examples", "externals", "metas", "notes", "tags"], __mockedArrayPrototype).includes(r)) for (const t of s) e = e[r.slice(0, -1)](t);else {
-                  if ("alterations" === r) {
+                  if (__mockedCompare("alterations", r, "===")) {
                     const t = Object.setPrototypeOf({}, __mockedObjectPrototype);
                     for (const {
                       target: e,
@@ -2558,8 +2558,8 @@
                     e = e.alter(t);
                     continue;
                   }
-                  if ("whens" !== r) {
-                    if ("shared" === r) for (const t of s) e = e.shared(t);
+                  if (__mockedCompare("whens", r, "!==")) {
+                    if (__mockedCompare("shared", r, "===")) for (const t of s) e = e.shared(t);
                   } else for (const t of s) {
                     const {
                       ref: r,
@@ -2675,17 +2675,17 @@
             const n = e.$_terms.ordered;
             if (n.length && (t.prefixItems = n.map(e => e.$_jsonSchema(r, s))), e.$_terms.items.length) {
               let a;
-              a = 1 === e.$_terms.items.length ? e.$_terms.items[0].$_jsonSchema(r, s) : Object.setPrototypeOf({
+              a = __mockedCompare(1, e.$_terms.items.length, "===") ? e.$_terms.items[0].$_jsonSchema(r, s) : Object.setPrototypeOf({
                 anyOf: e.$_terms.items.map(e => e.$_jsonSchema(r, s))
               }, __mockedObjectPrototype), n.length ? (t.unevaluatedItems = a, t.minItems = n.length) : t.items = a;
             } else n.length && (t.unevaluatedItems = !1, t.minItems = n.length, t.maxItems = n.length);
             const a = Object.setPrototypeOf([], __mockedArrayPrototype);
-            for (const t of e._rules) "has" === t.name && a.push(t.args.schema.$_jsonSchema(r, s));
-            if (a.length && (1 === a.length ? t.contains = a[0] : t.allOf = a.map(e => Object.setPrototypeOf({
+            for (const t of e._rules) __mockedCompare("has", t.name, "===") && a.push(t.args.schema.$_jsonSchema(r, s));
+            if (a.length && (__mockedCompare(1, a.length, "===") ? t.contains = a[0] : t.allOf = a.map(e => Object.setPrototypeOf({
               contains: e
             }, __mockedObjectPrototype))), e._flags.single && e.$_terms.items.length) {
               let n;
-              n = 1 === e.$_terms.items.length ? e.$_terms.items[0].$_jsonSchema(r, s) : Object.setPrototypeOf({
+              n = __mockedCompare(1, e.$_terms.items.length, "===") ? e.$_terms.items[0].$_jsonSchema(r, s) : Object.setPrototypeOf({
                 anyOf: e.$_terms.items.map(e => e.$_jsonSchema(r, s))
               }, __mockedObjectPrototype), t = Object.setPrototypeOf({
                 anyOf: Object.setPrototypeOf([t, n], __mockedArrayPrototype)
@@ -2758,7 +2758,7 @@
                     d = !1;
                   const g = f ? a : new Number(a),
                     y = Object.setPrototypeOf([...s.path, g], __mockedArrayPrototype);
-                  if (!t._flags.sparse && void 0 === o) {
+                  if (!t._flags.sparse && __mockedCompare(void 0, o, "===")) {
                     if (m.push(r("array.sparse", Object.setPrototypeOf({
                       key: g,
                       path: y,
@@ -2786,8 +2786,8 @@
                         u = i.$_validate(o, s.localize(y, b, i), n);
                       if (u.errors) {
                         if (m.push(...u.errors), n.abortEarly) return m;
-                      } else if ("strip" === i._flags.result) c.fastSplice(e, a), --a, --h;else {
-                        if (!t._flags.sparse && void 0 === u.value) {
+                      } else if (__mockedCompare("strip", i._flags.result, "===")) c.fastSplice(e, a), --a, --h;else {
+                        if (!t._flags.sparse && __mockedCompare(void 0, u.value, "===")) {
                           if (m.push(r("array.sparse", Object.setPrototypeOf({
                             key: g,
                             path: y,
@@ -2815,7 +2815,7 @@
                     u.snapshot();
                     const f = i[l].$_validate(o, u, n);
                     if (v[l] = f, !f.errors) {
-                      if (u.commit(), e[a] = f.value, d = !0, c.fastSplice(i, l), --l, --_, !t._flags.sparse && void 0 === f.value && (m.push(r("array.sparse", Object.setPrototypeOf({
+                      if (u.commit(), e[a] = f.value, d = !0, c.fastSplice(i, l), --l, --_, !t._flags.sparse && __mockedCompare(void 0, f.value, "===") && (m.push(r("array.sparse", Object.setPrototypeOf({
                         key: g,
                         path: y,
                         pos: a,
@@ -2831,10 +2831,10 @@
                   for (const l of u) {
                     let u;
                     const f = i.indexOf(l);
-                    if (-1 !== f) u = v[f];else {
+                    if (__mockedCompare(-1, f, "!==")) u = v[f];else {
                       const i = s.localize(y, b, l);
                       if (i.snapshot(), u = l.$_validate(o, i, n), !u.errors) {
-                        i.commit(), "strip" === l._flags.result ? (c.fastSplice(e, a), --a, --h) : t._flags.sparse || void 0 !== u.value ? e[a] = u.value : (m.push(r("array.sparse", Object.setPrototypeOf({
+                        i.commit(), __mockedCompare("strip", l._flags.result, "===") ? (c.fastSplice(e, a), --a, --h) : t._flags.sparse || __mockedCompare(void 0, u.value, "!==") ? e[a] = u.value : (m.push(r("array.sparse", Object.setPrototypeOf({
                           key: g,
                           path: y,
                           pos: a,
@@ -2844,7 +2844,7 @@
                       }
                       i.restore();
                     }
-                    if (1 === _) {
+                    if (__mockedCompare(1, _, "===")) {
                       if (A) {
                         c.fastSplice(e, a), --a, --h, d = !0;
                         break;
@@ -2939,7 +2939,7 @@
             }, __mockedObjectPrototype),
             single: Object.setPrototypeOf({
               method(e) {
-                const t = void 0 === e || !!e;
+                const t = __mockedCompare(void 0, e, "===") || !!e;
                 return s(!t || !this._flags._arrayItems, "Cannot specify single rule when array has array items"), this.$_setFlag("single", t);
               }
             }, __mockedObjectPrototype),
@@ -2971,7 +2971,7 @@
                   errors: o
                 } = c.sort(n, e, a, r, s);
                 if (o) return o;
-                for (let r = 0; r < e.length; ++r) if (e[r] !== i[r]) return t("array.sort", Object.setPrototypeOf({
+                for (let r = 0; r < e.length; ++r) if (__mockedCompare(e[r], i[r], "!==")) return t("array.sort", Object.setPrototypeOf({
                   order: a.order,
                   by: a.by ? a.by.key : "value"
                 }, __mockedObjectPrototype));
@@ -2981,15 +2981,15 @@
             }, __mockedObjectPrototype),
             sparse: Object.setPrototypeOf({
               method(e) {
-                const t = void 0 === e || !!e;
-                return this._flags.sparse === t ? this : (t ? this.clone() : this.$_addRule("items")).$_setFlag("sparse", t, Object.setPrototypeOf({
+                const t = __mockedCompare(void 0, e, "===") || !!e;
+                return __mockedCompare(this._flags.sparse, t, "===") ? this : (t ? this.clone() : this.$_addRule("items")).$_setFlag("sparse", t, Object.setPrototypeOf({
                   clone: !1
                 }, __mockedObjectPrototype));
               }
             }, __mockedObjectPrototype),
             unique: Object.setPrototypeOf({
               method(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                s(!e || "function" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) || "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "comparator must be a function or a string"), o.assertOptions(t, Object.setPrototypeOf(["ignoreUndefined", "separator"], __mockedArrayPrototype));
+                s(!e || __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") || __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "comparator must be a function or a string"), o.assertOptions(t, Object.setPrototypeOf(["ignoreUndefined", "separator"], __mockedArrayPrototype));
                 const r = Object.setPrototypeOf({
                   name: "unique",
                   args: Object.setPrototypeOf({
@@ -2997,7 +2997,7 @@
                     comparator: e
                   }, __mockedObjectPrototype)
                 }, __mockedObjectPrototype);
-                if (e) if ("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) {
+                if (e) if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) {
                   const s = o.default(t.separator, ".");
                   r.path = s ? e.split(s) : Object.setPrototypeOf([e], __mockedArrayPrototype);
                 } else r.comparator = e;
@@ -3044,7 +3044,7 @@
                     }
                     l.set(i, n);
                   } else {
-                    if ((!h || void 0 !== i) && void 0 !== l[i]) {
+                    if ((!h || __mockedCompare(void 0, i, "!==")) && __mockedCompare(void 0, l[i], "!==")) {
                       const s = Object.setPrototypeOf({
                         pos: n,
                         value: e[n],
@@ -3066,7 +3066,7 @@
           overrides: Object.setPrototypeOf({
             isAsync() {
               var e;
-              if (null !== (e = this.$_terms.externals) && void 0 !== e && e.length) return !0;
+              if (__mockedCompare(null, e = this.$_terms.externals, "!==") && __mockedCompare(void 0, e, "!==") && e.length) return !0;
               for (const e of this.$_terms.items) if (e.isAsync()) return !0;
               for (const e of this.$_terms.ordered) if (e.isAsync()) return !0;
               return !1;
@@ -3080,7 +3080,7 @@
           }, __mockedObjectPrototype),
           rebuild(e) {
             e.$_terms._inclusions = Object.setPrototypeOf([], __mockedArrayPrototype), e.$_terms._exclusions = Object.setPrototypeOf([], __mockedArrayPrototype), e.$_terms._requireds = Object.setPrototypeOf([], __mockedArrayPrototype);
-            for (const t of e.$_terms.items) c.validateSingle(t, e), "required" === t._flags.presence ? e.$_terms._requireds.push(t) : "forbidden" === t._flags.presence ? e.$_terms._exclusions.push(t) : e.$_terms._inclusions.push(t);
+            for (const t of e.$_terms.items) c.validateSingle(t, e), __mockedCompare("required", t._flags.presence, "===") ? e.$_terms._requireds.push(t) : __mockedCompare("forbidden", t._flags.presence, "===") ? e.$_terms._exclusions.push(t) : e.$_terms._inclusions.push(t);
             for (const t of e.$_terms.ordered) c.validateSingle(t, e);
           },
           manifest: Object.setPrototypeOf({
@@ -3122,7 +3122,7 @@
           }, __mockedObjectPrototype), n, a));
         }, __mockedFunctionPrototype), c.fillOrderedErrors = Object.setPrototypeOf(function (e, t, r, s, n, a) {
           const i = Object.setPrototypeOf([], __mockedArrayPrototype);
-          for (const e of r) "required" === e._flags.presence && i.push(e);
+          for (const e of r) __mockedCompare("required", e._flags.presence, "===") && i.push(e);
           i.length && c.fillMissedErrors(e, t, i, s, n, a);
         }, __mockedFunctionPrototype), c.fillDefault = Object.setPrototypeOf(function (e, t, r, s) {
           const n = Object.setPrototypeOf([], __mockedArrayPrototype);
@@ -3132,7 +3132,7 @@
               l = Object.setPrototypeOf([t, ...r.ancestors], __mockedArrayPrototype),
               c = o.$_validate(void 0, r.localize(r.path, l, o), s).value;
             if (a) {
-              if (void 0 === c) continue;
+              if (__mockedCompare(void 0, c, "===")) continue;
               a = !1;
             }
             n.unshift(c);
@@ -3143,23 +3143,23 @@
           for (; r < e.length;) e[r++] = e[r];
           --e.length;
         }, __mockedFunctionPrototype), c.validateSingle = Object.setPrototypeOf(function (e, t) {
-          ("array" === e.type || e._flags._arrayItems) && (s(!t._flags.single, "Cannot specify array item with single rule enabled"), t.$_setFlag("_arrayItems", !0, Object.setPrototypeOf({
+          (__mockedCompare("array", e.type, "===") || e._flags._arrayItems) && (s(!t._flags.single, "Cannot specify array item with single rule enabled"), t.$_setFlag("_arrayItems", !0, Object.setPrototypeOf({
             clone: !1
           }, __mockedObjectPrototype)));
         }, __mockedFunctionPrototype), c.sort = Object.setPrototypeOf(function (e, t, r, s, n) {
-          const a = "ascending" === r.order ? 1 : -1,
+          const a = __mockedCompare("ascending", r.order, "===") ? 1 : -1,
             i = -1 * a,
             o = a,
             l = (l, u) => {
               let f = c.compare(l, u, i, o);
-              if (null !== f) return f;
-              if (r.by && (l = r.by.resolve(l, s, n), u = r.by.resolve(u, s, n)), f = c.compare(l, u, i, o), null !== f) return f;
+              if (__mockedCompare(null, f, "!==")) return f;
+              if (r.by && (l = r.by.resolve(l, s, n), u = r.by.resolve(u, s, n)), f = c.compare(l, u, i, o), __mockedCompare(null, f, "!==")) return f;
               const m = typeof l === "undefined" ? "undefined" : typeof l === "object" && l !== null ? l.__TYPEOF__ !== undefined ? l.__TYPEOF__ : "object" : typeof l;
-              if (m !== (typeof u === "undefined" ? "undefined" : typeof u === "object" && u !== null ? u.__TYPEOF__ !== undefined ? u.__TYPEOF__ : "object" : typeof u)) throw e.$_createError("array.sort.mismatching", t, null, s, n);
-              if ("number" !== m && "string" !== m) throw e.$_createError("array.sort.unsupported", t, Object.setPrototypeOf({
+              if (__mockedCompare(m, typeof u === "undefined" ? "undefined" : typeof u === "object" && u !== null ? u.__TYPEOF__ !== undefined ? u.__TYPEOF__ : "object" : typeof u, "!==")) throw e.$_createError("array.sort.mismatching", t, null, s, n);
+              if (__mockedCompare("number", m, "!==") && __mockedCompare("string", m, "!==")) throw e.$_createError("array.sort.unsupported", t, Object.setPrototypeOf({
                 type: m
               }, __mockedObjectPrototype), s, n);
-              return "number" === m ? (l - u) * a : l < u ? i : o;
+              return __mockedCompare("number", m, "===") ? (l - u) * a : l < u ? i : o;
             };
           try {
             return Object.setPrototypeOf({
@@ -3171,7 +3171,7 @@
             }, __mockedObjectPrototype);
           }
         }, __mockedFunctionPrototype), c.compare = Object.setPrototypeOf(function (e, t, r, s) {
-          return e === t ? 0 : void 0 === e ? 1 : void 0 === t ? -1 : null === e ? s : null === t ? r : null;
+          return __mockedCompare(e, t, "===") ? 0 : __mockedCompare(void 0, e, "===") ? 1 : __mockedCompare(void 0, t, "===") ? -1 : __mockedCompare(null, e, "===") ? s : __mockedCompare(null, t, "===") ? r : null;
         }, __mockedFunctionPrototype);
       },
       6186(e, t, r) {
@@ -3185,7 +3185,7 @@
           i = r(6220),
           o = Object.setPrototypeOf({
             isBool: Object.setPrototypeOf(function (e) {
-              return "boolean" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e);
+              return __mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==");
             }, __mockedFunctionPrototype)
           }, __mockedObjectPrototype);
         e.exports = n.extend(Object.setPrototypeOf({
@@ -3208,13 +3208,13 @@
           coerce(e, {
             schema: t
           }) {
-            if ("boolean" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) {
-              if ("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) {
+            if (__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) {
+              if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) {
                 const r = e.trim(),
                   s = t._flags.sensitive ? r : r.toLowerCase();
-                e = "true" === s || "false" !== s && e;
+                e = __mockedCompare("true", s, "===") || __mockedCompare("false", s, "!==") && e;
               }
-              return "boolean" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && (e = t.$_terms.truthy && t.$_terms.truthy.has(e, null, null, !t._flags.sensitive) || (!t.$_terms.falsy || !t.$_terms.falsy.has(e, null, null, !t._flags.sensitive)) && e), Object.setPrototypeOf({
+              return __mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") && (e = t.$_terms.truthy && t.$_terms.truthy.has(e, null, null, !t._flags.sensitive) || (!t.$_terms.falsy || !t.$_terms.falsy.has(e, null, null, !t._flags.sensitive)) && e), Object.setPrototypeOf({
                 value: e
               }, __mockedObjectPrototype);
             }
@@ -3222,7 +3222,7 @@
           validate(e, {
             error: t
           }) {
-            if ("boolean" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return Object.setPrototypeOf({
+            if (__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return Object.setPrototypeOf({
               value: e,
               errors: t("boolean.base")
             }, __mockedObjectPrototype);
@@ -3235,7 +3235,7 @@
                 t.$_terms.truthy = t.$_terms.truthy || new i();
                 for (let r = 0; r < e.length; ++r) {
                   const n = e[r];
-                  s(void 0 !== n, "Cannot call truthy with undefined"), t.$_terms.truthy.add(n);
+                  s(__mockedCompare(void 0, n, "!=="), "Cannot call truthy with undefined"), t.$_terms.truthy.add(n);
                 }
                 return t;
               }
@@ -3247,7 +3247,7 @@
                 t.$_terms.falsy = t.$_terms.falsy || new i();
                 for (let r = 0; r < e.length; ++r) {
                   const n = e[r];
-                  s(void 0 !== n, "Cannot call falsy with undefined"), t.$_terms.falsy.add(n);
+                  s(__mockedCompare(void 0, n, "!=="), "Cannot call falsy with undefined"), t.$_terms.falsy.add(n);
                 }
                 return t;
               }
@@ -3308,7 +3308,7 @@
           }) {
             if (e instanceof Date && !isNaN(e.getTime())) return;
             const n = t._flags.format;
-            return s.convert && n && "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) ? Object.setPrototypeOf({
+            return s.convert && n && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? Object.setPrototypeOf({
               value: e,
               errors: r("date.format", Object.setPrototypeOf({
                 format: n
@@ -3329,7 +3329,7 @@
                 operator: n,
                 args: i
               }) {
-                const o = "now" === r ? Date.now() : r.getTime();
+                const o = __mockedCompare("now", r, "===") ? Date.now() : r.getTime();
                 return a.compare(e.getTime(), o, n) ? e : t.error("date." + s, Object.setPrototypeOf({
                   limit: i.date,
                   value: e
@@ -3338,8 +3338,8 @@
               args: Object.setPrototypeOf([Object.setPrototypeOf({
                 name: "date",
                 ref: !0,
-                normalize: e => "now" === e ? e : o.parse(e),
-                assert: e => null !== e,
+                normalize: e => __mockedCompare("now", e, "===") ? e : o.parse(e),
+                assert: e => __mockedCompare(null, e, "!=="),
                 message: "must have a valid date format"
               }, __mockedObjectPrototype)], __mockedArrayPrototype)
             }, __mockedObjectPrototype),
@@ -3460,14 +3460,14 @@
           }, __mockedObjectPrototype)
         }, __mockedObjectPrototype)), o.parse = Object.setPrototypeOf(function (e, t) {
           if (e instanceof Date) return e;
-          if ("string" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && (isNaN(e) || !isFinite(e))) return null;
+          if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") && (isNaN(e) || !isFinite(e))) return null;
           if (/^\s*$/.test(e)) return null;
-          if ("iso" === t) return a.isIsoDate(e) ? o.date(e.toString()) : null;
+          if (__mockedCompare("iso", t, "===")) return a.isIsoDate(e) ? o.date(e.toString()) : null;
           const r = e;
-          if ("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && /^[+-]?\d+(\.\d+)?$/.test(e) && (e = parseFloat(e)), t) {
-            if ("javascript" === t) return o.date(1 * e);
-            if ("unix" === t) return o.date(1e3 * e);
-            if ("string" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r)) return null;
+          if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && /^[+-]?\d+(\.\d+)?$/.test(e) && (e = parseFloat(e)), t) {
+            if (__mockedCompare("javascript", t, "===")) return o.date(1 * e);
+            if (__mockedCompare("unix", t, "===")) return o.date(1e3 * e);
+            if (__mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "==")) return null;
           }
           return o.date(e);
         }, __mockedFunctionPrototype), o.date = Object.setPrototypeOf(function (e) {
@@ -3499,7 +3499,7 @@
               },
               validate: (e, t, {
                 n: r
-              }) => e.length === r ? e : t.error("function.arity", Object.setPrototypeOf({
+              }) => __mockedCompare(e.length, r, "===") ? e : t.error("function.arity", Object.setPrototypeOf({
                 n: r
               }, __mockedObjectPrototype))
             }, __mockedObjectPrototype),
@@ -3609,16 +3609,16 @@
               const n = Object.setPrototypeOf([], __mockedArrayPrototype);
               for (const a of e.$_terms.keys) {
                 const e = a.schema.$_jsonSchema(r, s);
-                t.properties[a.key] = e, ("required" === a.schema._flags.presence || "output" === r && void 0 !== a.schema._flags.default) && n.push(a.key);
+                t.properties[a.key] = e, (__mockedCompare("required", a.schema._flags.presence, "===") || __mockedCompare("output", r, "===") && __mockedCompare(void 0, a.schema._flags.default, "!==")) && n.push(a.key);
               }
               n.length && (t.required = n.sort());
             }
             if (e.$_terms.patterns) {
               const n = Object.setPrototypeOf({}, __mockedObjectPrototype);
-              for (const a of e.$_terms.patterns) a.regex ? n[a.regex.source] = a.rule.$_jsonSchema(r, s) : "any" === a.schema.type ? t.additionalProperties = a.rule.$_jsonSchema(r, s) : n[".*"] = a.rule.$_jsonSchema(r, s);
+              for (const a of e.$_terms.patterns) a.regex ? n[a.regex.source] = a.rule.$_jsonSchema(r, s) : __mockedCompare("any", a.schema.type, "===") ? t.additionalProperties = a.rule.$_jsonSchema(r, s) : n[".*"] = a.rule.$_jsonSchema(r, s);
               Object.keys(n).length && (t.patternProperties = n);
             }
-            return void 0 === t.additionalProperties && !1 == (!0 === e._flags.unknown || void 0 === e._flags.unknown && !e.$_terms.keys && !e.$_terms.patterns && !e._flags.only) && (t.additionalProperties = !1), t;
+            return __mockedCompare(void 0, t.additionalProperties, "===") && __mockedCompare(!1, __mockedCompare(!0, e._flags.unknown, "===") || __mockedCompare(void 0, e._flags.unknown, "===") && !e.$_terms.keys && !e.$_terms.patterns && !e._flags.only, "==") && (t.additionalProperties = !1), t;
           },
           validate(e, {
             schema: t,
@@ -3626,7 +3626,7 @@
             state: s,
             prefs: n
           }) {
-            if (!e || (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) !== t.$_property("typeof") || Array.isArray(e)) return Object.setPrototypeOf({
+            if (!e || __mockedCompare(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, t.$_property("typeof"), "!==") || Array.isArray(e)) return Object.setPrototypeOf({
               value: e,
               errors: r("object.base", Object.setPrototypeOf({
                 type: t.$_property("typeof")
@@ -3657,8 +3657,8 @@
                     value: e,
                     errors: u.errors
                   }, __mockedObjectPrototype);
-                  void 0 !== u.value && (e[t] = u.value), a.push(...u.errors);
-                } else "strip" === o.schema._flags.result || void 0 === u.value && void 0 !== l ? delete e[t] : void 0 !== u.value && (e[t] = u.value);
+                  __mockedCompare(void 0, u.value, "!==") && (e[t] = u.value), a.push(...u.errors);
+                } else __mockedCompare("strip", o.schema._flags.result, "===") || __mockedCompare(void 0, u.value, "===") && __mockedCompare(void 0, l, "!==") ? delete e[t] : __mockedCompare(void 0, u.value, "!==") && (e[t] = u.value);
               }
             }
             if (i.size || t._flags._hasPatternMatch) {
@@ -3666,9 +3666,9 @@
               if (r) return r;
             }
             if (t.$_terms.dependencies) for (const r of t.$_terms.dependencies) {
-              if (null !== r.key && !1 === h.isPresent(r.options)(r.key.resolve(e, s, n, null, Object.setPrototypeOf({
+              if (__mockedCompare(null, r.key, "!==") && __mockedCompare(!1, h.isPresent(r.options)(r.key.resolve(e, s, n, null, Object.setPrototypeOf({
                 shadow: !1
-              }, __mockedObjectPrototype)))) continue;
+              }, __mockedObjectPrototype))), "===")) continue;
               const i = h.dependencies[r.rel](t, r, e, s, n);
               if (i) {
                 const r = t.$_createError(i.code, e, i.context, s, n);
@@ -3692,12 +3692,12 @@
             }, __mockedObjectPrototype),
             append: Object.setPrototypeOf({
               method(e) {
-                return null == e || 0 === Object.keys(e).length ? this : this.keys(e);
+                return __mockedCompare(null, e, "==") || __mockedCompare(0, Object.keys(e).length, "===") ? this : this.keys(e);
               }
             }, __mockedObjectPrototype),
             assert: Object.setPrototypeOf({
               method(e, t, r) {
-                m.isTemplate(e) || (e = c.ref(e)), n(void 0 === r || "string" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r), "Message must be a string"), t = this.$_compile(t, Object.setPrototypeOf({
+                m.isTemplate(e) || (e = c.ref(e)), n(__mockedCompare(void 0, r, "===") || __mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Message must be a string"), t = this.$_compile(t, Object.setPrototypeOf({
                   appendPath: !0
                 }, __mockedObjectPrototype));
                 const s = this.$_addRule(Object.setPrototypeOf({
@@ -3731,7 +3731,7 @@
             }, __mockedObjectPrototype),
             instance: Object.setPrototypeOf({
               method(e, t) {
-                return n("function" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "constructor must be a function"), t = t || e.name, this.$_addRule(Object.setPrototypeOf({
+                return n(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "constructor must be a function"), t = t || e.name, this.$_addRule(Object.setPrototypeOf({
                   name: "instance",
                   args: Object.setPrototypeOf({
                     constructor: e,
@@ -3750,7 +3750,7 @@
             }, __mockedObjectPrototype),
             keys: Object.setPrototypeOf({
               method(e) {
-                n(void 0 === e || "object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Object schema must be a valid object"), n(!l.isSchema(e), "Object schema cannot be a joi schema");
+                n(__mockedCompare(void 0, e, "===") || __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Object schema must be a valid object"), n(!l.isSchema(e), "Object schema cannot be a joi schema");
                 const t = this.clone();
                 if (e) {
                   if (Object.keys(e).length) {
@@ -3838,7 +3838,7 @@
                 const s = e instanceof RegExp;
                 s || (e = this.$_compile(e, Object.setPrototypeOf({
                   appendPath: !0
-                }, __mockedObjectPrototype))), n(void 0 !== t, "Invalid rule"), l.assertOptions(r, Object.setPrototypeOf(["fallthrough", "matches"], __mockedArrayPrototype)), s && n(!e.flags.includes("g") && !e.flags.includes("y"), "pattern should not use global or sticky mode"), t = this.$_compile(t, Object.setPrototypeOf({
+                }, __mockedObjectPrototype))), n(__mockedCompare(void 0, t, "!=="), "Invalid rule"), l.assertOptions(r, Object.setPrototypeOf(["fallthrough", "matches"], __mockedArrayPrototype)), s && n(!e.flags.includes("g") && !e.flags.includes("y"), "pattern should not use global or sticky mode"), t = this.$_compile(t, Object.setPrototypeOf({
                   appendPath: !0
                 }, __mockedObjectPrototype));
                 const a = this.clone();
@@ -3847,7 +3847,7 @@
                   [s ? "regex" : "schema"]: e,
                   rule: t
                 }, __mockedObjectPrototype);
-                return r.matches && (i.matches = this.$_compile(r.matches), "array" !== i.matches.type && (i.matches = i.matches.$_root.array().items(i.matches)), a.$_mutateRegister(i.matches), a.$_setFlag("_hasPatternMatch", !0, Object.setPrototypeOf({
+                return r.matches && (i.matches = this.$_compile(r.matches), __mockedCompare("array", i.matches.type, "!==") && (i.matches = i.matches.$_root.array().items(i.matches)), a.$_mutateRegister(i.matches), a.$_setFlag("_hasPatternMatch", !0, Object.setPrototypeOf({
                   clone: !1
                 }, __mockedObjectPrototype))), r.fallthrough && (i.fallthrough = !0), a.$_terms.patterns.push(i), a.$_mutateRegister(t), a;
               }
@@ -3870,10 +3870,10 @@
             }, __mockedObjectPrototype),
             rename: Object.setPrototypeOf({
               method(e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                n("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) || e instanceof RegExp, "Rename missing the from argument"), n("string" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t) || t instanceof m, "Invalid rename to argument"), n(t !== e, "Cannot rename key to same name:", e), l.assertOptions(r, Object.setPrototypeOf(["alias", "ignoreUndefined", "override", "multiple"], __mockedArrayPrototype));
+                n(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") || e instanceof RegExp, "Rename missing the from argument"), n(__mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") || t instanceof m, "Invalid rename to argument"), n(__mockedCompare(t, e, "!=="), "Cannot rename key to same name:", e), l.assertOptions(r, Object.setPrototypeOf(["alias", "ignoreUndefined", "override", "multiple"], __mockedArrayPrototype));
                 const a = this.clone();
                 a.$_terms.renames = a.$_terms.renames || Object.setPrototypeOf([], __mockedArrayPrototype);
-                for (const t of a.$_terms.renames) n(t.from !== e, "Cannot rename the same key multiple times");
+                for (const t of a.$_terms.renames) n(__mockedCompare(t.from, e, "!=="), "Cannot rename the same key multiple times");
                 return t instanceof m && a.$_mutateRegister(t), a.$_terms.renames.push(Object.setPrototypeOf({
                   from: e,
                   to: t,
@@ -3892,13 +3892,13 @@
               },
               validate: (e, t, {
                 type: r
-              }) => !l.isSchema(e) || "any" !== r && e.type !== r ? t.error("object.schema", Object.setPrototypeOf({
+              }) => !l.isSchema(e) || __mockedCompare("any", r, "!==") && __mockedCompare(e.type, r, "!==") ? t.error("object.schema", Object.setPrototypeOf({
                 type: r
               }, __mockedObjectPrototype)) : e
             }, __mockedObjectPrototype),
             unknown: Object.setPrototypeOf({
               method(e) {
-                return this.$_setFlag("unknown", !1 !== e);
+                return this.$_setFlag("unknown", __mockedCompare(!1, e, "!=="));
               }
             }, __mockedObjectPrototype),
             with: Object.setPrototypeOf({
@@ -3919,13 +3919,13 @@
           }, __mockedObjectPrototype),
           overrides: Object.setPrototypeOf({
             default(e, t) {
-              return void 0 === e && (e = l.symbols.deepDefault), this.$_parent("default", e, t);
+              return __mockedCompare(void 0, e, "===") && (e = l.symbols.deepDefault), this.$_parent("default", e, t);
             },
             isAsync() {
               var e, t, r;
-              if (null !== (e = this.$_terms.externals) && void 0 !== e && e.length) return !0;
-              if (null !== (t = this.$_terms.keys) && void 0 !== t && t.length) for (const e of this.$_terms.keys) if (e.schema.isAsync()) return !0;
-              if (null !== (r = this.$_terms.patterns) && void 0 !== r && r.length) for (const e of this.$_terms.patterns) if (e.rule.isAsync()) return !0;
+              if (__mockedCompare(null, e = this.$_terms.externals, "!==") && __mockedCompare(void 0, e, "!==") && e.length) return !0;
+              if (__mockedCompare(null, t = this.$_terms.keys, "!==") && __mockedCompare(void 0, t, "!==") && t.length) for (const e of this.$_terms.keys) if (e.schema.isAsync()) return !0;
+              if (__mockedCompare(null, r = this.$_terms.patterns, "!==") && __mockedCompare(void 0, r, "!==") && r.length) for (const e of this.$_terms.patterns) if (e.rule.isAsync()) return !0;
               return !1;
             }
           }, __mockedObjectPrototype),
@@ -3988,7 +3988,7 @@
             "object.xor": "{{#label}} contains a conflict between exclusive peers {{#peersWithLabels}}"
           }, __mockedObjectPrototype)
         }, __mockedObjectPrototype)), h.clone = Object.setPrototypeOf(function (e, t) {
-          if ("object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) {
+          if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) {
             if (t.nonEnumerables) return a(e, Object.setPrototypeOf({
               shallow: !0
             }, __mockedObjectPrototype));
@@ -4006,17 +4006,17 @@
             writable: !1
           }, __mockedObjectPrototype)), Object.assign(r, e), r;
         }, __mockedFunctionPrototype), h.dependency = Object.setPrototypeOf(function (e, t, r, s, a) {
-          n(null === r || "string" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r), t, "key must be a strings"), a || (a = s.length > 1 && "object" == function (x) {
+          n(__mockedCompare(null, r, "===") || __mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), t, "key must be a strings"), a || (a = s.length > 1 && __mockedCompare("object", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(s[s.length - 1]) ? s.pop() : Object.setPrototypeOf({}, __mockedObjectPrototype)), l.assertOptions(a, Object.setPrototypeOf(["separator", "isPresent"], __mockedArrayPrototype)), s = Object.setPrototypeOf([], __mockedArrayPrototype).concat(s);
+          }(s[s.length - 1]), "==") ? s.pop() : Object.setPrototypeOf({}, __mockedObjectPrototype)), l.assertOptions(a, Object.setPrototypeOf(["separator", "isPresent"], __mockedArrayPrototype)), s = Object.setPrototypeOf([], __mockedArrayPrototype).concat(s);
           const i = l.default(a.separator, "."),
             o = Object.setPrototypeOf([], __mockedArrayPrototype);
-          for (const e of s) n("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), t, "peers must be strings"), o.push(c.ref(e, Object.setPrototypeOf({
+          for (const e of s) n(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), t, "peers must be strings"), o.push(c.ref(e, Object.setPrototypeOf({
             separator: i,
             ancestor: 0,
             prefix: !1
           }, __mockedObjectPrototype)));
-          null !== r && (r = c.ref(r, Object.setPrototypeOf({
+          __mockedCompare(null, r, "!==") && (r = c.ref(r, Object.setPrototypeOf({
             separator: i,
             ancestor: 0,
             prefix: !1
@@ -4029,10 +4029,10 @@
               i = Object.setPrototypeOf([], __mockedArrayPrototype),
               o = t.peers.length,
               l = h.isPresent(t.options);
-            for (const e of t.peers) !1 === l(e.resolve(r, s, n, null, Object.setPrototypeOf({
+            for (const e of t.peers) __mockedCompare(!1, l(e.resolve(r, s, n, null, Object.setPrototypeOf({
               shadow: !1
-            }, __mockedObjectPrototype))) ? a.push(e.key) : i.push(e.key);
-            if (a.length !== o && i.length !== o) return Object.setPrototypeOf({
+            }, __mockedObjectPrototype))), "===") ? a.push(e.key) : i.push(e.key);
+            if (__mockedCompare(a.length, o, "!==") && __mockedCompare(i.length, o, "!==")) return Object.setPrototypeOf({
               code: "object.and",
               context: Object.setPrototypeOf({
                 present: i,
@@ -4048,7 +4048,7 @@
             for (const e of t.peers) i(e.resolve(r, s, n, null, Object.setPrototypeOf({
               shadow: !1
             }, __mockedObjectPrototype))) && a.push(e.key);
-            if (a.length !== t.peers.length) return;
+            if (__mockedCompare(a.length, t.peers.length, "!==")) return;
             const o = t.paths[0],
               l = t.paths.slice(1);
             return Object.setPrototypeOf({
@@ -4080,7 +4080,7 @@
             for (const e of t.peers) i(e.resolve(r, s, n, null, Object.setPrototypeOf({
               shadow: !1
             }, __mockedObjectPrototype))) && a.push(e.key);
-            if (!a.length || 1 === a.length) return;
+            if (!a.length || __mockedCompare(1, a.length, "===")) return;
             const o = Object.setPrototypeOf({
               peers: t.paths,
               peersWithLabels: h.keysToLabels(e, t.paths)
@@ -4092,9 +4092,9 @@
           },
           with(e, t, r, s, n) {
             const a = h.isPresent(t.options);
-            for (const i of t.peers) if (!1 === a(i.resolve(r, s, n, null, Object.setPrototypeOf({
+            for (const i of t.peers) if (__mockedCompare(!1, a(i.resolve(r, s, n, null, Object.setPrototypeOf({
               shadow: !1
-            }, __mockedObjectPrototype)))) return Object.setPrototypeOf({
+            }, __mockedObjectPrototype))), "===")) return Object.setPrototypeOf({
               code: "object.with",
               context: Object.setPrototypeOf({
                 main: t.key.key,
@@ -4124,12 +4124,12 @@
             for (const e of t.peers) i(e.resolve(r, s, n, null, Object.setPrototypeOf({
               shadow: !1
             }, __mockedObjectPrototype))) && a.push(e.key);
-            if (1 === a.length) return;
+            if (__mockedCompare(1, a.length, "===")) return;
             const o = Object.setPrototypeOf({
               peers: t.paths,
               peersWithLabels: h.keysToLabels(e, t.paths)
             }, __mockedObjectPrototype);
-            return 0 === a.length ? Object.setPrototypeOf({
+            return __mockedCompare(0, a.length, "===") ? Object.setPrototypeOf({
               code: "object.missing",
               context: o
             }, __mockedObjectPrototype) : (o.present = a, o.presentWithLabels = h.keysToLabels(e, a), Object.setPrototypeOf({
@@ -4140,30 +4140,30 @@
         }, __mockedObjectPrototype), h.keysToLabels = Object.setPrototypeOf(function (e, t) {
           return Array.isArray(t) ? t.map(t => e.$_mapLabels(t)) : e.$_mapLabels(t);
         }, __mockedFunctionPrototype), h.isPresent = Object.setPrototypeOf(function (e) {
-          return "function" == function (x) {
+          return __mockedCompare("function", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(e.isPresent) ? e.isPresent : e => void 0 !== e;
+          }(e.isPresent), "==") ? e.isPresent : e => __mockedCompare(void 0, e, "!==");
         }, __mockedFunctionPrototype), h.rename = Object.setPrototypeOf(function (e, t, r, s, n) {
           const a = Object.setPrototypeOf({}, __mockedObjectPrototype);
           for (const i of e.$_terms.renames) {
             const o = Object.setPrototypeOf([], __mockedArrayPrototype),
-              l = "string" != function (x) {
+              l = __mockedCompare("string", function (x) {
                 return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-              }(i.from);
+              }(i.from), "!=");
             if (l) for (const e in t) {
-              if (void 0 === t[e] && i.options.ignoreUndefined) continue;
-              if (e === i.to) continue;
+              if (__mockedCompare(void 0, t[e], "===") && i.options.ignoreUndefined) continue;
+              if (__mockedCompare(e, i.to, "===")) continue;
               const r = i.from.exec(e);
               r && o.push(Object.setPrototypeOf({
                 from: e,
                 to: i.to,
                 match: r
               }, __mockedObjectPrototype));
-            } else !Object.prototype.hasOwnProperty.call(t, i.from) || void 0 === t[i.from] && i.options.ignoreUndefined || o.push(i);
+            } else !Object.prototype.hasOwnProperty.call(t, i.from) || __mockedCompare(void 0, t[i.from], "===") && i.options.ignoreUndefined || o.push(i);
             for (const c of o) {
               const o = c.from;
               let u = c.to;
-              if (u instanceof m && (u = u.render(t, r, s, c.match)), o !== u) {
+              if (u instanceof m && (u = u.render(t, r, s, c.match)), __mockedCompare(o, u, "!==")) {
                 if (!i.options.multiple && a[u] && (n.push(e.$_createError("object.rename.multiple", t, Object.setPrototypeOf({
                   from: o,
                   to: u,
@@ -4174,7 +4174,7 @@
                   to: u,
                   pattern: l
                 }, __mockedObjectPrototype), r, s)), s.abortEarly)) return !1;
-                void 0 === t[o] ? delete t[u] : t[u] = t[o], a[u] = !0, i.options.alias || delete t[o];
+                __mockedCompare(void 0, t[o], "===") ? delete t[u] : t[u] = t[o], a[u] = !0, i.options.alias || delete t[o];
               }
             }
           }
@@ -4232,11 +4232,11 @@
             }
           }
           if (r.size && (e.$_terms.keys || e.$_terms.patterns)) {
-            if (a.stripUnknown && void 0 === e._flags.unknown || a.skipFunctions) {
-              const e = !(!a.stripUnknown || !0 !== a.stripUnknown && !a.stripUnknown.objects);
-              for (const s of r) e ? (delete t[s], r.delete(s)) : "function" == function (x) {
+            if (a.stripUnknown && __mockedCompare(void 0, e._flags.unknown, "===") || a.skipFunctions) {
+              const e = !(!a.stripUnknown || __mockedCompare(!0, a.stripUnknown, "!==") && !a.stripUnknown.objects);
+              for (const s of r) e ? (delete t[s], r.delete(s)) : __mockedCompare("function", function (x) {
                 return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-              }(t[s]) && r.delete(s);
+              }(t[s]), "==") && r.delete(s);
             }
             if (!l.default(e._flags.unknown, a.allowUnknown)) for (const i of r) {
               const r = n.localize(Object.setPrototypeOf([...n.path, i], __mockedArrayPrototype), Object.setPrototypeOf([], __mockedArrayPrototype)),
@@ -4263,7 +4263,7 @@
               rel: this.rel,
               peers: this.paths
             }, __mockedObjectPrototype);
-            return null !== this.key && (e.key = this.key.key), "." !== this.peers[0].separator && (e.options = Object.setPrototypeOf({
+            return __mockedCompare(null, this.key, "!==") && (e.key = this.key.key), __mockedCompare(".", this.peers[0].separator, "!==") && (e.options = Object.setPrototypeOf({
               ...e.options,
               separator: this.peers[0].separator
             }, __mockedObjectPrototype)), this.options.isPresent && (e.options = Object.setPrototypeOf({
@@ -4279,7 +4279,7 @@
             for (const s of e) {
               const e = s.key,
                 n = r.get(e);
-              void 0 !== n ? t[n] = Object.setPrototypeOf({
+              __mockedCompare(void 0, n, "!==") ? t[n] = Object.setPrototypeOf({
                 key: e,
                 schema: t[n].schema.concat(s.schema)
               }, __mockedObjectPrototype) : t.push(s);
@@ -4317,7 +4317,7 @@
             const {
               ref: n
             } = e.$_terms.link[0];
-            return "root" === n.ancestor || n.ancestor > 0 ? (t.$ref = `#/${n.path.map(e => `properties/${e}`).join("/")}`, t) : (1 === n.path.length ? t.$ref = `#/$defs/${n.path[0]}` : t.$ref = `#/${n.path.slice(1).map(e => `properties/${e}`).join("/")}`, t);
+            return __mockedCompare("root", n.ancestor, "===") || n.ancestor > 0 ? (t.$ref = `#/${n.path.map(e => `properties/${e}`).join("/")}`, t) : (__mockedCompare(1, n.path.length, "===") ? t.$ref = `#/$defs/${n.path[0]}` : t.$ref = `#/${n.path.slice(1).map(e => `properties/${e}`).join("/")}`, t);
           },
           validate(e, {
             schema: t,
@@ -4333,7 +4333,7 @@
           rules: Object.setPrototypeOf({
             ref: Object.setPrototypeOf({
               method(e) {
-                s(!this.$_terms.link, "Cannot reinitialize schema"), e = i.ref(e), s("value" === e.type || "local" === e.type, "Invalid reference type:", e.type), s("local" === e.type || "root" === e.ancestor || e.ancestor > 0, "Link cannot reference itself");
+                s(!this.$_terms.link, "Cannot reinitialize schema"), e = i.ref(e), s(__mockedCompare("value", e.type, "===") || __mockedCompare("local", e.type, "==="), "Invalid reference type:", e.type), s(__mockedCompare("local", e.type, "===") || __mockedCompare("root", e.ancestor, "===") || e.ancestor > 0, "Link cannot reference itself");
                 const t = this.clone();
                 return t.$_terms.link = Object.setPrototypeOf([Object.setPrototypeOf({
                   ref: e
@@ -4348,7 +4348,7 @@
           }, __mockedObjectPrototype),
           overrides: Object.setPrototypeOf({
             concat(e) {
-              s(this.$_terms.link, "Uninitialized link schema"), s(a.isSchema(e), "Invalid schema object"), s("link" !== e.type, "Cannot merge type link with another link");
+              s(this.$_terms.link, "Uninitialized link schema"), s(a.isSchema(e), "Invalid schema object"), s(__mockedCompare("link", e.type, "!=="), "Cannot merge type link with another link");
               const t = this.clone();
               return t.$_terms.whens || (t.$_terms.whens = Object.setPrototypeOf([], __mockedArrayPrototype)), t.$_terms.whens.push(Object.setPrototypeOf({
                 concat: e
@@ -4372,18 +4372,18 @@
           } catch {
             l.assert(!1, "to non-existing schema", a, e, r, s);
           }
-          return l.assert("link" !== n.type, "which is another link", a, e, r, s), e._flags.relative || r.mainstay.links.set(e, n), n._generate(t, r, s).schema;
+          return l.assert(__mockedCompare("link", n.type, "!=="), "which is another link", a, e, r, s), e._flags.relative || r.mainstay.links.set(e, n), n._generate(t, r, s).schema;
         }, __mockedFunctionPrototype), l.perspective = Object.setPrototypeOf(function (e, t) {
-          if ("local" === e.type) {
+          if (__mockedCompare("local", e.type, "===")) {
             for (const {
               schema: r,
               key: s
             } of t.schemas) {
-              if ((r._flags.id || s) === e.path[0]) return Object.setPrototypeOf({
+              if (__mockedCompare(r._flags.id || s, e.path[0], "===")) return Object.setPrototypeOf({
                 perspective: r,
                 path: e.path.slice(1)
               }, __mockedObjectPrototype);
-              if (r.$_terms.shared) for (const t of r.$_terms.shared) if (t._flags.id === e.path[0]) return Object.setPrototypeOf({
+              if (r.$_terms.shared) for (const t of r.$_terms.shared) if (__mockedCompare(t._flags.id, e.path[0], "===")) return Object.setPrototypeOf({
                 perspective: t,
                 path: e.path.slice(1)
               }, __mockedObjectPrototype);
@@ -4393,7 +4393,7 @@
               path: null
             }, __mockedObjectPrototype);
           }
-          return "root" === e.ancestor ? Object.setPrototypeOf({
+          return __mockedCompare("root", e.ancestor, "===") ? Object.setPrototypeOf({
             perspective: t.schemas[t.schemas.length - 1].schema,
             path: e.path
           }, __mockedObjectPrototype) : Object.setPrototypeOf({
@@ -4444,12 +4444,12 @@
               const s = Object.setPrototypeOf({
                 value: parseFloat(e)
               }, __mockedObjectPrototype);
-              if (0 === s.value && (s.value = 0), !t._flags.unsafe) if (e.match(/e/i)) {
-                if (i.extractSignificantDigits(e) !== i.extractSignificantDigits(String(s.value))) return s.errors = r("number.unsafe"), s;
+              if (__mockedCompare(0, s.value, "===") && (s.value = 0), !t._flags.unsafe) if (e.match(/e/i)) {
+                if (__mockedCompare(i.extractSignificantDigits(e), i.extractSignificantDigits(String(s.value)), "!==")) return s.errors = r("number.unsafe"), s;
               } else {
                 const t = s.value.toString();
                 if (t.match(/e/i)) return s;
-                if (t !== i.normalizeDecimal(e)) return s.errors = r("number.unsafe"), s;
+                if (__mockedCompare(t, i.normalizeDecimal(e), "!==")) return s.errors = r("number.unsafe"), s;
               }
               return s;
             }
@@ -4459,7 +4459,7 @@
             error: r,
             prefs: s
           }) {
-            if (e === 1 / 0 || e === -1 / 0) return Object.setPrototypeOf({
+            if (__mockedCompare(e, 1 / 0, "===") || __mockedCompare(e, -1 / 0, "===")) return Object.setPrototypeOf({
               value: e,
               errors: r("number.infinity")
             }, __mockedObjectPrototype);
@@ -4477,7 +4477,7 @@
                 n.value = Math.round(n.value * t) / t;
               }
             }
-            return 0 === n.value && (n.value = 0), !t._flags.unsafe && (e > Number.MAX_SAFE_INTEGER || e < Number.MIN_SAFE_INTEGER) && (n.errors = r("number.unsafe")), n;
+            return __mockedCompare(0, n.value, "===") && (n.value = 0), !t._flags.unsafe && (e > Number.MAX_SAFE_INTEGER || e < Number.MIN_SAFE_INTEGER) && (n.errors = r("number.unsafe")), n;
           },
           rules: Object.setPrototypeOf({
             compare: Object.setPrototypeOf({
@@ -4516,7 +4516,7 @@
               method() {
                 return this.$_addRule("integer");
               },
-              validate: (e, t) => Math.trunc(e) - e === 0 ? e : t.error("number.integer"),
+              validate: (e, t) => __mockedCompare(Math.trunc(e) - e, 0, "===") ? e : t.error("number.integer"),
               jsonSchema: (e, t) => (t.type = "integer", t)
             }, __mockedObjectPrototype),
             less: Object.setPrototypeOf({
@@ -4560,7 +4560,7 @@
             }, __mockedObjectPrototype),
             multiple: Object.setPrototypeOf({
               method(e) {
-                const t = "number" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) ? i.decimalPlaces(e) : null,
+                const t = __mockedCompare("number", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? i.decimalPlaces(e) : null,
                   r = Math.pow(10, t);
                 return this.$_addRule(Object.setPrototypeOf({
                   name: "multiple",
@@ -4578,7 +4578,7 @@
               }, a) => i.decimalPlaces(e) > s ? t.error("number.multiple", Object.setPrototypeOf({
                 multiple: a.args.base,
                 value: e
-              }, __mockedObjectPrototype)) : Math.round(n * e) % Math.round(n * r) === 0 ? e : t.error("number.multiple", Object.setPrototypeOf({
+              }, __mockedObjectPrototype)) : __mockedCompare(Math.round(n * e) % Math.round(n * r), 0, "===") ? e : t.error("number.multiple", Object.setPrototypeOf({
                 multiple: a.args.base,
                 value: e
               }, __mockedObjectPrototype)),
@@ -4586,7 +4586,7 @@
               args: Object.setPrototypeOf([Object.setPrototypeOf({
                 name: "base",
                 ref: !0,
-                assert: e => "number" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && isFinite(e) && e > 0,
+                assert: e => __mockedCompare("number", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && isFinite(e) && e > 0,
                 message: "must be a positive number"
               }, __mockedObjectPrototype), "baseDecimalPlace", "pfactor"], __mockedArrayPrototype),
               multi: !0
@@ -4639,18 +4639,18 @@
               },
               validate: (e, t, {
                 sign: r
-              }) => "negative" === r && e < 0 || "positive" === r && e > 0 ? e : t.error(`number.${r}`),
-              jsonSchema: (e, t) => ("positive" === e.args.sign ? t.exclusiveMinimum = 0 : t.exclusiveMaximum = 0, t)
+              }) => __mockedCompare("negative", r, "===") && e < 0 || __mockedCompare("positive", r, "===") && e > 0 ? e : t.error(`number.${r}`),
+              jsonSchema: (e, t) => (__mockedCompare("positive", e.args.sign, "===") ? t.exclusiveMinimum = 0 : t.exclusiveMaximum = 0, t)
             }, __mockedObjectPrototype),
             unsafe: Object.setPrototypeOf({
               method(e = !0) {
-                return s("boolean" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "enabled must be a boolean"), this.$_setFlag("unsafe", e);
+                return s(__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "enabled must be a boolean"), this.$_setFlag("unsafe", e);
               }
             }, __mockedObjectPrototype)
           }, __mockedObjectPrototype),
           cast: Object.setPrototypeOf({
             string: Object.setPrototypeOf({
-              from: e => "number" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e),
+              from: e => __mockedCompare("number", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="),
               to: (e, t) => e.toString()
             }, __mockedObjectPrototype)
           }, __mockedObjectPrototype),
@@ -4672,7 +4672,7 @@
         }, __mockedObjectPrototype)), i.extractSignificantDigits = Object.setPrototypeOf(function (e) {
           return e.replace(i.exponentialPartRegex, "").replace(i.dotRegex, "").replace(i.trailingZerosRegex, "").replace(i.leadingSignAndZerosRegex, "");
         }, __mockedFunctionPrototype), i.normalizeDecimal = Object.setPrototypeOf(function (e) {
-          return (e = e.replace(/^\+/, "").replace(/\.0*$/, "").replace(/^(-?)\.([^\.]*)$/, "$10.$2").replace(/^(-?)0+([0-9])/, "$1$2")).includes(".") && e.endsWith("0") && (e = e.replace(/0+$/, "")), "-0" === e ? "0" : e;
+          return (e = e.replace(/^\+/, "").replace(/\.0*$/, "").replace(/^(-?)\.([^\.]*)$/, "$10.$2").replace(/^(-?)0+([0-9])/, "$1$2")).includes(".") && e.endsWith("0") && (e = e.replace(/0+$/, "")), __mockedCompare("-0", e, "===") ? "0" : e;
         }, __mockedFunctionPrototype);
       },
       7487(e, t, r) {
@@ -4683,7 +4683,7 @@
           type: "object",
           cast: Object.setPrototypeOf({
             map: Object.setPrototypeOf({
-              from: e => e && "object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e),
+              from: e => e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="),
               to: (e, t) => new Map(Object.entries(e))
             }, __mockedObjectPrototype)
           }, __mockedObjectPrototype)
@@ -4776,11 +4776,11 @@
               const n = t.$_getRule("normalize");
               n && (e = e.normalize(n.args.form));
               const a = t.$_getRule("case");
-              a && (e = "upper" === a.args.direction ? e.toLocaleUpperCase() : e.toLocaleLowerCase());
+              a && (e = __mockedCompare("upper", a.args.direction, "===") ? e.toLocaleUpperCase() : e.toLocaleLowerCase());
               const i = t.$_getRule("trim");
               if (i && i.args.enabled && (e = e.trim()), t.$_terms.replacements) for (const r of t.$_terms.replacements) e = e.replace(r.pattern, r.replacement);
               const o = t.$_getRule("hex");
-              if (o && o.args.options.byteAligned && e.length % 2 != 0 && (e = `0${e}`), t.$_getRule("isoDate")) {
+              if (o && o.args.options.byteAligned && __mockedCompare(e.length % 2, 0, "!=") && (e = `0${e}`), t.$_getRule("isoDate")) {
                 const t = m.isoDate(e);
                 t && (e = t);
               }
@@ -4808,13 +4808,13 @@
             schema: t,
             error: r
           }) {
-            if ("string" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return Object.setPrototypeOf({
+            if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return Object.setPrototypeOf({
               value: e,
               errors: r("string.base")
             }, __mockedObjectPrototype);
-            if ("" === e) {
+            if (__mockedCompare("", e, "===")) {
               const s = t.$_getRule("min");
-              if (s && 0 === s.args.limit) return;
+              if (s && __mockedCompare(0, s.args.limit, "===")) return;
               return Object.setPrototypeOf({
                 value: e,
                 errors: r("string.empty")
@@ -4823,7 +4823,7 @@
           },
           jsonSchema(e, t, r, s) {
             var n;
-            if (!(null !== (n = e._valids) && void 0 !== n && n.has("") || e._flags.only)) {
+            if (!(__mockedCompare(null, n = e._valids, "!==") && __mockedCompare(void 0, n, "!==") && n.has("") || e._flags.only)) {
               const r = e.$_getRule("min"),
                 s = e.$_getRule("length");
               (!r || r.args.limit > 0) && (!s || s.args.limit > 0) && (t.minLength = 1);
@@ -4843,11 +4843,11 @@
                   urlSafe: !1,
                   paddingRequired: !0,
                   ...e
-                }, __mockedObjectPrototype), s("boolean" == function (x) {
+                }, __mockedObjectPrototype), s(__mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.paddingRequired), "paddingRequired must be boolean"), s("boolean" == function (x) {
+                }(e.paddingRequired), "=="), "paddingRequired must be boolean"), s(__mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.urlSafe), "urlSafe must be boolean"), this.$_addRule(Object.setPrototypeOf({
+                }(e.urlSafe), "=="), "urlSafe must be boolean"), this.$_addRule(Object.setPrototypeOf({
                   name: "base64",
                   args: Object.setPrototypeOf({
                     options: e
@@ -4870,7 +4870,7 @@
               },
               validate: (e, t, {
                 direction: r
-              }) => "lower" === r && e === e.toLocaleLowerCase() || "upper" === r && e === e.toLocaleUpperCase() ? e : t.error(`string.${r}case`),
+              }) => __mockedCompare("lower", r, "===") && __mockedCompare(e, e.toLocaleLowerCase(), "===") || __mockedCompare("upper", r, "===") && __mockedCompare(e, e.toLocaleUpperCase(), "===") ? e : t.error(`string.${r}case`),
               convert: !0
             }, __mockedObjectPrototype),
             creditCard: Object.setPrototypeOf({
@@ -4885,7 +4885,7 @@
                   const t = e.charAt(r) * n;
                   s += t - 9 * (t > 9), n ^= 3;
                 }
-                return s > 0 && s % 10 == 0 ? e : t.error("string.creditCard");
+                return s > 0 && __mockedCompare(s % 10, 0, "==") ? e : t.error("string.creditCard");
               }
             }, __mockedObjectPrototype),
             dataUri: Object.setPrototypeOf({
@@ -4893,9 +4893,9 @@
                 return f.assertOptions(e, Object.setPrototypeOf(["paddingRequired"], __mockedArrayPrototype)), e = Object.setPrototypeOf({
                   paddingRequired: !0,
                   ...e
-                }, __mockedObjectPrototype), s("boolean" == function (x) {
+                }, __mockedObjectPrototype), s(__mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.paddingRequired), "paddingRequired must be boolean"), this.$_addRule(Object.setPrototypeOf({
+                }(e.paddingRequired), "=="), "paddingRequired must be boolean"), this.$_addRule(Object.setPrototypeOf({
                   name: "dataUri",
                   args: Object.setPrototypeOf({
                     options: e
@@ -4908,7 +4908,7 @@
                 const s = e.match(m.dataUriRegex);
                 if (s) {
                   if (!s[2]) return e;
-                  if ("base64" !== s[2]) return e;
+                  if (__mockedCompare("base64", s[2], "!==")) return e;
                   if (m.base64Regex[r.paddingRequired].false.test(s[3])) return e;
                 }
                 return t.error("string.dataUri");
@@ -4933,9 +4933,9 @@
             }, __mockedObjectPrototype),
             email: Object.setPrototypeOf({
               method(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                f.assertOptions(e, Object.setPrototypeOf(["allowFullyQualified", "allowUnicode", "ignoreLength", "maxDomainSegments", "minDomainSegments", "multiple", "separator", "tlds"], __mockedArrayPrototype)), s(void 0 === e.multiple || "boolean" == function (x) {
+                f.assertOptions(e, Object.setPrototypeOf(["allowFullyQualified", "allowUnicode", "ignoreLength", "maxDomainSegments", "minDomainSegments", "multiple", "separator", "tlds"], __mockedArrayPrototype)), s(__mockedCompare(void 0, e.multiple, "===") || __mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.multiple), "multiple option must be an boolean");
+                }(e.multiple), "=="), "multiple option must be an boolean");
                 const t = m.addressOptions(e),
                   r = new RegExp(`\\s*[${e.separator ? n(e.separator) : ","}]\\s*`);
                 return this.$_addRule(Object.setPrototypeOf({
@@ -4966,13 +4966,13 @@
             guid: Object.setPrototypeOf({
               alias: "uuid",
               method(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                f.assertOptions(e, Object.setPrototypeOf(["version", "separator", "wrapper"], __mockedArrayPrototype)), s(void 0 === e.wrapper || "boolean" == function (x) {
+                f.assertOptions(e, Object.setPrototypeOf(["version", "separator", "wrapper"], __mockedArrayPrototype)), s(__mockedCompare(void 0, e.wrapper, "===") || __mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.wrapper) || "string" == function (x) {
+                }(e.wrapper), "==") || __mockedCompare("string", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.wrapper) && "string" == function (x) {
+                }(e.wrapper), "==") && __mockedCompare("string", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(m.guidBrackets[e.wrapper]), `"wrapper" must be true, false, or one of "${Object.keys(m.guidBrackets).filter(Boolean).join('", "')}"`);
+                }(m.guidBrackets[e.wrapper]), "=="), `"wrapper" must be true, false, or one of "${Object.keys(m.guidBrackets).filter(Boolean).join('", "')}"`);
                 let t = "";
                 if (e.version) {
                   const r = Object.setPrototypeOf([], __mockedArrayPrototype).concat(e.version);
@@ -4980,15 +4980,15 @@
                   const n = new Set();
                   for (let e = 0; e < r.length; ++e) {
                     const a = r[e];
-                    s("string" == (typeof a === "undefined" ? "undefined" : typeof a === "object" && a !== null ? a.__TYPEOF__ !== undefined ? a.__TYPEOF__ : "object" : typeof a), "version at position " + e + " must be a string");
+                    s(__mockedCompare("string", typeof a === "undefined" ? "undefined" : typeof a === "object" && a !== null ? a.__TYPEOF__ !== undefined ? a.__TYPEOF__ : "object" : typeof a, "=="), "version at position " + e + " must be a string");
                     const i = m.guidVersions[a.toLowerCase()];
                     s(i, "version at position " + e + " must be one of " + Object.keys(m.guidVersions).join(", ")), s(!n.has(i), "version at position " + e + " must not be a duplicate"), t += i, n.add(i);
                   }
                 }
                 s(m.guidSeparators.has(e.separator), 'separator must be one of true, false, "-", or ":"');
-                const r = void 0 === e.separator ? "[:-]?" : !0 === e.separator ? "[:-]" : !1 === e.separator ? "[]?" : `\\${e.separator}`;
+                const r = __mockedCompare(void 0, e.separator, "===") ? "[:-]?" : __mockedCompare(!0, e.separator, "===") ? "[:-]" : __mockedCompare(!1, e.separator, "===") ? "[]?" : `\\${e.separator}`;
                 let a, i;
-                void 0 === e.wrapper ? (a = "[\\[{\\(]?", i = "[\\]}\\)]?") : !0 === e.wrapper ? (a = "[\\[{\\(]", i = "[\\]}\\)]") : !1 === e.wrapper ? (a = "", i = "") : (a = n(e.wrapper), i = n(m.guidBrackets[e.wrapper]));
+                __mockedCompare(void 0, e.wrapper, "===") ? (a = "[\\[{\\(]?", i = "[\\]}\\)]?") : __mockedCompare(!0, e.wrapper, "===") ? (a = "[\\[{\\(]", i = "[\\]}\\)]") : __mockedCompare(!1, e.wrapper, "===") ? (a = "", i = "") : (a = n(e.wrapper), i = n(m.guidBrackets[e.wrapper]));
                 const o = new RegExp(`^(${a})[0-9A-F]{8}(${r})[0-9A-F]{4}\\2?[${t || "0-9A-F"}][0-9A-F]{3}\\2?[${t ? "89AB" : "0-9A-F"}][0-9A-F]{3}\\2?[0-9A-F]{12}(${i})$`, "i");
                 return this.$_addRule(Object.setPrototypeOf({
                   name: "guid",
@@ -5005,7 +5005,7 @@
                 if (!n) return t.error("string.guid");
                 const a = n[1],
                   i = n[n.length - 1];
-                return (a || i) && m.guidBrackets[a] !== i ? t.error("string.guid") : e;
+                return (a || i) && __mockedCompare(m.guidBrackets[a], i, "!==") ? t.error("string.guid") : e;
               },
               jsonSchema: (e, t) => (t.format = "uuid", t)
             }, __mockedObjectPrototype),
@@ -5015,11 +5015,11 @@
                   byteAligned: !1,
                   prefix: !1,
                   ...e
-                }, __mockedObjectPrototype), s("boolean" == function (x) {
+                }, __mockedObjectPrototype), s(__mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.byteAligned), "byteAligned must be boolean"), s("boolean" == function (x) {
+                }(e.byteAligned), "=="), "byteAligned must be boolean"), s(__mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.prefix) || "optional" === e.prefix, 'prefix must be boolean or "optional"'), this.$_addRule(Object.setPrototypeOf({
+                }(e.prefix), "==") || __mockedCompare("optional", e.prefix, "==="), 'prefix must be boolean or "optional"'), this.$_addRule(Object.setPrototypeOf({
                   name: "hex",
                   args: Object.setPrototypeOf({
                     options: e
@@ -5028,7 +5028,7 @@
               },
               validate: (e, t, {
                 options: r
-              }) => ("optional" === r.prefix ? m.hexRegex.withOptionalPrefix : !0 === r.prefix ? m.hexRegex.withPrefix : m.hexRegex.withoutPrefix).test(e) ? r.byteAligned && e.length % 2 != 0 ? t.error("string.hexAlign") : e : t.error("string.hex"),
+              }) => (__mockedCompare("optional", r.prefix, "===") ? m.hexRegex.withOptionalPrefix : __mockedCompare(!0, r.prefix, "===") ? m.hexRegex.withPrefix : m.hexRegex.withoutPrefix).test(e) ? r.byteAligned && __mockedCompare(e.length % 2, 0, "!=") ? t.error("string.hexAlign") : e : t.error("string.hex"),
               jsonSchema: (e, t) => (t.format = "hex", t)
             }, __mockedObjectPrototype),
             hostname: Object.setPrototypeOf({
@@ -5079,7 +5079,7 @@
               }, __mockedObjectPrototype)),
               jsonSchema(e, t) {
                 const r = e.args.options.version;
-                return r && 1 === r.length ? t.format = r[0] : t.format = "ip", t;
+                return r && __mockedCompare(1, r.length, "===") ? t.format = r[0] : t.format = "ip", t;
               }
             }, __mockedObjectPrototype),
             isoDate: Object.setPrototypeOf({
@@ -5157,7 +5157,7 @@
                 error: t
               }, {
                 form: r
-              }) => e === e.normalize(r) ? e : t("string.normalize", Object.setPrototypeOf({
+              }) => __mockedCompare(e, e.normalize(r), "===") ? e : t("string.normalize", Object.setPrototypeOf({
                 value: e,
                 form: r
               }, __mockedObjectPrototype)),
@@ -5166,7 +5166,7 @@
             pattern: Object.setPrototypeOf({
               alias: "regex",
               method(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                s(e instanceof RegExp, "regex must be a RegExp"), s(!e.flags.includes("g") && !e.flags.includes("y"), "regex should not use global or sticky mode"), "string" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t) && (t = Object.setPrototypeOf({
+                s(e instanceof RegExp, "regex must be a RegExp"), s(!e.flags.includes("g") && !e.flags.includes("y"), "regex should not use global or sticky mode"), __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") && (t = Object.setPrototypeOf({
                   name: t
                 }, __mockedObjectPrototype)), f.assertOptions(t, Object.setPrototypeOf(["invert", "name"], __mockedArrayPrototype));
                 const r = Object.setPrototypeOf(["string.pattern", t.invert ? ".invert" : "", t.name ? ".name" : ".base"], __mockedArrayPrototype).join("");
@@ -5195,7 +5195,7 @@
             }, __mockedObjectPrototype),
             replace: Object.setPrototypeOf({
               method(e, t) {
-                "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && (e = new RegExp(n(e), "g")), s(e instanceof RegExp, "pattern must be a RegExp"), s("string" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), "replacement must be a String");
+                __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (e = new RegExp(n(e), "g")), s(e instanceof RegExp, "pattern must be a RegExp"), s(__mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "replacement must be a String");
                 const r = this.clone();
                 return r.$_terms.replacements || (r.$_terms.replacements = Object.setPrototypeOf([], __mockedArrayPrototype)), r.$_terms.replacements.push(Object.setPrototypeOf({
                   pattern: e,
@@ -5212,7 +5212,7 @@
             }, __mockedObjectPrototype),
             trim: Object.setPrototypeOf({
               method(e = !0) {
-                return s("boolean" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "enabled must be a boolean"), this.$_addRule(Object.setPrototypeOf({
+                return s(__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "enabled must be a boolean"), this.$_addRule(Object.setPrototypeOf({
                   name: "trim",
                   args: Object.setPrototypeOf({
                     enabled: e
@@ -5221,12 +5221,12 @@
               },
               validate: (e, t, {
                 enabled: r
-              }) => r && e !== e.trim() ? t.error("string.trim") : e,
+              }) => r && __mockedCompare(e, e.trim(), "!==") ? t.error("string.trim") : e,
               convert: !0
             }, __mockedObjectPrototype),
             truncate: Object.setPrototypeOf({
               method(e = !0) {
-                return s("boolean" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "enabled must be a boolean"), this.$_setFlag("truncate", e);
+                return s(__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "enabled must be a boolean"), this.$_setFlag("truncate", e);
               }
             }, __mockedObjectPrototype),
             uppercase: Object.setPrototypeOf({
@@ -5323,11 +5323,11 @@
           }, __mockedObjectPrototype)
         }, __mockedObjectPrototype)), m.addressOptions = Object.setPrototypeOf(function (e) {
           if (!e) return m.tlds || e;
-          if (s(void 0 === e.minDomainSegments || Number.isSafeInteger(e.minDomainSegments) && e.minDomainSegments > 0, "minDomainSegments must be a positive integer"), s(void 0 === e.maxDomainSegments || Number.isSafeInteger(e.maxDomainSegments) && e.maxDomainSegments > 0, "maxDomainSegments must be a positive integer"), !1 === e.tlds) return e;
-          if (!0 === e.tlds || void 0 === e.tlds) return s(m.tlds, "Built-in TLD list disabled"), Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, m.tlds);
-          s("object" == function (x) {
+          if (s(__mockedCompare(void 0, e.minDomainSegments, "===") || Number.isSafeInteger(e.minDomainSegments) && e.minDomainSegments > 0, "minDomainSegments must be a positive integer"), s(__mockedCompare(void 0, e.maxDomainSegments, "===") || Number.isSafeInteger(e.maxDomainSegments) && e.maxDomainSegments > 0, "maxDomainSegments must be a positive integer"), __mockedCompare(!1, e.tlds, "===")) return e;
+          if (__mockedCompare(!0, e.tlds, "===") || __mockedCompare(void 0, e.tlds, "===")) return s(m.tlds, "Built-in TLD list disabled"), Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, m.tlds);
+          s(__mockedCompare("object", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(e.tlds), "tlds must be true, false, or an object");
+          }(e.tlds), "=="), "tlds must be true, false, or an object");
           const t = e.tlds.deny;
           if (t) return Array.isArray(t) && (e = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, Object.setPrototypeOf({
             tlds: Object.setPrototypeOf({
@@ -5335,7 +5335,7 @@
             }, __mockedObjectPrototype)
           }, __mockedObjectPrototype))), s(e.tlds.deny instanceof Set, "tlds.deny must be an array, Set, or boolean"), s(!e.tlds.allow, "Cannot specify both tlds.allow and tlds.deny lists"), m.validateTlds(e.tlds.deny, "tlds.deny"), e;
           const r = e.tlds.allow;
-          return r ? !0 === r ? (s(m.tlds, "Built-in TLD list disabled"), Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, m.tlds)) : (Array.isArray(r) && (e = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, Object.setPrototypeOf({
+          return r ? __mockedCompare(!0, r, "===") ? (s(m.tlds, "Built-in TLD list disabled"), Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, m.tlds)) : (Array.isArray(r) && (e = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, Object.setPrototypeOf({
             tlds: Object.setPrototypeOf({
               allow: new Set(r)
             }, __mockedObjectPrototype)
@@ -5390,7 +5390,7 @@
               error: r
             }) {
               const s = t.$_terms.map.get(e);
-              return s && (e = s), t._flags.only && "symbol" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) ? Object.setPrototypeOf({
+              return s && (e = s), t._flags.only && __mockedCompare("symbol", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") ? Object.setPrototypeOf({
                 value: e,
                 errors: r("symbol.map", Object.setPrototypeOf({
                   map: t.$_terms.map
@@ -5403,7 +5403,7 @@
           validate(e, {
             error: t
           }) {
-            if ("symbol" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return Object.setPrototypeOf({
+            if (__mockedCompare("symbol", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return Object.setPrototypeOf({
               value: e,
               errors: t("symbol.base")
             }, __mockedObjectPrototype);
@@ -5411,13 +5411,13 @@
           rules: Object.setPrototypeOf({
             map: Object.setPrototypeOf({
               method(e) {
-                e && !e[Symbol.iterator] && "object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && (e = Object.entries(e)), s(e && e[Symbol.iterator], "Iterable must be an iterable or object");
+                e && !e[Symbol.iterator] && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (e = Object.entries(e)), s(e && e[Symbol.iterator], "Iterable must be an iterable or object");
                 const t = this.clone(),
                   r = Object.setPrototypeOf([], __mockedArrayPrototype);
                 for (const n of e) {
                   s(n && n[Symbol.iterator], "Entry must be an iterable");
                   const [e, a] = n;
-                  s("object" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && "function" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && "symbol" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Key must not be of type object, function, or Symbol"), s("symbol" == (typeof a === "undefined" ? "undefined" : typeof a === "object" && a !== null ? a.__TYPEOF__ !== undefined ? a.__TYPEOF__ : "object" : typeof a), "Value must be a Symbol"), t.$_terms.map.set(e, a), r.push(a);
+                  s(__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") && __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") && __mockedCompare("symbol", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!="), "Key must not be of type object, function, or Symbol"), s(__mockedCompare("symbol", typeof a === "undefined" ? "undefined" : typeof a === "object" && a !== null ? a.__TYPEOF__ !== undefined ? a.__TYPEOF__ : "object" : typeof a, "=="), "Value must be a Symbol"), t.$_terms.map.set(e, a), r.push(a);
                 }
                 return t.valid(...r);
               }
@@ -5457,7 +5457,7 @@
           }, __mockedObjectPrototype);
         t.entry = Object.setPrototypeOf(function (e, t, r) {
           let n = o.defaults;
-          r && (s(void 0 === r.warnings, "Cannot override warnings preference in synchronous validation"), s(void 0 === r.artifacts, "Cannot override artifacts preference in synchronous validation"), n = o.preferences(o.defaults, r));
+          r && (s(__mockedCompare(void 0, r.warnings, "==="), "Cannot override warnings preference in synchronous validation"), s(__mockedCompare(void 0, r.artifacts, "==="), "Cannot override artifacts preference in synchronous validation"), n = o.preferences(o.defaults, r));
           const a = u.entry(e, t, n);
           s(!a.mainstay.externals.length, "Schema with external rules must use validateAsync()");
           const i = Object.setPrototypeOf({
@@ -5475,7 +5475,7 @@
             const c = Object.setPrototypeOf([], __mockedArrayPrototype);
             for (const n of a.externals) {
               const f = n.state.path,
-                m = "link" === n.schema.type ? a.links.get(n.schema) : null;
+                m = __mockedCompare("link", n.schema.type, "===") ? a.links.get(n.schema) : null;
               let h,
                 p,
                 d = t;
@@ -5502,7 +5502,7 @@
                       messages: e
                     }, __mockedObjectPrototype))
                   }, __mockedObjectPrototype));
-                if (void 0 === i || i === d) continue;
+                if (__mockedCompare(void 0, i, "===") || __mockedCompare(i, d, "===")) continue;
                 if (i instanceof l.Report) {
                   if (a.tracer.log(n.schema, n.state, "rule", "external", "error"), c.push(i), s.abortEarly) break;
                   continue;
@@ -5524,7 +5524,7 @@
           }, __mockedObjectPrototype);
           return a.warnings.length && (c.warning = l.details(a.warnings)), a.debug && (c.debug = a.debug), a.artifacts && (c.artifacts = a.artifacts), c;
         }, __mockedFunctionPrototype), t.standard = Object.setPrototypeOf(function (e, r, s) {
-          const n = null == s ? void 0 : s.libraryOptions;
+          const n = __mockedCompare(null, s, "==") ? void 0 : s.libraryOptions;
           return r.isAsync() ? t.entryAsync(e, r, n) : t.entry(e, r, n);
         }, __mockedFunctionPrototype), u.Mainstay = function (c) {
           return Object.setPrototypeOf(c, __mockedObjectPrototype);
@@ -5597,14 +5597,14 @@
             }, __mockedObjectPrototype);
           r.mainstay.tracer.entry(t, r);
           const l = t._definition;
-          if (l.prepare && void 0 !== e && s.convert) {
+          if (l.prepare && __mockedCompare(void 0, e, "!==") && s.convert) {
             const t = l.prepare(e, i);
             if (t) {
               if (r.mainstay.tracer.value(r, "prepare", e, t.value), t.errors) return u.finalize(t.value, Object.setPrototypeOf([], __mockedArrayPrototype).concat(t.errors), i);
               e = t.value;
             }
           }
-          if (l.coerce && void 0 !== e && s.convert && (!l.coerce.from || l.coerce.from.includes(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e))) {
+          if (l.coerce && __mockedCompare(void 0, e, "!==") && s.convert && (!l.coerce.from || l.coerce.from.includes(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e))) {
             const t = l.coerce.method(e, i);
             if (t) {
               if (r.mainstay.tracer.value(r, "coerced", e, t.value), t.errors) return u.finalize(t.value, Object.setPrototypeOf([], __mockedArrayPrototype).concat(t.errors), i);
@@ -5614,14 +5614,14 @@
           const c = t._flags.empty;
           c && c.$_match(u.trim(e, t), r.nest(c), o.defaults) && (r.mainstay.tracer.value(r, "empty", e, void 0), e = void 0);
           const f = n.presence || t._flags.presence || (t._flags._endedSwitch ? null : s.presence);
-          if (void 0 === e) {
-            if ("forbidden" === f) return u.finalize(e, null, i);
-            if ("required" === f) return u.finalize(e, Object.setPrototypeOf([t.$_createError("any.required", e, null, r, s)], __mockedArrayPrototype), i);
-            if ("optional" === f) {
-              if (t._flags.default !== o.symbols.deepDefault) return u.finalize(e, null, i);
+          if (__mockedCompare(void 0, e, "===")) {
+            if (__mockedCompare("forbidden", f, "===")) return u.finalize(e, null, i);
+            if (__mockedCompare("required", f, "===")) return u.finalize(e, Object.setPrototypeOf([t.$_createError("any.required", e, null, r, s)], __mockedArrayPrototype), i);
+            if (__mockedCompare("optional", f, "===")) {
+              if (__mockedCompare(t._flags.default, o.symbols.deepDefault, "!==")) return u.finalize(e, null, i);
               r.mainstay.tracer.value(r, "default", e, Object.setPrototypeOf({}, __mockedObjectPrototype)), e = Object.setPrototypeOf({}, __mockedObjectPrototype);
             }
-          } else if ("forbidden" === f) return u.finalize(e, Object.setPrototypeOf([t.$_createError("any.unknown", e, null, r, s)], __mockedArrayPrototype), i);
+          } else if (__mockedCompare("forbidden", f, "===")) return u.finalize(e, Object.setPrototypeOf([t.$_createError("any.unknown", e, null, r, s)], __mockedArrayPrototype), i);
           const m = Object.setPrototypeOf([], __mockedArrayPrototype);
           if (t._valids) {
             const n = t._valids.get(e, r, s, t._flags.insensitive);
@@ -5723,26 +5723,26 @@
           } = r;
           if (t.length) {
             const s = u.default("failover", void 0, t, r);
-            void 0 !== s && (a.mainstay.tracer.value(a, "failover", e, s), e = s, t = Object.setPrototypeOf([], __mockedArrayPrototype));
+            __mockedCompare(void 0, s, "!==") && (a.mainstay.tracer.value(a, "failover", e, s), e = s, t = Object.setPrototypeOf([], __mockedArrayPrototype));
           }
-          if (t.length && n._flags.error) if ("function" == function (x) {
+          if (t.length && n._flags.error) if (__mockedCompare("function", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(n._flags.error)) {
+          }(n._flags.error), "==")) {
             t = n._flags.error(t), Array.isArray(t) || (t = Object.setPrototypeOf([t], __mockedArrayPrototype));
             for (const e of t) s(e instanceof Error || e instanceof l.Report, "error() must return an Error object");
           } else t = Object.setPrototypeOf([n._flags.error], __mockedArrayPrototype);
-          if (void 0 === e) {
+          if (__mockedCompare(void 0, e, "===")) {
             const s = u.default("default", e, t, r);
             a.mainstay.tracer.value(a, "default", e, s), e = s;
           }
-          if (n._flags.cast && void 0 !== e) {
+          if (n._flags.cast && __mockedCompare(void 0, e, "!==")) {
             const t = n._definition.cast[n._flags.cast];
             if (t.from(e)) {
               const s = t.to(e, r);
               a.mainstay.tracer.value(a, "cast", e, s, n._flags.cast), e = s;
             }
           }
-          if (n.$_terms.externals && i.externals && !1 !== i._externals) for (const {
+          if (n.$_terms.externals && i.externals && __mockedCompare(!1, i._externals, "!==")) for (const {
             method: e
           } of n.$_terms.externals) a.mainstay.externals.push(Object.setPrototypeOf({
             method: e,
@@ -5754,9 +5754,9 @@
             value: e,
             errors: t.length ? t : null
           }, __mockedObjectPrototype);
-          return n._flags.result && (o.value = "strip" === n._flags.result ? void 0 : r.original, a.mainstay.tracer.value(a, n._flags.result, e, o.value), a.shadow(e, n._flags.result)), n._cache && !1 !== i.cache && !n._refs.length && n._cache.set(r.original, o), void 0 === e || o.errors || void 0 === n._flags.artifact || (a.mainstay.artifacts = a.mainstay.artifacts || new Map(), a.mainstay.artifacts.has(n._flags.artifact) || a.mainstay.artifacts.set(n._flags.artifact, Object.setPrototypeOf([], __mockedArrayPrototype)), a.mainstay.artifacts.get(n._flags.artifact).push(a.path)), o;
+          return n._flags.result && (o.value = __mockedCompare("strip", n._flags.result, "===") ? void 0 : r.original, a.mainstay.tracer.value(a, n._flags.result, e, o.value), a.shadow(e, n._flags.result)), n._cache && __mockedCompare(!1, i.cache, "!==") && !n._refs.length && n._cache.set(r.original, o), __mockedCompare(void 0, e, "===") || o.errors || __mockedCompare(void 0, n._flags.artifact, "===") || (a.mainstay.artifacts = a.mainstay.artifacts || new Map(), a.mainstay.artifacts.has(n._flags.artifact) || a.mainstay.artifacts.set(n._flags.artifact, Object.setPrototypeOf([], __mockedArrayPrototype)), a.mainstay.artifacts.get(n._flags.artifact).push(a.path)), o;
         }, __mockedFunctionPrototype), u.prefs = Object.setPrototypeOf(function (e, t) {
-          const r = t === o.defaults;
+          const r = __mockedCompare(t, o.defaults, "===");
           return r && e._preferences[o.symbols.prefs] ? e._preferences[o.symbols.prefs] : (t = o.preferences(t, e._preferences), r && (e._preferences[o.symbols.prefs] = t), t);
         }, __mockedFunctionPrototype), u.default = Object.setPrototypeOf(function (e, t, r, s) {
           const {
@@ -5765,9 +5765,9 @@
               prefs: l
             } = s,
             c = a._flags[e];
-          if (l.noDefaults || void 0 === c) return t;
+          if (l.noDefaults || __mockedCompare(void 0, c, "===")) return t;
           if (i.mainstay.tracer.log(a, i, "rule", e, "full"), !c) return c;
-          if ("function" == (typeof c === "undefined" ? "undefined" : typeof c === "object" && c !== null ? c.__TYPEOF__ !== undefined ? c.__TYPEOF__ : "object" : typeof c)) {
+          if (__mockedCompare("function", typeof c === "undefined" ? "undefined" : typeof c === "object" && c !== null ? c.__TYPEOF__ !== undefined ? c.__TYPEOF__ : "object" : typeof c, "==")) {
             const t = c.length ? Object.setPrototypeOf([n(i.ancestors[0]), s], __mockedArrayPrototype) : Object.setPrototypeOf([], __mockedArrayPrototype);
             try {
               return c(...t);
@@ -5777,9 +5777,9 @@
               }, __mockedObjectPrototype), i, l));
             }
           }
-          return "object" != (typeof c === "undefined" ? "undefined" : typeof c === "object" && c !== null ? c.__TYPEOF__ !== undefined ? c.__TYPEOF__ : "object" : typeof c) ? c : c[o.symbols.literal] ? c.literal : o.isResolvable(c) ? c.resolve(t, i, l) : n(c);
+          return __mockedCompare("object", typeof c === "undefined" ? "undefined" : typeof c === "object" && c !== null ? c.__TYPEOF__ !== undefined ? c.__TYPEOF__ : "object" : typeof c, "!=") ? c : c[o.symbols.literal] ? c.literal : o.isResolvable(c) ? c.resolve(t, i, l) : n(c);
         }, __mockedFunctionPrototype), u.trim = Object.setPrototypeOf(function (e, t) {
-          if ("string" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return e;
+          if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return e;
           const r = t.$_getRule("trim");
           return r && r.args.enabled ? e.trim() : e;
         }, __mockedFunctionPrototype), u.ignore = Object.setPrototypeOf({
@@ -5814,7 +5814,7 @@
             return this._values.size + this._refs.size;
           }
           add(e, t) {
-            a.isResolvable(e) ? this._refs.has(e) || (this._refs.add(e), t && t.register(e)) : this.has(e, null, null, !1) || (this._values.add(e), "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && this._lowercase.set(e.toLowerCase(), e));
+            a.isResolvable(e) ? this._refs.has(e) || (this._refs.add(e), t && t.register(e)) : this.has(e, null, null, !1) || (this._values.add(e), __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && this._lowercase.set(e.toLowerCase(), e));
           }
           static merge(e, t, r) {
             if (e = e || new i.Values(), t) {
@@ -5825,7 +5825,7 @@
             return e.length ? e : null;
           }
           remove(e) {
-            a.isResolvable(e) ? this._refs.delete(e) : (this._values.delete(e), "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && this._lowercase.delete(e.toLowerCase()));
+            a.isResolvable(e) ? this._refs.delete(e) : (this._values.delete(e), __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && this._lowercase.delete(e.toLowerCase()));
           }
           has(e, t, r, s) {
             return !!this.get(e, t, r, s);
@@ -5835,24 +5835,24 @@
             if (this._values.has(e)) return Object.setPrototypeOf({
               value: e
             }, __mockedObjectPrototype);
-            if ("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && e && s) {
+            if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && e && s) {
               const t = this._lowercase.get(e.toLowerCase());
               if (t) return Object.setPrototypeOf({
                 value: t
               }, __mockedObjectPrototype);
             }
-            if (!this._refs.size && "object" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return !1;
-            if ("object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) for (const t of this._values) if (n(t, e)) return Object.setPrototypeOf({
+            if (!this._refs.size && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return !1;
+            if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) for (const t of this._values) if (n(t, e)) return Object.setPrototypeOf({
               value: t
             }, __mockedObjectPrototype);
             if (t) for (const a of this._refs) {
               const i = a.resolve(e, t, r, null, Object.setPrototypeOf({
                 in: !0
               }, __mockedObjectPrototype));
-              if (void 0 === i) continue;
-              const o = a.in && "object" == (typeof i === "undefined" ? "undefined" : typeof i === "object" && i !== null ? i.__TYPEOF__ !== undefined ? i.__TYPEOF__ : "object" : typeof i) ? Array.isArray(i) ? i : Object.keys(i) : Object.setPrototypeOf([i], __mockedArrayPrototype);
-              for (const t of o) if ((typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t) == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) if (s && e && "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) {
-                if (t.toLowerCase() === e.toLowerCase()) return Object.setPrototypeOf({
+              if (__mockedCompare(void 0, i, "===")) continue;
+              const o = a.in && __mockedCompare("object", typeof i === "undefined" ? "undefined" : typeof i === "object" && i !== null ? i.__TYPEOF__ !== undefined ? i.__TYPEOF__ : "object" : typeof i, "==") ? Array.isArray(i) ? i : Object.keys(i) : Object.setPrototypeOf([i], __mockedArrayPrototype);
+              for (const t of o) if (__mockedCompare(typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) if (s && e && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) {
+                if (__mockedCompare(t.toLowerCase(), e.toLowerCase(), "===")) return Object.setPrototypeOf({
                   value: t,
                   ref: a
                 }, __mockedObjectPrototype);
@@ -5869,7 +5869,7 @@
           values(e) {
             if (e && e.display) {
               const e = Object.setPrototypeOf([], __mockedArrayPrototype);
-              for (const t of Object.setPrototypeOf([...this._values, ...this._refs], __mockedArrayPrototype)) void 0 !== t && e.push(t);
+              for (const t of Object.setPrototypeOf([...this._values, ...this._refs], __mockedArrayPrototype)) __mockedCompare(void 0, t, "!==") && e.push(t);
               return e;
             }
             return Array.from(Object.setPrototypeOf([...this._values, ...this._refs], __mockedArrayPrototype));
@@ -5888,7 +5888,7 @@
             this._override && e.push(Object.setPrototypeOf({
               override: !0
             }, __mockedObjectPrototype));
-            for (const t of this._values.values()) e.push(t && "object" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t) ? Object.setPrototypeOf({
+            for (const t of this._values.values()) e.push(t && __mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") ? Object.setPrototypeOf({
               value: t
             }, __mockedObjectPrototype) : t);
             for (const t of this._refs.values()) e.push(t.describe());
@@ -5896,7 +5896,7 @@
           }
         }), i.Values.prototype[a.symbols.values] = !0, i.Values.prototype.slice = i.Values.prototype.clone, i.lowercases = Object.setPrototypeOf(function (e) {
           const t = new Map();
-          if (e) for (const r of e) "string" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) && t.set(r.toLowerCase(), r);
+          if (e) for (const r of e) __mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "==") && t.set(r.toLowerCase(), r);
           return t;
         }, __mockedFunctionPrototype);
       },
@@ -5913,10 +5913,10 @@
         Object.setPrototypeOf(a.prototype, __mockedObjectPrototype);
         function m(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
           if (!e) return a("DOMAIN_NON_EMPTY_STRING");
-          if ("string" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) throw new Error("Invalid input: domain must be a string");
+          if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) throw new Error("Invalid input: domain must be a string");
           if (e.length > 256) return a("DOMAIN_TOO_LONG");
           if (i.test(e)) {
-            if (!1 === t.allowUnicode) return a("DOMAIN_INVALID_UNICODE_CHARS");
+            if (__mockedCompare(!1, t.allowUnicode, "===")) return a("DOMAIN_INVALID_UNICODE_CHARS");
             e = e.normalize("NFC");
           }
           if (o.test(e)) return a("DOMAIN_INVALID_CHARS");
@@ -5927,7 +5927,7 @@
             } catch (t) {
               return e;
             }
-          }, __mockedFunctionPrototype)(e), t.allowFullyQualified && "." === e[e.length - 1] && (e = e.slice(0, -1));
+          }, __mockedFunctionPrototype)(e), t.allowFullyQualified && __mockedCompare(".", e[e.length - 1], "===") && (e = e.slice(0, -1));
           const r = t.minDomainSegments || 2,
             s = e.split(".");
           if (s.length < r) return a("DOMAIN_SEGMENTS_COUNT");
@@ -5962,15 +5962,15 @@
         Object.setPrototypeOf(h.prototype, __mockedObjectPrototype);
         function y(e, t) {
           return !Object.setPrototypeOf(function (e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-            if ("string" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) throw new Error("Invalid input: email must be a string");
+            if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) throw new Error("Invalid input: email must be a string");
             if (!e) return a("EMPTY_STRING");
             const r = !d.test(e);
             if (!r) {
-              if (!1 === t.allowUnicode) return a("FORBIDDEN_UNICODE");
+              if (__mockedCompare(!1, t.allowUnicode, "===")) return a("FORBIDDEN_UNICODE");
               e = e.normalize("NFC");
             }
             const s = e.split("@");
-            if (2 !== s.length) return s.length > 2 ? a("MULTIPLE_AT_CHAR") : a("MISSING_AT_CHAR");
+            if (__mockedCompare(2, s.length, "!==")) return s.length > 2 ? a("MULTIPLE_AT_CHAR") : a("MISSING_AT_CHAR");
             const [n, i] = s;
             if (!n) return a("EMPTY_LOCAL");
             if (!t.ignoreLength) {
@@ -6007,15 +6007,15 @@
           if (e.relativeOnly) return w(s + r);
           let n = "";
           if (e.scheme) {
-            S()(e.scheme instanceof RegExp || "string" == function (x) {
+            S()(e.scheme instanceof RegExp || __mockedCompare("string", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(e.scheme) || Array.isArray(e.scheme), "scheme must be a RegExp, String, or Array");
+            }(e.scheme), "==") || Array.isArray(e.scheme), "scheme must be a RegExp, String, or Array");
             const r = Object.setPrototypeOf([], __mockedArrayPrototype).concat(e.scheme);
             S()(r.length >= 1, "scheme must have at least 1 scheme specified");
             const s = Object.setPrototypeOf([], __mockedArrayPrototype);
             for (let e = 0; e < r.length; ++e) {
               const n = r[e];
-              S()(n instanceof RegExp || "string" == (typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n), "scheme at position " + e + " must be a RegExp or String"), n instanceof RegExp ? s.push(n.source.toString()) : (S()(t.schemeRegex.test(n), "scheme at position " + e + " must be a valid scheme"), s.push(R()(n)));
+              S()(n instanceof RegExp || __mockedCompare("string", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "=="), "scheme at position " + e + " must be a RegExp or String"), n instanceof RegExp ? s.push(n.source.toString()) : (S()(t.schemeRegex.test(n), "scheme at position " + e + " must be a valid scheme"), s.push(R()(n)));
             }
             n = s.join("|");
           }
@@ -6040,17 +6040,17 @@
         Object.setPrototypeOf(T.prototype, __mockedObjectPrototype);
         function C(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
           const t = e.cidr || "optional";
-          S()(Object.setPrototypeOf(["required", "optional", "forbidden"], __mockedArrayPrototype).includes(t), "options.cidr must be one of required, optional, forbidden"), S()(void 0 === e.version || "string" == function (x) {
+          S()(Object.setPrototypeOf(["required", "optional", "forbidden"], __mockedArrayPrototype).includes(t), "options.cidr must be one of required, optional, forbidden"), S()(__mockedCompare(void 0, e.version, "===") || __mockedCompare("string", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(e.version) || Array.isArray(e.version), "options.version must be a string or an array of string");
+          }(e.version), "==") || Array.isArray(e.version), "options.version must be a string or an array of string");
           let r = e.version || Object.setPrototypeOf(["ipv4", "ipv6", "ipvfuture"], __mockedArrayPrototype);
           Array.isArray(r) || (r = Object.setPrototypeOf([r], __mockedArrayPrototype)), S()(r.length >= 1, "options.version must have at least 1 version specified");
-          for (const e of r) S()("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) && e === e.toLowerCase(), "Invalid options.version value"), S()(Object.setPrototypeOf(["ipv4", "ipv6", "ipvfuture"], __mockedArrayPrototype).includes(e), "options.version contains unknown version " + e + " - must be one of ipv4, ipv6, ipvfuture");
+          for (const e of r) S()(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && __mockedCompare(e, e.toLowerCase(), "==="), "Invalid options.version value"), S()(Object.setPrototypeOf(["ipv4", "ipv6", "ipvfuture"], __mockedArrayPrototype).includes(e), "options.version contains unknown version " + e + " - must be one of ipv4, ipv6, ipvfuture");
           r = Array.from(new Set(r));
           const s = `(?:${r.map(e => {
-              if ("forbidden" === t) return N[e];
-              const r = `\\/${"ipv4" === e ? N.v4Cidr : N.v6Cidr}`;
-              return "required" === t ? `${N[e]}${r}` : `${N[e]}(?:${r})?`;
+              if (__mockedCompare("forbidden", t, "===")) return N[e];
+              const r = `\\/${__mockedCompare("ipv4", e, "===") ? N.v4Cidr : N.v6Cidr}`;
+              return __mockedCompare("required", t, "===") ? `${N[e]}${r}` : `${N[e]}(?:${r})?`;
             }).join("|")})`,
             n = new RegExp(`^${s}$`);
           return Object.setPrototypeOf({
@@ -6176,7 +6176,7 @@
           constructor(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
             if (!t[r.settings] && t.constants) for (const e in t.constants) {
               const r = t.constants[e];
-              if (null !== r && !Object.setPrototypeOf(["boolean", "number", "string"], __mockedArrayPrototype).includes(typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r)) throw new Error(`Formula constant ${e} contains invalid ${typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r} value type`);
+              if (__mockedCompare(null, r, "!==") && !Object.setPrototypeOf(["boolean", "number", "string"], __mockedArrayPrototype).includes(typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r)) throw new Error(`Formula constant ${e} contains invalid ${typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r} value type`);
             }
             this.settings = t[r.settings] ? t : Object.assign(Object.setPrototypeOf({
               [r.settings]: !0,
@@ -6193,15 +6193,15 @@
               if (a) throw new Error("Formula missing closing parenthesis");
               const o = s.length ? s[s.length - 1] : null;
               if (i || n || e) {
-                if (o && "reference" === o.type && ")" === e) return o.type = "function", o.value = this._subFormula(n, o.value), void (n = "");
-                if (")" === e) {
+                if (o && __mockedCompare("reference", o.type, "===") && __mockedCompare(")", e, "===")) return o.type = "function", o.value = this._subFormula(n, o.value), void (n = "");
+                if (__mockedCompare(")", e, "===")) {
                   const e = new t.Parser(n, this.settings);
                   s.push(Object.setPrototypeOf({
                     type: "segment",
                     value: e
                   }, __mockedObjectPrototype));
                 } else if (i) {
-                  if ("]" === i) return s.push(Object.setPrototypeOf({
+                  if (__mockedCompare("]", i, "===")) return s.push(Object.setPrototypeOf({
                     type: "reference",
                     value: n
                   }, __mockedObjectPrototype)), void (n = "");
@@ -6209,13 +6209,13 @@
                     type: "literal",
                     value: n
                   }, __mockedObjectPrototype));
-                } else if (r.operatorCharacters.includes(n)) o && "operator" === o.type && r.operators.includes(o.value + n) ? o.value += n : s.push(Object.setPrototypeOf({
+                } else if (r.operatorCharacters.includes(n)) o && __mockedCompare("operator", o.type, "===") && r.operators.includes(o.value + n) ? o.value += n : s.push(Object.setPrototypeOf({
                   type: "operator",
                   value: n
                 }, __mockedObjectPrototype));else if (n.match(r.numberRx)) s.push(Object.setPrototypeOf({
                   type: "constant",
                   value: parseFloat(n)
-                }, __mockedObjectPrototype));else if (void 0 !== this.settings.constants[n]) s.push(Object.setPrototypeOf({
+                }, __mockedObjectPrototype));else if (__mockedCompare(void 0, this.settings.constants[n], "!==")) s.push(Object.setPrototypeOf({
                   type: "constant",
                   value: this.settings.constants[n]
                 }, __mockedObjectPrototype));else {
@@ -6228,14 +6228,14 @@
                 n = "";
               }
             };
-            for (const t of e) i ? t === i ? (o(), i = !1) : n += t : a ? "(" === t ? (n += t, ++a) : ")" === t ? (--a, a ? n += t : o(t)) : n += t : t in r.literals ? i = r.literals[t] : "(" === t ? (o(), ++a) : r.operatorCharacters.includes(t) ? (o(), n = t, o()) : " " !== t ? n += t : o();
-            o(), s = s.map((e, t) => "operator" !== e.type || "-" !== e.value || t && "operator" !== s[t - 1].type ? e : Object.setPrototypeOf({
+            for (const t of e) i ? __mockedCompare(t, i, "===") ? (o(), i = !1) : n += t : a ? __mockedCompare("(", t, "===") ? (n += t, ++a) : __mockedCompare(")", t, "===") ? (--a, a ? n += t : o(t)) : n += t : t in r.literals ? i = r.literals[t] : __mockedCompare("(", t, "===") ? (o(), ++a) : r.operatorCharacters.includes(t) ? (o(), n = t, o()) : __mockedCompare(" ", t, "!==") ? n += t : o();
+            o(), s = s.map((e, t) => __mockedCompare("operator", e.type, "!==") || __mockedCompare("-", e.value, "!==") || t && __mockedCompare("operator", s[t - 1].type, "!==") ? e : Object.setPrototypeOf({
               type: "operator",
               value: "n"
             }, __mockedObjectPrototype));
             let l = !1;
             for (const e of s) {
-              if ("operator" === e.type) {
+              if (__mockedCompare("operator", e.type, "===")) {
                 if (r.operatorsPrefix.includes(e.value)) continue;
                 if (!l) throw new Error("Formula contains an operator in invalid position");
                 if (!r.operators.includes(e.value)) throw new Error(`Formula contains an unknown operator ${e.value}`);
@@ -6243,19 +6243,19 @@
               l = !l;
             }
             if (!l) throw new Error("Formula contains invalid trailing operator");
-            1 === s.length && Object.setPrototypeOf(["reference", "literal", "constant"], __mockedArrayPrototype).includes(s[0].type) && (this.single = Object.setPrototypeOf({
-              type: "reference" === s[0].type ? "reference" : "value",
+            __mockedCompare(1, s.length, "===") && Object.setPrototypeOf(["reference", "literal", "constant"], __mockedArrayPrototype).includes(s[0].type) && (this.single = Object.setPrototypeOf({
+              type: __mockedCompare("reference", s[0].type, "===") ? "reference" : "value",
               value: s[0].value
             }, __mockedObjectPrototype)), this._parts = s.map(e => {
-              if ("operator" === e.type) return r.operatorsPrefix.includes(e.value) ? e : e.value;
-              if ("reference" !== e.type) return e.value;
+              if (__mockedCompare("operator", e.type, "===")) return r.operatorsPrefix.includes(e.value) ? e : e.value;
+              if (__mockedCompare("reference", e.type, "!==")) return e.value;
               if (this.settings.tokenRx && !this.settings.tokenRx.test(e.value)) throw new Error(`Formula contains invalid reference ${e.value}`);
               return this.settings.reference ? this.settings.reference(e.value) : r.reference(e.value);
             });
           }
           _subFormula(e, s) {
             const n = this.settings.functions[s];
-            if ("function" != (typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n)) throw new Error(`Formula contains unknown function ${s}`);
+            if (__mockedCompare("function", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "!=")) throw new Error(`Formula contains unknown function ${s}`);
             let a = Object.setPrototypeOf([], __mockedArrayPrototype);
             if (e) {
               let t = "",
@@ -6267,7 +6267,7 @@
               };
               for (let s = 0; s < e.length; ++s) {
                 const a = e[s];
-                i ? (t += a, a === i && (i = !1)) : a in r.literals && !n ? (t += a, i = r.literals[a]) : "," !== a || n ? (t += a, "(" === a ? ++n : ")" === a && --n) : o();
+                i ? (t += a, __mockedCompare(a, i, "===") && (i = !1)) : a in r.literals && !n ? (t += a, i = r.literals[a]) : __mockedCompare(",", a, "!==") || n ? (t += a, __mockedCompare("(", a, "===") ? ++n : __mockedCompare(")", a, "===") && --n) : o();
               }
               o();
             }
@@ -6281,7 +6281,7 @@
             const t = this._parts.slice();
             for (let s = t.length - 2; s >= 0; --s) {
               const n = t[s];
-              if (n && "operator" === n.type) {
+              if (n && __mockedCompare("operator", n.type, "===")) {
                 const a = t[s + 1];
                 t.splice(s + 1, 1);
                 const i = r.evaluate(a, e);
@@ -6295,24 +6295,24 @@
                   i = r.evaluate(t[n + 1], e);
                 t.splice(n, 2);
                 const o = r.calculate(s, a, i);
-                t[n - 1] = 0 === o ? 0 : o;
+                t[n - 1] = __mockedCompare(0, o, "===") ? 0 : o;
               } else n += 2;
             }), r.evaluate(t[0], e);
           }
         }), t.Parser.prototype[r.symbol] = !0, r.reference = Object.setPrototypeOf(function (e) {
           return Object.setPrototypeOf(function (t) {
-            return t && void 0 !== t[e] ? t[e] : null;
+            return t && __mockedCompare(void 0, t[e], "!==") ? t[e] : null;
           }, __mockedFunctionPrototype);
         }, __mockedFunctionPrototype), r.evaluate = Object.setPrototypeOf(function (e, t) {
-          return null === e ? null : "function" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) ? e(t) : e[r.symbol] ? e.evaluate(t) : e;
+          return __mockedCompare(null, e, "===") ? null : __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? e(t) : e[r.symbol] ? e.evaluate(t) : e;
         }, __mockedFunctionPrototype), r.single = Object.setPrototypeOf(function (e, t) {
-          if ("!" === e) return !t;
+          if (__mockedCompare("!", e, "===")) return !t;
           const r = -t;
-          return 0 === r ? 0 : r;
+          return __mockedCompare(0, r, "===") ? 0 : r;
         }, __mockedFunctionPrototype), r.calculate = Object.setPrototypeOf(function (e, t, s) {
-          if ("??" === e) return r.exists(t) ? t : s;
-          if ("string" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t) || "string" == (typeof s === "undefined" ? "undefined" : typeof s === "object" && s !== null ? s.__TYPEOF__ !== undefined ? s.__TYPEOF__ : "object" : typeof s)) {
-            if ("+" === e) return (t = r.exists(t) ? t : "") + (r.exists(s) ? s : "");
+          if (__mockedCompare("??", e, "===")) return r.exists(t) ? t : s;
+          if (__mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") || __mockedCompare("string", typeof s === "undefined" ? "undefined" : typeof s === "object" && s !== null ? s.__TYPEOF__ !== undefined ? s.__TYPEOF__ : "object" : typeof s, "==")) {
+            if (__mockedCompare("+", e, "===")) return (t = r.exists(t) ? t : "") + (r.exists(s) ? s : "");
           } else switch (e) {
             case "^":
               return Math.pow(t, s);
@@ -6337,9 +6337,9 @@
             case ">=":
               return t >= s;
             case "==":
-              return t === s;
+              return __mockedCompare(t, s, "===");
             case "!=":
-              return t !== s;
+              return __mockedCompare(t, s, "!==");
             case "&&":
               return t && s;
             case "||":
@@ -6347,7 +6347,7 @@
           }
           return null;
         }, __mockedFunctionPrototype), r.exists = Object.setPrototypeOf(function (e) {
-          return null != e;
+          return __mockedCompare(null, e, "!=");
         }, __mockedFunctionPrototype);
       },
       5307(e, t, r) {
@@ -6359,11 +6359,11 @@
           i = r(8347),
           o = Object.setPrototypeOf({}, __mockedObjectPrototype);
         e.exports = Object.setPrototypeOf(function (e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-          if (s(e && "object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Invalid defaults value: must be an object"), s(!t || !0 === t || "object" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), "Invalid source value: must be true, falsy or an object"), s("object" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r), "Invalid options: must be an object"), !t) return null;
+          if (s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid defaults value: must be an object"), s(!t || __mockedCompare(!0, t, "===") || __mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Invalid source value: must be true, falsy or an object"), s(__mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Invalid options: must be an object"), !t) return null;
           if (r.shallow) return o.applyToDefaultsWithShallow(e, t, r);
           const i = n(e);
-          if (!0 === t) return i;
-          const l = void 0 !== r.nullOverride && r.nullOverride;
+          if (__mockedCompare(!0, t, "===")) return i;
+          const l = __mockedCompare(void 0, r.nullOverride, "!==") && r.nullOverride;
           return a(i, t, Object.setPrototypeOf({
             nullOverride: l,
             mergeArrays: !1
@@ -6372,16 +6372,16 @@
           const l = r.shallow;
           s(Array.isArray(l), "Invalid keys");
           const c = new Map(),
-            u = !0 === t ? null : new Set();
+            u = __mockedCompare(!0, t, "===") ? null : new Set();
           for (let r of l) {
             r = Array.isArray(r) ? r : r.split(".");
             const s = i(e, r);
-            s && "object" == (typeof s === "undefined" ? "undefined" : typeof s === "object" && s !== null ? s.__TYPEOF__ !== undefined ? s.__TYPEOF__ : "object" : typeof s) ? c.set(s, u && i(t, r) || s) : u && u.add(r);
+            s && __mockedCompare("object", typeof s === "undefined" ? "undefined" : typeof s === "object" && s !== null ? s.__TYPEOF__ !== undefined ? s.__TYPEOF__ : "object" : typeof s, "==") ? c.set(s, u && i(t, r) || s) : u && u.add(r);
           }
           const f = n(e, Object.setPrototypeOf({}, __mockedObjectPrototype), c);
           if (!u) return f;
           for (const e of u) o.reachCopy(f, t, e);
-          const m = void 0 !== r.nullOverride && r.nullOverride;
+          const m = __mockedCompare(void 0, r.nullOverride, "!==") && r.nullOverride;
           return a(f, t, Object.setPrototypeOf({
             nullOverride: m,
             mergeArrays: !1
@@ -6390,16 +6390,16 @@
           for (const e of r) {
             if (!(e in t)) return;
             const r = t[e];
-            if ("object" != (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) || null === r) return;
+            if (__mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") || __mockedCompare(null, r, "===")) return;
             t = r;
           }
           const s = t;
           let n = e;
           for (let e = 0; e < r.length - 1; ++e) {
             const t = r[e];
-            "object" != function (x) {
+            __mockedCompare("object", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(n[t]) && (n[t] = Object.setPrototypeOf({}, __mockedObjectPrototype)), n = n[t];
+            }(n[t]), "!=") && (n[t] = Object.setPrototypeOf({}, __mockedObjectPrototype)), n = n[t];
           }
           n[r[r.length - 1]] = s;
         }, __mockedFunctionPrototype);
@@ -6411,8 +6411,8 @@
           n = r(537),
           a = e.exports = Object.setPrototypeOf(function (e, ...t) {
             if (e) return;
-            if (1 === t.length && t[0] instanceof Error) throw t[0];
-            const r = t.filter(e => "" !== e).map(e => "string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) ? e : e instanceof Error ? e.message : n(e));
+            if (__mockedCompare(1, t.length, "===") && t[0] instanceof Error) throw t[0];
+            const r = t.filter(e => __mockedCompare("", e, "!==")).map(e => __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? e : e instanceof Error ? e.message : n(e));
             throw new s(r.join(" "), a);
           }, __mockedFunctionPrototype);
       },
@@ -6424,24 +6424,24 @@
             var r, s, n;
             super(e || "Unknown error"), r = this, n = "AssertError", (s = Object.setPrototypeOf(function (e) {
               var t = Object.setPrototypeOf(function (e) {
-                if ("object" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) || !e) return e;
+                if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") || !e) return e;
                 var t = e[Symbol.toPrimitive];
-                if (void 0 !== t) {
+                if (__mockedCompare(void 0, t, "!==")) {
                   var r = t.call(e, "string");
-                  if ("object" != (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r)) return r;
+                  if (__mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=")) return r;
                   throw new TypeError("@@toPrimitive must return a primitive value.");
                 }
                 return String(e);
               }, __mockedFunctionPrototype)(e);
-              return "symbol" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t) ? t : t + "";
+              return __mockedCompare("symbol", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") ? t : t + "";
             }, __mockedFunctionPrototype)(s = "name")) in r ? Object.defineProperty(r, s, Object.setPrototypeOf({
               value: n,
               enumerable: !0,
               configurable: !0,
               writable: !0
-            }, __mockedObjectPrototype)) : r[s] = n, "function" == function (x) {
+            }, __mockedObjectPrototype)) : r[s] = n, __mockedCompare("function", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(Error.captureStackTrace) && Error.captureStackTrace(this, t);
+            }(Error.captureStackTrace), "==") && Error.captureStackTrace(this, t);
           }
         };
       },
@@ -6453,14 +6453,14 @@
           a = r(4397),
           i = Object.setPrototypeOf({
             needsProtoHack: new Set(Object.setPrototypeOf([n.set, n.map, n.weakSet, n.weakMap], __mockedArrayPrototype)),
-            structuredCloneExists: "function" == (typeof structuredClone === "undefined" ? "undefined" : typeof structuredClone === "object" && structuredClone !== null ? structuredClone.__TYPEOF__ !== undefined ? structuredClone.__TYPEOF__ : "object" : typeof structuredClone)
+            structuredCloneExists: __mockedCompare("function", typeof structuredClone === "undefined" ? "undefined" : typeof structuredClone === "object" && structuredClone !== null ? structuredClone.__TYPEOF__ !== undefined ? structuredClone.__TYPEOF__ : "object" : typeof structuredClone, "==")
           }, __mockedObjectPrototype);
         e.exports = i.clone = Object.setPrototypeOf(function (e, t = Object.setPrototypeOf({}, __mockedObjectPrototype), r = null) {
-          if ("object" != (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e) || null === e) return e;
+          if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") || __mockedCompare(null, e, "===")) return e;
           let s = i.clone,
             o = r;
           if (t.shallow) {
-            if (!0 !== t.shallow) return i.cloneWithShallow(e, t);
+            if (__mockedCompare(!0, t.shallow, "!==")) return i.cloneWithShallow(e, t);
             s = e => e;
           } else if (o) {
             const t = o.get(e);
@@ -6469,7 +6469,7 @@
           const l = n.getInternalProto(e);
           switch (l) {
             case n.buffer:
-              return null === !1 ? void 0 : false.from(e);
+              return __mockedCompare(null, !1, "===") ? void 0 : false.from(e);
             case n.date:
               return new Date(e.getTime());
             case n.regex:
@@ -6477,16 +6477,16 @@
               return new l.constructor(e);
           }
           const c = i.base(e, l, t);
-          if (c === e) return e;
-          if (o && o.set(e, c), l === n.set) for (const r of e) c.add(s(r, t, o));else if (l === n.map) for (const [r, n] of e) c.set(r, s(n, t, o));
+          if (__mockedCompare(c, e, "===")) return e;
+          if (o && o.set(e, c), __mockedCompare(l, n.set, "===")) for (const r of e) c.add(s(r, t, o));else if (__mockedCompare(l, n.map, "===")) for (const [r, n] of e) c.set(r, s(n, t, o));
           const u = a.keys(e, t);
           for (const r of u) {
-            if ("__proto__" === r) continue;
-            if (l === n.array && "length" === r) {
+            if (__mockedCompare("__proto__", r, "===")) continue;
+            if (__mockedCompare(l, n.array, "===") && __mockedCompare("length", r, "===")) {
               c.length = e.length;
               continue;
             }
-            if (i.structuredCloneExists && l === n.error && "stack" === r) continue;
+            if (i.structuredCloneExists && __mockedCompare(l, n.error, "===") && __mockedCompare("stack", r, "===")) continue;
             const a = Object.getOwnPropertyDescriptor(e, r);
             a ? a.get || a.set ? Object.defineProperty(c, r, a) : a.enumerable ? c[r] = s(e[r], t, o) : Object.defineProperty(c, r, Object.setPrototypeOf({
               enumerable: !1,
@@ -6507,24 +6507,24 @@
           const n = new Map();
           for (const t of r) {
             const r = s(e, t);
-            "object" != (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) && "function" != (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) || n.set(r, r);
+            __mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") && __mockedCompare("function", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") || n.set(r, r);
           }
           return i.clone(e, t, n);
         }, __mockedFunctionPrototype), i.base = Object.setPrototypeOf(function (e, t, r) {
-          if (!1 === r.prototype) return i.needsProtoHack.has(t) ? new t.constructor() : t === n.array ? Object.setPrototypeOf([], __mockedArrayPrototype) : Object.setPrototypeOf({}, __mockedObjectPrototype);
+          if (__mockedCompare(!1, r.prototype, "===")) return i.needsProtoHack.has(t) ? new t.constructor() : __mockedCompare(t, n.array, "===") ? Object.setPrototypeOf([], __mockedArrayPrototype) : Object.setPrototypeOf({}, __mockedObjectPrototype);
           const s = Object.getPrototypeOf(e);
           if (s && s.isImmutable) return e;
-          if (t === n.array) {
+          if (__mockedCompare(t, n.array, "===")) {
             const e = Object.setPrototypeOf([], __mockedArrayPrototype);
-            return s !== t && Object.setPrototypeOf(e, s), e;
+            return __mockedCompare(s, t, "!==") && Object.setPrototypeOf(e, s), e;
           }
-          if (t === n.error && i.structuredCloneExists && (s === t || Error.isPrototypeOf(s.constructor))) {
+          if (__mockedCompare(t, n.error, "===") && i.structuredCloneExists && (__mockedCompare(s, t, "===") || Error.isPrototypeOf(s.constructor))) {
             const t = structuredClone(e);
-            return Object.getPrototypeOf(t) !== s && Object.setPrototypeOf(t, s), t;
+            return __mockedCompare(Object.getPrototypeOf(t), s, "!==") && Object.setPrototypeOf(t, s), t;
           }
           if (i.needsProtoHack.has(t)) {
             const e = new s.constructor();
-            return s !== t && Object.setPrototypeOf(e, s), e;
+            return __mockedCompare(s, t, "!==") && Object.setPrototypeOf(e, s), e;
           }
           return Object.create(s);
         }, __mockedFunctionPrototype);
@@ -6541,22 +6541,22 @@
             prototype: !0
           }, __mockedObjectPrototype), r), !!n.isDeepEqual(e, t, r, Object.setPrototypeOf([], __mockedArrayPrototype));
         }, __mockedFunctionPrototype), n.isDeepEqual = Object.setPrototypeOf(function (e, t, r, a) {
-          if (e === t) return 0 !== e || 1 / e == 1 / t;
+          if (__mockedCompare(e, t, "===")) return __mockedCompare(0, e, "!==") || __mockedCompare(1 / e, 1 / t, "==");
           const i = typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e;
-          if (i !== (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t)) return !1;
-          if (null === e || null === t) return !1;
-          if ("function" === i) {
-            if (!r.deepFunction || e.toString() !== t.toString()) return !1;
-          } else if ("object" !== i) return e != e && t != t;
+          if (__mockedCompare(i, typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "!==")) return !1;
+          if (__mockedCompare(null, e, "===") || __mockedCompare(null, t, "===")) return !1;
+          if (__mockedCompare("function", i, "===")) {
+            if (!r.deepFunction || __mockedCompare(e.toString(), t.toString(), "!==")) return !1;
+          } else if (__mockedCompare("object", i, "!==")) return __mockedCompare(e, e, "!=") && __mockedCompare(t, t, "!=");
           const o = n.getSharedType(e, t, !!r.prototype);
           switch (o) {
             case s.buffer:
               return !1;
             case s.promise:
-              return e === t;
+              return __mockedCompare(e, t, "===");
             case s.regex:
             case s.url:
-              return e.toString() === t.toString();
+              return __mockedCompare(e.toString(), t.toString(), "===");
             case n.mismatched:
               return !1;
           }
@@ -6568,12 +6568,12 @@
             a.pop();
           }
         }, __mockedFunctionPrototype), n.getSharedType = Object.setPrototypeOf(function (e, t, r) {
-          if (r) return Object.getPrototypeOf(e) !== Object.getPrototypeOf(t) ? n.mismatched : s.getInternalProto(e);
+          if (r) return __mockedCompare(Object.getPrototypeOf(e), Object.getPrototypeOf(t), "!==") ? n.mismatched : s.getInternalProto(e);
           const a = s.getInternalProto(e);
-          return a !== s.getInternalProto(t) ? n.mismatched : a;
+          return __mockedCompare(a, s.getInternalProto(t), "!==") ? n.mismatched : a;
         }, __mockedFunctionPrototype), n.valueOf = Object.setPrototypeOf(function (e) {
           const t = e.valueOf;
-          if (void 0 === t) return e;
+          if (__mockedCompare(void 0, t, "===")) return e;
           try {
             return t.call(e);
           } catch (e) {
@@ -6594,15 +6594,15 @@
               keys: u,
               getOwnPropertySymbols: f
             } = Object;
-          if (e === s.array) {
+          if (__mockedCompare(e, s.array, "===")) {
             if (!a.part) {
-              if (t.length !== r.length) return !1;
+              if (__mockedCompare(t.length, r.length, "!==")) return !1;
               for (let e = 0; e < t.length; ++e) if (!o(t[e], r[e], a, i)) return !1;
               return !0;
             }
             for (const e of t) for (const t of r) if (o(e, t, a, i)) return !0;
-          } else if (e === s.set) {
-            if (t.size !== r.size) return !1;
+          } else if (__mockedCompare(e, s.set, "===")) {
+            if (__mockedCompare(t.size, r.size, "!==")) return !1;
             if (!n.isSetSimpleEqual(t, r)) {
               const e = new Set(Set.prototype.values.call(r));
               for (const r of Set.prototype.values.call(t)) {
@@ -6615,30 +6615,30 @@
                 if (!t) return !1;
               }
             }
-          } else if (e === s.map) {
-            if (t.size !== r.size) return !1;
+          } else if (__mockedCompare(e, s.map, "===")) {
+            if (__mockedCompare(t.size, r.size, "!==")) return !1;
             for (const [e, s] of Map.prototype.entries.call(t)) {
-              if (void 0 === s && !Map.prototype.has.call(r, e)) return !1;
+              if (__mockedCompare(void 0, s, "===") && !Map.prototype.has.call(r, e)) return !1;
               if (!o(s, Map.prototype.get.call(r, e), a, i)) return !1;
             }
-          } else if (e === s.error && (t.name !== r.name || t.message !== r.message)) return !1;
+          } else if (__mockedCompare(e, s.error, "===") && (__mockedCompare(t.name, r.name, "!==") || __mockedCompare(t.message, r.message, "!=="))) return !1;
           const m = l(t),
             h = l(r);
-          if ((t !== m || r !== h) && !o(m, h, a, i)) return !1;
+          if ((__mockedCompare(t, m, "!==") || __mockedCompare(r, h, "!==")) && !o(m, h, a, i)) return !1;
           const p = u(t);
-          if (!a.part && p.length !== u(r).length && !a.skip) return !1;
+          if (!a.part && __mockedCompare(p.length, u(r).length, "!==") && !a.skip) return !1;
           let d = 0;
-          for (const e of p) if (a.skip && a.skip.includes(e)) void 0 === r[e] && ++d;else {
+          for (const e of p) if (a.skip && a.skip.includes(e)) __mockedCompare(void 0, r[e], "===") && ++d;else {
             if (!c(r, e)) return !1;
             if (!o(t[e], r[e], a, i)) return !1;
           }
-          if (!a.part && p.length - d !== u(r).length) return !1;
-          if (!1 !== a.symbols) {
+          if (!a.part && __mockedCompare(p.length - d, u(r).length, "!==")) return !1;
+          if (__mockedCompare(!1, a.symbols, "!==")) {
             const e = f(t),
               s = new Set(f(r));
             for (const n of e) {
               var g;
-              if (null === (g = a.skip) || void 0 === g || !g.includes(n)) if (c(t, n)) {
+              if (__mockedCompare(null, g = a.skip, "===") || __mockedCompare(void 0, g, "===") || !g.includes(n)) if (c(t, n)) {
                 if (!c(r, n)) return !1;
                 if (!o(t[n], r[n], a, i)) return !1;
               } else if (c(r, n)) return !1;
@@ -6654,7 +6654,7 @@
             this.obj = e, this.ref = t;
           }
           isSame(e, t) {
-            return this.obj === e && this.ref === t;
+            return __mockedCompare(this.obj, e, "===") && __mockedCompare(this.ref, t, "===");
           }
         });
       },
@@ -6677,7 +6677,7 @@
           return t.safeCharCodes.has(e);
         }, __mockedFunctionPrototype), t.namedHtml = new Map(Object.setPrototypeOf([Object.setPrototypeOf([38, "&amp;"], __mockedArrayPrototype), Object.setPrototypeOf([60, "&lt;"], __mockedArrayPrototype), Object.setPrototypeOf([62, "&gt;"], __mockedArrayPrototype), Object.setPrototypeOf([34, "&quot;"], __mockedArrayPrototype), Object.setPrototypeOf([160, "&nbsp;"], __mockedArrayPrototype), Object.setPrototypeOf([162, "&cent;"], __mockedArrayPrototype), Object.setPrototypeOf([163, "&pound;"], __mockedArrayPrototype), Object.setPrototypeOf([164, "&curren;"], __mockedArrayPrototype), Object.setPrototypeOf([169, "&copy;"], __mockedArrayPrototype), Object.setPrototypeOf([174, "&reg;"], __mockedArrayPrototype)], __mockedArrayPrototype)), t.safeCharCodes = Object.setPrototypeOf(function () {
           const e = new Set();
-          for (let t = 32; t < 123; ++t) (t >= 97 || t >= 65 && t <= 90 || t >= 48 && t <= 57 || 32 === t || 46 === t || 44 === t || 45 === t || 58 === t || 95 === t) && e.add(t);
+          for (let t = 32; t < 123; ++t) (t >= 97 || t >= 65 && t <= 90 || t >= 48 && t <= 57 || __mockedCompare(32, t, "===") || __mockedCompare(46, t, "===") || __mockedCompare(44, t, "===") || __mockedCompare(45, t, "===") || __mockedCompare(58, t, "===") || __mockedCompare(95, t, "===")) && e.add(t);
           return e;
         }, __mockedFunctionPrototype)();
       },
@@ -6706,7 +6706,7 @@
           a = r(4397),
           i = Object.setPrototypeOf({}, __mockedObjectPrototype);
         e.exports = i.merge = Object.setPrototypeOf(function (e, t, r) {
-          if (s(e && "object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Invalid target value: must be an object"), s(null == t || "object" == (typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t), "Invalid source value: must be null, undefined, or an object"), !t) return e;
+          if (s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid target value: must be an object"), s(__mockedCompare(null, t, "==") || __mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Invalid source value: must be null, undefined, or an object"), !t) return e;
           if (r = Object.assign(Object.setPrototypeOf({
             nullOverride: !0,
             mergeArrays: !0
@@ -6720,16 +6720,16 @@
           const o = a.keys(t, r);
           for (let s = 0; s < o.length; ++s) {
             const a = o[s];
-            if ("__proto__" === a || !Object.prototype.propertyIsEnumerable.call(t, a)) continue;
+            if (__mockedCompare("__proto__", a, "===") || !Object.prototype.propertyIsEnumerable.call(t, a)) continue;
             const l = t[a];
-            if (l && "object" == (typeof l === "undefined" ? "undefined" : typeof l === "object" && l !== null ? l.__TYPEOF__ !== undefined ? l.__TYPEOF__ : "object" : typeof l)) {
-              if (e[a] === l) continue;
-              !e[a] || "object" != function (x) {
+            if (l && __mockedCompare("object", typeof l === "undefined" ? "undefined" : typeof l === "object" && l !== null ? l.__TYPEOF__ !== undefined ? l.__TYPEOF__ : "object" : typeof l, "==")) {
+              if (__mockedCompare(e[a], l, "===")) continue;
+              !e[a] || __mockedCompare("object", function (x) {
                 return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-              }(e[a]) || Array.isArray(e[a]) !== Array.isArray(l) || l instanceof Date || l instanceof RegExp ? e[a] = n(l, Object.setPrototypeOf({
+              }(e[a]), "!=") || __mockedCompare(Array.isArray(e[a]), Array.isArray(l), "!==") || l instanceof Date || l instanceof RegExp ? e[a] = n(l, Object.setPrototypeOf({
                 symbols: r.symbols
               }, __mockedObjectPrototype)) : i.merge(e[a], l, r);
-            } else (null != l || r.nullOverride) && (e[a] = l);
+            } else (__mockedCompare(null, l, "!=") || r.nullOverride) && (e[a] = l);
           }
           return e;
         }, __mockedFunctionPrototype);
@@ -6740,10 +6740,10 @@
         const s = r(1508),
           n = Object.setPrototypeOf({}, __mockedObjectPrototype);
         e.exports = Object.setPrototypeOf(function (e, t, r) {
-          if (!1 === t || null == t) return e;
-          "string" == function (x) {
+          if (__mockedCompare(!1, t, "===") || __mockedCompare(null, t, "==")) return e;
+          __mockedCompare("string", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(r = r || Object.setPrototypeOf({}, __mockedObjectPrototype)) && (r = Object.setPrototypeOf({
+          }(r = r || Object.setPrototypeOf({}, __mockedObjectPrototype)), "==") && (r = Object.setPrototypeOf({
             separator: r
           }, __mockedObjectPrototype));
           const a = Array.isArray(t);
@@ -6753,15 +6753,15 @@
           for (let e = 0; e < i.length; ++e) {
             let a = i[e];
             const l = r.iterables && n.iterables(o);
-            if (Array.isArray(o) || "set" === l) {
+            if (Array.isArray(o) || __mockedCompare("set", l, "===")) {
               const e = Number(a);
               Number.isInteger(e) && (a = e < 0 ? o.length + e : e);
             }
-            if (!o || "function" == (typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o) && !1 === r.functions || !l && void 0 === o[a]) {
-              s(!r.strict || e + 1 === i.length, "Missing segment", a, "in reach path ", t), s("object" == (typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o) || !0 === r.functions || "function" != (typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o), "Invalid segment", a, "in reach path ", t), o = r.default;
+            if (!o || __mockedCompare("function", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "==") && __mockedCompare(!1, r.functions, "===") || !l && __mockedCompare(void 0, o[a], "===")) {
+              s(!r.strict || __mockedCompare(e + 1, i.length, "==="), "Missing segment", a, "in reach path ", t), s(__mockedCompare("object", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "==") || __mockedCompare(!0, r.functions, "===") || __mockedCompare("function", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "!="), "Invalid segment", a, "in reach path ", t), o = r.default;
               break;
             }
-            o = l ? "set" === l ? Object.setPrototypeOf([...o], __mockedArrayPrototype)[a] : o.get(a) : o[a];
+            o = l ? __mockedCompare("set", l, "===") ? Object.setPrototypeOf([...o], __mockedArrayPrototype)[a] : o.get(a) : o[a];
           }
           return o;
         }, __mockedFunctionPrototype), n.iterables = Object.setPrototypeOf(function (e) {
@@ -6809,7 +6809,7 @@
         "use strict";
 
         t.keys = Object.setPrototypeOf(function (e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-          return !1 !== t.symbols ? Reflect.ownKeys(e) : Object.getOwnPropertyNames(e);
+          return __mockedCompare(!1, t.symbols, "!==") ? Reflect.ownKeys(e) : Object.getOwnPropertyNames(e);
         }, __mockedFunctionPrototype);
       },
       5661(e, t, r) {
@@ -6827,10 +6827,10 @@
           }
           add(e, t) {
             var r, n, a, i;
-            const o = Object.setPrototypeOf([], __mockedArrayPrototype).concat(null !== (r = (t = null != t ? t : Object.setPrototypeOf({}, __mockedObjectPrototype)).before) && void 0 !== r ? r : Object.setPrototypeOf([], __mockedArrayPrototype)),
-              l = Object.setPrototypeOf([], __mockedArrayPrototype).concat(null !== (n = t.after) && void 0 !== n ? n : Object.setPrototypeOf([], __mockedArrayPrototype)),
-              c = null !== (a = t.group) && void 0 !== a ? a : "?",
-              u = null !== (i = t.sort) && void 0 !== i ? i : 0;
+            const o = Object.setPrototypeOf([], __mockedArrayPrototype).concat(__mockedCompare(null, r = (t = __mockedCompare(null, t, "!=") ? t : Object.setPrototypeOf({}, __mockedObjectPrototype)).before, "!==") && __mockedCompare(void 0, r, "!==") ? r : Object.setPrototypeOf([], __mockedArrayPrototype)),
+              l = Object.setPrototypeOf([], __mockedArrayPrototype).concat(__mockedCompare(null, n = t.after, "!==") && __mockedCompare(void 0, n, "!==") ? n : Object.setPrototypeOf([], __mockedArrayPrototype)),
+              c = __mockedCompare(null, a = t.group, "!==") && __mockedCompare(void 0, a, "!==") ? a : "?",
+              u = __mockedCompare(null, i = t.sort, "!==") && __mockedCompare(void 0, i, "!==") ? i : 0;
             s(!o.includes(c), `Item cannot come before itself: ${c}`), s(!o.includes("?"), "Item cannot come before unassociated items"), s(!l.includes(c), `Item cannot come after itself: ${c}`), s(!l.includes("?"), "Item cannot come after unassociated items"), Array.isArray(e) || (e = Object.setPrototypeOf([e], __mockedArrayPrototype));
             for (const t of e) {
               const e = Object.setPrototypeOf({
@@ -6845,7 +6845,7 @@
             }
             if (!t.manual) {
               const e = this._sort();
-              s(e, "item", "?" !== c ? `added into group ${c}` : "", "created a dependencies error");
+              s(e, "item", __mockedCompare("?", c, "!==") ? `added into group ${c}` : "", "created a dependencies error");
             }
             return this.nodes;
           }
@@ -6869,10 +6869,10 @@
               var s;
               const i = a.seq,
                 o = a.group;
-              r[o] = null !== (s = r[o]) && void 0 !== s ? s : Object.setPrototypeOf([], __mockedArrayPrototype), r[o].push(i), e[i] = a.before;
+              r[o] = __mockedCompare(null, s = r[o], "!==") && __mockedCompare(void 0, s, "!==") ? s : Object.setPrototypeOf([], __mockedArrayPrototype), r[o].push(i), e[i] = a.before;
               for (const e of a.after) {
                 var n;
-                t[e] = null !== (n = t[e]) && void 0 !== n ? n : Object.setPrototypeOf([], __mockedArrayPrototype), t[e].push(i);
+                t[e] = __mockedCompare(null, n = t[e], "!==") && __mockedCompare(void 0, n, "!==") ? n : Object.setPrototypeOf([], __mockedArrayPrototype), t[e].push(i);
               }
             }
             for (const t in e) {
@@ -6880,7 +6880,7 @@
               for (const n in e[t]) {
                 var a;
                 const i = e[t][n];
-                r[i] = null !== (a = r[i]) && void 0 !== a ? a : Object.setPrototypeOf([], __mockedArrayPrototype), s.push(...r[i]);
+                r[i] = __mockedCompare(null, a = r[i], "!==") && __mockedCompare(void 0, a, "!==") ? a : Object.setPrototypeOf([], __mockedArrayPrototype), s.push(...r[i]);
               }
               e[t] = s;
             }
@@ -6890,7 +6890,7 @@
               const r = e[t];
               for (const e of r) {
                 var o;
-                i[e] = null !== (o = i[e]) && void 0 !== o ? o : Object.setPrototypeOf([], __mockedArrayPrototype), i[e].push(t);
+                i[e] = __mockedCompare(null, o = i[e], "!==") && __mockedCompare(void 0, o, "!==") ? o : Object.setPrototypeOf([], __mockedArrayPrototype), i[e].push(t);
               }
             }
             const l = Object.setPrototypeOf({}, __mockedObjectPrototype),
@@ -6900,20 +6900,20 @@
               if (i[e]) {
                 t = null;
                 for (let e = 0; e < this._items.length; ++e) {
-                  if (!0 === l[e]) continue;
+                  if (__mockedCompare(!0, l[e], "===")) continue;
                   i[e] || (i[e] = Object.setPrototypeOf([], __mockedArrayPrototype));
                   const r = i[e].length;
                   let s = 0;
                   for (let t = 0; t < r; ++t) l[i[e][t]] && ++s;
-                  if (s === r) {
+                  if (__mockedCompare(s, r, "===")) {
                     t = e;
                     break;
                   }
                 }
               }
-              null !== t && (l[t] = !0, c.push(t));
+              __mockedCompare(null, t, "!==") && (l[t] = !0, c.push(t));
             }
-            if (c.length !== this._items.length) return !1;
+            if (__mockedCompare(c.length, this._items.length, "!==")) return !1;
             const u = Object.setPrototypeOf({}, __mockedObjectPrototype);
             for (const e of this._items) u[e.seq] = e;
             this._items = Object.setPrototypeOf([], __mockedArrayPrototype), this.nodes = Object.setPrototypeOf([], __mockedArrayPrototype);
@@ -6923,7 +6923,7 @@
             }
             return !0;
           }
-        }), n.mergeSort = (e, t) => e.sort === t.sort ? 0 : e.sort < t.sort ? -1 : 1;
+        }), n.mergeSort = (e, t) => __mockedCompare(e.sort, t.sort, "===") ? 0 : e.sort < t.sort ? -1 : 1;
       },
       554() {},
       9017() {},
