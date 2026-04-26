@@ -42,6 +42,8 @@ const mockTypeofTemplate = babelTemplate.expression('typeof %%varname%% === "und
 
 const mockTypeofExprTemplate = babelTemplate.expression('(function(x) { return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x})(%%expr%%)');
 
+const mockClassExprTemplate = babelTemplate.expression('(function(c) { return Object.setPrototypeOf(c, __mockedObjectPrototype); })(%%classexpr%%)');
+
 export function instrument(source: string, opts?: any) {
     opts = opts || {};
     let ast = parse(source, { sourceFilename: opts.filename });
@@ -97,6 +99,28 @@ export function instrument(source: string, opts?: any) {
             else if (path.isClassDeclaration() && !path.get('superClass').node) {
                 let inserted = path.insertAfter(expressionStatement(mockPrototypeTemplate({objexpr: memberExpression(path.get('id').node as Identifier, identifier('prototype'), false), proto: identifier('__mockedObjectPrototype')})));
                 inserted.forEach(x => x.skip());
+            }
+
+            else if (path.isClassExpression() && !path.get('superClass').node) {
+                path.replaceWith(mockClassExprTemplate({classexpr: path.node}));
+                path.skip();
+            }
+
+            else if (path.isNewExpression()) {
+                let callee = path.get('callee').node;
+                if (callee.type === 'Identifier' && callee.name === 'Object') {
+                    path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedObjectPrototype')}));
+                    path.skip();
+                }
+                if (callee.type === 'Identifier' && callee.name === 'Function') {
+                    path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedFunctionPrototype')}));
+                    path.skip();
+                }
+
+                if (callee.type === 'Identifier' && callee.name === 'Array') {
+                    path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedArrayPrototype')}));
+                    path.skip();
+                }
             }
 
             else if (path.isArrayExpression()) {

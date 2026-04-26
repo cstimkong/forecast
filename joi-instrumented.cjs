@@ -40,7 +40,9 @@
             nullSchema: () => Object.setPrototypeOf({
               type: "null"
             }, __mockedObjectPrototype),
-            Base: class {
+            Base: function (c) {
+              return Object.setPrototypeOf(c, __mockedObjectPrototype);
+            }(class {
               constructor(e) {
                 this.type = e, this.$_root = null, this._definition = Object.setPrototypeOf({}, __mockedObjectPrototype), this._reset();
               }
@@ -612,7 +614,7 @@
                   }, __mockedObjectPrototype)
                 }, __mockedObjectPrototype);
               }
-            }
+            })
           }, __mockedObjectPrototype);
         v.Base.prototype[l.symbols.any] = Object.setPrototypeOf({
           version: l.version,
@@ -634,7 +636,9 @@
           }, __mockedObjectPrototype);
         t.provider = Object.setPrototypeOf({
           provision: e => new i.Cache(e)
-        }, __mockedObjectPrototype), i.Cache = class {
+        }, __mockedObjectPrototype), i.Cache = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
             a.assertOptions(e, Object.setPrototypeOf(["max"], __mockedArrayPrototype)), s(void 0 === e.max || e.max && e.max > 0 && isFinite(e.max), "Invalid max cache size"), this._max = e.max || i.max, this._map = new Map(), this._list = new i.List();
           }
@@ -660,7 +664,9 @@
               this._map.delete(e.key);
             }
           }
-        }, i.List = class {
+        }), i.List = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor() {
             this.tail = null, this.head = null;
           }
@@ -680,7 +686,7 @@
             } = e;
             return t.prev = r, r && (r.next = t), e === this.tail && (this.tail = t), e.prev = null, e.next = null, e;
           }
-        };
+        });
       },
       9415(e, t, r) {
         "use strict";
@@ -922,7 +928,9 @@
         const s = r(554),
           n = r(9415),
           a = r(1532);
-        t.Report = class {
+        t.Report = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor(e, r, s, n, a, i, o) {
             if (this.code = e, this.flags = n, this.messages = a, this.path = i.path, this.prefs = o, this.state = i, this.value = r, this.message = null, this.template = null, this.local = s || Object.setPrototypeOf({}, __mockedObjectPrototype), this.local.label = t.label(this.flags, this.state, this.prefs, this.messages), void 0 === this.value || this.local.hasOwnProperty("value") || (this.local.value = this.value), this.path.length) {
               const e = this.path[this.path.length - 1];
@@ -948,7 +956,7 @@
           _template(e, r) {
             return t.template(this.value, e, r || this.code, this.state, this.prefs);
           }
-        }, t.path = Object.setPrototypeOf(function (e) {
+        }), t.path = Object.setPrototypeOf(function (e) {
           let t = "";
           for (const r of e) "object" != (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) && ("string" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) ? (t && (t += "."), t += r) : t += `[${r}]`);
           return t;
@@ -1365,7 +1373,9 @@
           n = r(9415),
           a = r(8529),
           i = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        t.Ids = i.Ids = class {
+        t.Ids = i.Ids = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor() {
             this._byId = new Map(), this._byKey = new Map(), this._schemaChain = !1;
           }
@@ -1440,7 +1450,7 @@
           _get(e) {
             return this._byId.get(e) || this._byKey.get(e);
           }
-        }, i.fork = Object.setPrototypeOf(function (e, r, s) {
+        }), i.fork = Object.setPrototypeOf(function (e, r, s) {
           const n = t.schema(e, Object.setPrototypeOf({
             each: (e, {
               key: t
@@ -1551,7 +1561,9 @@
           }, __mockedObjectPrototype));
         }, __mockedFunctionPrototype), t.isRef = Object.setPrototypeOf(function (e) {
           return !!e && !!e[i.symbols.ref];
-        }, __mockedFunctionPrototype), l.Ref = class {
+        }, __mockedFunctionPrototype), l.Ref = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor(e) {
             s("object" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Invalid reference construction"), i.assertOptions(e, Object.setPrototypeOf(["adjust", "ancestor", "in", "iterables", "map", "path", "render", "separator", "type", "depth", "key", "root", "display"], __mockedArrayPrototype)), s(Object.setPrototypeOf([!1, void 0], __mockedArrayPrototype).includes(e.separator) || "string" == function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
@@ -1599,10 +1611,10 @@
             if (!this.ancestor) return void (this.display = `ref:${this.separator}${e}`);
             if ("root" === this.ancestor) return void (this.display = `ref:root:${e}`);
             if (1 === this.ancestor) return void (this.display = `ref:${e || ".."}`);
-            const t = new Array(this.ancestor + 1).fill(this.separator).join("");
+            const t = Object.setPrototypeOf(new Array(this.ancestor + 1), __mockedArrayPrototype).fill(this.separator).join("");
             this.display = `ref:${t}${e || ""}`;
           }
-        }, l.Ref.prototype[i.symbols.ref] = !0, t.build = Object.setPrototypeOf(function (e) {
+        }), l.Ref.prototype[i.symbols.ref] = !0, t.build = Object.setPrototypeOf(function (e) {
           return "value" === (e = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), l.defaults, e)).type && void 0 === e.ancestor && (e.ancestor = 1), new l.Ref(e);
         }, __mockedFunctionPrototype), l.context = Object.setPrototypeOf(function (e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
           if (e = e.trim(), r) {
@@ -1634,7 +1646,9 @@
           let r = 2;
           for (; e[r] === t;) ++r;
           return Object.setPrototypeOf([r - 1, r], __mockedArrayPrototype);
-        }, __mockedFunctionPrototype), t.toSibling = 0, t.toParent = 1, t.Manager = class {
+        }, __mockedFunctionPrototype), t.toSibling = 0, t.toParent = 1, t.Manager = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor() {
             this.refs = Object.setPrototypeOf([], __mockedArrayPrototype);
           }
@@ -1660,7 +1674,7 @@
           roots() {
             return this.refs.filter(e => !e.ancestor).map(e => e.root);
           }
-        };
+        });
       },
       1688(e, t, r) {
         "use strict";
@@ -1866,7 +1880,9 @@
           i = Object.setPrototypeOf({
             value: Symbol("value")
           }, __mockedObjectPrototype);
-        e.exports = i.State = class {
+        e.exports = i.State = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor(e, t, r) {
             this.path = e, this.ancestors = t, this.mainstay = r.mainstay, this.schemas = r.schemas, this.debug = null;
           }
@@ -1890,11 +1906,13 @@
           commit() {
             this.mainstay.shadow && (this.mainstay.shadow.override(this.path, this._snapshot), this._snapshot = void 0), this.mainstay.commit();
           }
-        }, i.schemas = Object.setPrototypeOf(function (e) {
+        }), i.schemas = Object.setPrototypeOf(function (e) {
           return a.isSchema(e) ? Object.setPrototypeOf({
             schema: e
           }, __mockedObjectPrototype) : e;
-        }, __mockedFunctionPrototype), i.Shadow = class {
+        }, __mockedFunctionPrototype), i.Shadow = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor() {
             this._values = null;
           }
@@ -1930,7 +1948,7 @@
               }, __mockedObjectPrototype));
             t ? a.set(s, t) : a && a.delete(s);
           }
-        };
+        });
       },
       1532(e, t, r) {
         "use strict";
@@ -1946,8 +1964,8 @@
           c = r(8529),
           u = Object.setPrototypeOf({
             symbol: Symbol("template"),
-            opens: new Array(1e3).join("\0"),
-            closes: new Array(1e3).join(""),
+            opens: Object.setPrototypeOf(new Array(1e3), __mockedArrayPrototype).join("\0"),
+            closes: Object.setPrototypeOf(new Array(1e3), __mockedArrayPrototype).join(""),
             dateFormat: Object.setPrototypeOf({
               date: Date.prototype.toDateString,
               iso: Date.prototype.toISOString,
@@ -1956,7 +1974,9 @@
               utc: Date.prototype.toUTCString
             }, __mockedObjectPrototype)
           }, __mockedObjectPrototype);
-        e.exports = u.Template = class {
+        e.exports = u.Template = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor(e, t) {
             if (s("string" == (typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e), "Template source must be a string"), s(!e.includes("\0") && !e.includes(""), "Template source cannot contain reserved control characters"), this.source = e, this.rendered = e, this._template = null, t) {
               const {
@@ -2089,7 +2109,7 @@
           toString() {
             return this.source;
           }
-        }, u.Template.prototype[o.symbols.template] = !0, u.Template.prototype.isImmutable = !0, u.encode = Object.setPrototypeOf(function (e) {
+        }), u.Template.prototype[o.symbols.template] = !0, u.Template.prototype.isImmutable = !0, u.encode = Object.setPrototypeOf(function (e) {
           return e.replace(/\\(\{+)/g, (e, t) => u.opens.slice(0, t.length)).replace(/\\(\}+)/g, (e, t) => u.closes.slice(0, t.length));
         }, __mockedFunctionPrototype), u.decode = Object.setPrototypeOf(function (e) {
           return e.replace(/\u0000/g, "{").replace(/\u0001/g, "}");
@@ -4232,7 +4252,9 @@
               s.push(o);
             }
           }
-        }, __mockedFunctionPrototype), h.Dependency = class {
+        }, __mockedFunctionPrototype), h.Dependency = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor(e, t, r, s, n) {
             this.rel = e, this.key = t, this.peers = r, this.paths = s, this.options = n;
           }
@@ -4249,7 +4271,7 @@
               isPresent: this.options.isPresent
             }, __mockedObjectPrototype)), e;
           }
-        }, h.Keys = class extends Array {
+        }), h.Keys = class extends Array {
           concat(e) {
             const t = this.slice(),
               r = new Map();
@@ -5504,7 +5526,9 @@
         }, __mockedFunctionPrototype), t.standard = Object.setPrototypeOf(function (e, r, s) {
           const n = null == s ? void 0 : s.libraryOptions;
           return r.isAsync() ? t.entryAsync(e, r, n) : t.entry(e, r, n);
-        }, __mockedFunctionPrototype), u.Mainstay = class {
+        }, __mockedFunctionPrototype), u.Mainstay = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor(e, t, r) {
             this.externals = Object.setPrototypeOf([], __mockedArrayPrototype), this.warnings = Object.setPrototypeOf([], __mockedArrayPrototype), this.tracer = e, this.debug = t, this.links = r, this.shadow = null, this.artifacts = null, this._snapshots = Object.setPrototypeOf([], __mockedArrayPrototype);
           }
@@ -5521,7 +5545,7 @@
           commit() {
             this._snapshots.pop();
           }
-        }, u.entry = Object.setPrototypeOf(function (e, r, s) {
+        }), u.entry = Object.setPrototypeOf(function (e, r, s) {
           const {
               tracer: n,
               cleanup: a
@@ -5780,7 +5804,9 @@
           } = r(2116),
           a = r(9415),
           i = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        e.exports = i.Values = class {
+        e.exports = i.Values = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor(e, t) {
             this._values = new Set(e), this._refs = new Set(t), this._lowercase = i.lowercases(e), this._override = !1;
           }
@@ -5868,7 +5894,7 @@
             for (const t of this._refs.values()) e.push(t.describe());
             return e;
           }
-        }, i.Values.prototype[a.symbols.values] = !0, i.Values.prototype.slice = i.Values.prototype.clone, i.lowercases = Object.setPrototypeOf(function (e) {
+        }), i.Values.prototype[a.symbols.values] = !0, i.Values.prototype.slice = i.Values.prototype.clone, i.lowercases = Object.setPrototypeOf(function (e) {
           const t = new Map();
           if (e) for (const r of e) "string" == (typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r) && t.set(r.toLowerCase(), r);
           return t;
@@ -6144,7 +6170,9 @@
           symbol: Symbol("formula"),
           settings: Symbol("settings")
         }, __mockedObjectPrototype);
-        t.Parser = class {
+        t.Parser = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
             if (!t[r.settings] && t.constants) for (const e in t.constants) {
               const r = t.constants[e];
@@ -6271,7 +6299,7 @@
               } else n += 2;
             }), r.evaluate(t[0], e);
           }
-        }, t.Parser.prototype[r.symbol] = !0, r.reference = Object.setPrototypeOf(function (e) {
+        }), t.Parser.prototype[r.symbol] = !0, r.reference = Object.setPrototypeOf(function (e) {
           return Object.setPrototypeOf(function (t) {
             return t && void 0 !== t[e] ? t[e] : null;
           }, __mockedFunctionPrototype);
@@ -6619,14 +6647,16 @@
             for (const e of s) if (c(r, e)) return !1;
           }
           return !0;
-        }, __mockedFunctionPrototype), n.SeenEntry = class {
+        }, __mockedFunctionPrototype), n.SeenEntry = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor(e, t) {
             this.obj = e, this.ref = t;
           }
           isSame(e, t) {
             return this.obj === e && this.ref === t;
           }
-        };
+        });
       },
       5972(e) {
         "use strict";
@@ -6789,7 +6819,9 @@
             assert: s
           } = r(2116),
           n = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        t.Sorter = class {
+        t.Sorter = function (c) {
+          return Object.setPrototypeOf(c, __mockedObjectPrototype);
+        }(class {
           constructor() {
             this._items = Object.setPrototypeOf([], __mockedArrayPrototype), this.nodes = Object.setPrototypeOf([], __mockedArrayPrototype);
           }
@@ -6891,7 +6923,7 @@
             }
             return !0;
           }
-        }, n.mergeSort = (e, t) => e.sort === t.sort ? 0 : e.sort < t.sort ? -1 : 1;
+        }), n.mergeSort = (e, t) => e.sort === t.sort ? 0 : e.sort < t.sort ? -1 : 1;
       },
       554() {},
       9017() {},
