@@ -82,3 +82,17 @@ export function mockedCompare(a: any, b: any, op: string) {
         ]);
     }
 }
+
+export function mockedPropertyAccess(e: any, p: any) {
+    if (typeof p === 'object' && p !== null && p.__TYPEOF__ === 'string') {
+        if (typeof e === 'object' || typeof e === 'function') {
+            return randomChoice([
+                function() { return Object.getPrototypeOf(e); },
+                function() { return undefined; },
+                function() { return e[p] }
+            ])
+            
+        }
+    }
+    return e[p];
+}

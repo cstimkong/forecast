@@ -46,6 +46,8 @@ const mockClassExprTemplate = babelTemplate.expression('(function(c) { return Ob
 
 const mockComparisonTemplate = babelTemplate.expression('__mockedCompare(%%left%%, %%right%%, %%cmpop%%)');
 
+const mockPropertyAccessTemplate = babelTemplate.expression('__mockedPropertyAccess(%%expr%%, %%prop%%)');
+
 export function instrument(source: string, opts?: any) {
     opts = opts || {};
     let ast = parse(source, { sourceFilename: opts.filename });
@@ -135,6 +137,11 @@ export function instrument(source: string, opts?: any) {
                     path.replaceWith(mockComparisonTemplate({left: path.get('left').node, right: path.get('right').node, cmpop: stringLiteral(path.node.operator)}));
                     path.skip();
                 }
+            }
+
+            else if (path.isMemberExpression() && path.node.computed && !(path.parentPath.isAssignmentExpression() && path.parentKey === 'left')) {
+                path.replaceWith(mockPropertyAccessTemplate({expr: path.node.object, prop: path.node.property}));
+                path.skip();
             }
 
             /* Limit the iteration count */

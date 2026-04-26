@@ -25,10 +25,10 @@ export const proxyString: any = (function() {
         [Symbol.toPrimitive]() {
             return TAINT_STRING_LITERAL;
         },
-        ['__TYPEOF__']: 'string'
+        __TYPEOF__: 'string'
     };
 
-    for (let m of ['charAt', 'substring', 'slice', 'replace', 'trim', 'trimLeft', 'trimRight', 'toUpperCase', 'toLowerCase', 'toLocaleUpperCase', 'toLocaleLowerCase']) {
+    for (let m of ['charAt', 'substring', 'slice', 'replace', 'trim', 'trimLeft', 'trimRight', 'toUpperCase', 'toLowerCase', 'toLocaleUpperCase', 'toLocaleLowerCase', 'toString', 'replace']) {
         o[m] = function() {
             return o;
         }

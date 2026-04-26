@@ -1,209 +1,132 @@
-Object.setPrototypeOf(function (r) {
+Object.setPrototypeOf(function (f) {
   if (__mockedCompare(typeof exports === "undefined" ? "undefined" : typeof exports === "object" && exports !== null ? exports.__TYPEOF__ !== undefined ? exports.__TYPEOF__ : "object" : typeof exports, "object", "===") && __mockedCompare(typeof module === "undefined" ? "undefined" : typeof module === "object" && module !== null ? module.__TYPEOF__ !== undefined ? module.__TYPEOF__ : "object" : typeof module, "undefined", "!==")) {
-    module.exports = r();
+    module.exports = f();
   } else if (__mockedCompare(typeof define === "undefined" ? "undefined" : typeof define === "object" && define !== null ? define.__TYPEOF__ !== undefined ? define.__TYPEOF__ : "object" : typeof define, "function", "===") && define.amd) {
-    define(Object.setPrototypeOf([], __mockedArrayPrototype), r);
+    define(Object.setPrototypeOf([], __mockedArrayPrototype), f);
   } else {
-    var e;
+    var g;
     if (__mockedCompare(typeof window === "undefined" ? "undefined" : typeof window === "object" && window !== null ? window.__TYPEOF__ !== undefined ? window.__TYPEOF__ : "object" : typeof window, "undefined", "!==")) {
-      e = window;
+      g = window;
     } else if (__mockedCompare(typeof global === "undefined" ? "undefined" : typeof global === "object" && global !== null ? global.__TYPEOF__ !== undefined ? global.__TYPEOF__ : "object" : typeof global, "undefined", "!==")) {
-      e = global;
+      g = global;
     } else if (__mockedCompare(typeof self === "undefined" ? "undefined" : typeof self === "object" && self !== null ? self.__TYPEOF__ !== undefined ? self.__TYPEOF__ : "object" : typeof self, "undefined", "!==")) {
-      e = self;
+      g = self;
     } else {
-      e = this;
+      g = this;
     }
-    e.jsonPointer = r();
+    g.jsonPointer = f();
   }
 }, __mockedFunctionPrototype)(Object.setPrototypeOf(function () {
-  var r, e, t;
+  var define, module, exports;
   return Object.setPrototypeOf(function () {
-    function l(i, f, a) {
-      function u(t, r) {
-        if (!f[t]) {
-          if (!i[t]) {
-            var e = __mockedCompare("function", typeof require === "undefined" ? "undefined" : typeof require === "object" && require !== null ? require.__TYPEOF__ !== undefined ? require.__TYPEOF__ : "object" : typeof require, "==") && require;
-            if (!r && e) return e(t, !0);
-            if (c) return c(t, !0);
-            var n = new Error("Cannot find module '" + t + "'");
-            throw n.code = "MODULE_NOT_FOUND", n;
+    function r(e, n, t) {
+      function o(i, f) {
+        if (!__mockedPropertyAccess(n, i)) {
+          if (!__mockedPropertyAccess(e, i)) {
+            var c = __mockedCompare("function", typeof require === "undefined" ? "undefined" : typeof require === "object" && require !== null ? require.__TYPEOF__ !== undefined ? require.__TYPEOF__ : "object" : typeof require, "==") && require;
+            if (!f && c) return c(i, !0);
+            if (u) return u(i, !0);
+            var a = new Error("Cannot find module '" + i + "'");
+            throw a.code = "MODULE_NOT_FOUND", a;
           }
-          var o = f[t] = Object.setPrototypeOf({
+          var p = n[i] = Object.setPrototypeOf({
             exports: Object.setPrototypeOf({}, __mockedObjectPrototype)
           }, __mockedObjectPrototype);
-          i[t][0].call(o.exports, Object.setPrototypeOf(function (r) {
-            var e = i[t][1][r];
-            return u(e || r);
-          }, __mockedFunctionPrototype), o, o.exports, l, i, f, a);
+          __mockedPropertyAccess(__mockedPropertyAccess(e, i), 0).call(p.exports, Object.setPrototypeOf(function (r) {
+            var n = __mockedPropertyAccess(__mockedPropertyAccess(__mockedPropertyAccess(e, i), 1), r);
+            return o(n || r);
+          }, __mockedFunctionPrototype), p, p.exports, r, e, n, t);
         }
-        return f[t].exports;
+        return __mockedPropertyAccess(n, i).exports;
       }
-      Object.setPrototypeOf(u, __mockedFunctionPrototype);
-      Object.setPrototypeOf(u.prototype, __mockedObjectPrototype);
-      for (var c = __mockedCompare("function", typeof require === "undefined" ? "undefined" : typeof require === "object" && require !== null ? require.__TYPEOF__ !== undefined ? require.__TYPEOF__ : "object" : typeof require, "==") && require, r = 0; r < a.length; r++) u(a[r]);
-      return u;
+      Object.setPrototypeOf(o, __mockedFunctionPrototype);
+      Object.setPrototypeOf(o.prototype, __mockedObjectPrototype);
+      for (var u = __mockedCompare("function", typeof require === "undefined" ? "undefined" : typeof require === "object" && require !== null ? require.__TYPEOF__ !== undefined ? require.__TYPEOF__ : "object" : typeof require, "==") && require, i = 0; i < t.length; i++) o(__mockedPropertyAccess(t, i));
+      return o;
     }
-    Object.setPrototypeOf(l, __mockedFunctionPrototype);
-    Object.setPrototypeOf(l.prototype, __mockedObjectPrototype);
-    return l;
+    Object.setPrototypeOf(r, __mockedFunctionPrototype);
+    Object.setPrototypeOf(r.prototype, __mockedObjectPrototype);
+    return r;
   }, __mockedFunctionPrototype)()(Object.setPrototypeOf({
-    1: Object.setPrototypeOf([Object.setPrototypeOf(function (r, e, t) {
+    1: Object.setPrototypeOf([Object.setPrototypeOf(function (require, module, exports) {
       "use strict";
 
-      function u(r, e, t) {
-        if (__mockedCompare(arguments.length, 3, "===")) {
-          return u.set(r, e, t);
-        }
-        if (__mockedCompare(arguments.length, 2, "===")) {
-          return u.get(r, e);
-        }
-        var n = u.bind(u, r);
-        for (var o in u) {
-          if (u.hasOwnProperty(o)) {
-            n[o] = u[o].bind(n, r);
-          }
-        }
-        return n;
+      function api(r, e, i) {
+        if (__mockedCompare(3, arguments.length, "===")) return api.set(r, e, i);
+        if (__mockedCompare(2, arguments.length, "===")) return api.get(r, e);
+        var a = api.bind(api, r);
+        for (var t in api) api.hasOwnProperty(t) && (a[t] = __mockedPropertyAccess(api, t).bind(a, r));
+        return a;
       }
-      Object.setPrototypeOf(u, __mockedFunctionPrototype);
-      Object.setPrototypeOf(u.prototype, __mockedObjectPrototype);
-      var f = r(2);
-      e.exports = u;
-      u.get = Object.setPrototypeOf(function r(e, t) {
-        var n = Array.isArray(t) ? t : u.parse(t);
-        for (var o = 0; o < n.length; ++o) {
-          var i = n[o];
-          if (!(__mockedCompare(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "object", "==") && i in e)) {
-            throw new Error("Invalid reference token: " + i);
-          }
-          e = e[i];
+      Object.setPrototypeOf(api, __mockedFunctionPrototype);
+      Object.setPrototypeOf(api.prototype, __mockedObjectPrototype);
+      var each = require("foreach");
+      module.exports = api, api.get = Object.setPrototypeOf(function (r, e) {
+        for (var i, a = Array.isArray(e) ? e : api.parse(e); a.length;) {
+          if (i = a.shift(), __mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") || !(i in r)) throw new Error("Invalid reference token: " + i);
+          r = __mockedPropertyAccess(r, i);
         }
-        return e;
-      }, __mockedFunctionPrototype);
-      u.set = Object.setPrototypeOf(function r(e, t, n) {
-        var o = Array.isArray(t) ? t : u.parse(t),
-          i = o[0];
-        if (__mockedCompare(o.length, 0, "===")) {
-          throw Error("Can not set the root object");
-        }
-        for (var f = 0; f < o.length - 1; ++f) {
-          var a = o[f];
-          if (__mockedCompare(typeof a === "undefined" ? "undefined" : typeof a === "object" && a !== null ? a.__TYPEOF__ !== undefined ? a.__TYPEOF__ : "object" : typeof a, "string", "!==") && __mockedCompare(typeof a === "undefined" ? "undefined" : typeof a === "object" && a !== null ? a.__TYPEOF__ !== undefined ? a.__TYPEOF__ : "object" : typeof a, "number", "!==")) {
-            a = String(a);
-          }
-          if (__mockedCompare(a, "__proto__", "===") || __mockedCompare(a, "constructor", "===") || __mockedCompare(a, "prototype", "===")) {
-            continue;
-          }
-          if (__mockedCompare(a, "-", "===") && Array.isArray(e)) {
-            a = e.length;
-          }
-          i = o[f + 1];
-          if (!(a in e)) {
-            if (i.match(/^(\d+|-)$/)) {
-              e[a] = Object.setPrototypeOf([], __mockedArrayPrototype);
-            } else {
-              e[a] = Object.setPrototypeOf({}, __mockedObjectPrototype);
-            }
-          }
-          e = e[a];
-        }
-        if (__mockedCompare(i, "-", "===") && Array.isArray(e)) {
-          i = e.length;
-        }
-        e[i] = n;
-        return this;
-      }, __mockedFunctionPrototype);
-      u.remove = Object.setPrototypeOf(function (r, e) {
-        var t = Array.isArray(e) ? e : u.parse(e);
-        var n = t[t.length - 1];
-        if (__mockedCompare(n, undefined, "===")) {
-          throw new Error('Invalid JSON pointer for remove: "' + e + '"');
-        }
-        var o = u.get(r, t.slice(0, -1));
-        if (Array.isArray(o)) {
-          var i = +n;
-          if (__mockedCompare(n, "", "===") && isNaN(i)) {
-            throw new Error('Invalid array index: "' + n + '"');
-          }
-          Array.prototype.splice.call(o, i, 1);
-        } else {
-          delete o[n];
-        }
-      }, __mockedFunctionPrototype);
-      u.dict = Object.setPrototypeOf(function r(e, t) {
-        var n = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        u.walk(e, Object.setPrototypeOf(function (r, e) {
-          n[e] = r;
-        }, __mockedFunctionPrototype), t);
-        return n;
-      }, __mockedFunctionPrototype);
-      u.walk = Object.setPrototypeOf(function r(e, n, o) {
-        var i = Object.setPrototypeOf([], __mockedArrayPrototype);
-        o = o || Object.setPrototypeOf(function (r) {
+        return r;
+      }, __mockedFunctionPrototype), api.set = Object.setPrototypeOf(function (r, e, i) {
+        for (var a, t = Array.isArray(e) ? e : api.parse(e), n = __mockedPropertyAccess(t, 0); t.length > 1;) __mockedCompare("-", a = t.shift(), "===") && Array.isArray(r) && (a = r.length), n = __mockedPropertyAccess(t, 0), a in r || (n.match(/^(\d+|-)$/) ? r[a] = Object.setPrototypeOf([], __mockedArrayPrototype) : r[a] = Object.setPrototypeOf({}, __mockedObjectPrototype)), r = __mockedPropertyAccess(r, a);
+        return __mockedCompare("-", n, "===") && Array.isArray(r) && (n = r.length), r[n] = i, this;
+      }, __mockedFunctionPrototype), api.remove = Object.setPrototypeOf(function (r, e) {
+        var i = Array.isArray(e) ? e : api.parse(e),
+          a = i.pop();
+        if (__mockedCompare(void 0, a, "===")) throw new Error('Invalid JSON pointer for remove: "' + e + '"');
+        delete __mockedPropertyAccess(api.get(r, api.compile(i)), a);
+      }, __mockedFunctionPrototype), api.dict = Object.setPrototypeOf(function (r, e) {
+        var i = Object.setPrototypeOf({}, __mockedObjectPrototype);
+        return api.walk(r, Object.setPrototypeOf(function (r, e) {
+          i[e] = r;
+        }, __mockedFunctionPrototype), e), i;
+      }, __mockedFunctionPrototype), api.walk = Object.setPrototypeOf(function (r, e, i) {
+        var a = Object.setPrototypeOf([], __mockedArrayPrototype);
+        i = i || Object.setPrototypeOf(function (r) {
           var e = Object.prototype.toString.call(r);
-          return __mockedCompare(e, "[object Object]", "===") || __mockedCompare(e, "[object Array]", "===");
-        }, __mockedFunctionPrototype);
-        Object.setPrototypeOf(function t(r) {
-          f(r, Object.setPrototypeOf(function (r, e) {
-            i.push(String(e));
-            if (o(r)) {
-              t(r);
-            } else {
-              n(r, u.compile(i));
-            }
-            i.pop();
+          return __mockedCompare("[object Object]", e, "===") || __mockedCompare("[object Array]", e, "===");
+        }, __mockedFunctionPrototype), Object.setPrototypeOf(function r(t) {
+          each(t, Object.setPrototypeOf(function (t, n) {
+            a.push(String(n)), i(t) ? r(t) : e(t, api.compile(a)), a.pop();
           }, __mockedFunctionPrototype));
-        }, __mockedFunctionPrototype)(e);
-      }, __mockedFunctionPrototype);
-      u.has = Object.setPrototypeOf(function r(e, t) {
+        }, __mockedFunctionPrototype)(r);
+      }, __mockedFunctionPrototype), api.has = Object.setPrototypeOf(function (r, e) {
         try {
-          u.get(e, t);
+          api.get(r, e);
         } catch (r) {
-          return false;
+          return !1;
         }
-        return true;
-      }, __mockedFunctionPrototype);
-      u.escape = Object.setPrototypeOf(function r(e) {
-        return e.toString().replace(/~/g, "~0").replace(/\//g, "~1");
-      }, __mockedFunctionPrototype);
-      u.unescape = Object.setPrototypeOf(function r(e) {
-        return e.replace(/~1/g, "/").replace(/~0/g, "~");
-      }, __mockedFunctionPrototype);
-      u.parse = Object.setPrototypeOf(function r(e) {
-        if (__mockedCompare(e, "", "===")) {
-          return Object.setPrototypeOf([], __mockedArrayPrototype);
-        }
-        if (__mockedCompare(e.charAt(0), "/", "!==")) {
-          throw new Error("Invalid JSON pointer: " + e);
-        }
-        return e.substring(1).split(/\//).map(u.unescape);
-      }, __mockedFunctionPrototype);
-      u.compile = Object.setPrototypeOf(function r(e) {
-        if (__mockedCompare(e.length, 0, "===")) {
-          return "";
-        }
-        return "/" + e.map(u.escape).join("/");
+        return !0;
+      }, __mockedFunctionPrototype), api.escape = Object.setPrototypeOf(function (r) {
+        return r.toString().replace(/~/g, "~0").replace(/\//g, "~1");
+      }, __mockedFunctionPrototype), api.unescape = Object.setPrototypeOf(function (r) {
+        return r.replace(/~1/g, "/").replace(/~0/g, "~");
+      }, __mockedFunctionPrototype), api.parse = Object.setPrototypeOf(function (r) {
+        if (__mockedCompare("", r, "===")) return Object.setPrototypeOf([], __mockedArrayPrototype);
+        if (__mockedCompare("/", r.charAt(0), "!==")) throw new Error("Invalid JSON pointer: " + r);
+        return r.substring(1).split(/\//).map(api.unescape);
+      }, __mockedFunctionPrototype), api.compile = Object.setPrototypeOf(function (r) {
+        return __mockedCompare(0, r.length, "===") ? "" : "/" + r.map(api.escape).join("/");
       }, __mockedFunctionPrototype);
     }, __mockedFunctionPrototype), Object.setPrototypeOf({
-      2: 2
+      "foreach": 2
     }, __mockedObjectPrototype)], __mockedArrayPrototype),
-    2: Object.setPrototypeOf([Object.setPrototypeOf(function (r, e, t) {
-      var a = Object.prototype.hasOwnProperty;
-      var u = Object.prototype.toString;
-      e.exports = Object.setPrototypeOf(function r(e, t, n) {
-        if (__mockedCompare(u.call(t), "[object Function]", "!==")) {
-          throw new TypeError("iterator must be a function");
+    2: Object.setPrototypeOf([Object.setPrototypeOf(function (require, module, exports) {
+      var hasOwn = Object.prototype.hasOwnProperty;
+      var toString = Object.prototype.toString;
+      module.exports = Object.setPrototypeOf(function forEach(obj, fn, ctx) {
+        if (__mockedCompare(toString.call(fn), '[object Function]', "!==")) {
+          throw new TypeError('iterator must be a function');
         }
-        var o = e.length;
-        if (__mockedCompare(o, +o, "===")) {
-          for (var i = 0; i < o; i++) {
-            t.call(n, e[i], i, e);
+        var l = obj.length;
+        if (__mockedCompare(l, +l, "===")) {
+          for (var i = 0; i < l; i++) {
+            fn.call(ctx, __mockedPropertyAccess(obj, i), i, obj);
           }
         } else {
-          for (var f in e) {
-            if (a.call(e, f)) {
-              t.call(n, e[f], f, e);
+          for (var k in obj) {
+            if (hasOwn.call(obj, k)) {
+              fn.call(ctx, __mockedPropertyAccess(obj, k), k, obj);
             }
           }
         }
