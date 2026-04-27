@@ -46,12 +46,12 @@ export function randomChoice<T>(funcs: {(): T}[]) {
 
 export class ModifyPrototypeSignal {
     obj: any;
-    prop: any;
-    value: any;
-    constructor(obj: any, prop: any, value: any) {
+    location: any;
+    prop?: any;
+    constructor(obj: any, location: any, prop?: any) {
         this.obj = obj;
+        this.location = location;
         this.prop = prop;
-        this.value = value;
     }
 }
 
@@ -84,7 +84,7 @@ export function mockedCompare(a: any, b: any, op: string) {
 }
 
 export function mockedPropertyAccess(e: any, p: any) {
-    if (typeof p === 'object' && p !== null && p.__TYPEOF__ === 'string') {
+    if (isTaintedString(p)) {
         if (typeof e === 'object' || typeof e === 'function') {
             return randomChoice([
                 function() { return Object.getPrototypeOf(e); },
@@ -95,4 +95,20 @@ export function mockedPropertyAccess(e: any, p: any) {
         }
     }
     return e[p];
+}
+
+export function mockedPropertyWrite(e: any, p: any, v: any, loc: any) {
+    if (e === Object.prototype) {
+        if (isTaintedString(p))
+            throw new ModifyPrototypeSignal('Object.prototype', loc);
+        else if (typeof p === 'string')
+            throw new ModifyPrototypeSignal('Object.prototype', loc, p);
+    }
+
+    e[p] = v;
+    return v;
+}
+
+function isTaintedString(s: any) {
+    return typeof s === 'object' && s !== null && s.__TYPEOF__ === 'string';
 }

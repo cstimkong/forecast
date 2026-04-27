@@ -1,17 +1,27 @@
-!Object.setPrototypeOf(function (e, t) {
-  __mockedCompare("object", typeof exports === "undefined" ? "undefined" : typeof exports === "object" && exports !== null ? exports.__TYPEOF__ !== undefined ? exports.__TYPEOF__ : "object" : typeof exports, "==") && __mockedCompare("object", typeof module === "undefined" ? "undefined" : typeof module === "object" && module !== null ? module.__TYPEOF__ !== undefined ? module.__TYPEOF__ : "object" : typeof module, "==") ? module.exports = t() : __mockedCompare("function", typeof define === "undefined" ? "undefined" : typeof define === "object" && define !== null ? define.__TYPEOF__ !== undefined ? define.__TYPEOF__ : "object" : typeof define, "==") && define.amd ? define(Object.setPrototypeOf([], __mockedArrayPrototype), t) : __mockedCompare("object", typeof exports === "undefined" ? "undefined" : typeof exports === "object" && exports !== null ? exports.__TYPEOF__ !== undefined ? exports.__TYPEOF__ : "object" : typeof exports, "==") ? exports.joi = t() : e.joi = t();
-}, __mockedFunctionPrototype)(this, () => (() => {
+!function (e, t) {
+  __mockedCompare("object", typeof exports === "undefined" ? "undefined" : typeof exports === "object" && exports !== null ? exports.__TYPEOF__ !== undefined ? exports.__TYPEOF__ : "object" : typeof exports, "==") && __mockedCompare("object", typeof module === "undefined" ? "undefined" : typeof module === "object" && module !== null ? module.__TYPEOF__ !== undefined ? module.__TYPEOF__ : "object" : typeof module, "==") ? __mockedPropertyWrite(module, "exports", t(), {
+    line: 1,
+    column: 65
+  }) : __mockedCompare("function", typeof define === "undefined" ? "undefined" : typeof define === "object" && define !== null ? define.__TYPEOF__ !== undefined ? define.__TYPEOF__ : "object" : typeof define, "==") && define.amd ? define([], t) : __mockedCompare("object", typeof exports === "undefined" ? "undefined" : typeof exports === "object" && exports !== null ? exports.__TYPEOF__ !== undefined ? exports.__TYPEOF__ : "object" : typeof exports, "==") ? __mockedPropertyWrite(exports, "joi", t(), {
+    line: 1,
+    column: 160
+  }) : __mockedPropertyWrite(e, "joi", t(), {
+    line: 1,
+    column: 176
+  });
+}(this, () => (() => {
   function r(s) {
     var n = __mockedPropertyAccess(t, s);
     if (__mockedCompare(void 0, n, "!==")) return n.exports;
-    var a = t[s] = Object.setPrototypeOf({
-      exports: Object.setPrototypeOf({}, __mockedObjectPrototype)
-    }, __mockedObjectPrototype);
+    var a = __mockedPropertyWrite(t, s, {
+      exports: {}
+    }, {
+      line: 1,
+      column: 171998
+    });
     return __mockedPropertyAccess(e, s)(a, a.exports, r), a.exports;
   }
-  Object.setPrototypeOf(r, __mockedFunctionPrototype);
-  Object.setPrototypeOf(r.prototype, __mockedObjectPrototype);
-  var e = Object.setPrototypeOf({
+  var e = {
       2115(e, t, r) {
         "use strict";
 
@@ -33,36 +43,76 @@
           g = r(125),
           y = r(1190),
           b = r(6220),
-          v = Object.setPrototypeOf({
-            standardTypes: new Set(Object.setPrototypeOf(["string", "number", "integer", "boolean", "object", "array", "null"], __mockedArrayPrototype)),
+          v = {
+            standardTypes: new Set(["string", "number", "integer", "boolean", "object", "array", "null"]),
             jsonSchemaTarget: "draft-2020-12",
-            primitiveTypes: new Set(Object.setPrototypeOf(["string", "number", "boolean"], __mockedArrayPrototype)),
-            nullSchema: () => Object.setPrototypeOf({
+            primitiveTypes: new Set(["string", "number", "boolean"]),
+            nullSchema: () => ({
               type: "null"
-            }, __mockedObjectPrototype),
-            Base: function (c) {
-              return Object.setPrototypeOf(c, __mockedObjectPrototype);
-            }(class {
+            }),
+            Base: class {
               constructor(e) {
-                this.type = e, this.$_root = null, this._definition = Object.setPrototypeOf({}, __mockedObjectPrototype), this._reset();
+                __mockedPropertyWrite(this, "type", e, {
+                  line: 1,
+                  column: 639
+                }), __mockedPropertyWrite(this, "$_root", null, {
+                  line: 1,
+                  column: 651
+                }), __mockedPropertyWrite(this, "_definition", {}, {
+                  line: 1,
+                  column: 668
+                }), this._reset();
               }
               _reset() {
-                this._ids = new p.Ids(), this._preferences = null, this._refs = new d.Manager(), this._cache = null, this._valids = null, this._invalids = null, this._flags = Object.setPrototypeOf({}, __mockedObjectPrototype), this._rules = Object.setPrototypeOf([], __mockedArrayPrototype), this._singleRules = new Map(), this.$_terms = Object.setPrototypeOf({}, __mockedObjectPrototype), this.$_temp = Object.setPrototypeOf({
+                __mockedPropertyWrite(this, "_ids", new p.Ids(), {
+                  line: 1,
+                  column: 711
+                }), __mockedPropertyWrite(this, "_preferences", null, {
+                  line: 1,
+                  column: 731
+                }), __mockedPropertyWrite(this, "_refs", new d.Manager(), {
+                  line: 1,
+                  column: 754
+                }), __mockedPropertyWrite(this, "_cache", null, {
+                  line: 1,
+                  column: 779
+                }), __mockedPropertyWrite(this, "_valids", null, {
+                  line: 1,
+                  column: 796
+                }), __mockedPropertyWrite(this, "_invalids", null, {
+                  line: 1,
+                  column: 814
+                }), __mockedPropertyWrite(this, "_flags", {}, {
+                  line: 1,
+                  column: 834
+                }), __mockedPropertyWrite(this, "_rules", [], {
+                  line: 1,
+                  column: 849
+                }), __mockedPropertyWrite(this, "_singleRules", new Map(), {
+                  line: 1,
+                  column: 864
+                }), __mockedPropertyWrite(this, "$_terms", {}, {
+                  line: 1,
+                  column: 890
+                }), __mockedPropertyWrite(this, "$_temp", {
                   ruleset: null,
-                  whens: Object.setPrototypeOf({}, __mockedObjectPrototype)
-                }, __mockedObjectPrototype);
+                  whens: {}
+                }, {
+                  line: 1,
+                  column: 906
+                });
               }
               describe() {
                 return s(__mockedCompare("function", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
                 }(m.describe), "=="), "Manifest functionality disabled"), m.describe(this);
               }
-              $_jsonSchema(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+              $_jsonSchema(e, t = {}) {
                 var r;
                 if (__mockedCompare(void 0, t.target, "!==") && __mockedCompare(t.target, v.jsonSchemaTarget, "!==")) throw new Error(`Unsupported JSON Schema target: ${t.target}`);
                 const s = !t.$defs,
-                  n = __mockedCompare(null, r = t.$defs, "!==") && __mockedCompare(void 0, r, "!==") ? r : Object.setPrototypeOf({}, __mockedObjectPrototype);
-                let i = Object.setPrototypeOf({}, __mockedObjectPrototype);
+                  n = __mockedCompare(null, r = t.$defs, "!==") && __mockedCompare(void 0, r, "!==") ? r : {};
+                let i = {};
                 const o = __mockedCompare("any", this.type, "==="),
                   c = this._flags.only,
                   u = this._valids && Array.from(this._valids._values).filter(e => __mockedCompare(null, e, "!=="));
@@ -71,55 +121,85 @@
                   const e = new Set(u.map(e => typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e));
                   f = e.has(this.type) || __mockedCompare("date", this.type, "===") && e.has("object");
                 }
-                !o && f && v.standardTypes.has(this.type) && (i.type = this.type), this._flags.description && (i.description = this._flags.description), __mockedCompare(void 0, this._flags.default, "!==") && __mockedCompare("function", function (x) {
+                !o && f && v.standardTypes.has(this.type) && __mockedPropertyWrite(i, "type", this.type, {
+                  line: 1,
+                  column: 1528
+                }), this._flags.description && __mockedPropertyWrite(i, "description", this._flags.description, {
+                  line: 1,
+                  column: 1572
+                }), __mockedCompare(void 0, this._flags.default, "!==") && __mockedCompare("function", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(this._flags.default), "!=") && (i.default = this._flags.default);
-                const m = Object.setPrototypeOf({
+                }(this._flags.default), "!=") && __mockedPropertyWrite(i, "default", this._flags.default, {
+                  line: 1,
+                  column: 1682
+                });
+                const m = {
                   ...t,
                   $defs: n
-                }, __mockedObjectPrototype);
+                };
                 this._definition.jsonSchema && f && (i = this._definition.jsonSchema(this, i, e, m));
                 for (const t of this._rules) {
                   const r = __mockedPropertyAccess(this._definition.rules, t.name);
                   r.jsonSchema && f && (i = r.jsonSchema(t, i, c, e, m));
                 }
-                if (this.$_terms.shared) for (const t of this.$_terms.shared) n[t._flags.id] = t.$_jsonSchema(e, m);
-                if (s && Object.keys(n).length && (i.$defs = n), this._valids) {
+                if (this.$_terms.shared) for (const t of this.$_terms.shared) __mockedPropertyWrite(n, t._flags.id, t.$_jsonSchema(e, m), {
+                  line: 1,
+                  column: 1982
+                });
+                if (s && Object.keys(n).length && __mockedPropertyWrite(i, "$defs", n, {
+                  line: 1,
+                  column: 2047
+                }), this._valids) {
                   const e = u.filter(e => __mockedCompare("symbol", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!="));
                   if (e.length) if (this._flags.only) {
-                    i.enum = e;
+                    __mockedPropertyWrite(i, "enum", e, {
+                      line: 1,
+                      column: 2145
+                    });
                     const t = l.intersect(new Set(e.map(e => typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)), v.primitiveTypes);
                     if (t.size) {
-                      const e = Object.setPrototypeOf([...t], __mockedArrayPrototype);
-                      i.type = __mockedCompare(1, e.length, "===") ? __mockedPropertyAccess(e, 0) : e;
+                      const e = [...t];
+                      __mockedPropertyWrite(i, "type", __mockedCompare(1, e.length, "===") ? __mockedPropertyAccess(e, 0) : e, {
+                        line: 1,
+                        column: 2246
+                      });
                     }
                   } else {
                     const t = e.filter(e => __mockedCompare(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, this.type, "!==") || o);
-                    !t.length || o && !c || (i.anyOf || (i = Object.setPrototypeOf({
-                      anyOf: Object.setPrototypeOf([i], __mockedArrayPrototype)
-                    }, __mockedObjectPrototype)), i.anyOf.push(Object.setPrototypeOf({
+                    !t.length || o && !c || (i.anyOf || (i = {
+                      anyOf: [i]
+                    }), i.anyOf.push({
                       enum: t
-                    }, __mockedObjectPrototype)));
+                    }));
                   }
                 }
-                if (this._valids && this._valids.has(null) && (!o || c) && (__mockedCompare(1, this._valids.length, "===") && (o || c) ? i.type = "null" : i.type ? i.type = Object.setPrototypeOf([i.type, "null"], __mockedArrayPrototype) : i.anyOf ? i.anyOf.unshift(v.nullSchema()) : i = Object.setPrototypeOf({
-                  anyOf: Object.setPrototypeOf([v.nullSchema(), i], __mockedArrayPrototype)
-                }, __mockedObjectPrototype)), this.$_terms.whens) {
+                if (this._valids && this._valids.has(null) && (!o || c) && (__mockedCompare(1, this._valids.length, "===") && (o || c) ? __mockedPropertyWrite(i, "type", "null", {
+                  line: 1,
+                  column: 2476
+                }) : i.type ? __mockedPropertyWrite(i, "type", [i.type, "null"], {
+                  line: 1,
+                  column: 2497
+                }) : i.anyOf ? i.anyOf.unshift(v.nullSchema()) : i = {
+                  anyOf: [v.nullSchema(), i]
+                }), this.$_terms.whens) {
                   const t = this.clone();
-                  t.$_terms.whens = null;
-                  const r = Object.setPrototypeOf([], __mockedArrayPrototype);
+                  __mockedPropertyWrite(t.$_terms, "whens", null, {
+                    line: 1,
+                    column: 2631
+                  });
+                  const r = [];
                   for (const s of this.$_terms.whens) {
-                    const n = s.is ? Object.setPrototypeOf([s], __mockedArrayPrototype) : s.switch;
+                    const n = s.is ? [s] : s.switch;
                     for (let s = 0; s < n.length; ++s) {
                       const a = __mockedPropertyAccess(n, s);
                       a.then && r.push(t.concat(a.then).$_jsonSchema(e, m)), a.otherwise && r.push(t.concat(a.otherwise).$_jsonSchema(e, m)), a.then && (__mockedCompare(s, n.length - 1, "!==") || a.otherwise) || r.push(t.$_jsonSchema(e, m));
                     }
                   }
-                  const s = Object.setPrototypeOf([], __mockedArrayPrototype);
+                  const s = [];
                   for (const e of r) s.some(t => a(t, e)) || s.push(e);
-                  return Object.setPrototypeOf({
+                  return {
                     anyOf: s
-                  }, __mockedObjectPrototype);
+                  };
                 }
                 return i;
               }
@@ -129,15 +209,21 @@
               alter(e) {
                 s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && !Array.isArray(e), "Invalid targets argument"), s(!this._inRuleset(), "Cannot set alterations inside a ruleset");
                 const t = this.clone();
-                t.$_terms.alterations = t.$_terms.alterations || Object.setPrototypeOf([], __mockedArrayPrototype);
+                __mockedPropertyWrite(t.$_terms, "alterations", t.$_terms.alterations || [], {
+                  line: 1,
+                  column: 3261
+                });
                 for (const r in e) {
                   const n = __mockedPropertyAccess(e, r);
-                  s(__mockedCompare("function", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "=="), "Alteration adjuster for", r, "must be a function"), t.$_terms.alterations.push(Object.setPrototypeOf({
+                  s(__mockedCompare("function", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "=="), "Alteration adjuster for", r, "must be a function"), t.$_terms.alterations.push({
                     target: r,
                     adjuster: n
-                  }, __mockedObjectPrototype));
+                  });
                 }
-                return t.$_temp.ruleset = !1, t;
+                return __mockedPropertyWrite(t.$_temp, "ruleset", !1, {
+                  line: 1,
+                  column: 3470
+                }), t;
               }
               artifact(e) {
                 return s(__mockedCompare(void 0, e, "!=="), "Artifact cannot be undefined"), s(!this._cache, "Cannot set an artifact with a rule cache"), this.$_setFlag("artifact", e);
@@ -153,28 +239,28 @@
               }
               empty(e) {
                 const t = this.clone();
-                return __mockedCompare(void 0, e, "!==") && (e = t.$_compile(e, Object.setPrototypeOf({
+                return __mockedCompare(void 0, e, "!==") && (e = t.$_compile(e, {
                   override: !1
-                }, __mockedObjectPrototype))), t.$_setFlag("empty", e, Object.setPrototypeOf({
+                })), t.$_setFlag("empty", e, {
                   clone: !1
-                }, __mockedObjectPrototype));
+                });
               }
               error(e) {
                 return s(e, "Missing error"), s(e instanceof Error || __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Must provide a valid Error object or a function"), this.$_setFlag("error", e);
               }
-              example(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                return s(__mockedCompare(void 0, e, "!=="), "Missing example"), l.assertOptions(t, Object.setPrototypeOf(["override"], __mockedArrayPrototype)), this._inner("examples", e, Object.setPrototypeOf({
+              example(e, t = {}) {
+                return s(__mockedCompare(void 0, e, "!=="), "Missing example"), l.assertOptions(t, ["override"]), this._inner("examples", e, {
                   single: !0,
                   override: t.override
-                }, __mockedObjectPrototype));
+                });
               }
               external(e, t) {
-                return __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (s(!t, "Cannot combine options with description"), t = e.description, e = e.method), s(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Method must be a function"), s(__mockedCompare(void 0, t, "===") || t && __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Description must be a non-empty string"), this._inner("externals", Object.setPrototypeOf({
+                return __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (s(!t, "Cannot combine options with description"), t = e.description, e = e.method), s(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Method must be a function"), s(__mockedCompare(void 0, t, "===") || t && __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Description must be a non-empty string"), this._inner("externals", {
                   method: e,
                   description: t
-                }, __mockedObjectPrototype), Object.setPrototypeOf({
+                }, {
                   single: !0
-                }, __mockedObjectPrototype));
+                });
               }
               failover(e, t) {
                 return this._default("failover", e, t);
@@ -192,9 +278,9 @@
                 return s(e && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Label name must be a non-empty string"), this.$_setFlag("label", e);
               }
               meta(e) {
-                return s(__mockedCompare(void 0, e, "!=="), "Meta cannot be undefined"), this._inner("metas", e, Object.setPrototypeOf({
+                return s(__mockedCompare(void 0, e, "!=="), "Meta cannot be undefined"), this._inner("metas", e, {
                   single: !0
-                }, __mockedObjectPrototype));
+                });
               }
               note(...e) {
                 s(e.length, "Missing notes");
@@ -210,16 +296,19 @@
               prefs(e) {
                 s(e, "Missing preferences"), s(__mockedCompare(void 0, e.context, "==="), "Cannot override context"), s(__mockedCompare(void 0, e.externals, "==="), "Cannot override externals"), s(__mockedCompare(void 0, e.warnings, "==="), "Cannot override warnings"), s(__mockedCompare(void 0, e.debug, "==="), "Cannot override debug"), l.checkPreferences(e);
                 const t = this.clone();
-                return t._preferences = l.preferences(t._preferences, e), t;
+                return __mockedPropertyWrite(t, "_preferences", l.preferences(t._preferences, e), {
+                  line: 1,
+                  column: 5806
+                }), t;
               }
               presence(e) {
-                return s(Object.setPrototypeOf(["optional", "required", "forbidden"], __mockedArrayPrototype).includes(e), "Unknown presence mode", e), this.$_setFlag("presence", e);
+                return s(["optional", "required", "forbidden"].includes(e), "Unknown presence mode", e), this.$_setFlag("presence", e);
               }
               raw(e = !0) {
                 return this.$_setFlag("result", e ? "raw" : void 0);
               }
               result(e) {
-                return s(Object.setPrototypeOf(["raw", "strip"], __mockedArrayPrototype).includes(e), "Unknown result mode", e), this.$_setFlag("result", e);
+                return s(["raw", "strip"].includes(e), "Unknown result mode", e), this.$_setFlag("result", e);
               }
               required() {
                 return this.presence("required");
@@ -227,9 +316,12 @@
               strict(e) {
                 const t = this.clone(),
                   r = __mockedCompare(void 0, e, "!==") && !e;
-                return t._preferences = l.preferences(t._preferences, Object.setPrototypeOf({
+                return __mockedPropertyWrite(t, "_preferences", l.preferences(t._preferences, {
                   convert: r
-                }, __mockedObjectPrototype)), t;
+                }), {
+                  line: 1,
+                  column: 6235
+                }), t;
               }
               strip(e = !0) {
                 return this.$_setFlag("result", e ? "strip" : void 0);
@@ -245,16 +337,19 @@
               valid(...e) {
                 l.verifyFlat(e, "valid");
                 const t = this.allow(...e);
-                return t.$_setFlag("only", !!t._valids, Object.setPrototypeOf({
+                return t.$_setFlag("only", !!t._valids, {
                   clone: !1
-                }, __mockedObjectPrototype)), t;
+                }), t;
               }
               when(e, t) {
                 const r = this.clone();
-                r.$_terms.whens || (r.$_terms.whens = Object.setPrototypeOf([], __mockedArrayPrototype));
+                r.$_terms.whens || __mockedPropertyWrite(r.$_terms, "whens", [], {
+                  line: 1,
+                  column: 6762
+                });
                 const n = c.when(r, e, t);
-                if (!Object.setPrototypeOf(["any", "link"], __mockedArrayPrototype).includes(r.type)) {
-                  const e = n.is ? Object.setPrototypeOf([n], __mockedArrayPrototype) : n.switch;
+                if (!["any", "link"].includes(r.type)) {
+                  const e = n.is ? [n] : n.switch;
                   for (const t of e) s(!t.then || __mockedCompare("any", t.then.type, "===") || __mockedCompare(t.then.type, r.type, "==="), "Cannot combine", r.type, "with", t.then && t.then.type), s(!t.otherwise || __mockedCompare("any", t.otherwise.type, "===") || __mockedCompare(t.otherwise.type, r.type, "==="), "Cannot combine", r.type, "with", t.otherwise && t.otherwise.type);
                 }
                 return r.$_terms.whens.push(n), r.$_mutateRebuild();
@@ -262,7 +357,13 @@
               cache(e) {
                 s(!this._inRuleset(), "Cannot set caching inside a ruleset"), s(!this._cache, "Cannot override schema cache"), s(__mockedCompare(void 0, this._flags.artifact, "==="), "Cannot cache a rule with an artifact");
                 const t = this.clone();
-                return t._cache = e || o.provider.provision(), t.$_temp.ruleset = !1, t;
+                return __mockedPropertyWrite(t, "_cache", e || o.provider.provision(), {
+                  line: 1,
+                  column: 7386
+                }), __mockedPropertyWrite(t.$_temp, "ruleset", !1, {
+                  line: 1,
+                  column: 7421
+                }), t;
               }
               clone() {
                 const e = Object.create(Object.getPrototypeOf(this));
@@ -273,26 +374,56 @@
                 let t = this.clone();
                 if (__mockedCompare("any", this.type, "===") && __mockedCompare("any", e.type, "!==")) {
                   const r = e.clone();
-                  for (const e of Object.keys(t)) __mockedCompare("type", e, "!==") && (r[e] = __mockedPropertyAccess(t, e));
+                  for (const e of Object.keys(t)) __mockedCompare("type", e, "!==") && __mockedPropertyWrite(r, e, __mockedPropertyAccess(t, e), {
+                    line: 1,
+                    column: 7951
+                  });
                   t = r;
                 }
-                t._ids.concat(e._ids), t._refs.register(e, d.toSibling), t._preferences = t._preferences ? l.preferences(t._preferences, e._preferences) : e._preferences, t._valids = b.merge(t._valids, e._valids, e._invalids), t._invalids = b.merge(t._invalids, e._invalids, e._valids);
-                for (const r of e._singleRules.keys()) t._singleRules.has(r) && (t._rules = t._rules.filter(e => e.keep || __mockedCompare(e.name, r, "!==")), t._singleRules.delete(r));
+                t._ids.concat(e._ids), t._refs.register(e, d.toSibling), __mockedPropertyWrite(t, "_preferences", t._preferences ? l.preferences(t._preferences, e._preferences) : e._preferences, {
+                  line: 1,
+                  column: 8020
+                }), __mockedPropertyWrite(t, "_valids", b.merge(t._valids, e._valids, e._invalids), {
+                  line: 1,
+                  column: 8110
+                }), __mockedPropertyWrite(t, "_invalids", b.merge(t._invalids, e._invalids, e._valids), {
+                  line: 1,
+                  column: 8161
+                });
+                for (const r of e._singleRules.keys()) t._singleRules.has(r) && (__mockedPropertyWrite(t, "_rules", t._rules.filter(e => e.keep || __mockedCompare(e.name, r, "!==")), {
+                  line: 1,
+                  column: 8277
+                }), t._singleRules.delete(r));
                 for (const r of e._rules) __mockedPropertyAccess(e._definition.rules, r.method).multi || t._singleRules.set(r.name, r), t._rules.push(r);
                 if (t._flags.empty && e._flags.empty) {
-                  t._flags.empty = t._flags.empty.concat(e._flags.empty);
-                  const r = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e._flags);
+                  __mockedPropertyWrite(t._flags, "empty", t._flags.empty.concat(e._flags.empty), {
+                    line: 1,
+                    column: 8493
+                  });
+                  const r = Object.assign({}, e._flags);
                   delete r.empty, i(t._flags, r);
                 } else if (e._flags.empty) {
-                  t._flags.empty = e._flags.empty;
-                  const r = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e._flags);
+                  __mockedPropertyWrite(t._flags, "empty", e._flags.empty, {
+                    line: 1,
+                    column: 8634
+                  });
+                  const r = Object.assign({}, e._flags);
                   delete r.empty, i(t._flags, r);
                 } else i(t._flags, e._flags);
                 for (const r in e.$_terms) {
                   const s = __mockedPropertyAccess(e.$_terms, r);
-                  s ? __mockedPropertyAccess(t.$_terms, r) ? t.$_terms[r] = __mockedPropertyAccess(t.$_terms, r).concat(s) : t.$_terms[r] = s.slice() : __mockedPropertyAccess(t.$_terms, r) || (t.$_terms[r] = s);
+                  s ? __mockedPropertyAccess(t.$_terms, r) ? __mockedPropertyWrite(t.$_terms, r, __mockedPropertyAccess(t.$_terms, r).concat(s), {
+                    line: 1,
+                    column: 8816
+                  }) : __mockedPropertyWrite(t.$_terms, r, s.slice(), {
+                    line: 1,
+                    column: 8852
+                  }) : __mockedPropertyAccess(t.$_terms, r) || __mockedPropertyWrite(t.$_terms, r, s, {
+                    line: 1,
+                    column: 8890
+                  });
                 }
-                return this.$_root._tracer && this.$_root._tracer._combine(t, Object.setPrototypeOf([this, e], __mockedArrayPrototype)), t.$_mutateRebuild();
+                return this.$_root._tracer && this.$_root._tracer._combine(t, [this, e]), t.$_mutateRebuild();
               }
               extend(e) {
                 return s(!e.base, "Cannot extend type with another base"), f.type(this, e);
@@ -303,8 +434,11 @@
               fork(e, t) {
                 s(!this._inRuleset(), "Cannot fork inside a ruleset");
                 let r = this;
-                for (let s of Object.setPrototypeOf([], __mockedArrayPrototype).concat(e)) s = Array.isArray(s) ? s : s.split("."), r = r._ids.fork(s, t, r);
-                return r.$_temp.ruleset = !1, r;
+                for (let s of [].concat(e)) s = Array.isArray(s) ? s : s.split("."), r = r._ids.fork(s, t, r);
+                return __mockedPropertyWrite(r.$_temp, "ruleset", !1, {
+                  line: 1,
+                  column: 9309
+                }), r;
               }
               isAsync() {
                 var e;
@@ -331,29 +465,41 @@
                   const r = __mockedPropertyAccess(a._rules, i),
                     o = n(r);
                   for (const n in e) __mockedPropertyAccess(t.modifiers, n)(o, __mockedPropertyAccess(e, n)), s(__mockedCompare(o.name, r.name, "==="), "Cannot change rule name");
-                  a._rules[i] = o, __mockedCompare(a._singleRules.get(o.name), r, "===") && a._singleRules.set(o.name, o);
+                  __mockedPropertyWrite(a._rules, i, o, {
+                    line: 1,
+                    column: 10291
+                  }), __mockedCompare(a._singleRules.get(o.name), r, "===") && a._singleRules.set(o.name, o);
                 }
-                return a.$_temp.ruleset = !1, a.$_mutateRebuild();
+                return __mockedPropertyWrite(a.$_temp, "ruleset", !1, {
+                  line: 1,
+                  column: 10373
+                }), a.$_mutateRebuild();
               }
               get ruleset() {
                 s(!this._inRuleset(), "Cannot start a new ruleset without closing the previous one");
                 const e = this.clone();
-                return e.$_temp.ruleset = e._rules.length, e;
+                return __mockedPropertyWrite(e.$_temp, "ruleset", e._rules.length, {
+                  line: 1,
+                  column: 10539
+                }), e;
               }
               get $() {
                 return this.ruleset;
               }
               tailor(e) {
-                e = Object.setPrototypeOf([], __mockedArrayPrototype).concat(e), s(!this._inRuleset(), "Cannot tailor inside a ruleset");
+                e = [].concat(e), s(!this._inRuleset(), "Cannot tailor inside a ruleset");
                 let t = this;
                 if (this.$_terms.alterations) for (const {
                   target: r,
                   adjuster: n
                 } of this.$_terms.alterations) e.includes(r) && (t = n(t), s(l.isSchema(t), "Alteration adjuster for", r, "failed to return a schema object"));
-                return t = t.$_modify(Object.setPrototypeOf({
+                return t = t.$_modify({
                   each: t => t.tailor(e),
                   ref: !1
-                }, __mockedObjectPrototype)), t.$_temp.ruleset = !1, t.$_mutateRebuild();
+                }), __mockedPropertyWrite(t.$_temp, "ruleset", !1, {
+                  line: 1,
+                  column: 10933
+                }), t.$_mutateRebuild();
               }
               tracer() {
                 return g.location ? g.location(this) : this;
@@ -365,14 +511,20 @@
                 return y.entryAsync(e, this, t);
               }
               $_addRule(e) {
-                __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (e = Object.setPrototypeOf({
+                __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (e = {
                   name: e
-                }, __mockedObjectPrototype)), s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid options"), s(e.name && __mockedCompare("string", function (x) {
+                }), s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid options"), s(e.name && __mockedCompare("string", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
                 }(e.name), "=="), "Invalid rule name");
                 for (const t in e) s(__mockedCompare("_", __mockedPropertyAccess(t, 0), "!=="), "Cannot set private rule properties");
-                const t = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e);
-                t._resolve = Object.setPrototypeOf([], __mockedArrayPrototype), t.method = t.method || t.name;
+                const t = Object.assign({}, e);
+                __mockedPropertyWrite(t, "_resolve", [], {
+                  line: 1,
+                  column: 11350
+                }), __mockedPropertyWrite(t, "method", t.method || t.name, {
+                  line: 1,
+                  column: 11364
+                });
                 const r = __mockedPropertyAccess(this._definition.rules, t.method),
                   n = t.args;
                 s(r, "Unknown rule", t.method);
@@ -383,23 +535,32 @@
                     let i = __mockedPropertyAccess(n, e);
                     if (r.argsByName) {
                       const o = r.argsByName.get(e);
-                      if (o.ref && l.isResolvable(i)) t._resolve.push(e), a.$_mutateRegister(i);else if (o.normalize && (i = o.normalize(i), n[e] = i), o.assert) {
+                      if (o.ref && l.isResolvable(i)) t._resolve.push(e), a.$_mutateRegister(i);else if (o.normalize && (i = o.normalize(i), __mockedPropertyWrite(n, e, i, {
+                        line: 1,
+                        column: 11822
+                      })), o.assert) {
                         const t = l.validateArg(i, e, o);
                         s(!t, t, "or reference");
                       }
                     }
-                    __mockedCompare(void 0, i, "!==") ? n[e] = i : delete __mockedPropertyAccess(n, e);
+                    __mockedCompare(void 0, i, "!==") ? __mockedPropertyWrite(n, e, i, {
+                      line: 1,
+                      column: 11904
+                    }) : delete __mockedPropertyAccess(n, e);
                   }
                 }
-                return r.multi || (a._ruleRemove(t.name, Object.setPrototypeOf({
+                return r.multi || (a._ruleRemove(t.name, {
                   clone: !1
-                }, __mockedObjectPrototype)), a._singleRules.set(t.name, t)), __mockedCompare(!1, a.$_temp.ruleset, "===") && (a.$_temp.ruleset = null), r.priority ? a._rules.unshift(t) : a._rules.push(t), a;
+                }), a._singleRules.set(t.name, t)), __mockedCompare(!1, a.$_temp.ruleset, "===") && __mockedPropertyWrite(a.$_temp, "ruleset", null, {
+                  line: 1,
+                  column: 12028
+                }), r.priority ? a._rules.unshift(t) : a._rules.push(t), a;
               }
               $_compile(e, t) {
                 return c.schema(this.$_root, e, t);
               }
-              $_createError(e, t, r, s, n, a = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                const i = __mockedCompare(!1, a.flags, "!==") ? this._flags : Object.setPrototypeOf({}, __mockedObjectPrototype),
+              $_createError(e, t, r, s, n, a = {}) {
+                const i = __mockedCompare(!1, a.flags, "!==") ? this._flags : {},
                   o = a.messages ? h.merge(this._definition.messages, a.messages) : this._definition.messages;
                 return new u.Report(e, t, r, i, o, s, n);
               }
@@ -413,15 +574,21 @@
                 return e = Array.isArray(e) ? e : e.split("."), this._ids.labels(e);
               }
               $_match(e, t, r, s) {
-                (r = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), r)).abortEarly = !0, r._externals = !1, t.snapshot();
+                __mockedPropertyWrite(r = Object.assign({}, r), "abortEarly", !0, {
+                  line: 1,
+                  column: 12508
+                }), __mockedPropertyWrite(r, "_externals", !1, {
+                  line: 1,
+                  column: 12546
+                }), t.snapshot();
                 const n = !y.validate(e, this, t, r, s).errors;
                 return t.restore(), n;
               }
               $_modify(e) {
-                return l.assertOptions(e, Object.setPrototypeOf(["each", "once", "ref", "schema"], __mockedArrayPrototype)), p.schema(this, e) || this;
+                return l.assertOptions(e, ["each", "once", "ref", "schema"]), p.schema(this, e) || this;
               }
               $_mutateRebuild() {
-                return s(!this._inRuleset(), "Cannot add this rule inside a ruleset"), this._refs.reset(), this._ids.reset(), this.$_modify(Object.setPrototypeOf({
+                return s(!this._inRuleset(), "Cannot add this rule inside a ruleset"), this._refs.reset(), this._ids.reset(), this.$_modify({
                   each: (e, {
                     source: t,
                     name: r,
@@ -429,20 +596,23 @@
                     key: n
                   }) => {
                     const a = __mockedPropertyAccess(__mockedPropertyAccess(this._definition, t), r) && __mockedPropertyAccess(__mockedPropertyAccess(this._definition, t), r).register;
-                    __mockedCompare(!1, a, "!==") && this.$_mutateRegister(e, Object.setPrototypeOf({
+                    __mockedCompare(!1, a, "!==") && this.$_mutateRegister(e, {
                       family: a,
                       key: n
-                    }, __mockedObjectPrototype));
+                    });
                   }
-                }, __mockedObjectPrototype)), this._definition.rebuild && this._definition.rebuild(this), this.$_temp.ruleset = !1, this;
+                }), this._definition.rebuild && this._definition.rebuild(this), __mockedPropertyWrite(this.$_temp, "ruleset", !1, {
+                  line: 1,
+                  column: 13084
+                }), this;
               }
               $_mutateRegister(e, {
                 family: t,
                 key: r
-              } = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                this._refs.register(e, t), this._ids.register(e, Object.setPrototypeOf({
+              } = {}) {
+                this._refs.register(e, t), this._ids.register(e, {
                   key: r
-                }, __mockedObjectPrototype));
+                });
               }
               $_property(e) {
                 return __mockedPropertyAccess(this._definition.properties, e);
@@ -453,12 +623,18 @@
               $_rootReferences() {
                 return this._refs.roots();
               }
-              $_setFlag(e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+              $_setFlag(e, t, r = {}) {
                 s(__mockedCompare("_", __mockedPropertyAccess(e, 0), "===") || !this._inRuleset(), "Cannot set flag inside a ruleset");
-                const n = __mockedPropertyAccess(this._definition.flags, e) || Object.setPrototypeOf({}, __mockedObjectPrototype);
+                const n = __mockedPropertyAccess(this._definition.flags, e) || {};
                 if (a(t, n.default) && (t = void 0), a(t, __mockedPropertyAccess(this._flags, e))) return this;
                 const i = __mockedCompare(!1, r.clone, "!==") ? this.clone() : this;
-                return __mockedCompare(void 0, t, "!==") ? (i._flags[e] = t, i.$_mutateRegister(t)) : delete __mockedPropertyAccess(i._flags, e), __mockedCompare("_", __mockedPropertyAccess(e, 0), "!==") && (i.$_temp.ruleset = !1), i;
+                return __mockedCompare(void 0, t, "!==") ? (__mockedPropertyWrite(i._flags, e, t, {
+                  line: 1,
+                  column: 13588
+                }), i.$_mutateRegister(t)) : delete __mockedPropertyAccess(i._flags, e), __mockedCompare("_", __mockedPropertyAccess(e, 0), "!==") && __mockedPropertyWrite(i.$_temp, "ruleset", !1, {
+                  line: 1,
+                  column: 13657
+                }), i;
               }
               $_parent(e, ...t) {
                 return __mockedPropertyAccess(__mockedPropertyAccess(this, e), l.symbols.parent).call(this, ...t);
@@ -467,12 +643,63 @@
                 return y.validate(e, this, t, r);
               }
               _assign(e) {
-                e.type = this.type, e.$_root = this.$_root, e.$_temp = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), this.$_temp), e.$_temp.whens = Object.setPrototypeOf({}, __mockedObjectPrototype), e._ids = this._ids.clone(), e._preferences = this._preferences, e._valids = this._valids && this._valids.clone(), e._invalids = this._invalids && this._invalids.clone(), e._rules = this._rules.slice(), e._singleRules = n(this._singleRules, Object.setPrototypeOf({
+                __mockedPropertyWrite(e, "type", this.type, {
+                  line: 1,
+                  column: 13805
+                }), __mockedPropertyWrite(e, "$_root", this.$_root, {
+                  line: 1,
+                  column: 13822
+                }), __mockedPropertyWrite(e, "$_temp", Object.assign({}, this.$_temp), {
+                  line: 1,
+                  column: 13843
+                }), __mockedPropertyWrite(e.$_temp, "whens", {}, {
+                  line: 1,
+                  column: 13882
+                }), __mockedPropertyWrite(e, "_ids", this._ids.clone(), {
+                  line: 1,
+                  column: 13900
+                }), __mockedPropertyWrite(e, "_preferences", this._preferences, {
+                  line: 1,
+                  column: 13925
+                }), __mockedPropertyWrite(e, "_valids", this._valids && this._valids.clone(), {
+                  line: 1,
+                  column: 13958
+                }), __mockedPropertyWrite(e, "_invalids", this._invalids && this._invalids.clone(), {
+                  line: 1,
+                  column: 14003
+                }), __mockedPropertyWrite(e, "_rules", this._rules.slice(), {
+                  line: 1,
+                  column: 14054
+                }), __mockedPropertyWrite(e, "_singleRules", n(this._singleRules, {
                   shallow: !0
-                }, __mockedObjectPrototype)), e._refs = this._refs.clone(), e._flags = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), this._flags), e._cache = null, e.$_terms = Object.setPrototypeOf({}, __mockedObjectPrototype);
-                for (const t in this.$_terms) e.$_terms[t] = __mockedPropertyAccess(this.$_terms, t) ? __mockedPropertyAccess(this.$_terms, t).slice() : null;
-                e.$_super = Object.setPrototypeOf({}, __mockedObjectPrototype);
-                for (const t in this.$_super) e.$_super[t] = __mockedPropertyAccess(this._super, t).bind(e);
+                }), {
+                  line: 1,
+                  column: 14083
+                }), __mockedPropertyWrite(e, "_refs", this._refs.clone(), {
+                  line: 1,
+                  column: 14132
+                }), __mockedPropertyWrite(e, "_flags", Object.assign({}, this._flags), {
+                  line: 1,
+                  column: 14159
+                }), __mockedPropertyWrite(e, "_cache", null, {
+                  line: 1,
+                  column: 14198
+                }), __mockedPropertyWrite(e, "$_terms", {}, {
+                  line: 1,
+                  column: 14212
+                });
+                for (const t in this.$_terms) __mockedPropertyWrite(e.$_terms, t, __mockedPropertyAccess(this.$_terms, t) ? __mockedPropertyAccess(this.$_terms, t).slice() : null, {
+                  line: 1,
+                  column: 14253
+                });
+                __mockedPropertyWrite(e, "$_super", {}, {
+                  line: 1,
+                  column: 14311
+                });
+                for (const t in this.$_super) __mockedPropertyWrite(e.$_super, t, __mockedPropertyAccess(this._super, t).bind(e), {
+                  line: 1,
+                  column: 14352
+                });
                 return e;
               }
               _bare() {
@@ -481,22 +708,25 @@
                 const t = e._definition.terms;
                 for (const r in t) {
                   const s = __mockedPropertyAccess(t, r);
-                  e.$_terms[r] = s.init;
+                  __mockedPropertyWrite(e.$_terms, r, s.init, {
+                    line: 1,
+                    column: 14496
+                  });
                 }
                 return e.$_mutateRebuild();
               }
-              _default(e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                return l.assertOptions(r, "literal"), s(__mockedCompare(void 0, t, "!=="), "Missing", e, "value"), s(__mockedCompare("function", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") || !r.literal, "Only function value supports literal option"), __mockedCompare("function", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") && r.literal && (t = Object.setPrototypeOf({
+              _default(e, t, r = {}) {
+                return l.assertOptions(r, "literal"), s(__mockedCompare(void 0, t, "!=="), "Missing", e, "value"), s(__mockedCompare("function", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") || !r.literal, "Only function value supports literal option"), __mockedCompare("function", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") && r.literal && (t = {
                   [l.symbols.literal]: !0,
                   literal: t
-                }, __mockedObjectPrototype)), this.$_setFlag(e, t);
+                }), this.$_setFlag(e, t);
               }
               _generate(e, t, r) {
-                if (!this.$_terms.whens) return Object.setPrototypeOf({
+                if (!this.$_terms.whens) return {
                   schema: this
-                }, __mockedObjectPrototype);
-                const s = Object.setPrototypeOf([], __mockedArrayPrototype),
-                  n = Object.setPrototypeOf([], __mockedArrayPrototype);
+                };
+                const s = [],
+                  n = [];
                 for (let a = 0; a < this.$_terms.whens.length; ++a) {
                   const i = __mockedPropertyAccess(this.$_terms.whens, a);
                   if (i.concat) {
@@ -504,7 +734,7 @@
                     continue;
                   }
                   const o = i.ref ? i.ref.resolve(e, t, r) : e,
-                    l = i.is ? Object.setPrototypeOf([i], __mockedArrayPrototype) : i.switch,
+                    l = i.is ? [i] : i.switch,
                     c = n.length;
                   for (let c = 0; c < l.length; ++c) {
                     const {
@@ -515,7 +745,7 @@
                       h = `${a}${i.switch ? "." + c : ""}`;
                     if (u.$_match(o, t.nest(u, `${h}.is`), r)) {
                       if (f) {
-                        const a = t.localize(Object.setPrototypeOf([...t.path, `${h}.then`], __mockedArrayPrototype), t.ancestors, t.schemas),
+                        const a = t.localize([...t.path, `${h}.then`], t.ancestors, t.schemas),
                           {
                             schema: i,
                             id: o
@@ -524,7 +754,7 @@
                         break;
                       }
                     } else if (m) {
-                      const a = t.localize(Object.setPrototypeOf([...t.path, `${h}.otherwise`], __mockedArrayPrototype), t.ancestors, t.schemas),
+                      const a = t.localize([...t.path, `${h}.otherwise`], t.ancestors, t.schemas),
                         {
                           schema: i,
                           id: o
@@ -536,50 +766,71 @@
                   if (i.break && n.length > c) break;
                 }
                 const a = n.join(", ");
-                if (t.mainstay.tracer.debug(t, "rule", "when", a), !a) return Object.setPrototypeOf({
+                if (t.mainstay.tracer.debug(t, "rule", "when", a), !a) return {
                   schema: this
-                }, __mockedObjectPrototype);
-                if (!t.mainstay.tracer.active && __mockedPropertyAccess(this.$_temp.whens, a)) return Object.setPrototypeOf({
+                };
+                if (!t.mainstay.tracer.active && __mockedPropertyAccess(this.$_temp.whens, a)) return {
                   schema: __mockedPropertyAccess(this.$_temp.whens, a),
                   id: a
-                }, __mockedObjectPrototype);
+                };
                 let i = this;
                 this._definition.generate && (i = this._definition.generate(this, e, t, r));
                 for (const e of s) i = i.concat(e);
-                return this.$_root._tracer && this.$_root._tracer._combine(i, Object.setPrototypeOf([this, ...s], __mockedArrayPrototype)), this.$_temp.whens[a] = i, Object.setPrototypeOf({
+                return this.$_root._tracer && this.$_root._tracer._combine(i, [this, ...s]), __mockedPropertyWrite(this.$_temp.whens, a, i, {
+                  line: 1,
+                  column: 15947
+                }), {
                   schema: i,
                   id: a
-                }, __mockedObjectPrototype);
+                };
               }
-              _inner(e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+              _inner(e, t, r = {}) {
                 s(!this._inRuleset(), `Cannot set ${e} inside a ruleset`);
                 const n = this.clone();
-                return __mockedPropertyAccess(n.$_terms, e) && !r.override || (n.$_terms[e] = Object.setPrototypeOf([], __mockedArrayPrototype)), r.single ? __mockedPropertyAccess(n.$_terms, e).push(t) : __mockedPropertyAccess(n.$_terms, e).push(...t), n.$_temp.ruleset = !1, n;
+                return __mockedPropertyAccess(n.$_terms, e) && !r.override || __mockedPropertyWrite(n.$_terms, e, [], {
+                  line: 1,
+                  column: 16116
+                }), r.single ? __mockedPropertyAccess(n.$_terms, e).push(t) : __mockedPropertyAccess(n.$_terms, e).push(...t), __mockedPropertyWrite(n.$_temp, "ruleset", !1, {
+                  line: 1,
+                  column: 16187
+                }), n;
               }
               _inRuleset() {
                 return __mockedCompare(null, this.$_temp.ruleset, "!==") && __mockedCompare(!1, this.$_temp.ruleset, "!==");
               }
-              _ruleRemove(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+              _ruleRemove(e, t = {}) {
                 if (!this._singleRules.has(e)) return this;
                 const r = __mockedCompare(!1, t.clone, "!==") ? this.clone() : this;
                 r._singleRules.delete(e);
-                const s = Object.setPrototypeOf([], __mockedArrayPrototype);
+                const s = [];
                 for (let t = 0; t < r._rules.length; ++t) {
                   const n = __mockedPropertyAccess(r._rules, t);
                   __mockedCompare(n.name, e, "!==") || n.keep ? s.push(n) : r._inRuleset() && t < r.$_temp.ruleset && --r.$_temp.ruleset;
                 }
-                return r._rules = s, r;
+                return __mockedPropertyWrite(r, "_rules", s, {
+                  line: 1,
+                  column: 16564
+                }), r;
               }
               _values(e, t) {
                 l.verifyFlat(e, t.slice(1, -1));
                 const r = this.clone(),
                   n = __mockedCompare(__mockedPropertyAccess(e, 0), l.symbols.override, "===");
-                if (n && (e = e.slice(1)), !__mockedPropertyAccess(r, t) && e.length ? r[t] = new b() : n && (r[t] = e.length ? new b() : null, r.$_mutateRebuild()), !__mockedPropertyAccess(r, t)) return r;
+                if (n && (e = e.slice(1)), !__mockedPropertyAccess(r, t) && e.length ? __mockedPropertyWrite(r, t, new b(), {
+                  line: 1,
+                  column: 16706
+                }) : n && (__mockedPropertyWrite(r, t, e.length ? new b() : null, {
+                  line: 1,
+                  column: 16721
+                }), r.$_mutateRebuild()), !__mockedPropertyAccess(r, t)) return r;
                 n && __mockedPropertyAccess(r, t).override();
                 for (const n of e) {
                   s(__mockedCompare(void 0, n, "!=="), "Cannot call allow/valid/invalid with undefined"), s(__mockedCompare(n, l.symbols.override, "!=="), "Override must be the first value");
                   const e = __mockedCompare("_invalids", t, "===") ? "_valids" : "_invalids";
-                  __mockedPropertyAccess(r, e) && (__mockedPropertyAccess(r, e).remove(n), __mockedPropertyAccess(r, e).length || (s(__mockedCompare("_valids", t, "===") || !r._flags.only, "Setting invalid value", n, "leaves schema rejecting all values due to previous valid rule"), r[e] = null)), __mockedPropertyAccess(r, t).add(n, r._refs);
+                  __mockedPropertyAccess(r, e) && (__mockedPropertyAccess(r, e).remove(n), __mockedPropertyAccess(r, e).length || (s(__mockedCompare("_valids", t, "===") || !r._flags.only, "Setting invalid value", n, "leaves schema rejecting all values due to previous valid rule"), __mockedPropertyWrite(r, e, null, {
+                    line: 1,
+                    column: 17148
+                  }))), __mockedPropertyAccess(r, t).add(n, r._refs);
                 }
                 return r;
               }
@@ -589,38 +840,68 @@
                     return t = u.ValidationError.isError(e) ? e.details.map(({
                       message: e,
                       path: t
-                    }) => Object.setPrototypeOf({
+                    }) => ({
                       message: e,
                       path: t
-                    }, __mockedObjectPrototype)) : Object.setPrototypeOf([Object.setPrototypeOf({
+                    })) : [{
                       message: e.message
-                    }, __mockedObjectPrototype)], __mockedArrayPrototype), Object.setPrototypeOf({
+                    }], {
                       issues: t
-                    }, __mockedObjectPrototype);
+                    };
                   },
-                  t = e => Object.setPrototypeOf({
+                  t = e => ({
                     value: e
-                  }, __mockedObjectPrototype);
-                return Object.setPrototypeOf({
+                  });
+                return {
                   version: 1,
                   vendor: "joi",
                   validate: (r, s) => {
                     const n = y.standard(r, this, s);
                     return n instanceof Promise ? n.then(t, e) : n.error ? e(n.error) : t(n.value);
                   },
-                  jsonSchema: Object.setPrototypeOf({
+                  jsonSchema: {
                     input: e => this.$_jsonSchema("input", e),
                     output: e => this.$_jsonSchema("output", e)
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype);
+                  }
+                };
               }
-            })
-          }, __mockedObjectPrototype);
-        v.Base.prototype[l.symbols.any] = Object.setPrototypeOf({
+            }
+          };
+        __mockedPropertyWrite(v.Base.prototype, l.symbols.any, {
           version: l.version,
           compile: c.compile,
           root: "$_root"
-        }, __mockedObjectPrototype), v.Base.prototype.isImmutable = !0, v.Base.prototype.deny = v.Base.prototype.invalid, v.Base.prototype.disallow = v.Base.prototype.invalid, v.Base.prototype.equal = v.Base.prototype.valid, v.Base.prototype.exist = v.Base.prototype.required, v.Base.prototype.not = v.Base.prototype.invalid, v.Base.prototype.options = v.Base.prototype.prefs, v.Base.prototype.preferences = v.Base.prototype.prefs, e.exports = new v.Base();
+        }, {
+          line: 1,
+          column: 17613
+        }), __mockedPropertyWrite(v.Base.prototype, "isImmutable", !0, {
+          line: 1,
+          column: 17697
+        }), __mockedPropertyWrite(v.Base.prototype, "deny", v.Base.prototype.invalid, {
+          line: 1,
+          column: 17729
+        }), __mockedPropertyWrite(v.Base.prototype, "disallow", v.Base.prototype.invalid, {
+          line: 1,
+          column: 17776
+        }), __mockedPropertyWrite(v.Base.prototype, "equal", v.Base.prototype.valid, {
+          line: 1,
+          column: 17827
+        }), __mockedPropertyWrite(v.Base.prototype, "exist", v.Base.prototype.required, {
+          line: 1,
+          column: 17873
+        }), __mockedPropertyWrite(v.Base.prototype, "not", v.Base.prototype.invalid, {
+          line: 1,
+          column: 17922
+        }), __mockedPropertyWrite(v.Base.prototype, "options", v.Base.prototype.prefs, {
+          line: 1,
+          column: 17968
+        }), __mockedPropertyWrite(v.Base.prototype, "preferences", v.Base.prototype.prefs, {
+          line: 1,
+          column: 18016
+        }), __mockedPropertyWrite(e, "exports", new v.Base(), {
+          line: 1,
+          column: 18068
+        });
       },
       2130(e, t, r) {
         "use strict";
@@ -630,17 +911,27 @@
             clone: n
           } = r(2116),
           a = r(9415),
-          i = Object.setPrototypeOf({
+          i = {
             max: 1e3,
-            supported: new Set(Object.setPrototypeOf(["undefined", "boolean", "number", "string"], __mockedArrayPrototype))
-          }, __mockedObjectPrototype);
-        t.provider = Object.setPrototypeOf({
+            supported: new Set(["undefined", "boolean", "number", "string"])
+          };
+        __mockedPropertyWrite(t, "provider", {
           provision: e => new i.Cache(e)
-        }, __mockedObjectPrototype), i.Cache = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
-          constructor(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-            a.assertOptions(e, Object.setPrototypeOf(["max"], __mockedArrayPrototype)), s(__mockedCompare(void 0, e.max, "===") || e.max && e.max > 0 && isFinite(e.max), "Invalid max cache size"), this._max = e.max || i.max, this._map = new Map(), this._list = new i.List();
+        }, {
+          line: 1,
+          column: 18230
+        }), __mockedPropertyWrite(i, "Cache", class {
+          constructor(e = {}) {
+            a.assertOptions(e, ["max"]), s(__mockedCompare(void 0, e.max, "===") || e.max && e.max > 0 && isFinite(e.max), "Invalid max cache size"), __mockedPropertyWrite(this, "_max", e.max || i.max, {
+              line: 1,
+              column: 18406
+            }), __mockedPropertyWrite(this, "_map", new Map(), {
+              line: 1,
+              column: 18429
+            }), __mockedPropertyWrite(this, "_list", new i.List(), {
+              line: 1,
+              column: 18447
+            });
           }
           get length() {
             return this._map.size;
@@ -648,11 +939,14 @@
           set(e, t) {
             if (__mockedCompare(null, e, "!==") && !i.supported.has(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e)) return;
             let r = this._map.get(e);
-            if (r) return r.value = t, void this._list.first(r);
-            r = this._list.unshift(Object.setPrototypeOf({
+            if (r) return __mockedPropertyWrite(r, "value", t, {
+              line: 1,
+              column: 18595
+            }), void this._list.first(r);
+            r = this._list.unshift({
               key: e,
               value: t
-            }, __mockedObjectPrototype)), this._map.set(e, r), this._compact();
+            }), this._map.set(e, r), this._compact();
           }
           get(e) {
             const t = this._map.get(e);
@@ -664,14 +958,36 @@
               this._map.delete(e.key);
             }
           }
-        }), i.List = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+        }, {
+          line: 1,
+          column: 18271
+        }), __mockedPropertyWrite(i, "List", class {
           constructor() {
-            this.tail = null, this.head = null;
+            __mockedPropertyWrite(this, "tail", null, {
+              line: 1,
+              column: 18897
+            }), __mockedPropertyWrite(this, "head", null, {
+              line: 1,
+              column: 18912
+            });
           }
           unshift(e) {
-            return e.next = null, e.prev = this.head, this.head && (this.head.next = e), this.head = e, this.tail || (this.tail = e), e;
+            return __mockedPropertyWrite(e, "next", null, {
+              line: 1,
+              column: 18945
+            }), __mockedPropertyWrite(e, "prev", this.head, {
+              line: 1,
+              column: 18957
+            }), this.head && __mockedPropertyWrite(this.head, "next", e, {
+              line: 1,
+              column: 18986
+            }), __mockedPropertyWrite(this, "head", e, {
+              line: 1,
+              column: 19004
+            }), this.tail || __mockedPropertyWrite(this, "tail", e, {
+              line: 1,
+              column: 19028
+            }), e;
           }
           first(e) {
             __mockedCompare(e, this.head, "!==") && (this._remove(e), this.unshift(e));
@@ -684,8 +1000,26 @@
               next: t,
               prev: r
             } = e;
-            return t.prev = r, r && (r.next = t), __mockedCompare(e, this.tail, "===") && (this.tail = t), e.prev = null, e.next = null, e;
+            return __mockedPropertyWrite(t, "prev", r, {
+              line: 1,
+              column: 19179
+            }), r && __mockedPropertyWrite(r, "next", t, {
+              line: 1,
+              column: 19192
+            }), __mockedCompare(e, this.tail, "===") && __mockedPropertyWrite(this, "tail", t, {
+              line: 1,
+              column: 19218
+            }), __mockedPropertyWrite(e, "prev", null, {
+              line: 1,
+              column: 19231
+            }), __mockedPropertyWrite(e, "next", null, {
+              line: 1,
+              column: 19243
+            }), e;
           }
+        }, {
+          line: 1,
+          column: 18870
         });
       },
       9415(e, t, r) {
@@ -697,10 +1031,13 @@
           } = r(2116),
           a = r(6913);
         let i, o;
-        const l = Object.setPrototypeOf({
+        const l = {
           isoDate: /^(?:[-+]\d{2})?(?:\d{4}(?!\d{2}\b))(?:(-?)(?:(?:0[1-9]|1[0-2])(?:\1(?:[12]\d|0[1-9]|3[01]))?|W(?:[0-4]\d|5[0-2])(?:-?[1-7])?|(?:00[1-9]|0[1-9]\d|[12]\d{2}|3(?:[0-5]\d|6[1-6])))(?![T]$|[T][\d]+Z$)(?:[T\s](?:(?:(?:[01]\d|2[0-3])(?:(:?)[0-5]\d)?|24\:?00)(?:[.,]\d+(?!:))?)(?:\2[0-5]\d(?:[.,]\d+)?)?(?:[Z]|(?:[+-])(?:[01]\d|2[0-3])(?::?[0-5]\d)?)?)?)?$/
-        }, __mockedObjectPrototype);
-        t.version = a.version, t.defaults = Object.setPrototypeOf({
+        };
+        __mockedPropertyWrite(t, "version", a.version, {
+          line: 1,
+          column: 19710
+        }), __mockedPropertyWrite(t, "defaults", {
           abortEarly: !0,
           allowUnknown: !1,
           artifacts: !1,
@@ -708,26 +1045,29 @@
           context: null,
           convert: !0,
           dateFormat: "iso",
-          errors: Object.setPrototypeOf({
+          errors: {
             escapeHtml: !1,
             label: "path",
             language: null,
             render: !0,
             stack: !1,
-            wrap: Object.setPrototypeOf({
+            wrap: {
               label: '"',
               array: "[]"
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
+            }
+          },
           externals: !0,
-          messages: Object.setPrototypeOf({}, __mockedObjectPrototype),
+          messages: {},
           nonEnumerables: !1,
           noDefaults: !1,
           presence: "optional",
           skipFunctions: !1,
           stripUnknown: !1,
           warnings: !1
-        }, __mockedObjectPrototype), t.symbols = Object.setPrototypeOf({
+        }, {
+          line: 1,
+          column: 19730
+        }), __mockedPropertyWrite(t, "symbols", {
           any: Symbol.for("@hapi/joi/schema"),
           arraySingle: Symbol("arraySingle"),
           deepDefault: Symbol("deepDefault"),
@@ -739,15 +1079,24 @@
           ref: Symbol("ref"),
           template: Symbol("template"),
           values: Symbol("values")
-        }, __mockedObjectPrototype), t.assertOptions = Object.setPrototypeOf(function (e, t, r = "Options") {
+        }, {
+          line: 1,
+          column: 20055
+        }), __mockedPropertyWrite(t, "assertOptions", function (e, t, r = "Options") {
           s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && !Array.isArray(e), "Options must be of type object");
           const n = Object.keys(e).filter(e => !t.includes(e));
           s(__mockedCompare(0, n.length, "==="), `${r} contain unknown keys: ${n}`);
-        }, __mockedFunctionPrototype), t.checkPreferences = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 20364
+        }), __mockedPropertyWrite(t, "checkPreferences", function (e) {
           o = o || r(1688);
           const t = o.preferences.validate(e);
-          if (t.error) throw new n(Object.setPrototypeOf([__mockedPropertyAccess(t.error.details, 0).message], __mockedArrayPrototype));
-        }, __mockedFunctionPrototype), t.compare = Object.setPrototypeOf(function (e, t, r) {
+          if (t.error) throw new n([__mockedPropertyAccess(t.error.details, 0).message]);
+        }, {
+          line: 1,
+          column: 20583
+        }), __mockedPropertyWrite(t, "compare", function (e, t, r) {
           switch (r) {
             case "=":
               return __mockedCompare(e, t, "===");
@@ -760,39 +1109,90 @@
             case "<=":
               return e <= t;
           }
-        }, __mockedFunctionPrototype), t.default = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 20715
+        }), __mockedPropertyWrite(t, "default", function (e, t) {
           return __mockedCompare(void 0, e, "===") ? t : e;
-        }, __mockedFunctionPrototype), t.intersect = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 20854
+        }), __mockedPropertyWrite(t, "intersect", function (e, t) {
           if (__mockedCompare("function", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
           }(e.intersection), "==")) return e.intersection(t);
           const r = new Set();
           for (const s of e) t.has(s) && r.add(s);
           return r;
-        }, __mockedFunctionPrototype), t.isIsoDate = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 20901
+        }), __mockedPropertyWrite(t, "isIsoDate", function (e) {
           return l.isoDate.test(e);
-        }, __mockedFunctionPrototype), t.isNumber = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 21051
+        }), __mockedPropertyWrite(t, "isNumber", function (e) {
           return __mockedCompare("number", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && !isNaN(e);
-        }, __mockedFunctionPrototype), t.isResolvable = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 21101
+        }), __mockedPropertyWrite(t, "isResolvable", function (e) {
           return !!e && (__mockedPropertyAccess(e, t.symbols.ref) || __mockedPropertyAccess(e, t.symbols.template));
-        }, __mockedFunctionPrototype), t.isSchema = Object.setPrototypeOf(function (e, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+        }, {
+          line: 1,
+          column: 21161
+        }), __mockedPropertyWrite(t, "isSchema", function (e, r = {}) {
           const n = e && __mockedPropertyAccess(e, t.symbols.any);
           return !!n && (s(r.legacy || __mockedCompare(n.version, t.version, "==="), "Cannot mix different versions of joi schemas"), !0);
-        }, __mockedFunctionPrototype), t.isValues = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 21242
+        }), __mockedPropertyWrite(t, "isValues", function (e) {
           return __mockedPropertyAccess(e, t.symbols.values);
-        }, __mockedFunctionPrototype), t.limit = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 21397
+        }), __mockedPropertyWrite(t, "limit", function (e) {
           return Number.isSafeInteger(e) && e >= 0;
-        }, __mockedFunctionPrototype), t.preferences = Object.setPrototypeOf(function (e, s) {
-          i = i || r(6162), e = e || Object.setPrototypeOf({}, __mockedObjectPrototype), s = s || Object.setPrototypeOf({}, __mockedObjectPrototype);
-          const n = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, s);
-          return s.errors && e.errors && (n.errors = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e.errors, s.errors), n.errors.wrap = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e.errors.wrap, s.errors.wrap)), s.messages && (n.messages = i.compile(s.messages, e.messages)), delete __mockedPropertyAccess(n, t.symbols.prefs), n;
-        }, __mockedFunctionPrototype), t.tryWithPath = Object.setPrototypeOf(function (e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+        }, {
+          line: 1,
+          column: 21448
+        }), __mockedPropertyWrite(t, "preferences", function (e, s) {
+          i = i || r(6162), e = e || {}, s = s || {};
+          const n = Object.assign({}, e, s);
+          return s.errors && e.errors && (__mockedPropertyWrite(n, "errors", Object.assign({}, e.errors, s.errors), {
+            line: 1,
+            column: 21621
+          }), __mockedPropertyWrite(n.errors, "wrap", Object.assign({}, e.errors.wrap, s.errors.wrap), {
+            line: 1,
+            column: 21666
+          })), s.messages && __mockedPropertyWrite(n, "messages", i.compile(s.messages, e.messages), {
+            line: 1,
+            column: 21740
+          }), delete __mockedPropertyAccess(n, t.symbols.prefs), n;
+        }, {
+          line: 1,
+          column: 21506
+        }), __mockedPropertyWrite(t, "tryWithPath", function (e, t, r = {}) {
           try {
             return e();
           } catch (e) {
-            throw __mockedCompare(void 0, e.path, "!==") ? e.path = t + "." + e.path : e.path = t, r.append && (e.message = `${e.message} (${e.path})`), e;
+            throw __mockedCompare(void 0, e.path, "!==") ? __mockedPropertyWrite(e, "path", t + "." + e.path, {
+              line: 1,
+              column: 21893
+            }) : __mockedPropertyWrite(e, "path", t, {
+              line: 1,
+              column: 21913
+            }), r.append && __mockedPropertyWrite(e, "message", `${e.message} (${e.path})`, {
+              line: 1,
+              column: 21933
+            }), e;
           }
-        }, __mockedFunctionPrototype), t.validateArg = Object.setPrototypeOf(function (e, r, {
+        }, {
+          line: 1,
+          column: 21814
+        }), __mockedPropertyWrite(t, "validateArg", function (e, r, {
           assert: s,
           message: n
         }) {
@@ -802,9 +1202,15 @@
             return t.error.message;
           }
           if (!s(e)) return r ? `${r} ${n}` : n;
-        }, __mockedFunctionPrototype), t.verifyFlat = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 21975
+        }), __mockedPropertyWrite(t, "verifyFlat", function (e, t) {
           for (const r of e) s(!Array.isArray(r), "Method no longer accepts array arguments:", t);
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 22139
+        });
       },
       3541(e, t, r) {
         "use strict";
@@ -814,15 +1220,21 @@
           } = r(2116),
           n = r(9415),
           a = r(8529),
-          i = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        t.schema = Object.setPrototypeOf(function (e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-          n.assertOptions(r, Object.setPrototypeOf(["appendPath", "override"], __mockedArrayPrototype));
+          i = {};
+        __mockedPropertyWrite(t, "schema", function (e, t, r = {}) {
+          n.assertOptions(r, ["appendPath", "override"]);
           try {
             return i.schema(e, t, r);
           } catch (e) {
-            throw r.appendPath && __mockedCompare(void 0, e.path, "!==") && (e.message = `${e.message} (${e.path})`), e;
+            throw r.appendPath && __mockedCompare(void 0, e.path, "!==") && __mockedPropertyWrite(e, "message", `${e.message} (${e.path})`, {
+              line: 1,
+              column: 22473
+            }), e;
           }
-        }, __mockedFunctionPrototype), i.schema = Object.setPrototypeOf(function (e, t, r) {
+        }, {
+          line: 1,
+          column: 22326
+        }), __mockedPropertyWrite(i, "schema", function (e, t, r) {
           s(__mockedCompare(void 0, t, "!=="), "Invalid undefined schema"), Array.isArray(t) && (s(t.length, "Invalid empty array schema"), __mockedCompare(1, t.length, "===") && (t = __mockedPropertyAccess(t, 0)));
           const a = (t, ...s) => __mockedCompare(!1, r.override, "!==") ? t.valid(e.override, ...s) : t.valid(...s);
           if (i.simple(t)) return a(e, t);
@@ -833,21 +1245,30 @@
             for (const r of t) if (!i.simple(r)) return e.alternatives().try(...t);
             return a(e, ...t);
           }
-          return t instanceof RegExp ? e.string().regex(t) : t instanceof Date ? a(e.date(), t) : (s(__mockedCompare(Object.getPrototypeOf(t), Object.getPrototypeOf(Object.setPrototypeOf({}, __mockedObjectPrototype)), "==="), "Schema can only contain plain objects"), e.object().keys(t));
-        }, __mockedFunctionPrototype), t.ref = Object.setPrototypeOf(function (e, t) {
+          return t instanceof RegExp ? e.string().regex(t) : t instanceof Date ? a(e.date(), t) : (s(__mockedCompare(Object.getPrototypeOf(t), Object.getPrototypeOf({}), "==="), "Schema can only contain plain objects"), e.object().keys(t));
+        }, {
+          line: 1,
+          column: 22515
+        }), __mockedPropertyWrite(t, "ref", function (e, t) {
           return a.isRef(e) ? e : a.create(e, t);
-        }, __mockedFunctionPrototype), t.compile = Object.setPrototypeOf(function (e, r, a = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-          n.assertOptions(a, Object.setPrototypeOf(["legacy"], __mockedArrayPrototype));
+        }, {
+          line: 1,
+          column: 23230
+        }), __mockedPropertyWrite(t, "compile", function (e, r, a = {}) {
+          n.assertOptions(a, ["legacy"]);
           const o = r && __mockedPropertyAccess(r, n.symbols.any);
           if (o) return s(a.legacy || __mockedCompare(o.version, n.version, "==="), "Cannot mix different versions of joi schemas:", o.version, n.version), r;
-          if (__mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") || !a.legacy) return t.schema(e, r, Object.setPrototypeOf({
+          if (__mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") || !a.legacy) return t.schema(e, r, {
             appendPath: !0
-          }, __mockedObjectPrototype));
+          });
           const l = i.walk(r);
-          return l ? l.compile(l.root, r) : t.schema(e, r, Object.setPrototypeOf({
+          return l ? l.compile(l.root, r) : t.schema(e, r, {
             appendPath: !0
-          }, __mockedObjectPrototype));
-        }, __mockedFunctionPrototype), i.walk = Object.setPrototypeOf(function (e) {
+          });
+        }, {
+          line: 1,
+          column: 23285
+        }), __mockedPropertyWrite(i, "walk", function (e) {
           if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return null;
           if (Array.isArray(e)) {
             for (const t of e) {
@@ -857,70 +1278,91 @@
             return null;
           }
           const t = __mockedPropertyAccess(e, n.symbols.any);
-          if (t) return Object.setPrototypeOf({
+          if (t) return {
             root: __mockedPropertyAccess(e, t.root),
             compile: t.compile
-          }, __mockedObjectPrototype);
-          s(__mockedCompare(Object.getPrototypeOf(e), Object.getPrototypeOf(Object.setPrototypeOf({}, __mockedObjectPrototype)), "==="), "Schema can only contain plain objects");
+          };
+          s(__mockedCompare(Object.getPrototypeOf(e), Object.getPrototypeOf({}), "==="), "Schema can only contain plain objects");
           for (const t in e) {
             const r = i.walk(__mockedPropertyAccess(e, t));
             if (r) return r;
           }
           return null;
-        }, __mockedFunctionPrototype), i.simple = Object.setPrototypeOf(function (e) {
-          return __mockedCompare(null, e, "===") || Object.setPrototypeOf(["boolean", "string", "number"], __mockedArrayPrototype).includes(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e);
-        }, __mockedFunctionPrototype), t.when = Object.setPrototypeOf(function (e, r, o) {
-          if (__mockedCompare(void 0, o, "===") && (s(r && __mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Missing options"), o = r, r = a.create(".")), Array.isArray(o) && (o = Object.setPrototypeOf({
+        }, {
+          line: 1,
+          column: 23637
+        }), __mockedPropertyWrite(i, "simple", function (e) {
+          return __mockedCompare(null, e, "===") || ["boolean", "string", "number"].includes(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e);
+        }, {
+          line: 1,
+          column: 24006
+        }), __mockedPropertyWrite(t, "when", function (e, r, o) {
+          if (__mockedCompare(void 0, o, "===") && (s(r && __mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Missing options"), o = r, r = a.create(".")), Array.isArray(o) && (o = {
             switch: o
-          }, __mockedObjectPrototype)), n.assertOptions(o, Object.setPrototypeOf(["is", "not", "then", "otherwise", "switch", "break"], __mockedArrayPrototype)), n.isSchema(r)) return s(__mockedCompare(void 0, o.is, "==="), '"is" can not be used with a schema condition'), s(__mockedCompare(void 0, o.not, "==="), '"not" can not be used with a schema condition'), s(__mockedCompare(void 0, o.switch, "==="), '"switch" can not be used with a schema condition'), i.condition(e, Object.setPrototypeOf({
+          }), n.assertOptions(o, ["is", "not", "then", "otherwise", "switch", "break"]), n.isSchema(r)) return s(__mockedCompare(void 0, o.is, "==="), '"is" can not be used with a schema condition'), s(__mockedCompare(void 0, o.not, "==="), '"not" can not be used with a schema condition'), s(__mockedCompare(void 0, o.switch, "==="), '"switch" can not be used with a schema condition'), i.condition(e, {
             is: r,
             then: o.then,
             otherwise: o.otherwise,
             break: o.break
-          }, __mockedObjectPrototype));
+          });
           if (s(a.isRef(r) || __mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Invalid condition:", r), s(__mockedCompare(void 0, o.not, "===") || __mockedCompare(void 0, o.is, "==="), 'Cannot combine "is" with "not"'), __mockedCompare(void 0, o.switch, "===")) {
             let l = o;
-            __mockedCompare(void 0, o.not, "!==") && (l = Object.setPrototypeOf({
+            __mockedCompare(void 0, o.not, "!==") && (l = {
               is: o.not,
               then: o.otherwise,
               otherwise: o.then,
               break: o.break
-            }, __mockedObjectPrototype));
+            });
             let c = __mockedCompare(void 0, l.is, "!==") ? e.$_compile(l.is) : e.$_root.invalid(null, !1, 0, "").required();
-            return s(__mockedCompare(void 0, l.then, "!==") || __mockedCompare(void 0, l.otherwise, "!=="), 'options must have at least one of "then", "otherwise", or "switch"'), s(__mockedCompare(void 0, l.break, "===") || __mockedCompare(void 0, l.then, "===") || __mockedCompare(void 0, l.otherwise, "==="), "Cannot specify then, otherwise, and break all together"), __mockedCompare(void 0, o.is, "===") || a.isRef(o.is) || n.isSchema(o.is) || (c = c.required()), i.condition(e, Object.setPrototypeOf({
+            return s(__mockedCompare(void 0, l.then, "!==") || __mockedCompare(void 0, l.otherwise, "!=="), 'options must have at least one of "then", "otherwise", or "switch"'), s(__mockedCompare(void 0, l.break, "===") || __mockedCompare(void 0, l.then, "===") || __mockedCompare(void 0, l.otherwise, "==="), "Cannot specify then, otherwise, and break all together"), __mockedCompare(void 0, o.is, "===") || a.isRef(o.is) || n.isSchema(o.is) || (c = c.required()), i.condition(e, {
               ref: t.ref(r),
               is: c,
               then: l.then,
               otherwise: l.otherwise,
               break: l.break
-            }, __mockedObjectPrototype));
+            });
           }
           s(Array.isArray(o.switch), '"switch" must be an array'), s(__mockedCompare(void 0, o.is, "==="), 'Cannot combine "switch" with "is"'), s(__mockedCompare(void 0, o.not, "==="), 'Cannot combine "switch" with "not"'), s(__mockedCompare(void 0, o.then, "==="), 'Cannot combine "switch" with "then"');
-          const l = Object.setPrototypeOf({
+          const l = {
             ref: t.ref(r),
-            switch: Object.setPrototypeOf([], __mockedArrayPrototype),
+            switch: [],
             break: o.break
-          }, __mockedObjectPrototype);
+          };
           for (let t = 0; t < o.switch.length; ++t) {
             const r = __mockedPropertyAccess(o.switch, t),
               i = __mockedCompare(t, o.switch.length - 1, "===");
-            n.assertOptions(r, i ? Object.setPrototypeOf(["is", "then", "otherwise"], __mockedArrayPrototype) : Object.setPrototypeOf(["is", "then"], __mockedArrayPrototype)), s(__mockedCompare(void 0, r.is, "!=="), 'Switch statement missing "is"'), s(__mockedCompare(void 0, r.then, "!=="), 'Switch statement missing "then"');
-            const c = Object.setPrototypeOf({
+            n.assertOptions(r, i ? ["is", "then", "otherwise"] : ["is", "then"]), s(__mockedCompare(void 0, r.is, "!=="), 'Switch statement missing "is"'), s(__mockedCompare(void 0, r.then, "!=="), 'Switch statement missing "then"');
+            const c = {
               is: e.$_compile(r.is),
               then: e.$_compile(r.then)
-            }, __mockedObjectPrototype);
-            if (a.isRef(r.is) || n.isSchema(r.is) || (c.is = c.is.required()), i) {
+            };
+            if (a.isRef(r.is) || n.isSchema(r.is) || __mockedPropertyWrite(c, "is", c.is.required(), {
+              line: 1,
+              column: 25886
+            }), i) {
               s(__mockedCompare(void 0, o.otherwise, "===") || __mockedCompare(void 0, r.otherwise, "==="), 'Cannot specify "otherwise" inside and outside a "switch"');
               const t = __mockedCompare(void 0, o.otherwise, "!==") ? o.otherwise : r.otherwise;
-              __mockedCompare(void 0, t, "!==") && (s(__mockedCompare(void 0, l.break, "==="), "Cannot specify both otherwise and break"), c.otherwise = e.$_compile(t));
+              __mockedCompare(void 0, t, "!==") && (s(__mockedCompare(void 0, l.break, "==="), "Cannot specify both otherwise and break"), __mockedPropertyWrite(c, "otherwise", e.$_compile(t), {
+                line: 1,
+                column: 26144
+              }));
             }
             l.switch.push(c);
           }
           return l;
-        }, __mockedFunctionPrototype), i.condition = Object.setPrototypeOf(function (e, t) {
-          for (const r of Object.setPrototypeOf(["then", "otherwise"], __mockedArrayPrototype)) __mockedCompare(void 0, __mockedPropertyAccess(t, r), "===") ? delete __mockedPropertyAccess(t, r) : t[r] = e.$_compile(__mockedPropertyAccess(t, r));
+        }, {
+          line: 1,
+          column: 24094
+        }), __mockedPropertyWrite(i, "condition", function (e, t) {
+          for (const r of ["then", "otherwise"]) __mockedCompare(void 0, __mockedPropertyAccess(t, r), "===") ? delete __mockedPropertyAccess(t, r) : __mockedPropertyWrite(t, r, e.$_compile(__mockedPropertyAccess(t, r)), {
+            line: 1,
+            column: 26286
+          });
           return t;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 26199
+        });
       },
       8013(e, t, r) {
         "use strict";
@@ -928,19 +1370,62 @@
         const s = r(554),
           n = r(9415),
           a = r(1532);
-        t.Report = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+        __mockedPropertyWrite(t, "Report", class {
           constructor(e, r, s, n, a, i, o) {
-            if (this.code = e, this.flags = n, this.messages = a, this.path = i.path, this.prefs = o, this.state = i, this.value = r, this.message = null, this.template = null, this.local = s || Object.setPrototypeOf({}, __mockedObjectPrototype), this.local.label = t.label(this.flags, this.state, this.prefs, this.messages), __mockedCompare(void 0, this.value, "===") || this.local.hasOwnProperty("value") || (this.local.value = this.value), this.path.length) {
+            if (__mockedPropertyWrite(this, "code", e, {
+              line: 1,
+              column: 26425
+            }), __mockedPropertyWrite(this, "flags", n, {
+              line: 1,
+              column: 26437
+            }), __mockedPropertyWrite(this, "messages", a, {
+              line: 1,
+              column: 26450
+            }), __mockedPropertyWrite(this, "path", i.path, {
+              line: 1,
+              column: 26466
+            }), __mockedPropertyWrite(this, "prefs", o, {
+              line: 1,
+              column: 26483
+            }), __mockedPropertyWrite(this, "state", i, {
+              line: 1,
+              column: 26496
+            }), __mockedPropertyWrite(this, "value", r, {
+              line: 1,
+              column: 26509
+            }), __mockedPropertyWrite(this, "message", null, {
+              line: 1,
+              column: 26522
+            }), __mockedPropertyWrite(this, "template", null, {
+              line: 1,
+              column: 26540
+            }), __mockedPropertyWrite(this, "local", s || {}, {
+              line: 1,
+              column: 26559
+            }), __mockedPropertyWrite(this.local, "label", t.label(this.flags, this.state, this.prefs, this.messages), {
+              line: 1,
+              column: 26576
+            }), __mockedCompare(void 0, this.value, "===") || this.local.hasOwnProperty("value") || __mockedPropertyWrite(this.local, "value", this.value, {
+              line: 1,
+              column: 26707
+            }), this.path.length) {
               const e = __mockedPropertyAccess(this.path, this.path.length - 1);
-              __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") && (this.local.key = e);
+              __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") && __mockedPropertyWrite(this.local, "key", e, {
+                line: 1,
+                column: 26813
+              });
             }
           }
           _setTemplate(e) {
-            if (this.template = e, !this.flags.label && __mockedCompare(0, this.path.length, "===")) {
+            if (__mockedPropertyWrite(this, "template", e, {
+              line: 1,
+              column: 26851
+            }), !this.flags.label && __mockedCompare(0, this.path.length, "===")) {
               const e = this._template(this.template, "root");
-              e && (this.local.label = e);
+              e && __mockedPropertyWrite(this.local, "label", e, {
+                line: 1,
+                column: 26957
+              });
             }
           }
           toString() {
@@ -948,19 +1433,31 @@
             const e = this.code;
             if (!this.prefs.errors.render) return this.code;
             const t = this._template(this.template) || this._template(this.prefs.messages) || this._template(this.messages);
-            return __mockedCompare(void 0, t, "===") ? `Error code "${e}" is not defined, your custom type is missing the correct messages definition` : (this.message = t.render(this.value, this.state, this.prefs, this.local, Object.setPrototypeOf({
+            return __mockedCompare(void 0, t, "===") ? `Error code "${e}" is not defined, your custom type is missing the correct messages definition` : (__mockedPropertyWrite(this, "message", t.render(this.value, this.state, this.prefs, this.local, {
               errors: this.prefs.errors,
-              messages: Object.setPrototypeOf([this.prefs.messages, this.messages], __mockedArrayPrototype)
-            }, __mockedObjectPrototype)), this.prefs.errors.label || (this.message = this.message.replace(/^"" /, "").trim()), this.message);
+              messages: [this.prefs.messages, this.messages]
+            }), {
+              line: 1,
+              column: 27310
+            }), this.prefs.errors.label || __mockedPropertyWrite(this, "message", this.message.replace(/^"" /, "").trim(), {
+              line: 1,
+              column: 27475
+            }), this.message);
           }
           _template(e, r) {
             return t.template(this.value, e, r || this.code, this.state, this.prefs);
           }
-        }), t.path = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 26380
+        }), __mockedPropertyWrite(t, "path", function (e) {
           let t = "";
           for (const r of e) __mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") && (__mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "==") ? (t && (t += "."), t += r) : t += `[${r}]`);
           return t;
-        }, __mockedFunctionPrototype), t.template = Object.setPrototypeOf(function (e, t, r, s, i) {
+        }, {
+          line: 1,
+          column: 27626
+        }), __mockedPropertyWrite(t, "template", function (e, t, r, s, i) {
           if (!t) return;
           if (a.isTemplate(t)) return __mockedCompare("root", r, "!==") ? t : null;
           let o = i.errors.language;
@@ -969,13 +1466,19 @@
             if (__mockedCompare(void 0, __mockedPropertyAccess(__mockedPropertyAccess(t, o), "*"), "!==")) return __mockedPropertyAccess(__mockedPropertyAccess(t, o), "*");
           }
           return __mockedPropertyAccess(t, r) ? __mockedPropertyAccess(t, r) : __mockedPropertyAccess(t, "*");
-        }, __mockedFunctionPrototype), t.label = Object.setPrototypeOf(function (e, r, s, n) {
+        }, {
+          line: 1,
+          column: 27753
+        }), __mockedPropertyWrite(t, "label", function (e, r, s, n) {
           if (!s.errors.label) return "";
           if (e.label) return e.label;
           let a = r.path;
           __mockedCompare("key", s.errors.label, "===") && r.path.length > 1 && (a = r.path.slice(-1));
           return t.path(a) || t.template(null, s.messages, "root", r, s) || n && t.template(null, n, "root", r, s) || "value";
-        }, __mockedFunctionPrototype), t.process = Object.setPrototypeOf(function (e, r, s) {
+        }, {
+          line: 1,
+          column: 28015
+        }), __mockedPropertyWrite(t, "process", function (e, r, s) {
           if (!e) return null;
           const {
             override: n,
@@ -985,47 +1488,77 @@
           if (n) return n;
           if (s.errors.stack) return new t.ValidationError(a, i, r);
           const o = Error.stackTraceLimit;
-          Error.stackTraceLimit = 0;
+          __mockedPropertyWrite(Error, "stackTraceLimit", 0, {
+            line: 1,
+            column: 28464
+          });
           const l = new t.ValidationError(a, i, r);
-          return Error.stackTraceLimit = o, l;
-        }, __mockedFunctionPrototype), t.details = Object.setPrototypeOf(function (e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-          let r = Object.setPrototypeOf([], __mockedArrayPrototype);
-          const s = Object.setPrototypeOf([], __mockedArrayPrototype);
+          return __mockedPropertyWrite(Error, "stackTraceLimit", o, {
+            line: 1,
+            column: 28532
+          }), l;
+        }, {
+          line: 1,
+          column: 28271
+        }), __mockedPropertyWrite(t, "details", function (e, t = {}) {
+          let r = [];
+          const s = [];
           for (const n of e) {
             if (n instanceof Error) {
-              if (__mockedCompare(!1, t.override, "!==")) return Object.setPrototypeOf({
+              if (__mockedCompare(!1, t.override, "!==")) return {
                 override: n
-              }, __mockedObjectPrototype);
+              };
               const e = n.toString();
-              r.push(e), s.push(Object.setPrototypeOf({
+              r.push(e), s.push({
                 message: e,
                 type: "override",
-                context: Object.setPrototypeOf({
+                context: {
                   error: n
-                }, __mockedObjectPrototype)
-              }, __mockedObjectPrototype));
+                }
+              });
               continue;
             }
             const e = n.toString();
-            r.push(e), s.push(Object.setPrototypeOf({
+            r.push(e), s.push({
               message: e,
               path: n.path.filter(e => __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")),
               type: n.code,
               context: n.local
-            }, __mockedObjectPrototype));
+            });
           }
-          return r.length > 1 && (r = Object.setPrototypeOf([...new Set(r)], __mockedArrayPrototype)), Object.setPrototypeOf({
+          return r.length > 1 && (r = [...new Set(r)]), {
             message: r.join(". "),
             details: s
-          }, __mockedObjectPrototype);
-        }, __mockedFunctionPrototype), t.ValidationError = class extends Error {
+          };
+        }, {
+          line: 1,
+          column: 28559
+        }), __mockedPropertyWrite(t, "ValidationError", class extends Error {
           constructor(e, t, r) {
-            super(e), this._original = r, this.details = t;
+            super(e), __mockedPropertyWrite(this, "_original", r, {
+              line: 1,
+              column: 29039
+            }), __mockedPropertyWrite(this, "details", t, {
+              line: 1,
+              column: 29056
+            });
           }
           static isError(e) {
             return e instanceof t.ValidationError;
           }
-        }, t.ValidationError.prototype.isJoi = !0, t.ValidationError.prototype.name = "ValidationError", t.ValidationError.prototype.annotate = s.error;
+        }, {
+          line: 1,
+          column: 28973
+        }), __mockedPropertyWrite(t.ValidationError.prototype, "isJoi", !0, {
+          line: 1,
+          column: 29129
+        }), __mockedPropertyWrite(t.ValidationError.prototype, "name", "ValidationError", {
+          line: 1,
+          column: 29166
+        }), __mockedPropertyWrite(t.ValidationError.prototype, "annotate", s.error, {
+          line: 1,
+          column: 29217
+        });
       },
       2062(e, t, r) {
         "use strict";
@@ -1036,71 +1569,176 @@
           } = r(2116),
           a = r(9415),
           i = r(6162),
-          o = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        t.type = Object.setPrototypeOf(function (e, t) {
+          o = {};
+        __mockedPropertyWrite(t, "type", function (e, t) {
           const r = Object.getPrototypeOf(e),
             l = n(r),
             c = e._assign(Object.create(l)),
-            u = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), t);
-          delete u.base, l._definition = u;
-          const f = r._definition || Object.setPrototypeOf({}, __mockedObjectPrototype);
-          u.messages = i.merge(f.messages, u.messages), u.properties = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), f.properties, u.properties), c.type = u.type, u.flags = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), f.flags, u.flags);
-          const m = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), f.terms);
+            u = Object.assign({}, t);
+          delete u.base, __mockedPropertyWrite(l, "_definition", u, {
+            line: 1,
+            column: 29472
+          });
+          const f = r._definition || {};
+          __mockedPropertyWrite(u, "messages", i.merge(f.messages, u.messages), {
+            line: 1,
+            column: 29514
+          }), __mockedPropertyWrite(u, "properties", Object.assign({}, f.properties, u.properties), {
+            line: 1,
+            column: 29556
+          }), __mockedPropertyWrite(c, "type", u.type, {
+            line: 1,
+            column: 29613
+          }), __mockedPropertyWrite(u, "flags", Object.assign({}, f.flags, u.flags), {
+            line: 1,
+            column: 29627
+          });
+          const m = Object.assign({}, f.terms);
           if (u.terms) for (const e in u.terms) {
             const t = __mockedPropertyAccess(u.terms, e);
-            s(__mockedCompare(void 0, __mockedPropertyAccess(c.$_terms, e), "==="), "Invalid term override for", u.type, e), c.$_terms[e] = t.init, m[e] = t;
+            s(__mockedCompare(void 0, __mockedPropertyAccess(c.$_terms, e), "==="), "Invalid term override for", u.type, e), __mockedPropertyWrite(c.$_terms, e, t.init, {
+              line: 1,
+              column: 29819
+            }), __mockedPropertyWrite(m, e, t, {
+              line: 1,
+              column: 29839
+            });
           }
-          u.terms = m, u.args || (u.args = f.args), u.prepare = o.prepare(u.prepare, f.prepare), u.coerce && (__mockedCompare("function", function (x) {
+          __mockedPropertyWrite(u, "terms", m, {
+            line: 1,
+            column: 29846
+          }), u.args || __mockedPropertyWrite(u, "args", f.args, {
+            line: 1,
+            column: 29865
+          }), __mockedPropertyWrite(u, "prepare", o.prepare(u.prepare, f.prepare), {
+            line: 1,
+            column: 29880
+          }), u.coerce && (__mockedCompare("function", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(u.coerce), "==") && (u.coerce = Object.setPrototypeOf({
+          }(u.coerce), "==") && __mockedPropertyWrite(u, "coerce", {
             method: u.coerce
-          }, __mockedObjectPrototype)), u.coerce.from && !Array.isArray(u.coerce.from) && (u.coerce = Object.setPrototypeOf({
+          }, {
+            line: 1,
+            column: 29962
+          }), u.coerce.from && !Array.isArray(u.coerce.from) && __mockedPropertyWrite(u, "coerce", {
             method: u.coerce.method,
-            from: Object.setPrototypeOf([], __mockedArrayPrototype).concat(u.coerce.from)
-          }, __mockedObjectPrototype))), u.coerce = o.coerce(u.coerce, f.coerce), u.validate = o.validate(u.validate, f.validate);
-          const h = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), f.rules);
+            from: [].concat(u.coerce.from)
+          }, {
+            line: 1,
+            column: 30037
+          })), __mockedPropertyWrite(u, "coerce", o.coerce(u.coerce, f.coerce), {
+            line: 1,
+            column: 30103
+          }), __mockedPropertyWrite(u, "validate", o.validate(u.validate, f.validate), {
+            line: 1,
+            column: 30140
+          });
+          const h = Object.assign({}, f.rules);
           if (u.rules) for (const e in u.rules) {
             const t = __mockedPropertyAccess(u.rules, e);
             s(__mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Invalid rule definition for", u.type, e);
             let r = t.method;
-            if (__mockedCompare(void 0, r, "===") && (r = Object.setPrototypeOf(function () {
+            if (__mockedCompare(void 0, r, "===") && (r = function () {
               return this.$_addRule(e);
-            }, __mockedFunctionPrototype)), r && (s(!__mockedPropertyAccess(l, e), "Rule conflict in", u.type, e), l[e] = r), s(!__mockedPropertyAccess(h, e), "Rule conflict in", u.type, e), h[e] = t, t.alias) {
-              const e = Object.setPrototypeOf([], __mockedArrayPrototype).concat(t.alias);
-              for (const r of e) l[r] = t.method;
+            }), r && (s(!__mockedPropertyAccess(l, e), "Rule conflict in", u.type, e), __mockedPropertyWrite(l, e, r, {
+              line: 1,
+              column: 30446
+            })), s(!__mockedPropertyAccess(h, e), "Rule conflict in", u.type, e), __mockedPropertyWrite(h, e, t, {
+              line: 1,
+              column: 30491
+            }), t.alias) {
+              const e = [].concat(t.alias);
+              for (const r of e) __mockedPropertyWrite(l, r, t.method, {
+                line: 1,
+                column: 30551
+              });
             }
-            t.args && (t.argsByName = new Map(), t.args = t.args.map(e => (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (e = Object.setPrototypeOf({
+            t.args && (__mockedPropertyWrite(t, "argsByName", new Map(), {
+              line: 1,
+              column: 30574
+            }), __mockedPropertyWrite(t, "args", t.args.map(e => (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (e = {
               name: e
-            }, __mockedObjectPrototype)), s(!t.argsByName.has(e.name), "Duplicated argument name", e.name), a.isSchema(e.assert) && (e.assert = e.assert.strict().label(e.name)), t.argsByName.set(e.name, e), e)));
+            }), s(!t.argsByName.has(e.name), "Duplicated argument name", e.name), a.isSchema(e.assert) && __mockedPropertyWrite(e, "assert", e.assert.strict().label(e.name), {
+              line: 1,
+              column: 30736
+            }), t.argsByName.set(e.name, e), e)), {
+              line: 1,
+              column: 30595
+            }));
           }
-          u.rules = h, u.jsonSchema || (u.jsonSchema = f.jsonSchema);
-          const p = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), f.modifiers);
+          __mockedPropertyWrite(u, "rules", h, {
+            line: 1,
+            column: 30810
+          }), u.jsonSchema || __mockedPropertyWrite(u, "jsonSchema", f.jsonSchema, {
+            line: 1,
+            column: 30835
+          });
+          const p = Object.assign({}, f.modifiers);
           if (u.modifiers) for (const e in u.modifiers) {
             s(!__mockedPropertyAccess(l, e), "Rule conflict in", u.type, e);
             const t = __mockedPropertyAccess(u.modifiers, e);
             s(__mockedCompare("function", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Invalid modifier definition for", u.type, e);
-            const r = Object.setPrototypeOf(function (t) {
-              return this.rule(Object.setPrototypeOf({
+            const r = function (t) {
+              return this.rule({
                 [e]: t
-              }, __mockedObjectPrototype));
-            }, __mockedFunctionPrototype);
-            l[e] = r, p[e] = t;
+              });
+            };
+            __mockedPropertyWrite(l, e, r, {
+              line: 1,
+              column: 31117
+            }), __mockedPropertyWrite(p, e, t, {
+              line: 1,
+              column: 31124
+            });
           }
-          if (u.modifiers = p, u.overrides) {
-            l._super = r, c.$_super = Object.setPrototypeOf({}, __mockedObjectPrototype);
-            for (const e in u.overrides) s(__mockedPropertyAccess(r, e), "Cannot override missing", e), __mockedPropertyAccess(u.overrides, e)[a.symbols.parent] = __mockedPropertyAccess(r, e), c.$_super[e] = __mockedPropertyAccess(r, e).bind(c);
+          if (__mockedPropertyWrite(u, "modifiers", p, {
+            line: 1,
+            column: 31134
+          }), u.overrides) {
+            __mockedPropertyWrite(l, "_super", r, {
+              line: 1,
+              column: 31161
+            }), __mockedPropertyWrite(c, "$_super", {}, {
+              line: 1,
+              column: 31172
+            });
+            for (const e in u.overrides) s(__mockedPropertyAccess(r, e), "Cannot override missing", e), __mockedPropertyWrite(__mockedPropertyAccess(u.overrides, e), a.symbols.parent, __mockedPropertyAccess(r, e), {
+              line: 1,
+              column: 31248
+            }), __mockedPropertyWrite(c.$_super, e, __mockedPropertyAccess(r, e).bind(c), {
+              line: 1,
+              column: 31286
+            });
             Object.assign(l, u.overrides);
           }
-          u.cast = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), f.cast, u.cast);
-          const d = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), f.manifest, u.manifest);
-          return d.build = o.build(u.manifest && u.manifest.build, f.manifest && f.manifest.build), u.manifest = d, u.rebuild = o.rebuild(u.rebuild, f.rebuild), c;
-        }, __mockedFunctionPrototype), o.build = Object.setPrototypeOf(function (e, t) {
-          return e && t ? Object.setPrototypeOf(function (r, s) {
+          __mockedPropertyWrite(u, "cast", Object.assign({}, f.cast, u.cast), {
+            line: 1,
+            column: 31341
+          });
+          const d = Object.assign({}, f.manifest, u.manifest);
+          return __mockedPropertyWrite(d, "build", o.build(u.manifest && u.manifest.build, f.manifest && f.manifest.build), {
+            line: 1,
+            column: 31435
+          }), __mockedPropertyWrite(u, "manifest", d, {
+            line: 1,
+            column: 31510
+          }), __mockedPropertyWrite(u, "rebuild", o.rebuild(u.rebuild, f.rebuild), {
+            line: 1,
+            column: 31523
+          }), c;
+        }, {
+          line: 1,
+          column: 29345
+        }), __mockedPropertyWrite(o, "build", function (e, t) {
+          return e && t ? function (r, s) {
             return t(e(r, s), s);
-          }, __mockedFunctionPrototype) : e || t;
-        }, __mockedFunctionPrototype), o.coerce = Object.setPrototypeOf(function (e, t) {
-          return e && t ? Object.setPrototypeOf({
-            from: e.from && t.from ? Object.setPrototypeOf([...new Set(Object.setPrototypeOf([...e.from, ...t.from], __mockedArrayPrototype))], __mockedArrayPrototype) : null,
+          } : e || t;
+        }, {
+          line: 1,
+          column: 31567
+        }), __mockedPropertyWrite(o, "coerce", function (e, t) {
+          return e && t ? {
+            from: e.from && t.from ? [...new Set([...e.from, ...t.from])] : null,
             method(r, s) {
               let n;
               if ((!t.from || t.from.includes(typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r)) && (n = t.method(r, s), n)) {
@@ -1113,30 +1751,42 @@
               }
               return n;
             }
-          }, __mockedObjectPrototype) : e || t;
-        }, __mockedFunctionPrototype), o.prepare = Object.setPrototypeOf(function (e, t) {
-          return e && t ? Object.setPrototypeOf(function (r, s) {
+          } : e || t;
+        }, {
+          line: 1,
+          column: 31641
+        }), __mockedPropertyWrite(o, "prepare", function (e, t) {
+          return e && t ? function (r, s) {
             const n = e(r, s);
             if (n) {
               if (n.errors || __mockedCompare(void 0, n.value, "===")) return n;
               r = n.value;
             }
             return t(r, s) || n;
-          }, __mockedFunctionPrototype) : e || t;
-        }, __mockedFunctionPrototype), o.rebuild = Object.setPrototypeOf(function (e, t) {
-          return e && t ? Object.setPrototypeOf(function (r) {
+          } : e || t;
+        }, {
+          line: 1,
+          column: 31959
+        }), __mockedPropertyWrite(o, "rebuild", function (e, t) {
+          return e && t ? function (r) {
             t(r), e(r);
-          }, __mockedFunctionPrototype) : e || t;
-        }, __mockedFunctionPrototype), o.validate = Object.setPrototypeOf(function (e, t) {
-          return e && t ? Object.setPrototypeOf(function (r, s) {
+          } : e || t;
+        }, {
+          line: 1,
+          column: 32103
+        }), __mockedPropertyWrite(o, "validate", function (e, t) {
+          return e && t ? function (r, s) {
             const n = t(r, s);
             if (n) {
               if (n.errors && (!Array.isArray(n.errors) || n.errors.length)) return n;
               r = n.value;
             }
             return e(r, s) || n;
-          }, __mockedFunctionPrototype) : e || t;
-        }, __mockedFunctionPrototype);
+          } : e || t;
+        }, {
+          line: 1,
+          column: 32168
+        });
       },
       1100(e, t, r) {
         "use strict";
@@ -1155,8 +1805,8 @@
           m = r(1532),
           h = r(125);
         let p;
-        const d = Object.setPrototypeOf({
-          types: Object.setPrototypeOf({
+        const d = {
+          types: {
             alternatives: r(4972),
             any: r(680),
             array: r(2591),
@@ -1168,31 +1818,43 @@
             object: r(7487),
             string: r(9033),
             symbol: r(5008)
-          }, __mockedObjectPrototype),
-          aliases: Object.setPrototypeOf({
+          },
+          aliases: {
             alt: "alternatives",
             bool: "boolean",
             func: "function"
-          }, __mockedObjectPrototype),
-          root: Object.setPrototypeOf(function () {
-            const e = Object.setPrototypeOf({
+          },
+          root: function () {
+            const e = {
               _types: new Set(Object.keys(d.types))
-            }, __mockedObjectPrototype);
-            for (const t of e._types) e[t] = Object.setPrototypeOf(function (...e) {
-              return s(!e.length || Object.setPrototypeOf(["alternatives", "link", "object"], __mockedArrayPrototype).includes(t), "The", t, "type does not allow arguments"), d.generate(this, __mockedPropertyAccess(d.types, t), e);
-            }, __mockedFunctionPrototype);
-            for (const t of Object.setPrototypeOf(["allow", "custom", "disallow", "equal", "exist", "forbidden", "invalid", "not", "only", "optional", "options", "prefs", "preferences", "required", "strip", "valid", "when"], __mockedArrayPrototype)) e[t] = Object.setPrototypeOf(function (...e) {
+            };
+            for (const t of e._types) __mockedPropertyWrite(e, t, function (...e) {
+              return s(!e.length || ["alternatives", "link", "object"].includes(t), "The", t, "type does not allow arguments"), d.generate(this, __mockedPropertyAccess(d.types, t), e);
+            }, {
+              line: 1,
+              column: 32822
+            });
+            for (const t of ["allow", "custom", "disallow", "equal", "exist", "forbidden", "invalid", "not", "only", "optional", "options", "prefs", "preferences", "required", "strip", "valid", "when"]) __mockedPropertyWrite(e, t, function (...e) {
               return __mockedPropertyAccess(this.any(), t)(...e);
-            }, __mockedFunctionPrototype);
+            }, {
+              line: 1,
+              column: 33151
+            });
             Object.assign(e, d.methods);
             for (const t in d.aliases) {
               const r = __mockedPropertyAccess(d.aliases, t);
-              e[t] = __mockedPropertyAccess(e, r);
+              __mockedPropertyWrite(e, t, __mockedPropertyAccess(e, r), {
+                line: 1,
+                column: 33273
+              });
             }
-            return e.x = e.expression, h.setup && h.setup(e), e;
-          }, __mockedFunctionPrototype)
-        }, __mockedObjectPrototype);
-        d.methods = Object.setPrototypeOf({
+            return __mockedPropertyWrite(e, "x", e.expression, {
+              line: 1,
+              column: 33290
+            }), h.setup && h.setup(e), e;
+          }
+        };
+        __mockedPropertyWrite(d, "methods", {
           ValidationError: l.ValidationError,
           version: i.version,
           cache: a.provider,
@@ -1213,20 +1875,26 @@
           },
           defaults(e) {
             s(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "modifier must be a function");
-            const t = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), this);
+            const t = Object.assign({}, this);
             for (const r of t._types) {
               const n = e(__mockedPropertyAccess(t, r)());
-              s(i.isSchema(n), "modifier must return a valid schema object"), t[r] = Object.setPrototypeOf(function (...e) {
+              s(i.isSchema(n), "modifier must return a valid schema object"), __mockedPropertyWrite(t, r, function (...e) {
                 return d.generate(this, n, e);
-              }, __mockedFunctionPrototype);
+              }, {
+                line: 1,
+                column: 33870
+              });
             }
             return t;
           },
           expression: (...e) => new m(...e),
           extend(...e) {
             i.verifyFlat(e, "extend"), p = p || r(1688), s(e.length, "You need to provide at least one extension"), this.assert(e, p.extensions);
-            const t = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), this);
-            t._types = new Set(t._types);
+            const t = Object.assign({}, this);
+            __mockedPropertyWrite(t, "_types", new Set(t._types), {
+              line: 1,
+              column: 34127
+            });
             for (let r of e) {
               __mockedCompare("function", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "==") && (r = r(t)), this.assert(r, p.extension);
               const e = d.expandExtension(r, t);
@@ -1234,9 +1902,12 @@
                 s(__mockedCompare(void 0, __mockedPropertyAccess(t, r.type), "===") || t._types.has(r.type), "Cannot override name", r.type);
                 const e = r.base || this.any(),
                   n = c.type(e, r);
-                t._types.add(r.type), t[r.type] = Object.setPrototypeOf(function (...e) {
+                t._types.add(r.type), __mockedPropertyWrite(t, r.type, function (...e) {
                   return d.generate(this, n, e);
-                }, __mockedFunctionPrototype);
+                }, {
+                  line: 1,
+                  column: 34413
+                });
               }
             }
             return t;
@@ -1249,41 +1920,74 @@
           override: i.symbols.override,
           ref: (...e) => f.create(...e),
           types() {
-            const e = Object.setPrototypeOf({}, __mockedObjectPrototype);
-            for (const t of this._types) e[t] = __mockedPropertyAccess(this, t)();
-            for (const t in d.aliases) e[t] = __mockedPropertyAccess(this, t)();
+            const e = {};
+            for (const t of this._types) __mockedPropertyWrite(e, t, __mockedPropertyAccess(this, t)(), {
+              line: 1,
+              column: 34695
+            });
+            for (const t in d.aliases) __mockedPropertyWrite(e, t, __mockedPropertyAccess(this, t)(), {
+              line: 1,
+              column: 34735
+            });
             return e;
           }
-        }, __mockedObjectPrototype), d.assert = Object.setPrototypeOf(function (e, t, r, s) {
+        }, {
+          line: 1,
+          column: 33331
+        }), __mockedPropertyWrite(d, "assert", function (e, t, r, s) {
           const a = __mockedPropertyAccess(s, 0) instanceof Error || __mockedCompare("string", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
             }(__mockedPropertyAccess(s, 0)), "==") ? __mockedPropertyAccess(s, 0) : null,
             o = __mockedCompare(null, a, "!==") ? __mockedPropertyAccess(s, 1) : __mockedPropertyAccess(s, 0),
-            c = t.validate(e, i.preferences(Object.setPrototypeOf({
-              errors: Object.setPrototypeOf({
+            c = t.validate(e, i.preferences({
+              errors: {
                 stack: !0
-              }, __mockedObjectPrototype)
-            }, __mockedObjectPrototype), o || Object.setPrototypeOf({}, __mockedObjectPrototype)));
+              }
+            }, o || {}));
           let u = c.error;
           if (!u) return c.value;
           if (a instanceof Error) throw a;
           const f = r && __mockedCompare("function", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
           }(u.annotate), "==") ? u.annotate() : u.message;
-          throw __mockedCompare(u instanceof l.ValidationError, 0, "==") && (u = n(u)), u.message = a ? `${a} ${f}` : f, u;
-        }, __mockedFunctionPrototype), d.generate = Object.setPrototypeOf(function (e, t, r) {
-          return s(e, "Must be invoked on a Joi instance."), t.$_root = e, t._definition.args && r.length ? t._definition.args(t, ...r) : t;
-        }, __mockedFunctionPrototype), d.expandExtension = Object.setPrototypeOf(function (e, t) {
+          throw __mockedCompare(u instanceof l.ValidationError, 0, "==") && (u = n(u)), __mockedPropertyWrite(u, "message", a ? `${a} ${f}` : f, {
+            line: 1,
+            column: 35107
+          }), u;
+        }, {
+          line: 1,
+          column: 34761
+        }), __mockedPropertyWrite(d, "generate", function (e, t, r) {
+          return s(e, "Must be invoked on a Joi instance."), __mockedPropertyWrite(t, "$_root", e, {
+            line: 1,
+            column: 35212
+          }), t._definition.args && r.length ? t._definition.args(t, ...r) : t;
+        }, {
+          line: 1,
+          column: 35136
+        }), __mockedPropertyWrite(d, "expandExtension", function (e, t) {
           if (__mockedCompare("string", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(e.type), "==")) return Object.setPrototypeOf([e], __mockedArrayPrototype);
-          const r = Object.setPrototypeOf([], __mockedArrayPrototype);
+          }(e.type), "==")) return [e];
+          const r = [];
           for (const s of t._types) if (e.type.test(s)) {
-            const n = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e);
-            n.type = s, n.base = __mockedPropertyAccess(t, s)(), r.push(n);
+            const n = Object.assign({}, e);
+            __mockedPropertyWrite(n, "type", s, {
+              line: 1,
+              column: 35433
+            }), __mockedPropertyWrite(n, "base", __mockedPropertyAccess(t, s)(), {
+              line: 1,
+              column: 35442
+            }), r.push(n);
           }
           return r;
-        }, __mockedFunctionPrototype), e.exports = d.root();
+        }, {
+          line: 1,
+          column: 35282
+        }), __mockedPropertyWrite(e, "exports", d.root(), {
+          line: 1,
+          column: 35476
+        });
       },
       6162(e, t, r) {
         "use strict";
@@ -1293,52 +1997,88 @@
             clone: n
           } = r(2116),
           a = r(1532);
-        t.compile = Object.setPrototypeOf(function (e, t) {
+        __mockedPropertyWrite(t, "compile", function (e, t) {
           if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) return s(!t, "Cannot set single message string"), new a(e);
           if (a.isTemplate(e)) return s(!t, "Cannot set single message template"), e;
-          s(__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && !Array.isArray(e), "Invalid message options"), t = t ? n(t) : Object.setPrototypeOf({}, __mockedObjectPrototype);
+          s(__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && !Array.isArray(e), "Invalid message options"), t = t ? n(t) : {};
           for (let r in e) {
             const n = __mockedPropertyAccess(e, r);
             if (__mockedCompare("root", r, "===") || a.isTemplate(n)) {
-              t[r] = n;
+              __mockedPropertyWrite(t, r, n, {
+                line: 1,
+                column: 35877
+              });
               continue;
             }
             if (__mockedCompare("string", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "==")) {
-              t[r] = new a(n);
+              __mockedPropertyWrite(t, r, new a(n), {
+                line: 1,
+                column: 35916
+              });
               continue;
             }
             s(__mockedCompare("object", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "==") && !Array.isArray(n), "Invalid message for", r);
             const i = r;
-            for (r in t[i] = __mockedPropertyAccess(t, i) || Object.setPrototypeOf({}, __mockedObjectPrototype), n) {
+            for (r in __mockedPropertyWrite(t, i, __mockedPropertyAccess(t, i) || {}, {
+              line: 1,
+              column: 36023
+            }), n) {
               const e = __mockedPropertyAccess(n, r);
-              __mockedCompare("root", r, "===") || a.isTemplate(e) ? __mockedPropertyAccess(t, i)[r] = e : (s(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid message for", r, "in", i), __mockedPropertyAccess(t, i)[r] = new a(e));
+              __mockedCompare("root", r, "===") || a.isTemplate(e) ? __mockedPropertyWrite(__mockedPropertyAccess(t, i), r, e, {
+                line: 1,
+                column: 36081
+              }) : (s(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid message for", r, "in", i), __mockedPropertyWrite(__mockedPropertyAccess(t, i), r, new a(e), {
+                line: 1,
+                column: 36145
+              }));
             }
           }
           return t;
-        }, __mockedFunctionPrototype), t.decompile = Object.setPrototypeOf(function (e) {
-          const t = Object.setPrototypeOf({}, __mockedObjectPrototype);
+        }, {
+          line: 1,
+          column: 35563
+        }), __mockedPropertyWrite(t, "decompile", function (e) {
+          const t = {};
           for (let r in e) {
             const s = __mockedPropertyAccess(e, r);
             if (__mockedCompare("root", r, "===")) {
-              t.root = s;
+              __mockedPropertyWrite(t, "root", s, {
+                line: 1,
+                column: 36253
+              });
               continue;
             }
             if (a.isTemplate(s)) {
-              t[r] = s.describe(Object.setPrototypeOf({
+              __mockedPropertyWrite(t, r, s.describe({
                 compact: !0
-              }, __mockedObjectPrototype));
+              }), {
+                line: 1,
+                column: 36291
+              });
               continue;
             }
             const n = r;
-            for (r in t[n] = Object.setPrototypeOf({}, __mockedObjectPrototype), s) {
+            for (r in __mockedPropertyWrite(t, n, {}, {
+              line: 1,
+              column: 36349
+            }), s) {
               const e = __mockedPropertyAccess(s, r);
-              __mockedCompare("root", r, "!==") ? __mockedPropertyAccess(t, n)[r] = e.describe(Object.setPrototypeOf({
+              __mockedCompare("root", r, "!==") ? __mockedPropertyWrite(__mockedPropertyAccess(t, n), r, e.describe({
                 compact: !0
-              }, __mockedObjectPrototype)) : __mockedPropertyAccess(t, n).root = e;
+              }), {
+                line: 1,
+                column: 36384
+              }) : __mockedPropertyWrite(__mockedPropertyAccess(t, n), "root", e, {
+                line: 1,
+                column: 36417
+              });
             }
           }
           return t;
-        }, __mockedFunctionPrototype), t.merge = Object.setPrototypeOf(function (e, r) {
+        }, {
+          line: 1,
+          column: 36174
+        }), __mockedPropertyWrite(t, "merge", function (e, r) {
           if (!e) return t.compile(r);
           if (!r) return e;
           if (__mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "==")) return new a(r);
@@ -1347,22 +2087,40 @@
           for (let e in r) {
             const t = __mockedPropertyAccess(r, e);
             if (__mockedCompare("root", e, "===") || a.isTemplate(t)) {
-              i[e] = t;
+              __mockedPropertyWrite(i, e, t, {
+                line: 1,
+                column: 36643
+              });
               continue;
             }
             if (__mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==")) {
-              i[e] = new a(t);
+              __mockedPropertyWrite(i, e, new a(t), {
+                line: 1,
+                column: 36682
+              });
               continue;
             }
             s(__mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") && !Array.isArray(t), "Invalid message for", e);
             const n = e;
-            for (e in i[n] = __mockedPropertyAccess(i, n) || Object.setPrototypeOf({}, __mockedObjectPrototype), t) {
+            for (e in __mockedPropertyWrite(i, n, __mockedPropertyAccess(i, n) || {}, {
+              line: 1,
+              column: 36789
+            }), t) {
               const r = __mockedPropertyAccess(t, e);
-              __mockedCompare("root", e, "===") || a.isTemplate(r) ? __mockedPropertyAccess(i, n)[e] = r : (s(__mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Invalid message for", e, "in", n), __mockedPropertyAccess(i, n)[e] = new a(r));
+              __mockedCompare("root", e, "===") || a.isTemplate(r) ? __mockedPropertyWrite(__mockedPropertyAccess(i, n), e, r, {
+                line: 1,
+                column: 36847
+              }) : (s(__mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Invalid message for", e, "in", n), __mockedPropertyWrite(__mockedPropertyAccess(i, n), e, new a(r), {
+                line: 1,
+                column: 36911
+              }));
             }
           }
           return i;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 36440
+        });
       },
       5844(e, t, r) {
         "use strict";
@@ -1372,153 +2130,217 @@
           } = r(2116),
           n = r(9415),
           a = r(8529),
-          i = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        t.Ids = i.Ids = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+          i = {};
+        __mockedPropertyWrite(t, "Ids", __mockedPropertyWrite(i, "Ids", class {
           constructor() {
-            this._byId = new Map(), this._byKey = new Map(), this._schemaChain = !1;
+            __mockedPropertyWrite(this, "_byId", new Map(), {
+              line: 1,
+              column: 37047
+            }), __mockedPropertyWrite(this, "_byKey", new Map(), {
+              line: 1,
+              column: 37066
+            }), __mockedPropertyWrite(this, "_schemaChain", !1, {
+              line: 1,
+              column: 37086
+            });
           }
           clone() {
             const e = new i.Ids();
-            return e._byId = new Map(this._byId), e._byKey = new Map(this._byKey), e._schemaChain = this._schemaChain, e;
+            return __mockedPropertyWrite(e, "_byId", new Map(this._byId), {
+              line: 1,
+              column: 37140
+            }), __mockedPropertyWrite(e, "_byKey", new Map(this._byKey), {
+              line: 1,
+              column: 37168
+            }), __mockedPropertyWrite(e, "_schemaChain", this._schemaChain, {
+              line: 1,
+              column: 37198
+            }), e;
           }
           concat(e) {
-            e._schemaChain && (this._schemaChain = !0);
+            e._schemaChain && __mockedPropertyWrite(this, "_schemaChain", !0, {
+              line: 1,
+              column: 37260
+            });
             for (const [t, r] of e._byId.entries()) s(!this._byKey.has(t), "Schema id conflicts with existing key:", t), this._byId.set(t, r);
             for (const [t, r] of e._byKey.entries()) s(!this._byId.has(t), "Schema key conflicts with existing id:", t), this._byKey.set(t, r);
           }
           fork(e, t, r) {
             const a = this._collect(e);
-            a.push(Object.setPrototypeOf({
+            a.push({
               schema: r
-            }, __mockedObjectPrototype));
+            });
             const o = a.shift();
-            let l = Object.setPrototypeOf({
+            let l = {
               id: o.id,
               schema: t(o.schema)
-            }, __mockedObjectPrototype);
+            };
             s(n.isSchema(l.schema), "adjuster function failed to return a joi schema type");
-            for (const e of a) l = Object.setPrototypeOf({
+            for (const e of a) l = {
               id: e.id,
               schema: i.fork(e.schema, l.id, l.schema)
-            }, __mockedObjectPrototype);
+            };
             return l.schema;
           }
-          labels(e, t = Object.setPrototypeOf([], __mockedArrayPrototype)) {
+          labels(e, t = []) {
             const r = __mockedPropertyAccess(e, 0),
               s = this._get(r);
-            if (!s) return Object.setPrototypeOf([...t, ...e], __mockedArrayPrototype).join(".");
+            if (!s) return [...t, ...e].join(".");
             const n = e.slice(1);
-            return t = Object.setPrototypeOf([...t, s.schema._flags.label || r], __mockedArrayPrototype), n.length ? s.schema._ids.labels(n, t) : t.join(".");
+            return t = [...t, s.schema._flags.label || r], n.length ? s.schema._ids.labels(n, t) : t.join(".");
           }
-          reach(e, t = Object.setPrototypeOf([], __mockedArrayPrototype)) {
+          reach(e, t = []) {
             const r = __mockedPropertyAccess(e, 0),
               n = this._get(r);
-            s(n, "Schema does not contain path", Object.setPrototypeOf([...t, ...e], __mockedArrayPrototype).join("."));
+            s(n, "Schema does not contain path", [...t, ...e].join("."));
             const a = e.slice(1);
-            return a.length ? n.schema._ids.reach(a, Object.setPrototypeOf([...t, r], __mockedArrayPrototype)) : n.schema;
+            return a.length ? n.schema._ids.reach(a, [...t, r]) : n.schema;
           }
           register(e, {
             key: t
-          } = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+          } = {}) {
             if (!e || !n.isSchema(e)) return;
-            (e.$_property("schemaChain") || e._ids._schemaChain) && (this._schemaChain = !0);
+            (e.$_property("schemaChain") || e._ids._schemaChain) && __mockedPropertyWrite(this, "_schemaChain", !0, {
+              line: 1,
+              column: 38261
+            });
             const r = e._flags.id;
             if (r) {
               const t = this._byId.get(r);
-              s(!t || __mockedCompare(t.schema, e, "==="), "Cannot add different schemas with the same id:", r), s(!this._byKey.has(r), "Schema id conflicts with existing key:", r), this._byId.set(r, Object.setPrototypeOf({
+              s(!t || __mockedCompare(t.schema, e, "==="), "Cannot add different schemas with the same id:", r), s(!this._byKey.has(r), "Schema id conflicts with existing key:", r), this._byId.set(r, {
                 schema: e,
                 id: r
-              }, __mockedObjectPrototype));
+              });
             }
-            t && (s(!this._byKey.has(t), "Schema already contains key:", t), s(!this._byId.has(t), "Schema key conflicts with existing id:", t), this._byKey.set(t, Object.setPrototypeOf({
+            t && (s(!this._byKey.has(t), "Schema already contains key:", t), s(!this._byId.has(t), "Schema key conflicts with existing id:", t), this._byKey.set(t, {
               schema: e,
               id: t
-            }, __mockedObjectPrototype)));
+            }));
           }
           reset() {
-            this._byId = new Map(), this._byKey = new Map(), this._schemaChain = !1;
+            __mockedPropertyWrite(this, "_byId", new Map(), {
+              line: 1,
+              column: 38675
+            }), __mockedPropertyWrite(this, "_byKey", new Map(), {
+              line: 1,
+              column: 38694
+            }), __mockedPropertyWrite(this, "_schemaChain", !1, {
+              line: 1,
+              column: 38714
+            });
           }
-          _collect(e, t = Object.setPrototypeOf([], __mockedArrayPrototype), r = Object.setPrototypeOf([], __mockedArrayPrototype)) {
+          _collect(e, t = [], r = []) {
             const n = __mockedPropertyAccess(e, 0),
               a = this._get(n);
-            s(a, "Schema does not contain path", Object.setPrototypeOf([...t, ...e], __mockedArrayPrototype).join(".")), r = Object.setPrototypeOf([a, ...r], __mockedArrayPrototype);
+            s(a, "Schema does not contain path", [...t, ...e].join(".")), r = [a, ...r];
             const i = e.slice(1);
-            return i.length ? a.schema._ids._collect(i, Object.setPrototypeOf([...t, n], __mockedArrayPrototype), r) : r;
+            return i.length ? a.schema._ids._collect(i, [...t, n], r) : r;
           }
           _get(e) {
             return this._byId.get(e) || this._byKey.get(e);
           }
-        }), i.fork = Object.setPrototypeOf(function (e, r, s) {
-          const n = t.schema(e, Object.setPrototypeOf({
+        }, {
+          line: 1,
+          column: 37021
+        }), {
+          line: 1,
+          column: 37015
+        }), __mockedPropertyWrite(i, "fork", function (e, r, s) {
+          const n = t.schema(e, {
             each: (e, {
               key: t
             }) => {
               if (__mockedCompare(r, e._flags.id || t, "===")) return s;
             },
             ref: !1
-          }, __mockedObjectPrototype));
+          });
           return n ? n.$_mutateRebuild() : e;
-        }, __mockedFunctionPrototype), t.schema = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 38983
+        }), __mockedPropertyWrite(t, "schema", function (e, t) {
           let r;
           for (const s in e._flags) {
             if (__mockedCompare("_", __mockedPropertyAccess(s, 0), "===")) continue;
-            const n = i.scan(__mockedPropertyAccess(e._flags, s), Object.setPrototypeOf({
+            const n = i.scan(__mockedPropertyAccess(e._flags, s), {
               source: "flags",
               name: s
-            }, __mockedObjectPrototype), t);
-            __mockedCompare(void 0, n, "!==") && (r = r || e.clone(), r._flags[s] = n);
+            }, t);
+            __mockedCompare(void 0, n, "!==") && (r = r || e.clone(), __mockedPropertyWrite(r._flags, s, n, {
+              line: 1,
+              column: 39279
+            }));
           }
           for (let s = 0; s < e._rules.length; ++s) {
             const n = __mockedPropertyAccess(e._rules, s),
-              a = i.scan(n.args, Object.setPrototypeOf({
+              a = i.scan(n.args, {
                 source: "rules",
                 name: n.name
-              }, __mockedObjectPrototype), t);
+              }, t);
             if (__mockedCompare(void 0, a, "!==")) {
               r = r || e.clone();
-              const t = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), n);
-              t.args = a, r._rules[s] = t, __mockedCompare(r._singleRules.get(n.name), n, "===") && r._singleRules.set(n.name, t);
+              const t = Object.assign({}, n);
+              __mockedPropertyWrite(t, "args", a, {
+                line: 1,
+                column: 39455
+              }), __mockedPropertyWrite(r._rules, s, t, {
+                line: 1,
+                column: 39464
+              }), __mockedCompare(r._singleRules.get(n.name), n, "===") && r._singleRules.set(n.name, t);
             }
           }
           for (const s in e.$_terms) {
             if (__mockedCompare("_", __mockedPropertyAccess(s, 0), "===")) continue;
-            const n = i.scan(__mockedPropertyAccess(e.$_terms, s), Object.setPrototypeOf({
+            const n = i.scan(__mockedPropertyAccess(e.$_terms, s), {
               source: "terms",
               name: s
-            }, __mockedObjectPrototype), t);
-            __mockedCompare(void 0, n, "!==") && (r = r || e.clone(), r.$_terms[s] = n);
+            }, t);
+            __mockedCompare(void 0, n, "!==") && (r = r || e.clone(), __mockedPropertyWrite(r.$_terms, s, n, {
+              line: 1,
+              column: 39672
+            }));
           }
           return r;
-        }, __mockedFunctionPrototype), i.scan = Object.setPrototypeOf(function (e, t, r, s, o) {
-          const l = s || Object.setPrototypeOf([], __mockedArrayPrototype);
+        }, {
+          line: 1,
+          column: 39120
+        }), __mockedPropertyWrite(i, "scan", function (e, t, r, s, o) {
+          const l = s || [];
           if (__mockedCompare(null, e, "===") || __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return;
           let c;
           if (Array.isArray(e)) {
             for (let s = 0; s < e.length; ++s) {
               const n = __mockedCompare("terms", t.source, "===") && __mockedCompare("keys", t.name, "===") && __mockedPropertyAccess(e, s).key,
-                a = i.scan(__mockedPropertyAccess(e, s), t, r, Object.setPrototypeOf([s, ...l], __mockedArrayPrototype), n);
-              __mockedCompare(void 0, a, "!==") && (c = c || e.slice(), c[s] = a);
+                a = i.scan(__mockedPropertyAccess(e, s), t, r, [s, ...l], n);
+              __mockedCompare(void 0, a, "!==") && (c = c || e.slice(), __mockedPropertyWrite(c, s, a, {
+                line: 1,
+                column: 39945
+              }));
             }
             return c;
           }
           if (__mockedCompare(!1, r.schema, "!==") && n.isSchema(e) || __mockedCompare(!1, r.ref, "!==") && a.isRef(e)) {
-            const s = r.each(e, Object.setPrototypeOf({
+            const s = r.each(e, {
               ...t,
               path: l,
               key: o
-            }, __mockedObjectPrototype));
+            });
             if (__mockedCompare(s, e, "===")) return;
             return s;
           }
           for (const s in e) {
             if (__mockedCompare("_", __mockedPropertyAccess(s, 0), "===")) continue;
-            const n = i.scan(__mockedPropertyAccess(e, s), t, r, Object.setPrototypeOf([s, ...l], __mockedArrayPrototype), o);
-            __mockedCompare(void 0, n, "!==") && (c = c || Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e), c[s] = n);
+            const n = i.scan(__mockedPropertyAccess(e, s), t, r, [s, ...l], o);
+            __mockedCompare(void 0, n, "!==") && (c = c || Object.assign({}, e), __mockedPropertyWrite(c, s, n, {
+              line: 1,
+              column: 40197
+            }));
           }
           return c;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 39698
+        });
       },
       8529(e, t, r) {
         "use strict";
@@ -1530,56 +2352,90 @@
           } = r(2116),
           i = r(9415);
         let o;
-        const l = Object.setPrototypeOf({
+        const l = {
           symbol: Symbol("ref"),
-          defaults: Object.setPrototypeOf({
+          defaults: {
             adjust: null,
             in: !1,
             iterables: null,
             map: null,
             separator: ".",
             type: "value"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype);
-        t.create = Object.setPrototypeOf(function (e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-          s(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid reference key:", e), i.assertOptions(t, Object.setPrototypeOf(["adjust", "ancestor", "in", "iterables", "map", "prefix", "render", "separator"], __mockedArrayPrototype)), s(!t.prefix || __mockedCompare("object", function (x) {
+          }
+        };
+        __mockedPropertyWrite(t, "create", function (e, t = {}) {
+          s(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid reference key:", e), i.assertOptions(t, ["adjust", "ancestor", "in", "iterables", "map", "prefix", "render", "separator"]), s(!t.prefix || __mockedCompare("object", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
           }(t.prefix), "=="), "options.prefix must be of type object");
-          const r = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), l.defaults, t);
+          const r = Object.assign({}, l.defaults, t);
           delete r.prefix;
           const n = r.separator,
             a = l.context(e, n, t.prefix);
-          if (r.type = a.type, e = a.key, __mockedCompare("value", r.type, "===")) if (a.root && (s(!n || __mockedCompare(__mockedPropertyAccess(e, 0), n, "!=="), "Cannot specify relative path with root prefix"), r.ancestor = "root", e || (e = null)), n && __mockedCompare(n, e, "===")) e = null, r.ancestor = 0;else if (__mockedCompare(void 0, r.ancestor, "!==")) s(!n || !e || __mockedCompare(__mockedPropertyAccess(e, 0), n, "!=="), "Cannot combine prefix with ancestor option");else {
+          if (__mockedPropertyWrite(r, "type", a.type, {
+            line: 1,
+            column: 40761
+          }), e = a.key, __mockedCompare("value", r.type, "===")) if (a.root && (s(!n || __mockedCompare(__mockedPropertyAccess(e, 0), n, "!=="), "Cannot specify relative path with root prefix"), __mockedPropertyWrite(r, "ancestor", "root", {
+            line: 1,
+            column: 40876
+          }), e || (e = null)), n && __mockedCompare(n, e, "===")) e = null, __mockedPropertyWrite(r, "ancestor", 0, {
+            line: 1,
+            column: 40923
+          });else if (__mockedCompare(void 0, r.ancestor, "!==")) s(!n || !e || __mockedCompare(__mockedPropertyAccess(e, 0), n, "!=="), "Cannot combine prefix with ancestor option");else {
             const [t, s] = l.ancestor(e, n);
-            s && __mockedCompare("", e = e.slice(s), "===") && (e = null), r.ancestor = t;
+            s && __mockedCompare("", e = e.slice(s), "===") && (e = null), __mockedPropertyWrite(r, "ancestor", t, {
+              line: 1,
+              column: 41094
+            });
           }
-          return r.path = n ? __mockedCompare(null, e, "===") ? Object.setPrototypeOf([], __mockedArrayPrototype) : e.split(n) : Object.setPrototypeOf([e], __mockedArrayPrototype), new l.Ref(r);
-        }, __mockedFunctionPrototype), t.in = Object.setPrototypeOf(function (e, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-          return t.create(e, Object.setPrototypeOf({
+          return __mockedPropertyWrite(r, "path", n ? __mockedCompare(null, e, "===") ? [] : e.split(n) : [e], {
+            line: 1,
+            column: 41114
+          }), new l.Ref(r);
+        }, {
+          line: 1,
+          column: 40408
+        }), __mockedPropertyWrite(t, "in", function (e, r = {}) {
+          return t.create(e, {
             ...r,
             in: !0
-          }, __mockedObjectPrototype));
-        }, __mockedFunctionPrototype), t.isRef = Object.setPrototypeOf(function (e) {
+          });
+        }, {
+          line: 1,
+          column: 41164
+        }), __mockedPropertyWrite(t, "isRef", function (e) {
           return !!e && !!__mockedPropertyAccess(e, i.symbols.ref);
-        }, __mockedFunctionPrototype), l.Ref = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+        }, {
+          line: 1,
+          column: 41219
+        }), __mockedPropertyWrite(l, "Ref", class {
           constructor(e) {
-            s(__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid reference construction"), i.assertOptions(e, Object.setPrototypeOf(["adjust", "ancestor", "in", "iterables", "map", "path", "render", "separator", "type", "depth", "key", "root", "display"], __mockedArrayPrototype)), s(Object.setPrototypeOf([!1, void 0], __mockedArrayPrototype).includes(e.separator) || __mockedCompare("string", function (x) {
+            s(__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid reference construction"), i.assertOptions(e, ["adjust", "ancestor", "in", "iterables", "map", "path", "render", "separator", "type", "depth", "key", "root", "display"]), s([!1, void 0].includes(e.separator) || __mockedCompare("string", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
             }(e.separator), "==") && __mockedCompare(1, e.separator.length, "==="), "Invalid separator"), s(!e.adjust || __mockedCompare("function", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(e.adjust), "=="), "options.adjust must be a function"), s(!e.map || Array.isArray(e.map), "options.map must be an array"), s(!e.map || !e.adjust, "Cannot set both map and adjust options"), Object.assign(this, l.defaults, e), s(__mockedCompare("value", this.type, "===") || __mockedCompare(void 0, this.ancestor, "==="), "Non-value references cannot reference ancestors"), Array.isArray(this.map) && (this.map = new Map(this.map)), this.depth = this.path.length, this.key = this.path.length ? this.path.join(this.separator) : null, this.root = __mockedPropertyAccess(this.path, 0), this.updateDisplay();
+            }(e.adjust), "=="), "options.adjust must be a function"), s(!e.map || Array.isArray(e.map), "options.map must be an array"), s(!e.map || !e.adjust, "Cannot set both map and adjust options"), Object.assign(this, l.defaults, e), s(__mockedCompare("value", this.type, "===") || __mockedCompare(void 0, this.ancestor, "==="), "Non-value references cannot reference ancestors"), Array.isArray(this.map) && __mockedPropertyWrite(this, "map", new Map(this.map), {
+              line: 1,
+              column: 41952
+            }), __mockedPropertyWrite(this, "depth", this.path.length, {
+              line: 1,
+              column: 41980
+            }), __mockedPropertyWrite(this, "key", this.path.length ? this.path.join(this.separator) : null, {
+              line: 1,
+              column: 42008
+            }), __mockedPropertyWrite(this, "root", __mockedPropertyAccess(this.path, 0), {
+              line: 1,
+              column: 42070
+            }), this.updateDisplay();
           }
-          resolve(e, t, r, n, a = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+          resolve(e, t, r, n, a = {}) {
             return s(!this.in || a.in, "Invalid in() reference usage"), __mockedCompare("global", this.type, "===") ? this._resolve(r.context, t, a) : __mockedCompare("local", this.type, "===") ? this._resolve(n, t, a) : this.ancestor ? __mockedCompare("root", this.ancestor, "===") ? this._resolve(__mockedPropertyAccess(t.ancestors, t.ancestors.length - 1), t, a) : (s(this.ancestor <= t.ancestors.length, "Invalid reference exceeds the schema root:", this.display), this._resolve(__mockedPropertyAccess(t.ancestors, this.ancestor - 1), t, a)) : this._resolve(e, t, a);
           }
           _resolve(e, t, r) {
             let s;
-            if (__mockedCompare("value", this.type, "===") && t.mainstay.shadow && __mockedCompare(!1, r.shadow, "!==") && (s = t.mainstay.shadow.get(this.absolute(t))), __mockedCompare(void 0, s, "===") && (s = a(e, this.path, Object.setPrototypeOf({
+            if (__mockedCompare("value", this.type, "===") && t.mainstay.shadow && __mockedCompare(!1, r.shadow, "!==") && (s = t.mainstay.shadow.get(this.absolute(t))), __mockedCompare(void 0, s, "===") && (s = a(e, this.path, {
               iterables: this.iterables,
               functions: !0
-            }, __mockedObjectPrototype))), this.adjust && (s = this.adjust(s)), this.map) {
+            })), this.adjust && (s = this.adjust(s)), this.map) {
               const e = this.map.get(s);
               __mockedCompare(void 0, e, "!==") && (s = e);
             }
@@ -1589,99 +2445,172 @@
             return this.display;
           }
           absolute(e) {
-            return Object.setPrototypeOf([...e.path.slice(0, -this.ancestor), ...this.path], __mockedArrayPrototype);
+            return [...e.path.slice(0, -this.ancestor), ...this.path];
           }
           clone() {
             return new l.Ref(this);
           }
           describe() {
-            const e = Object.setPrototypeOf({
+            const e = {
               path: this.path
-            }, __mockedObjectPrototype);
-            __mockedCompare("value", this.type, "!==") && (e.type = this.type), __mockedCompare(".", this.separator, "!==") && (e.separator = this.separator), __mockedCompare("value", this.type, "===") && __mockedCompare(1, this.ancestor, "!==") && (e.ancestor = this.ancestor), this.map && (e.map = Object.setPrototypeOf([...this.map], __mockedArrayPrototype));
-            for (const t of Object.setPrototypeOf(["adjust", "iterables", "render"], __mockedArrayPrototype)) __mockedCompare(null, __mockedPropertyAccess(this, t), "!==") && __mockedCompare(void 0, __mockedPropertyAccess(this, t), "!==") && (e[t] = __mockedPropertyAccess(this, t));
-            return __mockedCompare(!1, this.in, "!==") && (e.in = !0), Object.setPrototypeOf({
+            };
+            __mockedCompare("value", this.type, "!==") && __mockedPropertyWrite(e, "type", this.type, {
+              line: 1,
+              column: 43062
+            }), __mockedCompare(".", this.separator, "!==") && __mockedPropertyWrite(e, "separator", this.separator, {
+              line: 1,
+              column: 43103
+            }), __mockedCompare("value", this.type, "===") && __mockedCompare(1, this.ancestor, "!==") && __mockedPropertyWrite(e, "ancestor", this.ancestor, {
+              line: 1,
+              column: 43172
+            }), this.map && __mockedPropertyWrite(e, "map", [...this.map], {
+              line: 1,
+              column: 43209
+            });
+            for (const t of ["adjust", "iterables", "render"]) __mockedCompare(null, __mockedPropertyAccess(this, t), "!==") && __mockedCompare(void 0, __mockedPropertyAccess(this, t), "!==") && __mockedPropertyWrite(e, t, __mockedPropertyAccess(this, t), {
+              line: 1,
+              column: 43311
+            });
+            return __mockedCompare(!1, this.in, "!==") && __mockedPropertyWrite(e, "in", !0, {
+              line: 1,
+              column: 43346
+            }), {
               ref: e
-            }, __mockedObjectPrototype);
+            };
           }
           updateDisplay() {
             const e = __mockedCompare(null, this.key, "!==") ? this.key : "";
-            if (__mockedCompare("value", this.type, "!==")) return void (this.display = `ref:${this.type}:${e}`);
-            if (!this.separator) return void (this.display = `ref:${e}`);
-            if (!this.ancestor) return void (this.display = `ref:${this.separator}${e}`);
-            if (__mockedCompare("root", this.ancestor, "===")) return void (this.display = `ref:root:${e}`);
-            if (__mockedCompare(1, this.ancestor, "===")) return void (this.display = `ref:${e || ".."}`);
-            const t = Object.setPrototypeOf(new Array(this.ancestor + 1), __mockedArrayPrototype).fill(this.separator).join("");
-            this.display = `ref:${t}${e || ""}`;
+            if (__mockedCompare("value", this.type, "!==")) return void __mockedPropertyWrite(this, "display", `ref:${this.type}:${e}`, {
+              line: 1,
+              column: 43450
+            });
+            if (!this.separator) return void __mockedPropertyWrite(this, "display", `ref:${e}`, {
+              line: 1,
+              column: 43519
+            });
+            if (!this.ancestor) return void __mockedPropertyWrite(this, "display", `ref:${this.separator}${e}`, {
+              line: 1,
+              column: 43574
+            });
+            if (__mockedCompare("root", this.ancestor, "===")) return void __mockedPropertyWrite(this, "display", `ref:root:${e}`, {
+              line: 1,
+              column: 43654
+            });
+            if (__mockedCompare(1, this.ancestor, "===")) return void __mockedPropertyWrite(this, "display", `ref:${e || ".."}`, {
+              line: 1,
+              column: 43717
+            });
+            const t = new Array(this.ancestor + 1).fill(this.separator).join("");
+            __mockedPropertyWrite(this, "display", `ref:${t}${e || ""}`, {
+              line: 1,
+              column: 43813
+            });
           }
-        }), l.Ref.prototype[i.symbols.ref] = !0, t.build = Object.setPrototypeOf(function (e) {
-          return __mockedCompare("value", (e = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), l.defaults, e)).type, "===") && __mockedCompare(void 0, e.ancestor, "===") && (e.ancestor = 1), new l.Ref(e);
-        }, __mockedFunctionPrototype), l.context = Object.setPrototypeOf(function (e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+        }, {
+          line: 1,
+          column: 41270
+        }), __mockedPropertyWrite(l.Ref.prototype, i.symbols.ref, !0, {
+          line: 1,
+          column: 43847
+        }), __mockedPropertyWrite(t, "build", function (e) {
+          return __mockedCompare("value", (e = Object.assign({}, l.defaults, e)).type, "===") && __mockedCompare(void 0, e.ancestor, "===") && __mockedPropertyWrite(e, "ancestor", 1, {
+            line: 1,
+            column: 43980
+          }), new l.Ref(e);
+        }, {
+          line: 1,
+          column: 43881
+        }), __mockedPropertyWrite(l, "context", function (e, t, r = {}) {
           if (e = e.trim(), r) {
             const s = __mockedCompare(void 0, r.global, "===") ? "$" : r.global;
-            if (__mockedCompare(s, t, "!==") && e.startsWith(s)) return Object.setPrototypeOf({
+            if (__mockedCompare(s, t, "!==") && e.startsWith(s)) return {
               key: e.slice(s.length),
               type: "global"
-            }, __mockedObjectPrototype);
+            };
             const n = __mockedCompare(void 0, r.local, "===") ? "#" : r.local;
-            if (__mockedCompare(n, t, "!==") && e.startsWith(n)) return Object.setPrototypeOf({
+            if (__mockedCompare(n, t, "!==") && e.startsWith(n)) return {
               key: e.slice(n.length),
               type: "local"
-            }, __mockedObjectPrototype);
+            };
             const a = __mockedCompare(void 0, r.root, "===") ? "/" : r.root;
-            if (__mockedCompare(a, t, "!==") && e.startsWith(a)) return Object.setPrototypeOf({
+            if (__mockedCompare(a, t, "!==") && e.startsWith(a)) return {
               key: e.slice(a.length),
               type: "value",
               root: !0
-            }, __mockedObjectPrototype);
+            };
           }
-          return Object.setPrototypeOf({
+          return {
             key: e,
             type: "value"
-          }, __mockedObjectPrototype);
-        }, __mockedFunctionPrototype), l.ancestor = Object.setPrototypeOf(function (e, t) {
-          if (!t) return Object.setPrototypeOf([1, 0], __mockedArrayPrototype);
-          if (__mockedCompare(__mockedPropertyAccess(e, 0), t, "!==")) return Object.setPrototypeOf([1, 0], __mockedArrayPrototype);
-          if (__mockedCompare(__mockedPropertyAccess(e, 1), t, "!==")) return Object.setPrototypeOf([0, 1], __mockedArrayPrototype);
+          };
+        }, {
+          line: 1,
+          column: 44008
+        }), __mockedPropertyWrite(l, "ancestor", function (e, t) {
+          if (!t) return [1, 0];
+          if (__mockedCompare(__mockedPropertyAccess(e, 0), t, "!==")) return [1, 0];
+          if (__mockedCompare(__mockedPropertyAccess(e, 1), t, "!==")) return [0, 1];
           let r = 2;
           for (; __mockedCompare(__mockedPropertyAccess(e, r), t, "===");) ++r;
-          return Object.setPrototypeOf([r - 1, r], __mockedArrayPrototype);
-        }, __mockedFunctionPrototype), t.toSibling = 0, t.toParent = 1, t.Manager = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+          return [r - 1, r];
+        }, {
+          line: 1,
+          column: 44409
+        }), __mockedPropertyWrite(t, "toSibling", 0, {
+          line: 1,
+          column: 44542
+        }), __mockedPropertyWrite(t, "toParent", 1, {
+          line: 1,
+          column: 44556
+        }), __mockedPropertyWrite(t, "Manager", class {
           constructor() {
-            this.refs = Object.setPrototypeOf([], __mockedArrayPrototype);
+            __mockedPropertyWrite(this, "refs", [], {
+              line: 1,
+              column: 44599
+            });
           }
           register(e, s) {
-            if (e) if (s = __mockedCompare(void 0, s, "===") ? t.toParent : s, Array.isArray(e)) for (const t of e) this.register(t, s);else if (i.isSchema(e)) for (const t of e._refs.refs) t.ancestor - s >= 0 && this.refs.push(Object.setPrototypeOf({
+            if (e) if (s = __mockedCompare(void 0, s, "===") ? t.toParent : s, Array.isArray(e)) for (const t of e) this.register(t, s);else if (i.isSchema(e)) for (const t of e._refs.refs) t.ancestor - s >= 0 && this.refs.push({
               ancestor: t.ancestor - s,
               root: t.root
-            }, __mockedObjectPrototype));else t.isRef(e) && __mockedCompare("value", e.type, "===") && e.ancestor - s >= 0 && this.refs.push(Object.setPrototypeOf({
+            });else t.isRef(e) && __mockedCompare("value", e.type, "===") && e.ancestor - s >= 0 && this.refs.push({
               ancestor: e.ancestor - s,
               root: e.root
-            }, __mockedObjectPrototype)), o = o || r(1532), o.isTemplate(e) && this.register(e.refs(), s);
+            }), o = o || r(1532), o.isTemplate(e) && this.register(e.refs(), s);
           }
           get length() {
             return this.refs.length;
           }
           clone() {
             const e = new t.Manager();
-            return e.refs = n(this.refs), e;
+            return __mockedPropertyWrite(e, "refs", n(this.refs), {
+              line: 1,
+              column: 45066
+            }), e;
           }
           reset() {
-            this.refs = Object.setPrototypeOf([], __mockedArrayPrototype);
+            __mockedPropertyWrite(this, "refs", [], {
+              line: 1,
+              column: 45096
+            });
           }
           roots() {
             return this.refs.filter(e => !e.ancestor).map(e => e.root);
           }
+        }, {
+          line: 1,
+          column: 44569
         });
       },
       1688(e, t, r) {
         "use strict";
 
         const s = r(1100),
-          n = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        n.wrap = s.string().min(1).max(2).allow(!1), t.preferences = s.object(Object.setPrototypeOf({
+          n = {};
+        __mockedPropertyWrite(n, "wrap", s.string().min(1).max(2).allow(!1), {
+          line: 1,
+          column: 45221
+        }), __mockedPropertyWrite(t, "preferences", s.object({
           allowUnknown: s.boolean(),
           abortEarly: s.boolean(),
           artifacts: s.boolean(),
@@ -1690,104 +2619,119 @@
           convert: s.boolean(),
           dateFormat: s.valid("date", "iso", "string", "time", "utc"),
           debug: s.boolean(),
-          errors: Object.setPrototypeOf({
+          errors: {
             escapeHtml: s.boolean(),
             label: s.valid("path", "key", !1),
-            language: Object.setPrototypeOf([s.string(), s.object().ref()], __mockedArrayPrototype),
+            language: [s.string(), s.object().ref()],
             render: s.boolean(),
             stack: s.boolean(),
-            wrap: Object.setPrototypeOf({
+            wrap: {
               label: n.wrap,
               array: n.wrap,
               string: n.wrap
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
+            }
+          },
           externals: s.boolean(),
           messages: s.object(),
           noDefaults: s.boolean(),
           nonEnumerables: s.boolean(),
           presence: s.valid("required", "optional", "forbidden"),
           skipFunctions: s.boolean(),
-          stripUnknown: s.object(Object.setPrototypeOf({
+          stripUnknown: s.object({
             arrays: s.boolean(),
             objects: s.boolean()
-          }, __mockedObjectPrototype)).or("arrays", "objects").allow(!0, !1),
+          }).or("arrays", "objects").allow(!0, !1),
           warnings: s.boolean()
-        }, __mockedObjectPrototype)).strict(), n.nameRx = /^[a-zA-Z0-9]\w*$/, n.rule = s.object(Object.setPrototypeOf({
+        }).strict(), {
+          line: 1,
+          column: 45263
+        }), __mockedPropertyWrite(n, "nameRx", /^[a-zA-Z0-9]\w*$/, {
+          line: 1,
+          column: 45975
+        }), __mockedPropertyWrite(n, "rule", s.object({
           alias: s.array().items(s.string().pattern(n.nameRx)).single(),
-          args: s.array().items(s.string(), s.object(Object.setPrototypeOf({
+          args: s.array().items(s.string(), s.object({
             name: s.string().pattern(n.nameRx).required(),
             ref: s.boolean(),
-            assert: s.alternatives(Object.setPrototypeOf([s.function(), s.object().schema()], __mockedArrayPrototype)).conditional("ref", Object.setPrototypeOf({
+            assert: s.alternatives([s.function(), s.object().schema()]).conditional("ref", {
               is: !0,
               then: s.required()
-            }, __mockedObjectPrototype)),
+            }),
             normalize: s.function(),
-            message: s.string().when("assert", Object.setPrototypeOf({
+            message: s.string().when("assert", {
               is: s.function(),
               then: s.required()
-            }, __mockedObjectPrototype))
-          }, __mockedObjectPrototype))),
+            })
+          })),
           convert: s.boolean(),
           manifest: s.boolean(),
           method: s.function().allow(!1),
           multi: s.boolean(),
           validate: s.function(),
           jsonSchema: s.function()
-        }, __mockedObjectPrototype)), t.extension = s.object(Object.setPrototypeOf({
-          type: s.alternatives(Object.setPrototypeOf([s.string(), s.object().regex()], __mockedArrayPrototype)).required(),
+        }), {
+          line: 1,
+          column: 46003
+        }), __mockedPropertyWrite(t, "extension", s.object({
+          type: s.alternatives([s.string(), s.object().regex()]).required(),
           args: s.function(),
-          cast: s.object().pattern(n.nameRx, s.object(Object.setPrototypeOf({
+          cast: s.object().pattern(n.nameRx, s.object({
             from: s.function().maxArity(1).required(),
             to: s.function().minArity(1).maxArity(2).required()
-          }, __mockedObjectPrototype))),
-          base: s.object().schema().when("type", Object.setPrototypeOf({
+          })),
+          base: s.object().schema().when("type", {
             is: s.object().regex(),
             then: s.forbidden()
-          }, __mockedObjectPrototype)),
-          coerce: Object.setPrototypeOf([s.function().maxArity(3), s.object(Object.setPrototypeOf({
+          }),
+          coerce: [s.function().maxArity(3), s.object({
             method: s.function().maxArity(3).required(),
             from: s.array().items(s.string()).single()
-          }, __mockedObjectPrototype))], __mockedArrayPrototype),
-          flags: s.object().pattern(n.nameRx, s.object(Object.setPrototypeOf({
+          })],
+          flags: s.object().pattern(n.nameRx, s.object({
             setter: s.string(),
             default: s.any()
-          }, __mockedObjectPrototype))),
-          manifest: Object.setPrototypeOf({
+          })),
+          manifest: {
             build: s.function().arity(2)
-          }, __mockedObjectPrototype),
-          messages: Object.setPrototypeOf([s.object(), s.string()], __mockedArrayPrototype),
+          },
+          messages: [s.object(), s.string()],
           modifiers: s.object().pattern(n.nameRx, s.function().minArity(1).maxArity(2)),
           overrides: s.object().pattern(n.nameRx, s.function()),
           prepare: s.function().maxArity(3),
           rebuild: s.function().arity(1),
           rules: s.object().pattern(n.nameRx, n.rule),
           jsonSchema: s.function(),
-          terms: s.object().pattern(n.nameRx, s.object(Object.setPrototypeOf({
+          terms: s.object().pattern(n.nameRx, s.object({
             init: s.array().allow(null).required(),
-            manifest: s.object().pattern(/.+/, Object.setPrototypeOf([s.valid("schema", "single"), s.object(Object.setPrototypeOf({
-              mapped: s.object(Object.setPrototypeOf({
+            manifest: s.object().pattern(/.+/, [s.valid("schema", "single"), s.object({
+              mapped: s.object({
                 from: s.string().required(),
                 to: s.string().required()
-              }, __mockedObjectPrototype)).required()
-            }, __mockedObjectPrototype))], __mockedArrayPrototype))
-          }, __mockedObjectPrototype))),
+              }).required()
+            })])
+          })),
           validate: s.function().maxArity(3)
-        }, __mockedObjectPrototype)).strict(), t.extensions = s.array().items(s.object(), s.function().arity(1)).strict(), n.desc = Object.setPrototypeOf({
-          buffer: s.object(Object.setPrototypeOf({
+        }).strict(), {
+          line: 1,
+          column: 46520
+        }), __mockedPropertyWrite(t, "extensions", s.array().items(s.object(), s.function().arity(1)).strict(), {
+          line: 1,
+          column: 47671
+        }), __mockedPropertyWrite(n, "desc", {
+          buffer: s.object({
             buffer: s.string()
-          }, __mockedObjectPrototype)),
-          func: s.object(Object.setPrototypeOf({
+          }),
+          func: s.object({
             function: s.function().required(),
-            options: Object.setPrototypeOf({
+            options: {
               literal: !0
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype)),
-          override: s.object(Object.setPrototypeOf({
+            }
+          }),
+          override: s.object({
             override: !0
-          }, __mockedObjectPrototype)),
-          ref: s.object(Object.setPrototypeOf({
-            ref: s.object(Object.setPrototypeOf({
+          }),
+          ref: s.object({
+            ref: s.object({
               type: s.valid("value", "global", "local"),
               path: s.array().required(),
               separator: s.string().length(1).allow(!1),
@@ -1797,24 +2741,36 @@
               iterables: s.boolean(),
               in: s.boolean(),
               render: s.boolean()
-            }, __mockedObjectPrototype)).required()
-          }, __mockedObjectPrototype)),
-          regex: s.object(Object.setPrototypeOf({
+            }).required()
+          }),
+          regex: s.object({
             regex: s.string().min(3)
-          }, __mockedObjectPrototype)),
-          special: s.object(Object.setPrototypeOf({
+          }),
+          special: s.object({
             special: s.valid("deep").required()
-          }, __mockedObjectPrototype)),
-          template: s.object(Object.setPrototypeOf({
+          }),
+          template: s.object({
             template: s.string().required(),
             options: s.object()
-          }, __mockedObjectPrototype)),
-          value: s.object(Object.setPrototypeOf({
-            value: s.alternatives(Object.setPrototypeOf([s.object(), s.array()], __mockedArrayPrototype)).required()
-          }, __mockedObjectPrototype))
-        }, __mockedObjectPrototype), n.desc.entity = s.alternatives(Object.setPrototypeOf([s.array().items(s.link("...")), s.boolean(), s.function(), s.number(), s.string(), n.desc.buffer, n.desc.func, n.desc.ref, n.desc.regex, n.desc.special, n.desc.template, n.desc.value, s.link("/")], __mockedArrayPrototype)), n.desc.values = s.array().items(null, s.boolean(), s.function(), s.number().allow(1 / 0, -1 / 0, NaN), s.string().allow(""), s.symbol(), n.desc.buffer, n.desc.func, n.desc.override, n.desc.ref, n.desc.regex, n.desc.template, n.desc.value), n.desc.messages = s.object().pattern(/.+/, Object.setPrototypeOf([s.string(), n.desc.template, s.object().pattern(/.+/, Object.setPrototypeOf([s.string(), n.desc.template], __mockedArrayPrototype))], __mockedArrayPrototype)), t.description = s.object(Object.setPrototypeOf({
+          }),
+          value: s.object({
+            value: s.alternatives([s.object(), s.array()]).required()
+          })
+        }, {
+          line: 1,
+          column: 47743
+        }), __mockedPropertyWrite(n.desc, "entity", s.alternatives([s.array().items(s.link("...")), s.boolean(), s.function(), s.number(), s.string(), n.desc.buffer, n.desc.func, n.desc.ref, n.desc.regex, n.desc.special, n.desc.template, n.desc.value, s.link("/")]), {
+          line: 1,
+          column: 48459
+        }), __mockedPropertyWrite(n.desc, "values", s.array().items(null, s.boolean(), s.function(), s.number().allow(1 / 0, -1 / 0, NaN), s.string().allow(""), s.symbol(), n.desc.buffer, n.desc.func, n.desc.override, n.desc.ref, n.desc.regex, n.desc.template, n.desc.value), {
+          line: 1,
+          column: 48675
+        }), __mockedPropertyWrite(n.desc, "messages", s.object().pattern(/.+/, [s.string(), n.desc.template, s.object().pattern(/.+/, [s.string(), n.desc.template])]), {
+          line: 1,
+          column: 48894
+        }), __mockedPropertyWrite(t, "description", s.object({
           type: s.string().required(),
-          flags: s.object(Object.setPrototypeOf({
+          flags: s.object({
             cast: s.string(),
             default: s.any(),
             description: s.string(),
@@ -1823,51 +2779,54 @@
             id: s.string(),
             label: s.string(),
             only: !0,
-            presence: Object.setPrototypeOf(["optional", "required", "forbidden"], __mockedArrayPrototype),
-            result: Object.setPrototypeOf(["raw", "strip"], __mockedArrayPrototype),
+            presence: ["optional", "required", "forbidden"],
+            result: ["raw", "strip"],
             strip: s.boolean(),
             unit: s.string()
-          }, __mockedObjectPrototype)).unknown(),
-          preferences: Object.setPrototypeOf({
+          }).unknown(),
+          preferences: {
             allowUnknown: s.boolean(),
             abortEarly: s.boolean(),
             artifacts: s.boolean(),
             cache: s.boolean(),
             convert: s.boolean(),
-            dateFormat: Object.setPrototypeOf(["date", "iso", "string", "time", "utc"], __mockedArrayPrototype),
-            errors: Object.setPrototypeOf({
+            dateFormat: ["date", "iso", "string", "time", "utc"],
+            errors: {
               escapeHtml: s.boolean(),
-              label: Object.setPrototypeOf(["path", "key"], __mockedArrayPrototype),
-              language: Object.setPrototypeOf([s.string(), n.desc.ref], __mockedArrayPrototype),
-              wrap: Object.setPrototypeOf({
+              label: ["path", "key"],
+              language: [s.string(), n.desc.ref],
+              wrap: {
                 label: n.wrap,
                 array: n.wrap
-              }, __mockedObjectPrototype)
-            }, __mockedObjectPrototype),
+              }
+            },
             externals: s.boolean(),
             messages: n.desc.messages,
             noDefaults: s.boolean(),
             nonEnumerables: s.boolean(),
-            presence: Object.setPrototypeOf(["required", "optional", "forbidden"], __mockedArrayPrototype),
+            presence: ["required", "optional", "forbidden"],
             skipFunctions: s.boolean(),
-            stripUnknown: s.object(Object.setPrototypeOf({
+            stripUnknown: s.object({
               arrays: s.boolean(),
               objects: s.boolean()
-            }, __mockedObjectPrototype)).or("arrays", "objects").allow(!0, !1),
+            }).or("arrays", "objects").allow(!0, !1),
             warnings: s.boolean()
-          }, __mockedObjectPrototype),
+          },
           allow: n.desc.values,
           invalid: n.desc.values,
-          rules: s.array().min(1).items(Object.setPrototypeOf({
+          rules: s.array().min(1).items({
             name: s.string().required(),
             args: s.object().min(1),
             keep: s.boolean(),
-            message: Object.setPrototypeOf([s.string(), n.desc.messages], __mockedArrayPrototype),
+            message: [s.string(), n.desc.messages],
             warn: s.boolean()
-          }, __mockedObjectPrototype)),
+          }),
           keys: s.object().pattern(/.*/, s.link("/")),
           link: n.desc.ref
-        }, __mockedObjectPrototype)).pattern(/^[a-z]\w*$/, s.any());
+        }).pattern(/^[a-z]\w*$/, s.any()), {
+          line: 1,
+          column: 49018
+        });
       },
       4957(e, t, r) {
         "use strict";
@@ -1877,77 +2836,130 @@
             reach: n
           } = r(2116),
           a = r(9415),
-          i = Object.setPrototypeOf({
+          i = {
             value: Symbol("value")
-          }, __mockedObjectPrototype);
-        e.exports = i.State = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+          };
+        __mockedPropertyWrite(e, "exports", __mockedPropertyWrite(i, "State", class {
           constructor(e, t, r) {
-            this.path = e, this.ancestors = t, this.mainstay = r.mainstay, this.schemas = r.schemas, this.debug = null;
+            __mockedPropertyWrite(this, "path", e, {
+              line: 1,
+              column: 50333
+            }), __mockedPropertyWrite(this, "ancestors", t, {
+              line: 1,
+              column: 50345
+            }), __mockedPropertyWrite(this, "mainstay", r.mainstay, {
+              line: 1,
+              column: 50362
+            }), __mockedPropertyWrite(this, "schemas", r.schemas, {
+              line: 1,
+              column: 50387
+            }), __mockedPropertyWrite(this, "debug", null, {
+              line: 1,
+              column: 50410
+            });
           }
           localize(e, t = null, r = null) {
             const s = new i.State(e, t, this);
-            return r && s.schemas && (s.schemas = Object.setPrototypeOf([i.schemas(r), ...s.schemas], __mockedArrayPrototype)), s;
+            return r && s.schemas && __mockedPropertyWrite(s, "schemas", [i.schemas(r), ...s.schemas], {
+              line: 1,
+              column: 50504
+            }), s;
           }
           nest(e, t) {
             const r = new i.State(this.path, this.ancestors, this);
-            return r.schemas = r.schemas && Object.setPrototypeOf([i.schemas(e), ...r.schemas], __mockedArrayPrototype), r.debug = t, r;
+            return __mockedPropertyWrite(r, "schemas", r.schemas && [i.schemas(e), ...r.schemas], {
+              line: 1,
+              column: 50613
+            }), __mockedPropertyWrite(r, "debug", t, {
+              line: 1,
+              column: 50662
+            }), r;
           }
           shadow(e, t) {
-            this.mainstay.shadow = this.mainstay.shadow || new i.Shadow(), this.mainstay.shadow.set(this.path, e, t);
+            __mockedPropertyWrite(this.mainstay, "shadow", this.mainstay.shadow || new i.Shadow(), {
+              line: 1,
+              column: 50686
+            }), this.mainstay.shadow.set(this.path, e, t);
           }
           snapshot() {
-            this.mainstay.shadow && (this._snapshot = s(this.mainstay.shadow.node(this.path))), this.mainstay.snapshot();
+            this.mainstay.shadow && __mockedPropertyWrite(this, "_snapshot", s(this.mainstay.shadow.node(this.path)), {
+              line: 1,
+              column: 50816
+            }), this.mainstay.snapshot();
           }
           restore() {
-            this.mainstay.shadow && (this.mainstay.shadow.override(this.path, this._snapshot), this._snapshot = void 0), this.mainstay.restore();
+            this.mainstay.shadow && (this.mainstay.shadow.override(this.path, this._snapshot), __mockedPropertyWrite(this, "_snapshot", void 0, {
+              line: 1,
+              column: 50986
+            })), this.mainstay.restore();
           }
           commit() {
-            this.mainstay.shadow && (this.mainstay.shadow.override(this.path, this._snapshot), this._snapshot = void 0), this.mainstay.commit();
+            this.mainstay.shadow && (this.mainstay.shadow.override(this.path, this._snapshot), __mockedPropertyWrite(this, "_snapshot", void 0, {
+              line: 1,
+              column: 51121
+            })), this.mainstay.commit();
           }
-        }), i.schemas = Object.setPrototypeOf(function (e) {
-          return a.isSchema(e) ? Object.setPrototypeOf({
+        }, {
+          line: 1,
+          column: 50300
+        }), {
+          line: 1,
+          column: 50290
+        }), __mockedPropertyWrite(i, "schemas", function (e) {
+          return a.isSchema(e) ? {
             schema: e
-          }, __mockedObjectPrototype) : e;
-        }, __mockedFunctionPrototype), i.Shadow = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+          } : e;
+        }, {
+          line: 1,
+          column: 51169
+        }), __mockedPropertyWrite(i, "Shadow", class {
           constructor() {
-            this._values = null;
+            __mockedPropertyWrite(this, "_values", null, {
+              line: 1,
+              column: 51255
+            });
           }
           set(e, t, r) {
             if (!e.length) return;
             if (__mockedCompare("strip", r, "===") && __mockedCompare("number", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
             }(__mockedPropertyAccess(e, e.length - 1)), "==")) return;
-            this._values = this._values || new Map();
+            __mockedPropertyWrite(this, "_values", this._values || new Map(), {
+              line: 1,
+              column: 51358
+            });
             let s = this._values;
             for (let t = 0; t < e.length; ++t) {
               const r = __mockedPropertyAccess(e, t);
               let n = s.get(r);
               n || (n = new Map(), s.set(r, n)), s = n;
             }
-            s[i.value] = t;
+            __mockedPropertyWrite(s, i.value, t, {
+              line: 1,
+              column: 51498
+            });
           }
           get(e) {
             const t = this.node(e);
             if (t) return __mockedPropertyAccess(t, i.value);
           }
           node(e) {
-            if (this._values) return n(this._values, e, Object.setPrototypeOf({
+            if (this._values) return n(this._values, e, {
               iterables: !0
-            }, __mockedObjectPrototype));
+            });
           }
           override(e, t) {
             if (!this._values) return;
             const r = e.slice(0, -1),
               s = __mockedPropertyAccess(e, e.length - 1),
-              a = n(this._values, r, Object.setPrototypeOf({
+              a = n(this._values, r, {
                 iterables: !0
-              }, __mockedObjectPrototype));
+              });
             t ? a.set(s, t) : a && a.delete(s);
           }
+        }, {
+          line: 1,
+          column: 51226
         });
       },
       1532(e, t, r) {
@@ -1962,29 +2974,48 @@
           o = r(9415),
           l = r(8013),
           c = r(8529),
-          u = Object.setPrototypeOf({
+          u = {
             symbol: Symbol("template"),
-            opens: Object.setPrototypeOf(new Array(1e3), __mockedArrayPrototype).join("\0"),
-            closes: Object.setPrototypeOf(new Array(1e3), __mockedArrayPrototype).join(""),
-            dateFormat: Object.setPrototypeOf({
+            opens: new Array(1e3).join("\0"),
+            closes: new Array(1e3).join(""),
+            dateFormat: {
               date: Date.prototype.toDateString,
               iso: Date.prototype.toISOString,
               string: Date.prototype.toString,
               time: Date.prototype.toTimeString,
               utc: Date.prototype.toUTCString
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype);
-        e.exports = u.Template = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+            }
+          };
+        __mockedPropertyWrite(e, "exports", __mockedPropertyWrite(u, "Template", class {
           constructor(e, t) {
-            if (s(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Template source must be a string"), s(!e.includes("\0") && !e.includes(""), "Template source cannot contain reserved control characters"), this.source = e, this.rendered = e, this._template = null, t) {
+            if (s(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Template source must be a string"), s(!e.includes("\0") && !e.includes(""), "Template source cannot contain reserved control characters"), __mockedPropertyWrite(this, "source", e, {
+              line: 1,
+              column: 52348
+            }), __mockedPropertyWrite(this, "rendered", e, {
+              line: 1,
+              column: 52362
+            }), __mockedPropertyWrite(this, "_template", null, {
+              line: 1,
+              column: 52378
+            }), t) {
               const {
                 functions: e,
                 ...r
               } = t;
-              this._settings = Object.keys(r).length ? n(r) : void 0, this._functions = e, this._functions && (s(Object.keys(this._functions).every(e => __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")), "Functions keys must be strings"), s(Object.values(this._functions).every(e => __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")), "Functions values must be functions"));
-            } else this._settings = void 0, this._functions = void 0;
+              __mockedPropertyWrite(this, "_settings", Object.keys(r).length ? n(r) : void 0, {
+                line: 1,
+                column: 52427
+              }), __mockedPropertyWrite(this, "_functions", e, {
+                line: 1,
+                column: 52476
+              }), this._functions && (s(Object.keys(this._functions).every(e => __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")), "Functions keys must be strings"), s(Object.values(this._functions).every(e => __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")), "Functions values must be functions"));
+            } else __mockedPropertyWrite(this, "_settings", void 0, {
+              line: 1,
+              column: 52714
+            }), __mockedPropertyWrite(this, "_functions", void 0, {
+              line: 1,
+              column: 52736
+            });
             this._parse();
           }
           _parse() {
@@ -1992,7 +3023,7 @@
             const e = u.encode(this.source),
               t = u.split(e);
             let r = !1;
-            const s = Object.setPrototypeOf([], __mockedArrayPrototype),
+            const s = [],
               n = t.shift();
             n && s.push(u.decode(n));
             for (const e of t) {
@@ -2006,31 +3037,43 @@
               let i = e.slice(t ? 0 : 1, a);
               const o = __mockedCompare(":", __mockedPropertyAccess(i, 0), "===");
               o && (i = i.slice(1));
-              const l = this._ref(u.decode(i), Object.setPrototypeOf({
+              const l = this._ref(u.decode(i), {
                 raw: t,
                 wrapped: o
-              }, __mockedObjectPrototype));
+              });
               s.push(l), __mockedCompare("string", typeof l === "undefined" ? "undefined" : typeof l === "object" && l !== null ? l.__TYPEOF__ !== undefined ? l.__TYPEOF__ : "object" : typeof l, "!=") && (r = !0);
               const c = e.slice(a + n.length);
               c && s.push(u.decode(c));
             }
-            r ? this._template = s : this.rendered = s.join("");
+            r ? __mockedPropertyWrite(this, "_template", s, {
+              line: 1,
+              column: 53239
+            }) : __mockedPropertyWrite(this, "rendered", s.join(""), {
+              line: 1,
+              column: 53256
+            });
           }
           static date(e, t) {
             return __mockedPropertyAccess(u.dateFormat, t.dateFormat).call(e);
           }
-          describe(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+          describe(e = {}) {
             if (!this._settings && e.compact) return this.source;
-            const t = Object.setPrototypeOf({
+            const t = {
               template: this.source
-            }, __mockedObjectPrototype);
-            return this._settings && (t.options = this._settings), this._functions && (t.functions = this._functions), t;
+            };
+            return this._settings && __mockedPropertyWrite(t, "options", this._settings, {
+              line: 1,
+              column: 53459
+            }), this._functions && __mockedPropertyWrite(t, "functions", this._functions, {
+              line: 1,
+              column: 53503
+            }), t;
           }
           static build(e) {
-            return new u.Template(e.template, e.options || e.functions ? Object.setPrototypeOf({
+            return new u.Template(e.template, e.options || e.functions ? {
               ...e.options,
               functions: e.functions
-            }, __mockedObjectPrototype) : void 0);
+            } : void 0);
           }
           isDynamic() {
             return !!this._template;
@@ -2040,19 +3083,19 @@
           }
           refs() {
             if (!this._template) return;
-            const e = Object.setPrototypeOf([], __mockedArrayPrototype);
+            const e = [];
             for (const t of this._template) __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "!=") && e.push(...t.refs);
             return e;
           }
           resolve(e, t, r, s) {
-            return this._template && __mockedCompare(1, this._template.length, "===") ? this._part(__mockedPropertyAccess(this._template, 0), e, t, r, s, Object.setPrototypeOf({}, __mockedObjectPrototype)) : this.render(e, t, r, s);
+            return this._template && __mockedCompare(1, this._template.length, "===") ? this._part(__mockedPropertyAccess(this._template, 0), e, t, r, s, {}) : this.render(e, t, r, s);
           }
           _part(e, ...t) {
             return e.ref ? e.ref.resolve(...t) : e.formula.evaluate(t);
           }
-          render(e, t, r, s, n = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+          render(e, t, r, s, n = {}) {
             if (!this.isDynamic()) return this.rendered;
-            const i = Object.setPrototypeOf([], __mockedArrayPrototype);
+            const i = [];
             for (const o of this._template) if (__mockedCompare("string", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "==")) i.push(o);else {
               const l = this._part(o, e, t, r, s, n),
                 c = u.stringify(l, e, t, r, s, n);
@@ -2067,7 +3110,7 @@
             raw: t,
             wrapped: r
           }) {
-            const s = Object.setPrototypeOf([], __mockedArrayPrototype),
+            const s = [],
               n = e => {
                 const t = c.create(e, this._settings);
                 return s.push(t), e => {
@@ -2076,45 +3119,66 @@
                 };
               };
             try {
-              const t = this._functions ? Object.setPrototypeOf({
+              const t = this._functions ? {
                 ...u.functions,
                 ...this._functions
-              }, __mockedObjectPrototype) : u.functions;
-              var a = new i.Parser(e, Object.setPrototypeOf({
+              } : u.functions;
+              var a = new i.Parser(e, {
                 reference: n,
                 functions: t,
                 constants: u.constants
-              }, __mockedObjectPrototype));
+              });
             } catch (t) {
-              throw t.message = `Invalid template variable "${e}" fails due to: ${t.message}`, t;
+              throw __mockedPropertyWrite(t, "message", `Invalid template variable "${e}" fails due to: ${t.message}`, {
+                line: 1,
+                column: 54713
+              }), t;
             }
             if (a.single) {
               if (__mockedCompare("reference", a.single.type, "===")) {
                 const e = __mockedPropertyAccess(s, 0);
-                return Object.setPrototypeOf({
+                return {
                   ref: e,
                   raw: t,
                   refs: s,
                   wrapped: r || __mockedCompare("local", e.type, "===") && __mockedCompare("label", e.key, "===")
-                }, __mockedObjectPrototype);
+                };
               }
               return u.stringify(a.single.value);
             }
-            return Object.setPrototypeOf({
+            return {
               formula: a,
               raw: t,
               refs: s
-            }, __mockedObjectPrototype);
+            };
           }
           toString() {
             return this.source;
           }
-        }), u.Template.prototype[o.symbols.template] = !0, u.Template.prototype.isImmutable = !0, u.encode = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 52154
+        }), {
+          line: 1,
+          column: 52144
+        }), __mockedPropertyWrite(u.Template.prototype, o.symbols.template, !0, {
+          line: 1,
+          column: 55015
+        }), __mockedPropertyWrite(u.Template.prototype, "isImmutable", !0, {
+          line: 1,
+          column: 55059
+        }), __mockedPropertyWrite(u, "encode", function (e) {
           return e.replace(/\\(\{+)/g, (e, t) => u.opens.slice(0, t.length)).replace(/\\(\}+)/g, (e, t) => u.closes.slice(0, t.length));
-        }, __mockedFunctionPrototype), u.decode = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 55095
+        }), __mockedPropertyWrite(u, "decode", function (e) {
           return e.replace(/\u0000/g, "{").replace(/\u0001/g, "}");
-        }, __mockedFunctionPrototype), u.split = Object.setPrototypeOf(function (e) {
-          const t = Object.setPrototypeOf([], __mockedArrayPrototype);
+        }, {
+          line: 1,
+          column: 55233
+        }), __mockedPropertyWrite(u, "split", function (e) {
+          const t = [];
           let r = "";
           for (let s = 0; s < e.length; ++s) {
             const n = __mockedPropertyAccess(e, s);
@@ -2125,33 +3189,42 @@
             } else r += n;
           }
           return t.push(r), t;
-        }, __mockedFunctionPrototype), u.wrap = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 55310
+        }), __mockedPropertyWrite(u, "wrap", function (e, t) {
           return t ? __mockedCompare(1, t.length, "===") ? `${t}${e}${t}` : `${__mockedPropertyAccess(t, 0)}${e}${__mockedPropertyAccess(t, 1)}` : e;
-        }, __mockedFunctionPrototype), u.stringify = Object.setPrototypeOf(function (e, t, r, s, n, a = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+        }, {
+          line: 1,
+          column: 55500
+        }), __mockedPropertyWrite(u, "stringify", function (e, t, r, s, n, a = {}) {
           const i = typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e,
-            o = s && s.errors && s.errors.wrap || Object.setPrototypeOf({}, __mockedObjectPrototype);
+            o = s && s.errors && s.errors.wrap || {};
           let l = !1;
-          if (c.isRef(e) && e.render && (l = e.in, e = e.resolve(t, r, s, n, Object.setPrototypeOf({
+          if (c.isRef(e) && e.render && (l = e.in, e = e.resolve(t, r, s, n, {
             in: e.in,
             ...a
-          }, __mockedObjectPrototype))), __mockedCompare(null, e, "===")) return "null";
+          })), __mockedCompare(null, e, "===")) return "null";
           if (__mockedCompare("string", i, "===")) return u.wrap(e, a.arrayItems && o.string);
           if (__mockedCompare("number", i, "===") || __mockedCompare("function", i, "===") || __mockedCompare("symbol", i, "===")) return e.toString();
           if (__mockedCompare("object", i, "!==")) return JSON.stringify(e);
           if (e instanceof Date) return u.Template.date(e, s);
           if (e instanceof Map) {
-            const t = Object.setPrototypeOf([], __mockedArrayPrototype);
+            const t = [];
             for (const [r, s] of e.entries()) t.push(`${r.toString()} -> ${s.toString()}`);
             e = t;
           }
           if (!Array.isArray(e)) return e.toString();
-          const f = Object.setPrototypeOf([], __mockedArrayPrototype);
-          for (const i of e) f.push(u.stringify(i, t, r, s, n, Object.setPrototypeOf({
+          const f = [];
+          for (const i of e) f.push(u.stringify(i, t, r, s, n, {
             arrayItems: !0,
             ...a
-          }, __mockedObjectPrototype)));
+          }));
           return u.wrap(f.join(", "), !l && o.array);
-        }, __mockedFunctionPrototype), u.constants = Object.setPrototypeOf({
+        }, {
+          line: 1,
+          column: 55582
+        }), __mockedPropertyWrite(u, "constants", {
           true: !0,
           false: !1,
           null: null,
@@ -2159,7 +3232,10 @@
           minute: 6e4,
           hour: 36e5,
           day: 864e5
-        }, __mockedObjectPrototype), u.functions = Object.setPrototypeOf({
+        }, {
+          line: 1,
+          column: 56254
+        }), __mockedPropertyWrite(u, "functions", {
           if: (e, t, r) => e ? t : r,
           length: e => __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? e.length : e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? Array.isArray(e) ? e.length : Object.keys(e).length : null,
           msg(e) {
@@ -2170,7 +3246,10 @@
             return o ? o.render(t, r, s, n, a) : "";
           },
           number: e => __mockedCompare("number", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? e : __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? parseFloat(e) : __mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? e ? 1 : 0 : e instanceof Date ? e.getTime() : null
-        }, __mockedObjectPrototype);
+        }, {
+          line: 1,
+          column: 56337
+        });
       },
       4972(e, t, r) {
         "use strict";
@@ -2184,20 +3263,20 @@
           o = r(3541),
           l = r(8013),
           c = r(8529),
-          u = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        e.exports = a.extend(Object.setPrototypeOf({
+          u = {};
+        __mockedPropertyWrite(e, "exports", a.extend({
           type: "alternatives",
-          flags: Object.setPrototypeOf({
-            match: Object.setPrototypeOf({
+          flags: {
+            match: {
               default: "any"
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          terms: Object.setPrototypeOf({
-            matches: Object.setPrototypeOf({
-              init: Object.setPrototypeOf([], __mockedArrayPrototype),
+            }
+          },
+          terms: {
+            matches: {
+              init: [],
               register: c.toSibling
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
+            }
+          },
           args: (e, ...t) => __mockedCompare(1, t.length, "===") && Array.isArray(__mockedPropertyAccess(t, 0)) ? e.try(...__mockedPropertyAccess(t, 0)) : e.try(...t),
           validate(e, t) {
             const {
@@ -2207,8 +3286,8 @@
               prefs: i
             } = t;
             if (r._flags.match) {
-              const t = Object.setPrototypeOf([], __mockedArrayPrototype),
-                o = Object.setPrototypeOf([], __mockedArrayPrototype);
+              const t = [],
+                o = [];
               for (let s = 0; s < r.$_terms.matches.length; ++s) {
                 const n = __mockedPropertyAccess(r.$_terms.matches, s),
                   l = a.nest(n.schema, `match.${s}`);
@@ -2216,35 +3295,35 @@
                 const c = n.schema.$_validate(e, l, i);
                 c.errors ? (o.push(c.errors), l.restore()) : (t.push(c.value), l.commit());
               }
-              if (__mockedCompare(0, t.length, "===")) return Object.setPrototypeOf({
-                errors: s("alternatives.any", Object.setPrototypeOf({
-                  details: o.map(e => l.details(e, Object.setPrototypeOf({
+              if (__mockedCompare(0, t.length, "===")) return {
+                errors: s("alternatives.any", {
+                  details: o.map(e => l.details(e, {
                     override: !1
-                  }, __mockedObjectPrototype)))
-                }, __mockedObjectPrototype))
-              }, __mockedObjectPrototype);
-              if (__mockedCompare("one", r._flags.match, "===")) return __mockedCompare(1, t.length, "===") ? Object.setPrototypeOf({
+                  }))
+                })
+              };
+              if (__mockedCompare("one", r._flags.match, "===")) return __mockedCompare(1, t.length, "===") ? {
                 value: __mockedPropertyAccess(t, 0)
-              }, __mockedObjectPrototype) : Object.setPrototypeOf({
+              } : {
                 errors: s("alternatives.one")
-              }, __mockedObjectPrototype);
-              if (__mockedCompare(t.length, r.$_terms.matches.length, "!==")) return Object.setPrototypeOf({
-                errors: s("alternatives.all", Object.setPrototypeOf({
-                  details: o.map(e => l.details(e, Object.setPrototypeOf({
+              };
+              if (__mockedCompare(t.length, r.$_terms.matches.length, "!==")) return {
+                errors: s("alternatives.all", {
+                  details: o.map(e => l.details(e, {
                     override: !1
-                  }, __mockedObjectPrototype)))
-                }, __mockedObjectPrototype))
-              }, __mockedObjectPrototype);
+                  }))
+                })
+              };
               const c = e => e.$_terms.matches.some(e => __mockedCompare("object", e.schema.type, "===") || __mockedCompare("alternatives", e.schema.type, "===") && c(e.schema));
-              return c(r) ? Object.setPrototypeOf({
-                value: t.reduce((e, t) => n(e, t, Object.setPrototypeOf({
+              return c(r) ? {
+                value: t.reduce((e, t) => n(e, t, {
                   mergeArrays: !1
-                }, __mockedObjectPrototype)))
-              }, __mockedObjectPrototype) : Object.setPrototypeOf({
+                }))
+              } : {
                 value: __mockedPropertyAccess(t, t.length - 1)
-              }, __mockedObjectPrototype);
+              };
             }
-            const o = Object.setPrototypeOf([], __mockedArrayPrototype);
+            const o = [];
             for (let t = 0; t < r.$_terms.matches.length; ++t) {
               const s = __mockedPropertyAccess(r.$_terms.matches, t);
               if (s.schema) {
@@ -2252,14 +3331,14 @@
                 r.snapshot();
                 const n = s.schema.$_validate(e, r, i);
                 if (!n.errors) return r.commit(), n;
-                r.restore(), o.push(Object.setPrototypeOf({
+                r.restore(), o.push({
                   schema: s.schema,
                   reports: n.errors
-                }, __mockedObjectPrototype));
+                });
                 continue;
               }
               const n = s.ref ? s.ref.resolve(e, a, i) : e,
-                l = s.is ? Object.setPrototypeOf([s], __mockedArrayPrototype) : s.switch;
+                l = s.is ? [s] : s.switch;
               for (let r = 0; r < l.length; ++r) {
                 const o = __mockedPropertyAccess(l, r),
                   {
@@ -2276,56 +3355,62 @@
             return u.errors(o, t);
           },
           jsonSchema(e, t, r, s) {
-            const n = Object.setPrototypeOf([], __mockedArrayPrototype);
+            const n = [];
             for (const t of e.$_terms.matches) if (t.schema) n.push(t.schema.$_jsonSchema(r, s));else {
-              const e = t.is ? Object.setPrototypeOf([t], __mockedArrayPrototype) : t.switch;
+              const e = t.is ? [t] : t.switch;
               for (const t of e) t.then && n.push(t.then.$_jsonSchema(r, s)), t.otherwise && n.push(t.otherwise.$_jsonSchema(r, s));
             }
             var a;
-            n.length && (delete t.type, __mockedCompare("one", __mockedCompare(null, a = e._flags.match, "!==") && __mockedCompare(void 0, a, "!==") ? a : "any", "===") ? t.oneOf = n : t.anyOf = n);
+            n.length && (delete t.type, __mockedCompare("one", __mockedCompare(null, a = e._flags.match, "!==") && __mockedCompare(void 0, a, "!==") ? a : "any", "===") ? __mockedPropertyWrite(t, "oneOf", n, {
+              line: 1,
+              column: 58833
+            }) : __mockedPropertyWrite(t, "anyOf", n, {
+              line: 1,
+              column: 58843
+            }));
             return t;
           },
-          rules: Object.setPrototypeOf({
-            conditional: Object.setPrototypeOf({
+          rules: {
+            conditional: {
               method(e, t) {
                 s(!this._flags._endedSwitch, "Unreachable condition"), s(!this._flags.match, "Cannot combine match mode", this._flags.match, "with conditional rule"), s(__mockedCompare(void 0, t.break, "==="), "Cannot use break option with alternatives conditional");
                 const r = this.clone(),
                   n = o.when(r, e, t),
-                  a = n.is ? Object.setPrototypeOf([n], __mockedArrayPrototype) : n.switch;
+                  a = n.is ? [n] : n.switch;
                 for (const e of a) if (e.then && e.otherwise) {
-                  r.$_setFlag("_endedSwitch", !0, Object.setPrototypeOf({
+                  r.$_setFlag("_endedSwitch", !0, {
                     clone: !1
-                  }, __mockedObjectPrototype));
+                  });
                   break;
                 }
                 return r.$_terms.matches.push(n), r.$_mutateRebuild();
               }
-            }, __mockedObjectPrototype),
-            match: Object.setPrototypeOf({
+            },
+            match: {
               method(e) {
-                if (s(Object.setPrototypeOf(["any", "one", "all"], __mockedArrayPrototype).includes(e), "Invalid alternatives match mode", e), __mockedCompare("any", e, "!==")) for (const t of this.$_terms.matches) s(t.schema, "Cannot combine match mode", e, "with conditional rules");
+                if (s(["any", "one", "all"].includes(e), "Invalid alternatives match mode", e), __mockedCompare("any", e, "!==")) for (const t of this.$_terms.matches) s(t.schema, "Cannot combine match mode", e, "with conditional rules");
                 return this.$_setFlag("match", e);
               }
-            }, __mockedObjectPrototype),
-            try: Object.setPrototypeOf({
+            },
+            try: {
               method(...e) {
                 s(e.length, "Missing alternative schemas"), i.verifyFlat(e, "try"), s(!this._flags._endedSwitch, "Unreachable condition");
                 const t = this.clone();
-                for (const r of e) t.$_terms.matches.push(Object.setPrototypeOf({
+                for (const r of e) t.$_terms.matches.push({
                   schema: t.$_compile(r)
-                }, __mockedObjectPrototype));
+                });
                 return t.$_mutateRebuild();
               }
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          overrides: Object.setPrototypeOf({
+            }
+          },
+          overrides: {
             label(e) {
-              return this.$_parent("label", e).$_modify(Object.setPrototypeOf({
+              return this.$_parent("label", e).$_modify({
                 each: (t, r) => __mockedCompare("is", __mockedPropertyAccess(r.path, 0), "!==") && __mockedCompare("string", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
                 }(t._flags.label), "!=") ? t.label(e) : void 0,
                 ref: !1
-              }, __mockedObjectPrototype));
+              });
             },
             isAsync() {
               var e;
@@ -2338,17 +3423,17 @@
               }
               return !1;
             }
-          }, __mockedObjectPrototype),
-          rebuild(e) {
-            e.$_modify(Object.setPrototypeOf({
-              each: t => {
-                i.isSchema(t) && __mockedCompare("array", t.type, "===") && e.$_setFlag("_arrayItems", !0, Object.setPrototypeOf({
-                  clone: !1
-                }, __mockedObjectPrototype));
-              }
-            }, __mockedObjectPrototype));
           },
-          manifest: Object.setPrototypeOf({
+          rebuild(e) {
+            e.$_modify({
+              each: t => {
+                i.isSchema(t) && __mockedCompare("array", t.type, "===") && e.$_setFlag("_arrayItems", !0, {
+                  clone: !1
+                });
+              }
+            });
+          },
+          manifest: {
             build(e, t) {
               if (t.matches) for (const r of t.matches) {
                 const {
@@ -2359,39 +3444,42 @@
                   then: i,
                   otherwise: o
                 } = r;
-                e = t ? e.try(t) : s ? e.conditional(s, Object.setPrototypeOf({
+                e = t ? e.try(t) : s ? e.conditional(s, {
                   is: n,
                   then: i,
                   not: a,
                   otherwise: o,
                   switch: r.switch
-                }, __mockedObjectPrototype)) : e.conditional(n, Object.setPrototypeOf({
+                }) : e.conditional(n, {
                   then: i,
                   otherwise: o
-                }, __mockedObjectPrototype));
+                });
               }
               return e;
             }
-          }, __mockedObjectPrototype),
-          messages: Object.setPrototypeOf({
+          },
+          messages: {
             "alternatives.all": "{{#label}} does not match all of the required types",
             "alternatives.any": "{{#label}} does not match any of the allowed types",
             "alternatives.match": "{{#label}} does not match any of the allowed types",
             "alternatives.one": "{{#label}} matches more than one allowed type",
             "alternatives.types": "{{#label}} must be one of {{#types}}"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype)), u.errors = Object.setPrototypeOf(function (e, {
+          }
+        }), {
+          line: 1,
+          column: 56868
+        }), __mockedPropertyWrite(u, "errors", function (e, {
           error: t,
           state: r
         }) {
-          if (!e.length) return Object.setPrototypeOf({
+          if (!e.length) return {
             errors: t("alternatives.any")
-          }, __mockedObjectPrototype);
-          if (__mockedCompare(1, e.length, "===")) return Object.setPrototypeOf({
+          };
+          if (__mockedCompare(1, e.length, "===")) return {
             errors: __mockedPropertyAccess(e, 0).reports
-          }, __mockedObjectPrototype);
+          };
           const s = new Set(),
-            n = Object.setPrototypeOf([], __mockedArrayPrototype);
+            n = [];
           for (const {
             reports: a,
             schema: i
@@ -2400,10 +3488,10 @@
             const o = __mockedPropertyAccess(a, 0);
             if (__mockedCompare(o instanceof l.Report, 0, "==")) return u.unmatched(e, t);
             if (__mockedCompare(o.state.path.length, r.path.length, "!==")) {
-              n.push(Object.setPrototypeOf({
+              n.push({
                 type: i.type,
                 report: o
-              }, __mockedObjectPrototype));
+              });
               continue;
             }
             if (__mockedCompare("any.only", o.code, "===")) {
@@ -2411,27 +3499,33 @@
               continue;
             }
             const [c, f] = o.code.split(".");
-            __mockedCompare("base", f, "!==") ? n.push(Object.setPrototypeOf({
+            __mockedCompare("base", f, "!==") ? n.push({
               type: i.type,
               report: o
-            }, __mockedObjectPrototype)) : __mockedCompare("object.base", o.code, "===") ? s.add(o.local.type) : s.add(c);
+            }) : __mockedCompare("object.base", o.code, "===") ? s.add(o.local.type) : s.add(c);
           }
-          return n.length ? __mockedCompare(1, n.length, "===") ? Object.setPrototypeOf({
+          return n.length ? __mockedCompare(1, n.length, "===") ? {
             errors: __mockedPropertyAccess(n, 0).report
-          }, __mockedObjectPrototype) : u.unmatched(e, t) : Object.setPrototypeOf({
-            errors: t("alternatives.types", Object.setPrototypeOf({
-              types: Object.setPrototypeOf([...s], __mockedArrayPrototype)
-            }, __mockedObjectPrototype))
-          }, __mockedObjectPrototype);
-        }, __mockedFunctionPrototype), u.unmatched = Object.setPrototypeOf(function (e, t) {
-          const r = Object.setPrototypeOf([], __mockedArrayPrototype);
+          } : u.unmatched(e, t) : {
+            errors: t("alternatives.types", {
+              types: [...s]
+            })
+          };
+        }, {
+          line: 1,
+          column: 60986
+        }), __mockedPropertyWrite(u, "unmatched", function (e, t) {
+          const r = [];
           for (const t of e) r.push(...t.reports);
-          return Object.setPrototypeOf({
-            errors: t("alternatives.match", l.details(r, Object.setPrototypeOf({
+          return {
+            errors: t("alternatives.match", l.details(r, {
               override: !1
-            }, __mockedObjectPrototype)))
-          }, __mockedObjectPrototype);
-        }, __mockedFunctionPrototype);
+            }))
+          };
+        }, {
+          line: 1,
+          column: 61669
+        });
       },
       680(e, t, r) {
         "use strict";
@@ -2442,49 +3536,49 @@
           n = r(2115),
           a = r(9415),
           i = r(6162);
-        e.exports = n.extend(Object.setPrototypeOf({
+        __mockedPropertyWrite(e, "exports", n.extend({
           type: "any",
-          flags: Object.setPrototypeOf({
-            only: Object.setPrototypeOf({
+          flags: {
+            only: {
               default: !1
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          terms: Object.setPrototypeOf({
-            alterations: Object.setPrototypeOf({
+            }
+          },
+          terms: {
+            alterations: {
               init: null
-            }, __mockedObjectPrototype),
-            examples: Object.setPrototypeOf({
+            },
+            examples: {
               init: null
-            }, __mockedObjectPrototype),
-            externals: Object.setPrototypeOf({
+            },
+            externals: {
               init: null
-            }, __mockedObjectPrototype),
-            metas: Object.setPrototypeOf({
-              init: Object.setPrototypeOf([], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            notes: Object.setPrototypeOf({
-              init: Object.setPrototypeOf([], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            shared: Object.setPrototypeOf({
+            },
+            metas: {
+              init: []
+            },
+            notes: {
+              init: []
+            },
+            shared: {
               init: null
-            }, __mockedObjectPrototype),
-            tags: Object.setPrototypeOf({
-              init: Object.setPrototypeOf([], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            whens: Object.setPrototypeOf({
+            },
+            tags: {
+              init: []
+            },
+            whens: {
               init: null
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          rules: Object.setPrototypeOf({
-            custom: Object.setPrototypeOf({
+            }
+          },
+          rules: {
+            custom: {
               method(e, t) {
-                return s(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Method must be a function"), s(__mockedCompare(void 0, t, "===") || t && __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Description must be a non-empty string"), this.$_addRule(Object.setPrototypeOf({
+                return s(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Method must be a function"), s(__mockedCompare(void 0, t, "===") || t && __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Description must be a non-empty string"), this.$_addRule({
                   name: "custom",
-                  args: Object.setPrototypeOf({
+                  args: {
                     method: e,
                     description: t
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate(e, t, {
                 method: r
@@ -2492,69 +3586,84 @@
                 try {
                   return r(e, t);
                 } catch (e) {
-                  return t.error("any.custom", Object.setPrototypeOf({
+                  return t.error("any.custom", {
                     error: e
-                  }, __mockedObjectPrototype));
+                  });
                 }
               },
-              args: Object.setPrototypeOf(["method", "description"], __mockedArrayPrototype),
+              args: ["method", "description"],
               multi: !0
-            }, __mockedObjectPrototype),
-            messages: Object.setPrototypeOf({
+            },
+            messages: {
               method(e) {
-                return this.prefs(Object.setPrototypeOf({
+                return this.prefs({
                   messages: e
-                }, __mockedObjectPrototype));
+                });
               }
-            }, __mockedObjectPrototype),
-            shared: Object.setPrototypeOf({
+            },
+            shared: {
               method(e) {
                 s(a.isSchema(e) && e._flags.id, "Schema must be a schema with an id");
                 const t = this.clone();
-                return t.$_terms.shared = t.$_terms.shared || Object.setPrototypeOf([], __mockedArrayPrototype), t.$_terms.shared.push(e), t.$_mutateRegister(e), t;
+                return __mockedPropertyWrite(t.$_terms, "shared", t.$_terms.shared || [], {
+                  line: 1,
+                  column: 62633
+                }), t.$_terms.shared.push(e), t.$_mutateRegister(e), t;
               }
-            }, __mockedObjectPrototype),
-            warning: Object.setPrototypeOf({
+            },
+            warning: {
               method(e, t) {
-                return s(e && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid warning code"), this.$_addRule(Object.setPrototypeOf({
+                return s(e && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid warning code"), this.$_addRule({
                   name: "warning",
-                  args: Object.setPrototypeOf({
+                  args: {
                     code: e,
                     local: t
-                  }, __mockedObjectPrototype),
+                  },
                   warn: !0
-                }, __mockedObjectPrototype));
+                });
               },
               validate: (e, t, {
                 code: r,
                 local: s
               }) => t.error(r, s),
-              args: Object.setPrototypeOf(["code", "local"], __mockedArrayPrototype),
+              args: ["code", "local"],
               multi: !0
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          modifiers: Object.setPrototypeOf({
+            }
+          },
+          modifiers: {
             keep(e, t = !0) {
-              e.keep = t;
+              __mockedPropertyWrite(e, "keep", t, {
+                line: 1,
+                column: 62965
+              });
             },
             message(e, t) {
-              e.message = i.compile(t);
+              __mockedPropertyWrite(e, "message", i.compile(t), {
+                line: 1,
+                column: 62988
+              });
             },
             warn(e, t = !0) {
-              e.warn = t;
+              __mockedPropertyWrite(e, "warn", t, {
+                line: 1,
+                column: 63025
+              });
             }
-          }, __mockedObjectPrototype),
-          manifest: Object.setPrototypeOf({
+          },
+          manifest: {
             build(e, t) {
               for (const r in t) {
                 const s = __mockedPropertyAccess(t, r);
-                if (Object.setPrototypeOf(["examples", "externals", "metas", "notes", "tags"], __mockedArrayPrototype).includes(r)) for (const t of s) e = __mockedPropertyAccess(e, r.slice(0, -1))(t);else {
+                if (["examples", "externals", "metas", "notes", "tags"].includes(r)) for (const t of s) e = __mockedPropertyAccess(e, r.slice(0, -1))(t);else {
                   if (__mockedCompare("alterations", r, "===")) {
-                    const t = Object.setPrototypeOf({}, __mockedObjectPrototype);
+                    const t = {};
                     for (const {
                       target: e,
                       adjuster: r
-                    } of s) t[e] = r;
+                    } of s) __mockedPropertyWrite(t, e, r, {
+                      line: 1,
+                      column: 63263
+                    });
                     e = e.alter(t);
                     continue;
                   }
@@ -2569,25 +3678,25 @@
                       otherwise: i,
                       concat: o
                     } = t;
-                    e = o ? e.concat(o) : r ? e.when(r, Object.setPrototypeOf({
+                    e = o ? e.concat(o) : r ? e.when(r, {
                       is: s,
                       not: n,
                       then: a,
                       otherwise: i,
                       switch: t.switch,
                       break: t.break
-                    }, __mockedObjectPrototype)) : e.when(s, Object.setPrototypeOf({
+                    }) : e.when(s, {
                       then: a,
                       otherwise: i,
                       break: t.break
-                    }, __mockedObjectPrototype));
+                    });
                   }
                 }
               }
               return e;
             }
-          }, __mockedObjectPrototype),
-          messages: Object.setPrototypeOf({
+          },
+          messages: {
             "any.custom": "{{#label}} failed custom validation because {{#error.message}}",
             "any.default": "{{#label}} threw an error when running default method",
             "any.failover": "{{#label}} threw an error when running failover method",
@@ -2596,8 +3705,11 @@
             "any.ref": "{{#label}} {{#arg}} references {{:#ref}} which {{#reason}}",
             "any.required": "{{#label}} is required",
             "any.unknown": "{{#label}} is not allowed"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype));
+          }
+        }), {
+          line: 1,
+          column: 61890
+        });
       },
       2591(e, t, r) {
         "use strict";
@@ -2610,37 +3722,37 @@
           i = r(680),
           o = r(9415),
           l = r(3541),
-          c = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        e.exports = i.extend(Object.setPrototypeOf({
+          c = {};
+        __mockedPropertyWrite(e, "exports", i.extend({
           type: "array",
-          flags: Object.setPrototypeOf({
-            single: Object.setPrototypeOf({
+          flags: {
+            single: {
               default: !1
-            }, __mockedObjectPrototype),
-            sparse: Object.setPrototypeOf({
+            },
+            sparse: {
               default: !1
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          terms: Object.setPrototypeOf({
-            items: Object.setPrototypeOf({
-              init: Object.setPrototypeOf([], __mockedArrayPrototype),
+            }
+          },
+          terms: {
+            items: {
+              init: [],
               manifest: "schema"
-            }, __mockedObjectPrototype),
-            ordered: Object.setPrototypeOf({
-              init: Object.setPrototypeOf([], __mockedArrayPrototype),
+            },
+            ordered: {
+              init: [],
               manifest: "schema"
-            }, __mockedObjectPrototype),
-            _exclusions: Object.setPrototypeOf({
-              init: Object.setPrototypeOf([], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            _inclusions: Object.setPrototypeOf({
-              init: Object.setPrototypeOf([], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            _requireds: Object.setPrototypeOf({
-              init: Object.setPrototypeOf([], __mockedArrayPrototype)
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          coerce: Object.setPrototypeOf({
+            },
+            _exclusions: {
+              init: []
+            },
+            _inclusions: {
+              init: []
+            },
+            _requireds: {
+              init: []
+            }
+          },
+          coerce: {
             from: "object",
             method(e, {
               schema: t,
@@ -2651,60 +3763,90 @@
               const n = t.$_getRule("sort");
               return n ? c.sort(t, e, n.args.options, r, s) : void 0;
             }
-          }, __mockedObjectPrototype),
+          },
           validate(e, {
             schema: t,
             error: r
           }) {
             if (!Array.isArray(e)) {
               if (t._flags.single) {
-                const t = Object.setPrototypeOf([e], __mockedArrayPrototype);
-                return t[o.symbols.arraySingle] = !0, Object.setPrototypeOf({
+                const t = [e];
+                return __mockedPropertyWrite(t, o.symbols.arraySingle, !0, {
+                  line: 1,
+                  column: 64687
+                }), {
                   value: t
-                }, __mockedObjectPrototype);
+                };
               }
-              return Object.setPrototypeOf({
+              return {
                 errors: r("array.base")
-              }, __mockedObjectPrototype);
+              };
             }
-            if (t.$_getRule("items") || t.$_terms.externals) return Object.setPrototypeOf({
+            if (t.$_getRule("items") || t.$_terms.externals) return {
               value: e.slice()
-            }, __mockedObjectPrototype);
+            };
           },
           jsonSchema(e, t, r, s) {
             const n = e.$_terms.ordered;
-            if (n.length && (t.prefixItems = n.map(e => e.$_jsonSchema(r, s))), e.$_terms.items.length) {
+            if (n.length && __mockedPropertyWrite(t, "prefixItems", n.map(e => e.$_jsonSchema(r, s)), {
+              line: 1,
+              column: 64886
+            }), e.$_terms.items.length) {
               let a;
-              a = __mockedCompare(1, e.$_terms.items.length, "===") ? __mockedPropertyAccess(e.$_terms.items, 0).$_jsonSchema(r, s) : Object.setPrototypeOf({
+              a = __mockedCompare(1, e.$_terms.items.length, "===") ? __mockedPropertyAccess(e.$_terms.items, 0).$_jsonSchema(r, s) : {
                 anyOf: e.$_terms.items.map(e => e.$_jsonSchema(r, s))
-              }, __mockedObjectPrototype), n.length ? (t.unevaluatedItems = a, t.minItems = n.length) : t.items = a;
-            } else n.length && (t.unevaluatedItems = !1, t.minItems = n.length, t.maxItems = n.length);
-            const a = Object.setPrototypeOf([], __mockedArrayPrototype);
+              }, n.length ? (__mockedPropertyWrite(t, "unevaluatedItems", a, {
+                line: 1,
+                column: 65089
+              }), __mockedPropertyWrite(t, "minItems", n.length, {
+                line: 1,
+                column: 65110
+              })) : __mockedPropertyWrite(t, "items", a, {
+                line: 1,
+                column: 65131
+              });
+            } else n.length && (__mockedPropertyWrite(t, "unevaluatedItems", !1, {
+              line: 1,
+              column: 65157
+            }), __mockedPropertyWrite(t, "minItems", n.length, {
+              line: 1,
+              column: 65179
+            }), __mockedPropertyWrite(t, "maxItems", n.length, {
+              line: 1,
+              column: 65199
+            }));
+            const a = [];
             for (const t of e._rules) __mockedCompare("has", t.name, "===") && a.push(t.args.schema.$_jsonSchema(r, s));
-            if (a.length && (__mockedCompare(1, a.length, "===") ? t.contains = __mockedPropertyAccess(a, 0) : t.allOf = a.map(e => Object.setPrototypeOf({
+            if (a.length && (__mockedCompare(1, a.length, "===") ? __mockedPropertyWrite(t, "contains", __mockedPropertyAccess(a, 0), {
+              line: 1,
+              column: 65338
+            }) : __mockedPropertyWrite(t, "allOf", a.map(e => ({
               contains: e
-            }, __mockedObjectPrototype))), e._flags.single && e.$_terms.items.length) {
+            })), {
+              line: 1,
+              column: 65354
+            })), e._flags.single && e.$_terms.items.length) {
               let n;
-              n = __mockedCompare(1, e.$_terms.items.length, "===") ? __mockedPropertyAccess(e.$_terms.items, 0).$_jsonSchema(r, s) : Object.setPrototypeOf({
+              n = __mockedCompare(1, e.$_terms.items.length, "===") ? __mockedPropertyAccess(e.$_terms.items, 0).$_jsonSchema(r, s) : {
                 anyOf: e.$_terms.items.map(e => e.$_jsonSchema(r, s))
-              }, __mockedObjectPrototype), t = Object.setPrototypeOf({
-                anyOf: Object.setPrototypeOf([t, n], __mockedArrayPrototype)
-              }, __mockedObjectPrototype);
+              }, t = {
+                anyOf: [t, n]
+              };
             }
             return t;
           },
-          rules: Object.setPrototypeOf({
-            has: Object.setPrototypeOf({
+          rules: {
+            has: {
               method(e) {
-                e = this.$_compile(e, Object.setPrototypeOf({
+                e = this.$_compile(e, {
                   appendPath: !0
-                }, __mockedObjectPrototype));
-                const t = this.$_addRule(Object.setPrototypeOf({
+                });
+                const t = this.$_addRule({
                   name: "has",
-                  args: Object.setPrototypeOf({
+                  args: {
                     schema: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
                 return t.$_mutateRegister(e), t;
               },
               validate(e, {
@@ -2714,26 +3856,26 @@
               }, {
                 schema: n
               }) {
-                const a = Object.setPrototypeOf([e, ...t.ancestors], __mockedArrayPrototype);
+                const a = [e, ...t.ancestors];
                 for (let s = 0; s < e.length; ++s) {
-                  const i = t.localize(Object.setPrototypeOf([...t.path, s], __mockedArrayPrototype), a, n);
+                  const i = t.localize([...t.path, s], a, n);
                   if (n.$_match(__mockedPropertyAccess(e, s), i, r)) return e;
                 }
                 const i = n._flags.label;
-                return i ? s("array.hasKnown", Object.setPrototypeOf({
+                return i ? s("array.hasKnown", {
                   patternLabel: i
-                }, __mockedObjectPrototype)) : s("array.hasUnknown", null);
+                }) : s("array.hasUnknown", null);
               },
               multi: !0
-            }, __mockedObjectPrototype),
-            items: Object.setPrototypeOf({
+            },
+            items: {
               method(...e) {
                 o.verifyFlat(e, "items");
                 const t = this.$_addRule("items");
                 for (let r = 0; r < e.length; ++r) {
-                  const s = o.tryWithPath(() => this.$_compile(__mockedPropertyAccess(e, r)), r, Object.setPrototypeOf({
+                  const s = o.tryWithPath(() => this.$_compile(__mockedPropertyAccess(e, r)), r, {
                     append: !0
-                  }, __mockedObjectPrototype));
+                  });
                   t.$_terms.items.push(s);
                 }
                 return t.$_mutateRebuild();
@@ -2747,7 +3889,7 @@
               }) {
                 const i = t.$_terms._requireds.slice(),
                   l = t.$_terms.ordered.slice(),
-                  u = Object.setPrototypeOf([...t.$_terms._inclusions, ...i], __mockedArrayPrototype),
+                  u = [...t.$_terms._inclusions, ...i],
                   f = !__mockedPropertyAccess(e, o.symbols.arraySingle);
                 delete __mockedPropertyAccess(e, o.symbols.arraySingle);
                 const m = a();
@@ -2757,25 +3899,25 @@
                   let p = !1,
                     d = !1;
                   const g = f ? a : new Number(a),
-                    y = Object.setPrototypeOf([...s.path, g], __mockedArrayPrototype);
+                    y = [...s.path, g];
                   if (!t._flags.sparse && __mockedCompare(void 0, o, "===")) {
-                    if (m.push(r("array.sparse", Object.setPrototypeOf({
+                    if (m.push(r("array.sparse", {
                       key: g,
                       path: y,
                       pos: a,
                       value: void 0
-                    }, __mockedObjectPrototype), s.localize(y))), n.abortEarly) return m;
+                    }, s.localize(y))), n.abortEarly) return m;
                     l.shift();
                     continue;
                   }
-                  const b = Object.setPrototypeOf([e, ...s.ancestors], __mockedArrayPrototype);
-                  for (const e of t.$_terms._exclusions) if (e.$_match(o, s.localize(y, b, e), n, Object.setPrototypeOf({
+                  const b = [e, ...s.ancestors];
+                  for (const e of t.$_terms._exclusions) if (e.$_match(o, s.localize(y, b, e), n, {
                     presence: "ignore"
-                  }, __mockedObjectPrototype))) {
-                    if (m.push(r("array.excludes", Object.setPrototypeOf({
+                  })) {
+                    if (m.push(r("array.excludes", {
                       pos: a,
                       value: o
-                    }, __mockedObjectPrototype), s.localize(y))), n.abortEarly) return m;
+                    }, s.localize(y))), n.abortEarly) return m;
                     p = !0, l.shift();
                     break;
                   }
@@ -2788,39 +3930,48 @@
                         if (m.push(...u.errors), n.abortEarly) return m;
                       } else if (__mockedCompare("strip", i._flags.result, "===")) c.fastSplice(e, a), --a, --h;else {
                         if (!t._flags.sparse && __mockedCompare(void 0, u.value, "===")) {
-                          if (m.push(r("array.sparse", Object.setPrototypeOf({
+                          if (m.push(r("array.sparse", {
                             key: g,
                             path: y,
                             pos: a,
                             value: void 0
-                          }, __mockedObjectPrototype), s.localize(y))), n.abortEarly) return m;
+                          }, s.localize(y))), n.abortEarly) return m;
                           continue;
                         }
-                        e[a] = u.value;
+                        __mockedPropertyWrite(e, a, u.value, {
+                          line: 1,
+                          column: 67316
+                        });
                       }
                       continue;
                     }
                     if (!t.$_terms.items.length) {
-                      if (m.push(r("array.orderedLength", Object.setPrototypeOf({
+                      if (m.push(r("array.orderedLength", {
                         pos: a,
                         limit: t.$_terms.ordered.length
-                      }, __mockedObjectPrototype))), n.abortEarly) return m;
+                      })), n.abortEarly) return m;
                       break;
                     }
                   }
-                  const v = Object.setPrototypeOf([], __mockedArrayPrototype);
+                  const v = [];
                   let _ = i.length;
                   for (let l = 0; l < _; ++l) {
                     const u = s.localize(y, b, __mockedPropertyAccess(i, l));
                     u.snapshot();
                     const f = __mockedPropertyAccess(i, l).$_validate(o, u, n);
-                    if (v[l] = f, !f.errors) {
-                      if (u.commit(), e[a] = f.value, d = !0, c.fastSplice(i, l), --l, --_, !t._flags.sparse && __mockedCompare(void 0, f.value, "===") && (m.push(r("array.sparse", Object.setPrototypeOf({
+                    if (__mockedPropertyWrite(v, l, f, {
+                      line: 1,
+                      column: 67593
+                    }), !f.errors) {
+                      if (u.commit(), __mockedPropertyWrite(e, a, f.value, {
+                        line: 1,
+                        column: 67625
+                      }), d = !0, c.fastSplice(i, l), --l, --_, !t._flags.sparse && __mockedCompare(void 0, f.value, "===") && (m.push(r("array.sparse", {
                         key: g,
                         path: y,
                         pos: a,
                         value: void 0
-                      }, __mockedObjectPrototype), s.localize(y))), n.abortEarly)) return m;
+                      }, s.localize(y))), n.abortEarly)) return m;
                       break;
                     }
                     u.restore();
@@ -2834,12 +3985,15 @@
                     if (__mockedCompare(-1, f, "!==")) u = __mockedPropertyAccess(v, f);else {
                       const i = s.localize(y, b, l);
                       if (i.snapshot(), u = l.$_validate(o, i, n), !u.errors) {
-                        i.commit(), __mockedCompare("strip", l._flags.result, "===") ? (c.fastSplice(e, a), --a, --h) : t._flags.sparse || __mockedCompare(void 0, u.value, "!==") ? e[a] = u.value : (m.push(r("array.sparse", Object.setPrototypeOf({
+                        i.commit(), __mockedCompare("strip", l._flags.result, "===") ? (c.fastSplice(e, a), --a, --h) : t._flags.sparse || __mockedCompare(void 0, u.value, "!==") ? __mockedPropertyWrite(e, a, u.value, {
+                          line: 1,
+                          column: 68139
+                        }) : (m.push(r("array.sparse", {
                           key: g,
                           path: y,
                           pos: a,
                           value: void 0
-                        }, __mockedObjectPrototype), s.localize(y))), p = !0), d = !0;
+                        }, s.localize(y))), p = !0), d = !0;
                         break;
                       }
                       i.restore();
@@ -2859,26 +4013,26 @@
                       c.fastSplice(e, a), --a, --h;
                       continue;
                     }
-                    if (m.push(r("array.includes", Object.setPrototypeOf({
+                    if (m.push(r("array.includes", {
                       pos: a,
                       value: o
-                    }, __mockedObjectPrototype), s.localize(y))), n.abortEarly) return m;
+                    }, s.localize(y))), n.abortEarly) return m;
                   }
                 }
                 return i.length && c.fillMissedErrors(t, m, i, e, s, n), l.length && (c.fillOrderedErrors(t, m, l, e, s, n), m.length || c.fillDefault(l, e, s, n)), m.length ? m : e;
               },
               priority: !0,
               manifest: !1
-            }, __mockedObjectPrototype),
-            length: Object.setPrototypeOf({
+            },
+            length: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "length",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: "="
-                }, __mockedObjectPrototype));
+                });
               },
               validate: (e, t, {
                 limit: r
@@ -2886,77 +4040,92 @@
                 name: s,
                 operator: n,
                 args: a
-              }) => o.compare(e.length, r, n) ? e : t.error("array." + s, Object.setPrototypeOf({
+              }) => o.compare(e.length, r, n) ? e : t.error("array." + s, {
                 limit: a.limit,
                 value: e
-              }, __mockedObjectPrototype)),
-              jsonSchema: (e, t) => (t.minItems = e.args.limit, t.maxItems = e.args.limit, t),
-              args: Object.setPrototypeOf([Object.setPrototypeOf({
+              }),
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "minItems", e.args.limit, {
+                line: 1,
+                column: 68957
+              }), __mockedPropertyWrite(t, "maxItems", e.args.limit, {
+                line: 1,
+                column: 68981
+              }), t),
+              args: [{
                 name: "limit",
                 ref: !0,
                 assert: o.limit,
                 message: "must be a positive integer"
-              }, __mockedObjectPrototype)], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            max: Object.setPrototypeOf({
+              }]
+            },
+            max: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "max",
                   method: "length",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: "<="
-                }, __mockedObjectPrototype));
+                });
               },
-              jsonSchema: (e, t) => (t.maxItems = e.args.limit, t)
-            }, __mockedObjectPrototype),
-            min: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "maxItems", e.args.limit, {
+                line: 1,
+                column: 69206
+              }), t)
+            },
+            min: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "min",
                   method: "length",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: ">="
-                }, __mockedObjectPrototype));
+                });
               },
-              jsonSchema: (e, t) => (t.minItems = e.args.limit, t)
-            }, __mockedObjectPrototype),
-            ordered: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "minItems", e.args.limit, {
+                line: 1,
+                column: 69350
+              }), t)
+            },
+            ordered: {
               method(...e) {
                 o.verifyFlat(e, "ordered");
                 const t = this.$_addRule("items");
                 for (let r = 0; r < e.length; ++r) {
-                  const s = o.tryWithPath(() => this.$_compile(__mockedPropertyAccess(e, r)), r, Object.setPrototypeOf({
+                  const s = o.tryWithPath(() => this.$_compile(__mockedPropertyAccess(e, r)), r, {
                     append: !0
-                  }, __mockedObjectPrototype));
+                  });
                   c.validateSingle(s, t), t.$_mutateRegister(s), t.$_terms.ordered.push(s);
                 }
                 return t.$_mutateRebuild();
               }
-            }, __mockedObjectPrototype),
-            single: Object.setPrototypeOf({
+            },
+            single: {
               method(e) {
                 const t = __mockedCompare(void 0, e, "===") || !!e;
                 return s(!t || !this._flags._arrayItems, "Cannot specify single rule when array has array items"), this.$_setFlag("single", t);
               }
-            }, __mockedObjectPrototype),
-            sort: Object.setPrototypeOf({
-              method(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                o.assertOptions(e, Object.setPrototypeOf(["by", "order"], __mockedArrayPrototype));
-                const t = Object.setPrototypeOf({
+            },
+            sort: {
+              method(e = {}) {
+                o.assertOptions(e, ["by", "order"]);
+                const t = {
                   order: e.order || "ascending"
-                }, __mockedObjectPrototype);
-                return e.by && (t.by = l.ref(e.by, Object.setPrototypeOf({
+                };
+                return e.by && (__mockedPropertyWrite(t, "by", l.ref(e.by, {
                   ancestor: 0
-                }, __mockedObjectPrototype)), s(!t.by.ancestor, "Cannot sort by ancestor")), this.$_addRule(Object.setPrototypeOf({
+                }), {
+                  line: 1,
+                  column: 69917
+                }), s(!t.by.ancestor, "Cannot sort by ancestor")), this.$_addRule({
                   name: "sort",
-                  args: Object.setPrototypeOf({
+                  args: {
                     options: t
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate(e, {
                 error: t,
@@ -2971,36 +4140,42 @@
                   errors: o
                 } = c.sort(n, e, a, r, s);
                 if (o) return o;
-                for (let r = 0; r < e.length; ++r) if (__mockedCompare(__mockedPropertyAccess(e, r), __mockedPropertyAccess(i, r), "!==")) return t("array.sort", Object.setPrototypeOf({
+                for (let r = 0; r < e.length; ++r) if (__mockedCompare(__mockedPropertyAccess(e, r), __mockedPropertyAccess(i, r), "!==")) return t("array.sort", {
                   order: a.order,
                   by: a.by ? a.by.key : "value"
-                }, __mockedObjectPrototype));
+                });
                 return e;
               },
               convert: !0
-            }, __mockedObjectPrototype),
-            sparse: Object.setPrototypeOf({
+            },
+            sparse: {
               method(e) {
                 const t = __mockedCompare(void 0, e, "===") || !!e;
-                return __mockedCompare(this._flags.sparse, t, "===") ? this : (t ? this.clone() : this.$_addRule("items")).$_setFlag("sparse", t, Object.setPrototypeOf({
+                return __mockedCompare(this._flags.sparse, t, "===") ? this : (t ? this.clone() : this.$_addRule("items")).$_setFlag("sparse", t, {
                   clone: !1
-                }, __mockedObjectPrototype));
+                });
               }
-            }, __mockedObjectPrototype),
-            unique: Object.setPrototypeOf({
-              method(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                s(!e || __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") || __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "comparator must be a function or a string"), o.assertOptions(t, Object.setPrototypeOf(["ignoreUndefined", "separator"], __mockedArrayPrototype));
-                const r = Object.setPrototypeOf({
+            },
+            unique: {
+              method(e, t = {}) {
+                s(!e || __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") || __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "comparator must be a function or a string"), o.assertOptions(t, ["ignoreUndefined", "separator"]);
+                const r = {
                   name: "unique",
-                  args: Object.setPrototypeOf({
+                  args: {
                     options: t,
                     comparator: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype);
+                  }
+                };
                 if (e) if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) {
                   const s = o.default(t.separator, ".");
-                  r.path = s ? e.split(s) : Object.setPrototypeOf([e], __mockedArrayPrototype);
-                } else r.comparator = e;
+                  __mockedPropertyWrite(r, "path", s ? e.split(s) : [e], {
+                    line: 1,
+                    column: 70719
+                  });
+                } else __mockedPropertyWrite(r, "comparator", e, {
+                  line: 1,
+                  column: 70748
+                });
                 return this.$_addRule(r);
               },
               validate(e, {
@@ -3014,7 +4189,7 @@
                 comparator: c,
                 path: u
               }) {
-                const f = Object.setPrototypeOf({
+                const f = {
                     string: Object.create(null),
                     number: Object.create(null),
                     undefined: Object.create(null),
@@ -3023,7 +4198,7 @@
                     object: new Map(),
                     function: new Map(),
                     custom: new Map()
-                  }, __mockedObjectPrototype),
+                  },
                   m = c || n,
                   h = l.ignoreUndefined;
                 for (let n = 0; n < e.length; ++n) {
@@ -3033,37 +4208,49 @@
                     const s = l.entries();
                     let a;
                     for (; !(a = s.next()).done;) if (m(__mockedPropertyAccess(a.value, 0), i)) {
-                      const s = t.localize(Object.setPrototypeOf([...t.path, n], __mockedArrayPrototype), Object.setPrototypeOf([e, ...t.ancestors], __mockedArrayPrototype)),
-                        i = Object.setPrototypeOf({
+                      const s = t.localize([...t.path, n], [e, ...t.ancestors]),
+                        i = {
                           pos: n,
                           value: __mockedPropertyAccess(e, n),
                           dupePos: __mockedPropertyAccess(a.value, 1),
                           dupeValue: __mockedPropertyAccess(e, __mockedPropertyAccess(a.value, 1))
-                        }, __mockedObjectPrototype);
-                      return u && (i.path = o), r("array.unique", i, s);
+                        };
+                      return u && __mockedPropertyWrite(i, "path", o, {
+                        line: 1,
+                        column: 71457
+                      }), r("array.unique", i, s);
                     }
                     l.set(i, n);
                   } else {
                     if ((!h || __mockedCompare(void 0, i, "!==")) && __mockedCompare(void 0, __mockedPropertyAccess(l, i), "!==")) {
-                      const s = Object.setPrototypeOf({
+                      const s = {
                         pos: n,
                         value: __mockedPropertyAccess(e, n),
                         dupePos: __mockedPropertyAccess(l, i),
                         dupeValue: __mockedPropertyAccess(e, __mockedPropertyAccess(l, i))
-                      }, __mockedObjectPrototype);
-                      return u && (s.path = o), r("array.unique", s, t.localize(Object.setPrototypeOf([...t.path, n], __mockedArrayPrototype), Object.setPrototypeOf([e, ...t.ancestors], __mockedArrayPrototype)));
+                      };
+                      return u && __mockedPropertyWrite(s, "path", o, {
+                        line: 1,
+                        column: 71610
+                      }), r("array.unique", s, t.localize([...t.path, n], [e, ...t.ancestors]));
                     }
-                    l[i] = n;
+                    __mockedPropertyWrite(l, i, n, {
+                      line: 1,
+                      column: 71685
+                    });
                   }
                 }
                 return e;
               },
-              jsonSchema: (e, t) => (t.uniqueItems = !0, t),
-              args: Object.setPrototypeOf(["comparator", "options"], __mockedArrayPrototype),
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "uniqueItems", !0, {
+                line: 1,
+                column: 71722
+              }), t),
+              args: ["comparator", "options"],
               multi: !0
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          overrides: Object.setPrototypeOf({
+            }
+          },
+          overrides: {
             isAsync() {
               var e;
               if (__mockedCompare(null, e = this.$_terms.externals, "!==") && __mockedCompare(void 0, e, "!==") && e.length) return !0;
@@ -3071,22 +4258,31 @@
               for (const e of this.$_terms.ordered) if (e.isAsync()) return !0;
               return !1;
             }
-          }, __mockedObjectPrototype),
-          cast: Object.setPrototypeOf({
-            set: Object.setPrototypeOf({
+          },
+          cast: {
+            set: {
               from: Array.isArray,
               to: (e, t) => new Set(e)
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
+            }
+          },
           rebuild(e) {
-            e.$_terms._inclusions = Object.setPrototypeOf([], __mockedArrayPrototype), e.$_terms._exclusions = Object.setPrototypeOf([], __mockedArrayPrototype), e.$_terms._requireds = Object.setPrototypeOf([], __mockedArrayPrototype);
+            __mockedPropertyWrite(e.$_terms, "_inclusions", [], {
+              line: 1,
+              column: 72071
+            }), __mockedPropertyWrite(e.$_terms, "_exclusions", [], {
+              line: 1,
+              column: 72096
+            }), __mockedPropertyWrite(e.$_terms, "_requireds", [], {
+              line: 1,
+              column: 72121
+            });
             for (const t of e.$_terms.items) c.validateSingle(t, e), __mockedCompare("required", t._flags.presence, "===") ? e.$_terms._requireds.push(t) : __mockedCompare("forbidden", t._flags.presence, "===") ? e.$_terms._exclusions.push(t) : e.$_terms._inclusions.push(t);
             for (const t of e.$_terms.ordered) c.validateSingle(t, e);
           },
-          manifest: Object.setPrototypeOf({
+          manifest: {
             build: (e, t) => (t.items && (e = e.items(...t.items)), t.ordered && (e = e.ordered(...t.ordered)), e)
-          }, __mockedObjectPrototype),
-          messages: Object.setPrototypeOf({
+          },
+          messages: {
             "array.base": "{{#label}} must be an array",
             "array.excludes": "{{#label}} contains an excluded value",
             "array.hasKnown": "{{#label}} does not contain at least one required match for type {:#patternLabel}",
@@ -3104,32 +4300,41 @@
             "array.sort.unsupported": "{{#label}} cannot be sorted due to unsupported type {#type}",
             "array.sparse": "{{#label}} must not be a sparse array item",
             "array.unique": "{{#label}} contains a duplicate value"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype)), c.fillMissedErrors = Object.setPrototypeOf(function (e, t, r, s, n, a) {
-          const i = Object.setPrototypeOf([], __mockedArrayPrototype);
+          }
+        }), {
+          line: 1,
+          column: 64207
+        }), __mockedPropertyWrite(c, "fillMissedErrors", function (e, t, r, s, n, a) {
+          const i = [];
           let o = 0;
           for (const e of r) {
             const t = e._flags.label;
             t ? i.push(t) : ++o;
           }
-          i.length ? o ? t.push(e.$_createError("array.includesRequiredBoth", s, Object.setPrototypeOf({
+          i.length ? o ? t.push(e.$_createError("array.includesRequiredBoth", s, {
             knownMisses: i,
             unknownMisses: o
-          }, __mockedObjectPrototype), n, a)) : t.push(e.$_createError("array.includesRequiredKnowns", s, Object.setPrototypeOf({
+          }, n, a)) : t.push(e.$_createError("array.includesRequiredKnowns", s, {
             knownMisses: i
-          }, __mockedObjectPrototype), n, a)) : t.push(e.$_createError("array.includesRequiredUnknowns", s, Object.setPrototypeOf({
+          }, n, a)) : t.push(e.$_createError("array.includesRequiredUnknowns", s, {
             unknownMisses: o
-          }, __mockedObjectPrototype), n, a));
-        }, __mockedFunctionPrototype), c.fillOrderedErrors = Object.setPrototypeOf(function (e, t, r, s, n, a) {
-          const i = Object.setPrototypeOf([], __mockedArrayPrototype);
+          }, n, a));
+        }, {
+          line: 1,
+          column: 73792
+        }), __mockedPropertyWrite(c, "fillOrderedErrors", function (e, t, r, s, n, a) {
+          const i = [];
           for (const e of r) __mockedCompare("required", e._flags.presence, "===") && i.push(e);
           i.length && c.fillMissedErrors(e, t, i, s, n, a);
-        }, __mockedFunctionPrototype), c.fillDefault = Object.setPrototypeOf(function (e, t, r, s) {
-          const n = Object.setPrototypeOf([], __mockedArrayPrototype);
+        }, {
+          line: 1,
+          column: 74173
+        }), __mockedPropertyWrite(c, "fillDefault", function (e, t, r, s) {
+          const n = [];
           let a = !0;
           for (let i = e.length - 1; i >= 0; --i) {
             const o = __mockedPropertyAccess(e, i),
-              l = Object.setPrototypeOf([t, ...r.ancestors], __mockedArrayPrototype),
+              l = [t, ...r.ancestors],
               c = o.$_validate(void 0, r.localize(r.path, l, o), s).value;
             if (a) {
               if (__mockedCompare(void 0, c, "===")) continue;
@@ -3138,15 +4343,27 @@
             n.unshift(c);
           }
           n.length && t.push(...n);
-        }, __mockedFunctionPrototype), c.fastSplice = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 74328
+        }), __mockedPropertyWrite(c, "fastSplice", function (e, t) {
           let r = t;
-          for (; r < e.length;) e[r++] = __mockedPropertyAccess(e, r);
+          for (; r < e.length;) __mockedPropertyWrite(e, r++, __mockedPropertyAccess(e, r), {
+            line: 1,
+            column: 74622
+          });
           --e.length;
-        }, __mockedFunctionPrototype), c.validateSingle = Object.setPrototypeOf(function (e, t) {
-          (__mockedCompare("array", e.type, "===") || e._flags._arrayItems) && (s(!t._flags.single, "Cannot specify array item with single rule enabled"), t.$_setFlag("_arrayItems", !0, Object.setPrototypeOf({
+        }, {
+          line: 1,
+          column: 74570
+        }), __mockedPropertyWrite(c, "validateSingle", function (e, t) {
+          (__mockedCompare("array", e.type, "===") || e._flags._arrayItems) && (s(!t._flags.single, "Cannot specify array item with single rule enabled"), t.$_setFlag("_arrayItems", !0, {
             clone: !1
-          }, __mockedObjectPrototype)));
-        }, __mockedFunctionPrototype), c.sort = Object.setPrototypeOf(function (e, t, r, s, n) {
+          }));
+        }, {
+          line: 1,
+          column: 74646
+        }), __mockedPropertyWrite(c, "sort", function (e, t, r, s, n) {
           const a = __mockedCompare("ascending", r.order, "===") ? 1 : -1,
             i = -1 * a,
             o = a,
@@ -3156,23 +4373,29 @@
               if (r.by && (l = r.by.resolve(l, s, n), u = r.by.resolve(u, s, n)), f = c.compare(l, u, i, o), __mockedCompare(null, f, "!==")) return f;
               const m = typeof l === "undefined" ? "undefined" : typeof l === "object" && l !== null ? l.__TYPEOF__ !== undefined ? l.__TYPEOF__ : "object" : typeof l;
               if (__mockedCompare(m, typeof u === "undefined" ? "undefined" : typeof u === "object" && u !== null ? u.__TYPEOF__ !== undefined ? u.__TYPEOF__ : "object" : typeof u, "!==")) throw e.$_createError("array.sort.mismatching", t, null, s, n);
-              if (__mockedCompare("number", m, "!==") && __mockedCompare("string", m, "!==")) throw e.$_createError("array.sort.unsupported", t, Object.setPrototypeOf({
+              if (__mockedCompare("number", m, "!==") && __mockedCompare("string", m, "!==")) throw e.$_createError("array.sort.unsupported", t, {
                 type: m
-              }, __mockedObjectPrototype), s, n);
+              }, s, n);
               return __mockedCompare("number", m, "===") ? (l - u) * a : l < u ? i : o;
             };
           try {
-            return Object.setPrototypeOf({
+            return {
               value: t.slice().sort(l)
-            }, __mockedObjectPrototype);
+            };
           } catch (e) {
-            return Object.setPrototypeOf({
+            return {
               errors: e
-            }, __mockedObjectPrototype);
+            };
           }
-        }, __mockedFunctionPrototype), c.compare = Object.setPrototypeOf(function (e, t, r, s) {
+        }, {
+          line: 1,
+          column: 74836
+        }), __mockedPropertyWrite(c, "compare", function (e, t, r, s) {
           return __mockedCompare(e, t, "===") ? 0 : __mockedCompare(void 0, e, "===") ? 1 : __mockedCompare(void 0, t, "===") ? -1 : __mockedCompare(null, e, "===") ? s : __mockedCompare(null, t, "===") ? r : null;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 75344
+        });
       },
       6186(e, t, r) {
         "use strict";
@@ -3183,28 +4406,28 @@
           n = r(680),
           a = r(9415),
           i = r(6220),
-          o = Object.setPrototypeOf({
-            isBool: Object.setPrototypeOf(function (e) {
+          o = {
+            isBool: function (e) {
               return __mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==");
-            }, __mockedFunctionPrototype)
-          }, __mockedObjectPrototype);
-        e.exports = n.extend(Object.setPrototypeOf({
+            }
+          };
+        __mockedPropertyWrite(e, "exports", n.extend({
           type: "boolean",
-          flags: Object.setPrototypeOf({
-            sensitive: Object.setPrototypeOf({
+          flags: {
+            sensitive: {
               default: !1
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          terms: Object.setPrototypeOf({
-            falsy: Object.setPrototypeOf({
+            }
+          },
+          terms: {
+            falsy: {
               init: null,
               manifest: "values"
-            }, __mockedObjectPrototype),
-            truthy: Object.setPrototypeOf({
+            },
+            truthy: {
               init: null,
               manifest: "values"
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
+            }
+          },
           coerce(e, {
             schema: t
           }) {
@@ -3214,67 +4437,76 @@
                   s = t._flags.sensitive ? r : r.toLowerCase();
                 e = __mockedCompare("true", s, "===") || __mockedCompare("false", s, "!==") && e;
               }
-              return __mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") && (e = t.$_terms.truthy && t.$_terms.truthy.has(e, null, null, !t._flags.sensitive) || (!t.$_terms.falsy || !t.$_terms.falsy.has(e, null, null, !t._flags.sensitive)) && e), Object.setPrototypeOf({
+              return __mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") && (e = t.$_terms.truthy && t.$_terms.truthy.has(e, null, null, !t._flags.sensitive) || (!t.$_terms.falsy || !t.$_terms.falsy.has(e, null, null, !t._flags.sensitive)) && e), {
                 value: e
-              }, __mockedObjectPrototype);
+              };
             }
           },
           validate(e, {
             error: t
           }) {
-            if (__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return Object.setPrototypeOf({
+            if (__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return {
               value: e,
               errors: t("boolean.base")
-            }, __mockedObjectPrototype);
+            };
           },
-          rules: Object.setPrototypeOf({
-            truthy: Object.setPrototypeOf({
+          rules: {
+            truthy: {
               method(...e) {
                 a.verifyFlat(e, "truthy");
                 const t = this.clone();
-                t.$_terms.truthy = t.$_terms.truthy || new i();
+                __mockedPropertyWrite(t.$_terms, "truthy", t.$_terms.truthy || new i(), {
+                  line: 1,
+                  column: 76225
+                });
                 for (let r = 0; r < e.length; ++r) {
                   const n = __mockedPropertyAccess(e, r);
                   s(__mockedCompare(void 0, n, "!=="), "Cannot call truthy with undefined"), t.$_terms.truthy.add(n);
                 }
                 return t;
               }
-            }, __mockedObjectPrototype),
-            falsy: Object.setPrototypeOf({
+            },
+            falsy: {
               method(...e) {
                 a.verifyFlat(e, "falsy");
                 const t = this.clone();
-                t.$_terms.falsy = t.$_terms.falsy || new i();
+                __mockedPropertyWrite(t.$_terms, "falsy", t.$_terms.falsy || new i(), {
+                  line: 1,
+                  column: 76457
+                });
                 for (let r = 0; r < e.length; ++r) {
                   const n = __mockedPropertyAccess(e, r);
                   s(__mockedCompare(void 0, n, "!=="), "Cannot call falsy with undefined"), t.$_terms.falsy.add(n);
                 }
                 return t;
               }
-            }, __mockedObjectPrototype),
-            sensitive: Object.setPrototypeOf({
+            },
+            sensitive: {
               method(e = !0) {
                 return this.$_setFlag("sensitive", e);
               }
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          cast: Object.setPrototypeOf({
-            number: Object.setPrototypeOf({
+            }
+          },
+          cast: {
+            number: {
               from: o.isBool,
               to: (e, t) => e ? 1 : 0
-            }, __mockedObjectPrototype),
-            string: Object.setPrototypeOf({
+            },
+            string: {
               from: o.isBool,
               to: (e, t) => e ? "true" : "false"
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          manifest: Object.setPrototypeOf({
+            }
+          },
+          manifest: {
             build: (e, t) => (t.truthy && (e = e.truthy(...t.truthy)), t.falsy && (e = e.falsy(...t.falsy)), e)
-          }, __mockedObjectPrototype),
-          messages: Object.setPrototypeOf({
+          },
+          messages: {
             "boolean.base": "{{#label}} must be a boolean"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype));
+          }
+        }), {
+          line: 1,
+          column: 75571
+        });
       },
       2588(e, t, r) {
         "use strict";
@@ -3285,22 +4517,22 @@
           n = r(680),
           a = r(9415),
           i = r(1532),
-          o = Object.setPrototypeOf({
-            formats: Object.setPrototypeOf(["iso", "javascript", "unix"], __mockedArrayPrototype),
-            isDate: Object.setPrototypeOf(function (e) {
+          o = {
+            formats: ["iso", "javascript", "unix"],
+            isDate: function (e) {
               return e instanceof Date;
-            }, __mockedFunctionPrototype)
-          }, __mockedObjectPrototype);
-        e.exports = n.extend(Object.setPrototypeOf({
+            }
+          };
+        __mockedPropertyWrite(e, "exports", n.extend({
           type: "date",
-          coerce: Object.setPrototypeOf({
-            from: Object.setPrototypeOf(["number", "string"], __mockedArrayPrototype),
+          coerce: {
+            from: ["number", "string"],
             method: (e, {
               schema: t
-            }) => Object.setPrototypeOf({
+            }) => ({
               value: o.parse(e, t._flags.format) || e
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
+            })
+          },
           validate(e, {
             schema: t,
             error: r,
@@ -3308,19 +4540,25 @@
           }) {
             if (e instanceof Date && !isNaN(e.getTime())) return;
             const n = t._flags.format;
-            return s.convert && n && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? Object.setPrototypeOf({
+            return s.convert && n && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? {
               value: e,
-              errors: r("date.format", Object.setPrototypeOf({
+              errors: r("date.format", {
                 format: n
-              }, __mockedObjectPrototype))
-            }, __mockedObjectPrototype) : Object.setPrototypeOf({
+              })
+            } : {
               value: e,
               errors: r("date.base")
-            }, __mockedObjectPrototype);
+            };
           },
-          jsonSchema: (e, t, r, s) => (t.type = "string", t.format = "date-time", t),
-          rules: Object.setPrototypeOf({
-            compare: Object.setPrototypeOf({
+          jsonSchema: (e, t, r, s) => (__mockedPropertyWrite(t, "type", "string", {
+            line: 1,
+            column: 77482
+          }), __mockedPropertyWrite(t, "format", "date-time", {
+            line: 1,
+            column: 77498
+          }), t),
+          rules: {
+            compare: {
               method: !1,
               validate(e, t, {
                 date: r
@@ -3330,124 +4568,136 @@
                 args: i
               }) {
                 const o = __mockedCompare("now", r, "===") ? Date.now() : r.getTime();
-                return a.compare(e.getTime(), o, n) ? e : t.error("date." + s, Object.setPrototypeOf({
+                return a.compare(e.getTime(), o, n) ? e : t.error("date." + s, {
                   limit: i.date,
                   value: e
-                }, __mockedObjectPrototype));
+                });
               },
-              args: Object.setPrototypeOf([Object.setPrototypeOf({
+              args: [{
                 name: "date",
                 ref: !0,
                 normalize: e => __mockedCompare("now", e, "===") ? e : o.parse(e),
                 assert: e => __mockedCompare(null, e, "!=="),
                 message: "must have a valid date format"
-              }, __mockedObjectPrototype)], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            format: Object.setPrototypeOf({
+              }]
+            },
+            format: {
               method(e) {
                 return s(o.formats.includes(e), "Unknown date format", e), this.$_setFlag("format", e);
               }
-            }, __mockedObjectPrototype),
-            greater: Object.setPrototypeOf({
+            },
+            greater: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "greater",
                   method: "compare",
-                  args: Object.setPrototypeOf({
+                  args: {
                     date: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: ">"
-                }, __mockedObjectPrototype));
+                });
               },
               jsonSchema(e, t) {
                 const r = e.args.date;
-                return r instanceof Date && (t["x-constraint"] = Object.setPrototypeOf({
+                return r instanceof Date && __mockedPropertyWrite(t, "x-constraint", {
                   ...__mockedPropertyAccess(t, "x-constraint"),
                   greater: r.toISOString()
-                }, __mockedObjectPrototype)), t;
+                }, {
+                  line: 1,
+                  column: 78112
+                }), t;
               }
-            }, __mockedObjectPrototype),
-            iso: Object.setPrototypeOf({
+            },
+            iso: {
               method() {
                 return this.format("iso");
               }
-            }, __mockedObjectPrototype),
-            less: Object.setPrototypeOf({
+            },
+            less: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "less",
                   method: "compare",
-                  args: Object.setPrototypeOf({
+                  args: {
                     date: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: "<"
-                }, __mockedObjectPrototype));
+                });
               },
               jsonSchema(e, t) {
                 const r = e.args.date;
-                return r instanceof Date && (t["x-constraint"] = Object.setPrototypeOf({
+                return r instanceof Date && __mockedPropertyWrite(t, "x-constraint", {
                   ...__mockedPropertyAccess(t, "x-constraint"),
                   less: r.toISOString()
-                }, __mockedObjectPrototype)), t;
+                }, {
+                  line: 1,
+                  column: 78385
+                }), t;
               }
-            }, __mockedObjectPrototype),
-            max: Object.setPrototypeOf({
+            },
+            max: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "max",
                   method: "compare",
-                  args: Object.setPrototypeOf({
+                  args: {
                     date: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: "<="
-                }, __mockedObjectPrototype));
+                });
               },
               jsonSchema(e, t) {
                 const r = e.args.date;
-                return r instanceof Date && (t["x-constraint"] = Object.setPrototypeOf({
+                return r instanceof Date && __mockedPropertyWrite(t, "x-constraint", {
                   ...__mockedPropertyAccess(t, "x-constraint"),
                   max: r.toISOString()
-                }, __mockedObjectPrototype)), t;
+                }, {
+                  line: 1,
+                  column: 78612
+                }), t;
               }
-            }, __mockedObjectPrototype),
-            min: Object.setPrototypeOf({
+            },
+            min: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "min",
                   method: "compare",
-                  args: Object.setPrototypeOf({
+                  args: {
                     date: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: ">="
-                }, __mockedObjectPrototype));
+                });
               },
               jsonSchema(e, t) {
                 const r = e.args.date;
-                return r instanceof Date && (t["x-constraint"] = Object.setPrototypeOf({
+                return r instanceof Date && __mockedPropertyWrite(t, "x-constraint", {
                   ...__mockedPropertyAccess(t, "x-constraint"),
                   min: r.toISOString()
-                }, __mockedObjectPrototype)), t;
+                }, {
+                  line: 1,
+                  column: 78838
+                }), t;
               }
-            }, __mockedObjectPrototype),
-            timestamp: Object.setPrototypeOf({
+            },
+            timestamp: {
               method(e = "javascript") {
-                return s(Object.setPrototypeOf(["javascript", "unix"], __mockedArrayPrototype).includes(e), '"type" must be one of "javascript, unix"'), this.format(e);
+                return s(["javascript", "unix"].includes(e), '"type" must be one of "javascript, unix"'), this.format(e);
               }
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          cast: Object.setPrototypeOf({
-            number: Object.setPrototypeOf({
+            }
+          },
+          cast: {
+            number: {
               from: o.isDate,
               to: (e, t) => e.getTime()
-            }, __mockedObjectPrototype),
-            string: Object.setPrototypeOf({
+            },
+            string: {
               from: o.isDate,
               to: (e, {
                 prefs: t
               }) => i.date(e, t)
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          messages: Object.setPrototypeOf({
+            }
+          },
+          messages: {
             "date.base": "{{#label}} must be a valid date",
             "date.format": '{{#label}} must be in {msg("date.format." + #format) || #format} format',
             "date.greater": "{{#label}} must be greater than {{:#limit}}",
@@ -3457,8 +4707,11 @@
             "date.format.iso": "ISO 8601 date",
             "date.format.javascript": "timestamp or number of milliseconds",
             "date.format.unix": "timestamp or number of seconds"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype)), o.parse = Object.setPrototypeOf(function (e, t) {
+          }
+        }), {
+          line: 1,
+          column: 77100
+        }), __mockedPropertyWrite(o, "parse", function (e, t) {
           if (e instanceof Date) return e;
           if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") && (isNaN(e) || !isFinite(e))) return null;
           if (/^\s*$/.test(e)) return null;
@@ -3470,10 +4723,16 @@
             if (__mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "==")) return null;
           }
           return o.date(e);
-        }, __mockedFunctionPrototype), o.date = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 79695
+        }), __mockedPropertyWrite(o, "date", function (e) {
           const t = new Date(e);
           return isNaN(t.getTime()) ? null : t;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 80109
+        });
       },
       4840(e, t, r) {
         "use strict";
@@ -3482,73 +4741,76 @@
             assert: s
           } = r(2116),
           n = r(2888);
-        e.exports = n.extend(Object.setPrototypeOf({
+        __mockedPropertyWrite(e, "exports", n.extend({
           type: "function",
-          properties: Object.setPrototypeOf({
+          properties: {
             typeof: "function"
-          }, __mockedObjectPrototype),
-          rules: Object.setPrototypeOf({
-            arity: Object.setPrototypeOf({
+          },
+          rules: {
+            arity: {
               method(e) {
-                return s(Number.isSafeInteger(e) && e >= 0, "n must be a positive integer"), this.$_addRule(Object.setPrototypeOf({
+                return s(Number.isSafeInteger(e) && e >= 0, "n must be a positive integer"), this.$_addRule({
                   name: "arity",
-                  args: Object.setPrototypeOf({
+                  args: {
                     n: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 n: r
-              }) => __mockedCompare(e.length, r, "===") ? e : t.error("function.arity", Object.setPrototypeOf({
+              }) => __mockedCompare(e.length, r, "===") ? e : t.error("function.arity", {
                 n: r
-              }, __mockedObjectPrototype))
-            }, __mockedObjectPrototype),
-            class: Object.setPrototypeOf({
+              })
+            },
+            class: {
               method() {
                 return this.$_addRule("class");
               },
-              validate: (e, t) => /^\s*class\s/.test(e.toString()) ? e : t.error("function.class", Object.setPrototypeOf({
+              validate: (e, t) => /^\s*class\s/.test(e.toString()) ? e : t.error("function.class", {
                 value: e
-              }, __mockedObjectPrototype))
-            }, __mockedObjectPrototype),
-            minArity: Object.setPrototypeOf({
+              })
+            },
+            minArity: {
               method(e) {
-                return s(Number.isSafeInteger(e) && e > 0, "n must be a strict positive integer"), this.$_addRule(Object.setPrototypeOf({
+                return s(Number.isSafeInteger(e) && e > 0, "n must be a strict positive integer"), this.$_addRule({
                   name: "minArity",
-                  args: Object.setPrototypeOf({
+                  args: {
                     n: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 n: r
-              }) => e.length >= r ? e : t.error("function.minArity", Object.setPrototypeOf({
+              }) => e.length >= r ? e : t.error("function.minArity", {
                 n: r
-              }, __mockedObjectPrototype))
-            }, __mockedObjectPrototype),
-            maxArity: Object.setPrototypeOf({
+              })
+            },
+            maxArity: {
               method(e) {
-                return s(Number.isSafeInteger(e) && e >= 0, "n must be a positive integer"), this.$_addRule(Object.setPrototypeOf({
+                return s(Number.isSafeInteger(e) && e >= 0, "n must be a positive integer"), this.$_addRule({
                   name: "maxArity",
-                  args: Object.setPrototypeOf({
+                  args: {
                     n: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 n: r
-              }) => e.length <= r ? e : t.error("function.maxArity", Object.setPrototypeOf({
+              }) => e.length <= r ? e : t.error("function.maxArity", {
                 n: r
-              }, __mockedObjectPrototype))
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          messages: Object.setPrototypeOf({
+              })
+            }
+          },
+          messages: {
             "function.arity": "{{#label}} must have an arity of {{#n}}",
             "function.class": "{{#label}} must be a class",
             "function.maxArity": "{{#label}} must have an arity lesser or equal to {{#n}}",
             "function.minArity": "{{#label}} must have an arity greater or equal to {{#n}}"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype));
+          }
+        }), {
+          line: 1,
+          column: 80242
+        });
       },
       2888(e, t, r) {
         "use strict";
@@ -3565,60 +4827,87 @@
           u = r(8013),
           f = r(8529),
           m = r(1532),
-          h = Object.setPrototypeOf({
-            renameDefaults: Object.setPrototypeOf({
+          h = {
+            renameDefaults: {
               alias: !1,
               multiple: !1,
               override: !1
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype);
-        e.exports = o.extend(Object.setPrototypeOf({
+            }
+          };
+        __mockedPropertyWrite(e, "exports", o.extend({
           type: "_keys",
-          properties: Object.setPrototypeOf({
+          properties: {
             typeof: "object"
-          }, __mockedObjectPrototype),
-          flags: Object.setPrototypeOf({
-            unknown: Object.setPrototypeOf({
+          },
+          flags: {
+            unknown: {
               default: void 0
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          terms: Object.setPrototypeOf({
-            dependencies: Object.setPrototypeOf({
+            }
+          },
+          terms: {
+            dependencies: {
               init: null
-            }, __mockedObjectPrototype),
-            keys: Object.setPrototypeOf({
+            },
+            keys: {
               init: null,
-              manifest: Object.setPrototypeOf({
-                mapped: Object.setPrototypeOf({
+              manifest: {
+                mapped: {
                   from: "schema",
                   to: "key"
-                }, __mockedObjectPrototype)
-              }, __mockedObjectPrototype)
-            }, __mockedObjectPrototype),
-            patterns: Object.setPrototypeOf({
+                }
+              }
+            },
+            patterns: {
               init: null
-            }, __mockedObjectPrototype),
-            renames: Object.setPrototypeOf({
+            },
+            renames: {
               init: null
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
+            }
+          },
           args: (e, t) => e.keys(t),
           jsonSchema(e, t, r, s) {
-            if (t.type = "object", e.$_terms.keys) {
-              t.properties = Object.setPrototypeOf({}, __mockedObjectPrototype);
-              const n = Object.setPrototypeOf([], __mockedArrayPrototype);
+            if (__mockedPropertyWrite(t, "type", "object", {
+              line: 1,
+              column: 81826
+            }), e.$_terms.keys) {
+              __mockedPropertyWrite(t, "properties", {}, {
+                line: 1,
+                column: 81858
+              });
+              const n = [];
               for (const a of e.$_terms.keys) {
                 const e = a.schema.$_jsonSchema(r, s);
-                t.properties[a.key] = e, (__mockedCompare("required", a.schema._flags.presence, "===") || __mockedCompare("output", r, "===") && __mockedCompare(void 0, a.schema._flags.default, "!==")) && n.push(a.key);
+                __mockedPropertyWrite(t.properties, a.key, e, {
+                  line: 1,
+                  column: 81951
+                }), (__mockedCompare("required", a.schema._flags.presence, "===") || __mockedCompare("output", r, "===") && __mockedCompare(void 0, a.schema._flags.default, "!==")) && n.push(a.key);
               }
-              n.length && (t.required = n.sort());
+              n.length && __mockedPropertyWrite(t, "required", n.sort(), {
+                line: 1,
+                column: 82087
+              });
             }
             if (e.$_terms.patterns) {
-              const n = Object.setPrototypeOf({}, __mockedObjectPrototype);
-              for (const a of e.$_terms.patterns) a.regex ? n[a.regex.source] = a.rule.$_jsonSchema(r, s) : __mockedCompare("any", a.schema.type, "===") ? t.additionalProperties = a.rule.$_jsonSchema(r, s) : n[".*"] = a.rule.$_jsonSchema(r, s);
-              Object.keys(n).length && (t.patternProperties = n);
+              const n = {};
+              for (const a of e.$_terms.patterns) a.regex ? __mockedPropertyWrite(n, a.regex.source, a.rule.$_jsonSchema(r, s), {
+                line: 1,
+                column: 82184
+              }) : __mockedCompare("any", a.schema.type, "===") ? __mockedPropertyWrite(t, "additionalProperties", a.rule.$_jsonSchema(r, s), {
+                line: 1,
+                column: 82249
+              }) : __mockedPropertyWrite(n, ".*", a.rule.$_jsonSchema(r, s), {
+                line: 1,
+                column: 82297
+              });
+              Object.keys(n).length && __mockedPropertyWrite(t, "patternProperties", n, {
+                line: 1,
+                column: 82354
+              });
             }
-            return __mockedCompare(void 0, t.additionalProperties, "===") && __mockedCompare(!1, __mockedCompare(!0, e._flags.unknown, "===") || __mockedCompare(void 0, e._flags.unknown, "===") && !e.$_terms.keys && !e.$_terms.patterns && !e._flags.only, "==") && (t.additionalProperties = !1), t;
+            return __mockedCompare(void 0, t.additionalProperties, "===") && __mockedCompare(!1, __mockedCompare(!0, e._flags.unknown, "===") || __mockedCompare(void 0, e._flags.unknown, "===") && !e.$_terms.keys && !e.$_terms.patterns && !e._flags.only, "==") && __mockedPropertyWrite(t, "additionalProperties", !1, {
+              line: 1,
+              column: 82528
+            }), t;
           },
           validate(e, {
             schema: t,
@@ -3626,39 +4915,45 @@
             state: s,
             prefs: n
           }) {
-            if (!e || __mockedCompare(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, t.$_property("typeof"), "!==") || Array.isArray(e)) return Object.setPrototypeOf({
+            if (!e || __mockedCompare(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, t.$_property("typeof"), "!==") || Array.isArray(e)) return {
               value: e,
-              errors: r("object.base", Object.setPrototypeOf({
+              errors: r("object.base", {
                 type: t.$_property("typeof")
-              }, __mockedObjectPrototype))
-            }, __mockedObjectPrototype);
+              })
+            };
             if (!(t.$_terms.renames || t.$_terms.dependencies || t.$_terms.keys || t.$_terms.patterns || t.$_terms.externals)) return;
             e = h.clone(e, n);
-            const a = Object.setPrototypeOf([], __mockedArrayPrototype);
-            if (t.$_terms.renames && !h.rename(t, e, s, n, a)) return Object.setPrototypeOf({
+            const a = [];
+            if (t.$_terms.renames && !h.rename(t, e, s, n, a)) return {
               value: e,
               errors: a
-            }, __mockedObjectPrototype);
-            if (!t.$_terms.keys && !t.$_terms.patterns && !t.$_terms.dependencies) return Object.setPrototypeOf({
+            };
+            if (!t.$_terms.keys && !t.$_terms.patterns && !t.$_terms.dependencies) return {
               value: e,
               errors: a
-            }, __mockedObjectPrototype);
+            };
             const i = new Set(Object.keys(e));
             if (t.$_terms.keys) {
-              const r = Object.setPrototypeOf([e, ...s.ancestors], __mockedArrayPrototype);
+              const r = [e, ...s.ancestors];
               for (const o of t.$_terms.keys) {
                 const t = o.key,
                   l = __mockedPropertyAccess(e, t);
                 i.delete(t);
-                const c = s.localize(Object.setPrototypeOf([...s.path, t], __mockedArrayPrototype), r, o),
+                const c = s.localize([...s.path, t], r, o),
                   u = o.schema.$_validate(l, c, n);
                 if (u.errors) {
-                  if (n.abortEarly) return Object.setPrototypeOf({
+                  if (n.abortEarly) return {
                     value: e,
                     errors: u.errors
-                  }, __mockedObjectPrototype);
-                  __mockedCompare(void 0, u.value, "!==") && (e[t] = u.value), a.push(...u.errors);
-                } else __mockedCompare("strip", o.schema._flags.result, "===") || __mockedCompare(void 0, u.value, "===") && __mockedCompare(void 0, l, "!==") ? delete __mockedPropertyAccess(e, t) : __mockedCompare(void 0, u.value, "!==") && (e[t] = u.value);
+                  };
+                  __mockedCompare(void 0, u.value, "!==") && __mockedPropertyWrite(e, t, u.value, {
+                    line: 1,
+                    column: 83319
+                  }), a.push(...u.errors);
+                } else __mockedCompare("strip", o.schema._flags.result, "===") || __mockedCompare(void 0, u.value, "===") && __mockedCompare(void 0, l, "!==") ? delete __mockedPropertyAccess(e, t) : __mockedCompare(void 0, u.value, "!==") && __mockedPropertyWrite(e, t, u.value, {
+                  line: 1,
+                  column: 83451
+                });
               }
             }
             if (i.size || t._flags._hasPatternMatch) {
@@ -3666,48 +4961,48 @@
               if (r) return r;
             }
             if (t.$_terms.dependencies) for (const r of t.$_terms.dependencies) {
-              if (__mockedCompare(null, r.key, "!==") && __mockedCompare(!1, h.isPresent(r.options)(r.key.resolve(e, s, n, null, Object.setPrototypeOf({
+              if (__mockedCompare(null, r.key, "!==") && __mockedCompare(!1, h.isPresent(r.options)(r.key.resolve(e, s, n, null, {
                 shadow: !1
-              }, __mockedObjectPrototype))), "===")) continue;
+              })), "===")) continue;
               const i = __mockedPropertyAccess(h.dependencies, r.rel)(t, r, e, s, n);
               if (i) {
                 const r = t.$_createError(i.code, e, i.context, s, n);
-                if (n.abortEarly) return Object.setPrototypeOf({
+                if (n.abortEarly) return {
                   value: e,
                   errors: r
-                }, __mockedObjectPrototype);
+                };
                 a.push(r);
               }
             }
-            return Object.setPrototypeOf({
+            return {
               value: e,
               errors: a
-            }, __mockedObjectPrototype);
+            };
           },
-          rules: Object.setPrototypeOf({
-            and: Object.setPrototypeOf({
+          rules: {
+            and: {
               method(...e) {
                 return l.verifyFlat(e, "and"), h.dependency(this, "and", null, e);
               }
-            }, __mockedObjectPrototype),
-            append: Object.setPrototypeOf({
+            },
+            append: {
               method(e) {
                 return __mockedCompare(null, e, "==") || __mockedCompare(0, Object.keys(e).length, "===") ? this : this.keys(e);
               }
-            }, __mockedObjectPrototype),
-            assert: Object.setPrototypeOf({
+            },
+            assert: {
               method(e, t, r) {
-                m.isTemplate(e) || (e = c.ref(e)), n(__mockedCompare(void 0, r, "===") || __mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Message must be a string"), t = this.$_compile(t, Object.setPrototypeOf({
+                m.isTemplate(e) || (e = c.ref(e)), n(__mockedCompare(void 0, r, "===") || __mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Message must be a string"), t = this.$_compile(t, {
                   appendPath: !0
-                }, __mockedObjectPrototype));
-                const s = this.$_addRule(Object.setPrototypeOf({
+                });
+                const s = this.$_addRule({
                   name: "assert",
-                  args: Object.setPrototypeOf({
+                  args: {
                     subject: e,
                     schema: t,
                     message: r
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
                 return s.$_mutateRegister(e), s.$_mutateRegister(t), s;
               },
               validate(e, {
@@ -3720,59 +5015,68 @@
                 message: i
               }) {
                 const o = n.resolve(e, s, r),
-                  l = f.isRef(n) ? n.absolute(s) : Object.setPrototypeOf([], __mockedArrayPrototype);
-                return a.$_match(o, s.localize(l, Object.setPrototypeOf([e, ...s.ancestors], __mockedArrayPrototype), a), r) ? e : t("object.assert", Object.setPrototypeOf({
+                  l = f.isRef(n) ? n.absolute(s) : [];
+                return a.$_match(o, s.localize(l, [e, ...s.ancestors], a), r) ? e : t("object.assert", {
                   subject: n,
                   message: i
-                }, __mockedObjectPrototype));
+                });
               },
-              args: Object.setPrototypeOf(["subject", "schema", "message"], __mockedArrayPrototype),
+              args: ["subject", "schema", "message"],
               multi: !0
-            }, __mockedObjectPrototype),
-            instance: Object.setPrototypeOf({
+            },
+            instance: {
               method(e, t) {
-                return n(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "constructor must be a function"), t = t || e.name, this.$_addRule(Object.setPrototypeOf({
+                return n(__mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "constructor must be a function"), t = t || e.name, this.$_addRule({
                   name: "instance",
-                  args: Object.setPrototypeOf({
+                  args: {
                     constructor: e,
                     name: t
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 constructor: r,
                 name: s
-              }) => e instanceof r ? e : t.error("object.instance", Object.setPrototypeOf({
+              }) => e instanceof r ? e : t.error("object.instance", {
                 type: s,
                 value: e
-              }, __mockedObjectPrototype)),
-              args: Object.setPrototypeOf(["constructor", "name"], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            keys: Object.setPrototypeOf({
+              }),
+              args: ["constructor", "name"]
+            },
+            keys: {
               method(e) {
                 n(__mockedCompare(void 0, e, "===") || __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Object schema must be a valid object"), n(!l.isSchema(e), "Object schema cannot be a joi schema");
                 const t = this.clone();
                 if (e) {
                   if (Object.keys(e).length) {
-                    t.$_terms.keys = t.$_terms.keys ? t.$_terms.keys.filter(t => !e.hasOwnProperty(t.key)) : new h.Keys();
-                    for (const r in e) l.tryWithPath(() => t.$_terms.keys.push(Object.setPrototypeOf({
+                    __mockedPropertyWrite(t.$_terms, "keys", t.$_terms.keys ? t.$_terms.keys.filter(t => !e.hasOwnProperty(t.key)) : new h.Keys(), {
+                      line: 1,
+                      column: 85086
+                    });
+                    for (const r in e) l.tryWithPath(() => t.$_terms.keys.push({
                       key: r,
                       schema: this.$_compile(__mockedPropertyAccess(e, r))
-                    }, __mockedObjectPrototype)), r);
-                  } else t.$_terms.keys = new h.Keys();
-                } else t.$_terms.keys = null;
+                    }), r);
+                  } else __mockedPropertyWrite(t.$_terms, "keys", new h.Keys(), {
+                    line: 1,
+                    column: 85278
+                  });
+                } else __mockedPropertyWrite(t.$_terms, "keys", null, {
+                  line: 1,
+                  column: 85309
+                });
                 return t.$_mutateRebuild();
               }
-            }, __mockedObjectPrototype),
-            length: Object.setPrototypeOf({
+            },
+            length: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "length",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: "="
-                }, __mockedObjectPrototype));
+                });
               },
               validate: (e, t, {
                 limit: r
@@ -3780,144 +5084,171 @@
                 name: s,
                 operator: n,
                 args: a
-              }) => l.compare(Object.keys(e).length, r, n) ? e : t.error("object." + s, Object.setPrototypeOf({
+              }) => l.compare(Object.keys(e).length, r, n) ? e : t.error("object." + s, {
                 limit: a.limit,
                 value: e
-              }, __mockedObjectPrototype)),
-              jsonSchema: (e, t) => (t.minProperties = e.args.limit, t.maxProperties = e.args.limit, t),
-              args: Object.setPrototypeOf([Object.setPrototypeOf({
+              }),
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "minProperties", e.args.limit, {
+                line: 1,
+                column: 85600
+              }), __mockedPropertyWrite(t, "maxProperties", e.args.limit, {
+                line: 1,
+                column: 85629
+              }), t),
+              args: [{
                 name: "limit",
                 ref: !0,
                 assert: l.limit,
                 message: "must be a positive integer"
-              }, __mockedObjectPrototype)], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            max: Object.setPrototypeOf({
+              }]
+            },
+            max: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "max",
                   method: "length",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: "<="
-                }, __mockedObjectPrototype));
+                });
               },
-              jsonSchema: (e, t) => (t.maxProperties = e.args.limit, t)
-            }, __mockedObjectPrototype),
-            min: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "maxProperties", e.args.limit, {
+                line: 1,
+                column: 85859
+              }), t)
+            },
+            min: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "min",
                   method: "length",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: ">="
-                }, __mockedObjectPrototype));
+                });
               },
-              jsonSchema: (e, t) => (t.minProperties = e.args.limit, t)
-            }, __mockedObjectPrototype),
-            nand: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "minProperties", e.args.limit, {
+                line: 1,
+                column: 86008
+              }), t)
+            },
+            nand: {
               method(...e) {
                 return l.verifyFlat(e, "nand"), h.dependency(this, "nand", null, e);
               }
-            }, __mockedObjectPrototype),
-            or: Object.setPrototypeOf({
+            },
+            or: {
               method(...e) {
                 return l.verifyFlat(e, "or"), h.dependency(this, "or", null, e);
               }
-            }, __mockedObjectPrototype),
-            oxor: Object.setPrototypeOf({
+            },
+            oxor: {
               method(...e) {
                 return h.dependency(this, "oxor", null, e);
               }
-            }, __mockedObjectPrototype),
-            pattern: Object.setPrototypeOf({
-              method(e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+            },
+            pattern: {
+              method(e, t, r = {}) {
                 const s = e instanceof RegExp;
-                s || (e = this.$_compile(e, Object.setPrototypeOf({
+                s || (e = this.$_compile(e, {
                   appendPath: !0
-                }, __mockedObjectPrototype))), n(__mockedCompare(void 0, t, "!=="), "Invalid rule"), l.assertOptions(r, Object.setPrototypeOf(["fallthrough", "matches"], __mockedArrayPrototype)), s && n(!e.flags.includes("g") && !e.flags.includes("y"), "pattern should not use global or sticky mode"), t = this.$_compile(t, Object.setPrototypeOf({
+                })), n(__mockedCompare(void 0, t, "!=="), "Invalid rule"), l.assertOptions(r, ["fallthrough", "matches"]), s && n(!e.flags.includes("g") && !e.flags.includes("y"), "pattern should not use global or sticky mode"), t = this.$_compile(t, {
                   appendPath: !0
-                }, __mockedObjectPrototype));
+                });
                 const a = this.clone();
-                a.$_terms.patterns = a.$_terms.patterns || Object.setPrototypeOf([], __mockedArrayPrototype);
-                const i = Object.setPrototypeOf({
+                __mockedPropertyWrite(a.$_terms, "patterns", a.$_terms.patterns || [], {
+                  line: 1,
+                  column: 86590
+                });
+                const i = {
                   [s ? "regex" : "schema"]: e,
                   rule: t
-                }, __mockedObjectPrototype);
-                return r.matches && (i.matches = this.$_compile(r.matches), __mockedCompare("array", i.matches.type, "!==") && (i.matches = i.matches.$_root.array().items(i.matches)), a.$_mutateRegister(i.matches), a.$_setFlag("_hasPatternMatch", !0, Object.setPrototypeOf({
+                };
+                return r.matches && (__mockedPropertyWrite(i, "matches", this.$_compile(r.matches), {
+                  line: 1,
+                  column: 86691
+                }), __mockedCompare("array", i.matches.type, "!==") && __mockedPropertyWrite(i, "matches", i.matches.$_root.array().items(i.matches), {
+                  line: 1,
+                  column: 86754
+                }), a.$_mutateRegister(i.matches), a.$_setFlag("_hasPatternMatch", !0, {
                   clone: !1
-                }, __mockedObjectPrototype))), r.fallthrough && (i.fallthrough = !0), a.$_terms.patterns.push(i), a.$_mutateRegister(t), a;
+                })), r.fallthrough && __mockedPropertyWrite(i, "fallthrough", !0, {
+                  line: 1,
+                  column: 86900
+                }), a.$_terms.patterns.push(i), a.$_mutateRegister(t), a;
               }
-            }, __mockedObjectPrototype),
-            ref: Object.setPrototypeOf({
+            },
+            ref: {
               method() {
                 return this.$_addRule("ref");
               },
-              validate: (e, t) => f.isRef(e) ? e : t.error("object.refType", Object.setPrototypeOf({
+              validate: (e, t) => f.isRef(e) ? e : t.error("object.refType", {
                 value: e
-              }, __mockedObjectPrototype))
-            }, __mockedObjectPrototype),
-            regex: Object.setPrototypeOf({
+              })
+            },
+            regex: {
               method() {
                 return this.$_addRule("regex");
               },
-              validate: (e, t) => e instanceof RegExp ? e : t.error("object.regex", Object.setPrototypeOf({
+              validate: (e, t) => e instanceof RegExp ? e : t.error("object.regex", {
                 value: e
-              }, __mockedObjectPrototype))
-            }, __mockedObjectPrototype),
-            rename: Object.setPrototypeOf({
-              method(e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                n(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") || e instanceof RegExp, "Rename missing the from argument"), n(__mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") || t instanceof m, "Invalid rename to argument"), n(__mockedCompare(t, e, "!=="), "Cannot rename key to same name:", e), l.assertOptions(r, Object.setPrototypeOf(["alias", "ignoreUndefined", "override", "multiple"], __mockedArrayPrototype));
+              })
+            },
+            rename: {
+              method(e, t, r = {}) {
+                n(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") || e instanceof RegExp, "Rename missing the from argument"), n(__mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") || t instanceof m, "Invalid rename to argument"), n(__mockedCompare(t, e, "!=="), "Cannot rename key to same name:", e), l.assertOptions(r, ["alias", "ignoreUndefined", "override", "multiple"]);
                 const a = this.clone();
-                a.$_terms.renames = a.$_terms.renames || Object.setPrototypeOf([], __mockedArrayPrototype);
+                __mockedPropertyWrite(a.$_terms, "renames", a.$_terms.renames || [], {
+                  line: 1,
+                  column: 87507
+                });
                 for (const t of a.$_terms.renames) n(__mockedCompare(t.from, e, "!=="), "Cannot rename the same key multiple times");
-                return t instanceof m && a.$_mutateRegister(t), a.$_terms.renames.push(Object.setPrototypeOf({
+                return t instanceof m && a.$_mutateRegister(t), a.$_terms.renames.push({
                   from: e,
                   to: t,
                   options: s(h.renameDefaults, r)
-                }, __mockedObjectPrototype)), a;
+                }), a;
               }
-            }, __mockedObjectPrototype),
-            schema: Object.setPrototypeOf({
+            },
+            schema: {
               method(e = "any") {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "schema",
-                  args: Object.setPrototypeOf({
+                  args: {
                     type: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 type: r
-              }) => !l.isSchema(e) || __mockedCompare("any", r, "!==") && __mockedCompare(e.type, r, "!==") ? t.error("object.schema", Object.setPrototypeOf({
+              }) => !l.isSchema(e) || __mockedCompare("any", r, "!==") && __mockedCompare(e.type, r, "!==") ? t.error("object.schema", {
                 type: r
-              }, __mockedObjectPrototype)) : e
-            }, __mockedObjectPrototype),
-            unknown: Object.setPrototypeOf({
+              }) : e
+            },
+            unknown: {
               method(e) {
                 return this.$_setFlag("unknown", __mockedCompare(!1, e, "!=="));
               }
-            }, __mockedObjectPrototype),
-            with: Object.setPrototypeOf({
-              method(e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+            },
+            with: {
+              method(e, t, r = {}) {
                 return h.dependency(this, "with", e, t, r);
               }
-            }, __mockedObjectPrototype),
-            without: Object.setPrototypeOf({
-              method(e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+            },
+            without: {
+              method(e, t, r = {}) {
                 return h.dependency(this, "without", e, t, r);
               }
-            }, __mockedObjectPrototype),
-            xor: Object.setPrototypeOf({
+            },
+            xor: {
               method(...e) {
                 return l.verifyFlat(e, "xor"), h.dependency(this, "xor", null, e);
               }
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          overrides: Object.setPrototypeOf({
+            }
+          },
+          overrides: {
             default(e, t) {
               return __mockedCompare(void 0, e, "===") && (e = l.symbols.deepDefault), this.$_parent("default", e, t);
             },
@@ -3928,18 +5259,21 @@
               if (__mockedCompare(null, r = this.$_terms.patterns, "!==") && __mockedCompare(void 0, r, "!==") && r.length) for (const e of this.$_terms.patterns) if (e.rule.isAsync()) return !0;
               return !1;
             }
-          }, __mockedObjectPrototype),
+          },
           rebuild(e) {
             if (e.$_terms.keys) {
               const t = new i.Sorter();
-              for (const r of e.$_terms.keys) l.tryWithPath(() => t.add(r, Object.setPrototypeOf({
+              for (const r of e.$_terms.keys) l.tryWithPath(() => t.add(r, {
                 after: r.schema.$_rootReferences(),
                 group: r.key
-              }, __mockedObjectPrototype)), r.key);
-              e.$_terms.keys = new h.Keys(...t.nodes);
+              }), r.key);
+              __mockedPropertyWrite(e.$_terms, "keys", new h.Keys(...t.nodes), {
+                line: 1,
+                column: 88813
+              });
             }
           },
-          manifest: Object.setPrototypeOf({
+          manifest: {
             build(e, t) {
               if (t.keys && (e = e.keys(t.keys)), t.dependencies) for (const {
                 rel: r,
@@ -3953,10 +5287,10 @@
                 rule: n,
                 fallthrough: a,
                 matches: i
-              } of t.patterns) e = e.pattern(r || s, n, Object.setPrototypeOf({
+              } of t.patterns) e = e.pattern(r || s, n, {
                 fallthrough: a,
                 matches: i
-              }, __mockedObjectPrototype));
+              });
               if (t.renames) for (const {
                 from: r,
                 to: s,
@@ -3964,8 +5298,8 @@
               } of t.renames) e = e.rename(r, s, n);
               return e;
             }
-          }, __mockedObjectPrototype),
-          messages: Object.setPrototypeOf({
+          },
+          messages: {
             "object.and": "{{#label}} contains {{#presentWithLabels}} without its required peers {{#missingWithLabels}}",
             "object.assert": '{{#label}} is invalid because {if(#subject.key, `"` + #subject.key + `" failed to ` + (#message || "pass the assertion test"), #message || "the assertion failed")}',
             "object.base": "{{#label}} must be of type {{#type}}",
@@ -3986,167 +5320,203 @@
             "object.with": "{{:#mainWithLabel}} missing required peer {{:#peerWithLabel}}",
             "object.without": "{{:#mainWithLabel}} conflict with forbidden peer {{:#peerWithLabel}}",
             "object.xor": "{{#label}} contains a conflict between exclusive peers {{#peersWithLabels}}"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype)), h.clone = Object.setPrototypeOf(function (e, t) {
+          }
+        }), {
+          line: 1,
+          column: 81552
+        }), __mockedPropertyWrite(h, "clone", function (e, t) {
           if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) {
-            if (t.nonEnumerables) return a(e, Object.setPrototypeOf({
+            if (t.nonEnumerables) return a(e, {
               shallow: !0
-            }, __mockedObjectPrototype));
+            });
             const r = Object.create(Object.getPrototypeOf(e));
             return Object.assign(r, e), r;
           }
-          const r = Object.setPrototypeOf(function (...t) {
+          const r = function (...t) {
             return e.apply(this, t);
-          }, __mockedFunctionPrototype);
-          return r.prototype = a(e.prototype), Object.defineProperty(r, "name", Object.setPrototypeOf({
+          };
+          return __mockedPropertyWrite(r, "prototype", a(e.prototype), {
+            line: 1,
+            column: 91228
+          }), Object.defineProperty(r, "name", {
             value: e.name,
             writable: !1
-          }, __mockedObjectPrototype)), Object.defineProperty(r, "length", Object.setPrototypeOf({
+          }), Object.defineProperty(r, "length", {
             value: e.length,
             writable: !1
-          }, __mockedObjectPrototype)), Object.assign(r, e), r;
-        }, __mockedFunctionPrototype), h.dependency = Object.setPrototypeOf(function (e, t, r, s, a) {
+          }), Object.assign(r, e), r;
+        }, {
+          line: 1,
+          column: 91008
+        }), __mockedPropertyWrite(h, "dependency", function (e, t, r, s, a) {
           n(__mockedCompare(null, r, "===") || __mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), t, "key must be a strings"), a || (a = s.length > 1 && __mockedCompare("object", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(__mockedPropertyAccess(s, s.length - 1)), "==") ? s.pop() : Object.setPrototypeOf({}, __mockedObjectPrototype)), l.assertOptions(a, Object.setPrototypeOf(["separator", "isPresent"], __mockedArrayPrototype)), s = Object.setPrototypeOf([], __mockedArrayPrototype).concat(s);
+          }(__mockedPropertyAccess(s, s.length - 1)), "==") ? s.pop() : {}), l.assertOptions(a, ["separator", "isPresent"]), s = [].concat(s);
           const i = l.default(a.separator, "."),
-            o = Object.setPrototypeOf([], __mockedArrayPrototype);
-          for (const e of s) n(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), t, "peers must be strings"), o.push(c.ref(e, Object.setPrototypeOf({
+            o = [];
+          for (const e of s) n(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), t, "peers must be strings"), o.push(c.ref(e, {
             separator: i,
             ancestor: 0,
             prefix: !1
-          }, __mockedObjectPrototype)));
-          __mockedCompare(null, r, "!==") && (r = c.ref(r, Object.setPrototypeOf({
+          }));
+          __mockedCompare(null, r, "!==") && (r = c.ref(r, {
             separator: i,
             ancestor: 0,
             prefix: !1
-          }, __mockedObjectPrototype)));
+          }));
           const u = e.clone();
-          return u.$_terms.dependencies = u.$_terms.dependencies || Object.setPrototypeOf([], __mockedArrayPrototype), u.$_terms.dependencies.push(new h.Dependency(t, r, o, s, a)), u;
-        }, __mockedFunctionPrototype), h.dependencies = Object.setPrototypeOf({
+          return __mockedPropertyWrite(u.$_terms, "dependencies", u.$_terms.dependencies || [], {
+            line: 1,
+            column: 91851
+          }), u.$_terms.dependencies.push(new h.Dependency(t, r, o, s, a)), u;
+        }, {
+          line: 1,
+          column: 91399
+        }), __mockedPropertyWrite(h, "dependencies", {
           and(e, t, r, s, n) {
-            const a = Object.setPrototypeOf([], __mockedArrayPrototype),
-              i = Object.setPrototypeOf([], __mockedArrayPrototype),
+            const a = [],
+              i = [],
               o = t.peers.length,
               l = h.isPresent(t.options);
-            for (const e of t.peers) __mockedCompare(!1, l(e.resolve(r, s, n, null, Object.setPrototypeOf({
+            for (const e of t.peers) __mockedCompare(!1, l(e.resolve(r, s, n, null, {
               shadow: !1
-            }, __mockedObjectPrototype))), "===") ? a.push(e.key) : i.push(e.key);
-            if (__mockedCompare(a.length, o, "!==") && __mockedCompare(i.length, o, "!==")) return Object.setPrototypeOf({
+            })), "===") ? a.push(e.key) : i.push(e.key);
+            if (__mockedCompare(a.length, o, "!==") && __mockedCompare(i.length, o, "!==")) return {
               code: "object.and",
-              context: Object.setPrototypeOf({
+              context: {
                 present: i,
                 presentWithLabels: h.keysToLabels(e, i),
                 missing: a,
                 missingWithLabels: h.keysToLabels(e, a)
-              }, __mockedObjectPrototype)
-            }, __mockedObjectPrototype);
+              }
+            };
           },
           nand(e, t, r, s, n) {
-            const a = Object.setPrototypeOf([], __mockedArrayPrototype),
+            const a = [],
               i = h.isPresent(t.options);
-            for (const e of t.peers) i(e.resolve(r, s, n, null, Object.setPrototypeOf({
+            for (const e of t.peers) i(e.resolve(r, s, n, null, {
               shadow: !1
-            }, __mockedObjectPrototype))) && a.push(e.key);
+            })) && a.push(e.key);
             if (__mockedCompare(a.length, t.peers.length, "!==")) return;
             const o = __mockedPropertyAccess(t.paths, 0),
               l = t.paths.slice(1);
-            return Object.setPrototypeOf({
+            return {
               code: "object.nand",
-              context: Object.setPrototypeOf({
+              context: {
                 main: o,
                 mainWithLabel: h.keysToLabels(e, o),
                 peers: l,
                 peersWithLabels: h.keysToLabels(e, l)
-              }, __mockedObjectPrototype)
-            }, __mockedObjectPrototype);
+              }
+            };
           },
           or(e, t, r, s, n) {
             const a = h.isPresent(t.options);
-            for (const e of t.peers) if (a(e.resolve(r, s, n, null, Object.setPrototypeOf({
+            for (const e of t.peers) if (a(e.resolve(r, s, n, null, {
               shadow: !1
-            }, __mockedObjectPrototype)))) return;
-            return Object.setPrototypeOf({
+            }))) return;
+            return {
               code: "object.missing",
-              context: Object.setPrototypeOf({
+              context: {
                 peers: t.paths,
                 peersWithLabels: h.keysToLabels(e, t.paths)
-              }, __mockedObjectPrototype)
-            }, __mockedObjectPrototype);
+              }
+            };
           },
           oxor(e, t, r, s, n) {
-            const a = Object.setPrototypeOf([], __mockedArrayPrototype),
+            const a = [],
               i = h.isPresent(t.options);
-            for (const e of t.peers) i(e.resolve(r, s, n, null, Object.setPrototypeOf({
+            for (const e of t.peers) i(e.resolve(r, s, n, null, {
               shadow: !1
-            }, __mockedObjectPrototype))) && a.push(e.key);
+            })) && a.push(e.key);
             if (!a.length || __mockedCompare(1, a.length, "===")) return;
-            const o = Object.setPrototypeOf({
+            const o = {
               peers: t.paths,
               peersWithLabels: h.keysToLabels(e, t.paths)
-            }, __mockedObjectPrototype);
-            return o.present = a, o.presentWithLabels = h.keysToLabels(e, a), Object.setPrototypeOf({
+            };
+            return __mockedPropertyWrite(o, "present", a, {
+              line: 1,
+              column: 93076
+            }), __mockedPropertyWrite(o, "presentWithLabels", h.keysToLabels(e, a), {
+              line: 1,
+              column: 93088
+            }), {
               code: "object.oxor",
               context: o
-            }, __mockedObjectPrototype);
+            };
           },
           with(e, t, r, s, n) {
             const a = h.isPresent(t.options);
-            for (const i of t.peers) if (__mockedCompare(!1, a(i.resolve(r, s, n, null, Object.setPrototypeOf({
+            for (const i of t.peers) if (__mockedCompare(!1, a(i.resolve(r, s, n, null, {
               shadow: !1
-            }, __mockedObjectPrototype))), "===")) return Object.setPrototypeOf({
+            })), "===")) return {
               code: "object.with",
-              context: Object.setPrototypeOf({
+              context: {
                 main: t.key.key,
                 mainWithLabel: h.keysToLabels(e, t.key.key),
                 peer: i.key,
                 peerWithLabel: h.keysToLabels(e, i.key)
-              }, __mockedObjectPrototype)
-            }, __mockedObjectPrototype);
+              }
+            };
           },
           without(e, t, r, s, n) {
             const a = h.isPresent(t.options);
-            for (const i of t.peers) if (a(i.resolve(r, s, n, null, Object.setPrototypeOf({
+            for (const i of t.peers) if (a(i.resolve(r, s, n, null, {
               shadow: !1
-            }, __mockedObjectPrototype)))) return Object.setPrototypeOf({
+            }))) return {
               code: "object.without",
-              context: Object.setPrototypeOf({
+              context: {
                 main: t.key.key,
                 mainWithLabel: h.keysToLabels(e, t.key.key),
                 peer: i.key,
                 peerWithLabel: h.keysToLabels(e, i.key)
-              }, __mockedObjectPrototype)
-            }, __mockedObjectPrototype);
+              }
+            };
           },
           xor(e, t, r, s, n) {
-            const a = Object.setPrototypeOf([], __mockedArrayPrototype),
+            const a = [],
               i = h.isPresent(t.options);
-            for (const e of t.peers) i(e.resolve(r, s, n, null, Object.setPrototypeOf({
+            for (const e of t.peers) i(e.resolve(r, s, n, null, {
               shadow: !1
-            }, __mockedObjectPrototype))) && a.push(e.key);
+            })) && a.push(e.key);
             if (__mockedCompare(1, a.length, "===")) return;
-            const o = Object.setPrototypeOf({
+            const o = {
               peers: t.paths,
               peersWithLabels: h.keysToLabels(e, t.paths)
-            }, __mockedObjectPrototype);
-            return __mockedCompare(0, a.length, "===") ? Object.setPrototypeOf({
+            };
+            return __mockedCompare(0, a.length, "===") ? {
               code: "object.missing",
               context: o
-            }, __mockedObjectPrototype) : (o.present = a, o.presentWithLabels = h.keysToLabels(e, a), Object.setPrototypeOf({
+            } : (__mockedPropertyWrite(o, "present", a, {
+              line: 1,
+              column: 93949
+            }), __mockedPropertyWrite(o, "presentWithLabels", h.keysToLabels(e, a), {
+              line: 1,
+              column: 93961
+            }), {
               code: "object.xor",
               context: o
-            }, __mockedObjectPrototype));
+            });
           }
-        }, __mockedObjectPrototype), h.keysToLabels = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 91961
+        }), __mockedPropertyWrite(h, "keysToLabels", function (e, t) {
           return Array.isArray(t) ? t.map(t => e.$_mapLabels(t)) : e.$_mapLabels(t);
-        }, __mockedFunctionPrototype), h.isPresent = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 94034
+        }), __mockedPropertyWrite(h, "isPresent", function (e) {
           return __mockedCompare("function", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
           }(e.isPresent), "==") ? e.isPresent : e => __mockedCompare(void 0, e, "!==");
-        }, __mockedFunctionPrototype), h.rename = Object.setPrototypeOf(function (e, t, r, s, n) {
-          const a = Object.setPrototypeOf({}, __mockedObjectPrototype);
+        }, {
+          line: 1,
+          column: 94132
+        }), __mockedPropertyWrite(h, "rename", function (e, t, r, s, n) {
+          const a = {};
           for (const i of e.$_terms.renames) {
-            const o = Object.setPrototypeOf([], __mockedArrayPrototype),
+            const o = [],
               l = __mockedCompare("string", function (x) {
                 return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
               }(i.from), "!=");
@@ -4154,41 +5524,50 @@
               if (__mockedCompare(void 0, __mockedPropertyAccess(t, e), "===") && i.options.ignoreUndefined) continue;
               if (__mockedCompare(e, i.to, "===")) continue;
               const r = i.from.exec(e);
-              r && o.push(Object.setPrototypeOf({
+              r && o.push({
                 from: e,
                 to: i.to,
                 match: r
-              }, __mockedObjectPrototype));
+              });
             } else !Object.prototype.hasOwnProperty.call(t, i.from) || __mockedCompare(void 0, __mockedPropertyAccess(t, i.from), "===") && i.options.ignoreUndefined || o.push(i);
             for (const c of o) {
               const o = c.from;
               let u = c.to;
               if (u instanceof m && (u = u.render(t, r, s, c.match)), __mockedCompare(o, u, "!==")) {
-                if (!i.options.multiple && __mockedPropertyAccess(a, u) && (n.push(e.$_createError("object.rename.multiple", t, Object.setPrototypeOf({
+                if (!i.options.multiple && __mockedPropertyAccess(a, u) && (n.push(e.$_createError("object.rename.multiple", t, {
                   from: o,
                   to: u,
                   pattern: l
-                }, __mockedObjectPrototype), r, s)), s.abortEarly)) return !1;
-                if (Object.prototype.hasOwnProperty.call(t, u) && !i.options.override && !__mockedPropertyAccess(a, u) && (n.push(e.$_createError("object.rename.override", t, Object.setPrototypeOf({
+                }, r, s)), s.abortEarly)) return !1;
+                if (Object.prototype.hasOwnProperty.call(t, u) && !i.options.override && !__mockedPropertyAccess(a, u) && (n.push(e.$_createError("object.rename.override", t, {
                   from: o,
                   to: u,
                   pattern: l
-                }, __mockedObjectPrototype), r, s)), s.abortEarly)) return !1;
-                __mockedCompare(void 0, __mockedPropertyAccess(t, o), "===") ? delete __mockedPropertyAccess(t, u) : t[u] = __mockedPropertyAccess(t, o), a[u] = !0, i.options.alias || delete __mockedPropertyAccess(t, o);
+                }, r, s)), s.abortEarly)) return !1;
+                __mockedCompare(void 0, __mockedPropertyAccess(t, o), "===") ? delete __mockedPropertyAccess(t, u) : __mockedPropertyWrite(t, u, __mockedPropertyAccess(t, o), {
+                  line: 1,
+                  column: 95033
+                }), __mockedPropertyWrite(a, u, !0, {
+                  line: 1,
+                  column: 95043
+                }), i.options.alias || delete __mockedPropertyAccess(t, o);
               }
             }
           }
           return !0;
-        }, __mockedFunctionPrototype), h.unknown = Object.setPrototypeOf(function (e, t, r, s, n, a) {
+        }, {
+          line: 1,
+          column: 94220
+        }), __mockedPropertyWrite(h, "unknown", function (e, t, r, s, n, a) {
           if (e.$_terms.patterns) {
             let i = !1;
             const o = e.$_terms.patterns.map(e => {
-                if (e.matches) return i = !0, Object.setPrototypeOf([], __mockedArrayPrototype);
+                if (e.matches) return i = !0, [];
               }),
-              l = Object.setPrototypeOf([t, ...n.ancestors], __mockedArrayPrototype);
+              l = [t, ...n.ancestors];
             for (const i of r) {
               const c = __mockedPropertyAccess(t, i),
-                u = Object.setPrototypeOf([...n.path, i], __mockedArrayPrototype);
+                u = [...n.path, i];
               for (let f = 0; f < e.$_terms.patterns.length; ++f) {
                 const m = __mockedPropertyAccess(e.$_terms.patterns, f);
                 if (m.regex) {
@@ -4196,19 +5575,22 @@
                   if (n.mainstay.tracer.debug(n, "rule", `pattern.${f}`, e ? "pass" : "error"), !e) continue;
                 } else if (!m.schema.$_match(i, n.nest(m.schema, `pattern.${f}`), a)) continue;
                 r.delete(i);
-                const h = n.localize(u, l, Object.setPrototypeOf({
+                const h = n.localize(u, l, {
                     schema: m.rule,
                     key: i
-                  }, __mockedObjectPrototype)),
+                  }),
                   p = m.rule.$_validate(c, h, a);
                 if (p.errors) {
-                  if (a.abortEarly) return Object.setPrototypeOf({
+                  if (a.abortEarly) return {
                     value: t,
                     errors: p.errors
-                  }, __mockedObjectPrototype);
+                  };
                   s.push(...p.errors);
                 }
-                if (m.matches && __mockedPropertyAccess(o, f).push(i), t[i] = p.value, !m.fallthrough) break;
+                if (m.matches && __mockedPropertyAccess(o, f).push(i), __mockedPropertyWrite(t, i, p.value, {
+                  line: 1,
+                  column: 95746
+                }), !m.fallthrough) break;
               }
             }
             if (i) for (let r = 0; r < o.length; ++r) {
@@ -4218,15 +5600,18 @@
                 f = n.localize(n.path, l, c),
                 m = c.$_validate(i, f, a);
               if (m.errors) {
-                const r = u.details(m.errors, Object.setPrototypeOf({
+                const r = u.details(m.errors, {
                   override: !1
-                }, __mockedObjectPrototype));
-                r.matches = i;
+                });
+                __mockedPropertyWrite(r, "matches", i, {
+                  line: 1,
+                  column: 95982
+                });
                 const o = e.$_createError("object.pattern.match", t, r, n, a);
-                if (a.abortEarly) return Object.setPrototypeOf({
+                if (a.abortEarly) return {
                   value: t,
                   errors: o
-                }, __mockedObjectPrototype);
+                };
                 s.push(o);
               }
             }
@@ -4239,39 +5624,67 @@
               }(__mockedPropertyAccess(t, s)), "==") && r.delete(s);
             }
             if (!l.default(e._flags.unknown, a.allowUnknown)) for (const i of r) {
-              const r = n.localize(Object.setPrototypeOf([...n.path, i], __mockedArrayPrototype), Object.setPrototypeOf([], __mockedArrayPrototype)),
-                o = e.$_createError("object.unknown", __mockedPropertyAccess(t, i), Object.setPrototypeOf({
+              const r = n.localize([...n.path, i], []),
+                o = e.$_createError("object.unknown", __mockedPropertyAccess(t, i), {
                   child: i
-                }, __mockedObjectPrototype), r, a, Object.setPrototypeOf({
+                }, r, a, {
                   flags: !1
-                }, __mockedObjectPrototype));
-              if (a.abortEarly) return Object.setPrototypeOf({
+                });
+              if (a.abortEarly) return {
                 value: t,
                 errors: o
-              }, __mockedObjectPrototype);
+              };
               s.push(o);
             }
           }
-        }, __mockedFunctionPrototype), h.Dependency = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+        }, {
+          line: 1,
+          column: 95092
+        }), __mockedPropertyWrite(h, "Dependency", class {
           constructor(e, t, r, s, n) {
-            this.rel = e, this.key = t, this.peers = r, this.paths = s, this.options = n;
+            __mockedPropertyWrite(this, "rel", e, {
+              line: 1,
+              column: 96634
+            }), __mockedPropertyWrite(this, "key", t, {
+              line: 1,
+              column: 96645
+            }), __mockedPropertyWrite(this, "peers", r, {
+              line: 1,
+              column: 96656
+            }), __mockedPropertyWrite(this, "paths", s, {
+              line: 1,
+              column: 96669
+            }), __mockedPropertyWrite(this, "options", n, {
+              line: 1,
+              column: 96682
+            });
           }
           describe() {
-            const e = Object.setPrototypeOf({
+            const e = {
               rel: this.rel,
               peers: this.paths
-            }, __mockedObjectPrototype);
-            return __mockedCompare(null, this.key, "!==") && (e.key = this.key.key), __mockedCompare(".", __mockedPropertyAccess(this.peers, 0).separator, "!==") && (e.options = Object.setPrototypeOf({
+            };
+            return __mockedCompare(null, this.key, "!==") && __mockedPropertyWrite(e, "key", this.key.key, {
+              line: 1,
+              column: 96773
+            }), __mockedCompare(".", __mockedPropertyAccess(this.peers, 0).separator, "!==") && __mockedPropertyWrite(e, "options", {
               ...e.options,
               separator: __mockedPropertyAccess(this.peers, 0).separator
-            }, __mockedObjectPrototype)), this.options.isPresent && (e.options = Object.setPrototypeOf({
+            }, {
+              line: 1,
+              column: 96825
+            }), this.options.isPresent && __mockedPropertyWrite(e, "options", {
               ...e.options,
               isPresent: this.options.isPresent
-            }, __mockedObjectPrototype)), e;
+            }, {
+              line: 1,
+              column: 96910
+            }), e;
           }
-        }), h.Keys = class extends Array {
+        }, {
+          line: 1,
+          column: 96592
+        }), __mockedPropertyWrite(h, "Keys", class extends Array {
           concat(e) {
             const t = this.slice(),
               r = new Map();
@@ -4279,14 +5692,20 @@
             for (const s of e) {
               const e = s.key,
                 n = r.get(e);
-              __mockedCompare(void 0, n, "!==") ? t[n] = Object.setPrototypeOf({
+              __mockedCompare(void 0, n, "!==") ? __mockedPropertyWrite(t, n, {
                 key: e,
                 schema: __mockedPropertyAccess(t, n).schema.concat(s.schema)
-              }, __mockedObjectPrototype) : t.push(s);
+              }, {
+                line: 1,
+                column: 97140
+              }) : t.push(s);
             }
             return t;
           }
-        };
+        }, {
+          line: 1,
+          column: 96973
+        });
       },
       9556(e, t, r) {
         "use strict";
@@ -4298,26 +5717,35 @@
           a = r(9415),
           i = r(3541),
           o = r(8013),
-          l = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        e.exports = n.extend(Object.setPrototypeOf({
+          l = {};
+        __mockedPropertyWrite(e, "exports", n.extend({
           type: "link",
-          properties: Object.setPrototypeOf({
+          properties: {
             schemaChain: !0
-          }, __mockedObjectPrototype),
-          terms: Object.setPrototypeOf({
-            link: Object.setPrototypeOf({
+          },
+          terms: {
+            link: {
               init: null,
               manifest: "single",
               register: !1
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
+            }
+          },
           args: (e, t) => e.ref(t),
           jsonSchema(e, t, r, s) {
             if (!e.$_terms.link) return t;
             const {
               ref: n
             } = __mockedPropertyAccess(e.$_terms.link, 0);
-            return __mockedCompare("root", n.ancestor, "===") || n.ancestor > 0 ? (t.$ref = `#/${n.path.map(e => `properties/${e}`).join("/")}`, t) : (__mockedCompare(1, n.path.length, "===") ? t.$ref = `#/$defs/${__mockedPropertyAccess(n.path, 0)}` : t.$ref = `#/${n.path.slice(1).map(e => `properties/${e}`).join("/")}`, t);
+            return __mockedCompare("root", n.ancestor, "===") || n.ancestor > 0 ? (__mockedPropertyWrite(t, "$ref", `#/${n.path.map(e => `properties/${e}`).join("/")}`, {
+              line: 1,
+              column: 97560
+            }), t) : (__mockedCompare(1, n.path.length, "===") ? __mockedPropertyWrite(t, "$ref", `#/$defs/${__mockedPropertyAccess(n.path, 0)}`, {
+              line: 1,
+              column: 97639
+            }) : __mockedPropertyWrite(t, "$ref", `#/${n.path.slice(1).map(e => `properties/${e}`).join("/")}`, {
+              line: 1,
+              column: 97669
+            }), t);
           },
           validate(e, {
             schema: t,
@@ -4330,35 +5758,44 @@
             return a.$_validate(e, r.nest(a, `link:${i.display}:${a.type}`), n);
           },
           generate: (e, t, r, s) => l.generate(e, t, r, s),
-          rules: Object.setPrototypeOf({
-            ref: Object.setPrototypeOf({
+          rules: {
+            ref: {
               method(e) {
                 s(!this.$_terms.link, "Cannot reinitialize schema"), e = i.ref(e), s(__mockedCompare("value", e.type, "===") || __mockedCompare("local", e.type, "==="), "Invalid reference type:", e.type), s(__mockedCompare("local", e.type, "===") || __mockedCompare("root", e.ancestor, "===") || e.ancestor > 0, "Link cannot reference itself");
                 const t = this.clone();
-                return t.$_terms.link = Object.setPrototypeOf([Object.setPrototypeOf({
+                return __mockedPropertyWrite(t.$_terms, "link", [{
                   ref: e
-                }, __mockedObjectPrototype)], __mockedArrayPrototype), t;
+                }], {
+                  line: 1,
+                  column: 98251
+                }), t;
               }
-            }, __mockedObjectPrototype),
-            relative: Object.setPrototypeOf({
+            },
+            relative: {
               method(e = !0) {
                 return this.$_setFlag("relative", e);
               }
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          overrides: Object.setPrototypeOf({
+            }
+          },
+          overrides: {
             concat(e) {
               s(this.$_terms.link, "Uninitialized link schema"), s(a.isSchema(e), "Invalid schema object"), s(__mockedCompare("link", e.type, "!=="), "Cannot merge type link with another link");
               const t = this.clone();
-              return t.$_terms.whens || (t.$_terms.whens = Object.setPrototypeOf([], __mockedArrayPrototype)), t.$_terms.whens.push(Object.setPrototypeOf({
+              return t.$_terms.whens || __mockedPropertyWrite(t.$_terms, "whens", [], {
+                line: 1,
+                column: 98561
+              }), t.$_terms.whens.push({
                 concat: e
-              }, __mockedObjectPrototype)), t.$_mutateRebuild();
+              }), t.$_mutateRebuild();
             }
-          }, __mockedObjectPrototype),
-          manifest: Object.setPrototypeOf({
+          },
+          manifest: {
             build: (e, t) => (s(t.link, "Invalid link description missing link"), e.ref(t.link))
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype)), l.generate = Object.setPrototypeOf(function (e, t, r, s) {
+          }
+        }), {
+          line: 1,
+          column: 97304
+        }), __mockedPropertyWrite(l, "generate", function (e, t, r, s) {
           let n = r.mainstay.links.get(e);
           if (n) return n._generate(t, r, s).schema;
           const a = __mockedPropertyAccess(e.$_terms.link, 0).ref,
@@ -4373,36 +5810,45 @@
             l.assert(!1, "to non-existing schema", a, e, r, s);
           }
           return l.assert(__mockedCompare("link", n.type, "!=="), "which is another link", a, e, r, s), e._flags.relative || r.mainstay.links.set(e, n), n._generate(t, r, s).schema;
-        }, __mockedFunctionPrototype), l.perspective = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 98728
+        }), __mockedPropertyWrite(l, "perspective", function (e, t) {
           if (__mockedCompare("local", e.type, "===")) {
             for (const {
               schema: r,
               key: s
             } of t.schemas) {
-              if (__mockedCompare(r._flags.id || s, __mockedPropertyAccess(e.path, 0), "===")) return Object.setPrototypeOf({
+              if (__mockedCompare(r._flags.id || s, __mockedPropertyAccess(e.path, 0), "===")) return {
                 perspective: r,
                 path: e.path.slice(1)
-              }, __mockedObjectPrototype);
-              if (r.$_terms.shared) for (const t of r.$_terms.shared) if (__mockedCompare(t._flags.id, __mockedPropertyAccess(e.path, 0), "===")) return Object.setPrototypeOf({
+              };
+              if (r.$_terms.shared) for (const t of r.$_terms.shared) if (__mockedCompare(t._flags.id, __mockedPropertyAccess(e.path, 0), "===")) return {
                 perspective: t,
                 path: e.path.slice(1)
-              }, __mockedObjectPrototype);
+              };
             }
-            return Object.setPrototypeOf({
+            return {
               perspective: null,
               path: null
-            }, __mockedObjectPrototype);
+            };
           }
-          return __mockedCompare("root", e.ancestor, "===") ? Object.setPrototypeOf({
+          return __mockedCompare("root", e.ancestor, "===") ? {
             perspective: __mockedPropertyAccess(t.schemas, t.schemas.length - 1).schema,
             path: e.path
-          }, __mockedObjectPrototype) : Object.setPrototypeOf({
+          } : {
             perspective: __mockedPropertyAccess(t.schemas, e.ancestor) && __mockedPropertyAccess(t.schemas, e.ancestor).schema,
             path: e.path
-          }, __mockedObjectPrototype);
-        }, __mockedFunctionPrototype), l.assert = Object.setPrototypeOf(function (e, t, r, n, a, i) {
+          };
+        }, {
+          line: 1,
+          column: 99176
+        }), __mockedPropertyWrite(l, "assert", function (e, t, r, n, a, i) {
           e || s(!1, `"${o.label(n._flags, a, i)}" contains link reference "${r.display}" ${t}`);
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 99664
+        });
       },
       4709(e, t, r) {
         "use strict";
@@ -4412,7 +5858,7 @@
           } = r(2116),
           n = r(680),
           a = r(9415),
-          i = Object.setPrototypeOf({
+          i = {
             numberRx: /^\s*[+-]?(?:(?:\d+(?:\.\d*)?)|(?:\.\d+))(?:e([+-]?\d+))?\s*$/i,
             precisionRx: /(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/,
             exponentialPartRegex: /[eE][+-]?\d+$/,
@@ -4425,15 +5871,15 @@
                 s = t.indexOf("e");
               return (r < 0 ? 0 : (s < 0 ? t.length : s) - r - 1) + (s < 0 ? 0 : Math.max(0, -parseInt(t.slice(s + 1))));
             }
-          }, __mockedObjectPrototype);
-        e.exports = n.extend(Object.setPrototypeOf({
+          };
+        __mockedPropertyWrite(e, "exports", n.extend({
           type: "number",
-          flags: Object.setPrototypeOf({
-            unsafe: Object.setPrototypeOf({
+          flags: {
+            unsafe: {
               default: !1
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          coerce: Object.setPrototypeOf({
+            }
+          },
+          coerce: {
             from: "string",
             method(e, {
               schema: t,
@@ -4441,46 +5887,64 @@
             }) {
               if (!e.match(i.numberRx)) return;
               e = e.trim();
-              const s = Object.setPrototypeOf({
+              const s = {
                 value: parseFloat(e)
-              }, __mockedObjectPrototype);
-              if (__mockedCompare(0, s.value, "===") && (s.value = 0), !t._flags.unsafe) if (e.match(/e/i)) {
-                if (__mockedCompare(i.extractSignificantDigits(e), i.extractSignificantDigits(String(s.value)), "!==")) return s.errors = r("number.unsafe"), s;
+              };
+              if (__mockedCompare(0, s.value, "===") && __mockedPropertyWrite(s, "value", 0, {
+                line: 1,
+                column: 100440
+              }), !t._flags.unsafe) if (e.match(/e/i)) {
+                if (__mockedCompare(i.extractSignificantDigits(e), i.extractSignificantDigits(String(s.value)), "!==")) return __mockedPropertyWrite(s, "errors", r("number.unsafe"), {
+                  line: 1,
+                  column: 100572
+                }), s;
               } else {
                 const t = s.value.toString();
                 if (t.match(/e/i)) return s;
-                if (__mockedCompare(t, i.normalizeDecimal(e), "!==")) return s.errors = r("number.unsafe"), s;
+                if (__mockedCompare(t, i.normalizeDecimal(e), "!==")) return __mockedPropertyWrite(s, "errors", r("number.unsafe"), {
+                  line: 1,
+                  column: 100696
+                }), s;
               }
               return s;
             }
-          }, __mockedObjectPrototype),
+          },
           validate(e, {
             schema: t,
             error: r,
             prefs: s
           }) {
-            if (__mockedCompare(e, 1 / 0, "===") || __mockedCompare(e, -1 / 0, "===")) return Object.setPrototypeOf({
+            if (__mockedCompare(e, 1 / 0, "===") || __mockedCompare(e, -1 / 0, "===")) return {
               value: e,
               errors: r("number.infinity")
-            }, __mockedObjectPrototype);
-            if (!a.isNumber(e)) return Object.setPrototypeOf({
+            };
+            if (!a.isNumber(e)) return {
               value: e,
               errors: r("number.base")
-            }, __mockedObjectPrototype);
-            const n = Object.setPrototypeOf({
+            };
+            const n = {
               value: e
-            }, __mockedObjectPrototype);
+            };
             if (s.convert) {
               const e = t.$_getRule("precision");
               if (e) {
                 const t = Math.pow(10, e.args.limit);
-                n.value = Math.round(n.value * t) / t;
+                __mockedPropertyWrite(n, "value", Math.round(n.value * t) / t, {
+                  line: 1,
+                  column: 101004
+                });
               }
             }
-            return __mockedCompare(0, n.value, "===") && (n.value = 0), !t._flags.unsafe && (e > Number.MAX_SAFE_INTEGER || e < Number.MIN_SAFE_INTEGER) && (n.errors = r("number.unsafe")), n;
+            return __mockedCompare(0, n.value, "===") && __mockedPropertyWrite(n, "value", 0, {
+              line: 1,
+              column: 101058
+            }), !t._flags.unsafe && (e > Number.MAX_SAFE_INTEGER || e < Number.MIN_SAFE_INTEGER) && __mockedPropertyWrite(n, "errors", r("number.unsafe"), {
+              line: 1,
+              column: 101144
+            }), n;
           },
-          rules: Object.setPrototypeOf({
-            compare: Object.setPrototypeOf({
+          rules: {
+            compare: {
               method: !1,
               validate: (e, t, {
                 limit: r
@@ -4488,173 +5952,206 @@
                 name: s,
                 operator: n,
                 args: i
-              }) => a.compare(e, r, n) ? e : t.error("number." + s, Object.setPrototypeOf({
+              }) => a.compare(e, r, n) ? e : t.error("number." + s, {
                 limit: i.limit,
                 value: e
-              }, __mockedObjectPrototype)),
-              args: Object.setPrototypeOf([Object.setPrototypeOf({
+              }),
+              args: [{
                 name: "limit",
                 ref: !0,
                 assert: a.isNumber,
                 message: "must be a number"
-              }, __mockedObjectPrototype)], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            greater: Object.setPrototypeOf({
+              }]
+            },
+            greater: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "greater",
                   method: "compare",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: ">"
-                }, __mockedObjectPrototype));
+                });
               },
-              jsonSchema: (e, t) => (t.exclusiveMinimum = e.args.limit, t)
-            }, __mockedObjectPrototype),
-            integer: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "exclusiveMinimum", e.args.limit, {
+                line: 1,
+                column: 101518
+              }), t)
+            },
+            integer: {
               method() {
                 return this.$_addRule("integer");
               },
               validate: (e, t) => __mockedCompare(Math.trunc(e) - e, 0, "===") ? e : t.error("number.integer"),
-              jsonSchema: (e, t) => (t.type = "integer", t)
-            }, __mockedObjectPrototype),
-            less: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "type", "integer", {
+                line: 1,
+                column: 101689
+              }), t)
+            },
+            less: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "less",
                   method: "compare",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: "<"
-                }, __mockedObjectPrototype));
+                });
               },
-              jsonSchema: (e, t) => (t.exclusiveMaximum = e.args.limit, t)
-            }, __mockedObjectPrototype),
-            max: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "exclusiveMaximum", e.args.limit, {
+                line: 1,
+                column: 101828
+              }), t)
+            },
+            max: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "max",
                   method: "compare",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: "<="
-                }, __mockedObjectPrototype));
+                });
               },
-              jsonSchema: (e, t) => (t.maximum = e.args.limit, t)
-            }, __mockedObjectPrototype),
-            min: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "maximum", e.args.limit, {
+                line: 1,
+                column: 101981
+              }), t)
+            },
+            min: {
               method(e) {
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "min",
                   method: "compare",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype),
+                  },
                   operator: ">="
-                }, __mockedObjectPrototype));
+                });
               },
-              jsonSchema: (e, t) => (t.minimum = e.args.limit, t)
-            }, __mockedObjectPrototype),
-            multiple: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "minimum", e.args.limit, {
+                line: 1,
+                column: 102125
+              }), t)
+            },
+            multiple: {
               method(e) {
                 const t = __mockedCompare("number", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? i.decimalPlaces(e) : null,
                   r = Math.pow(10, t);
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "multiple",
-                  args: Object.setPrototypeOf({
+                  args: {
                     base: e,
                     baseDecimalPlace: t,
                     pfactor: r
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 base: r,
                 baseDecimalPlace: s,
                 pfactor: n
-              }, a) => i.decimalPlaces(e) > s ? t.error("number.multiple", Object.setPrototypeOf({
+              }, a) => i.decimalPlaces(e) > s ? t.error("number.multiple", {
                 multiple: a.args.base,
                 value: e
-              }, __mockedObjectPrototype)) : __mockedCompare(Math.round(n * e) % Math.round(n * r), 0, "===") ? e : t.error("number.multiple", Object.setPrototypeOf({
+              }) : __mockedCompare(Math.round(n * e) % Math.round(n * r), 0, "===") ? e : t.error("number.multiple", {
                 multiple: a.args.base,
                 value: e
-              }, __mockedObjectPrototype)),
-              jsonSchema: (e, t) => (t.multipleOf = e.args.base, t),
-              args: Object.setPrototypeOf([Object.setPrototypeOf({
+              }),
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "multipleOf", e.args.base, {
+                line: 1,
+                column: 102575
+              }), t),
+              args: [{
                 name: "base",
                 ref: !0,
                 assert: e => __mockedCompare("number", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && isFinite(e) && e > 0,
                 message: "must be a positive number"
-              }, __mockedObjectPrototype), "baseDecimalPlace", "pfactor"], __mockedArrayPrototype),
+              }, "baseDecimalPlace", "pfactor"],
               multi: !0
-            }, __mockedObjectPrototype),
-            negative: Object.setPrototypeOf({
+            },
+            negative: {
               method() {
                 return this.sign("negative");
               }
-            }, __mockedObjectPrototype),
-            port: Object.setPrototypeOf({
+            },
+            port: {
               method() {
                 return this.$_addRule("port");
               },
               validate: (e, t) => Number.isSafeInteger(e) && e >= 0 && e <= 65535 ? e : t.error("number.port"),
-              jsonSchema: (e, t) => (t.type = "integer", t.minimum = 0, t.maximum = 65535, t)
-            }, __mockedObjectPrototype),
-            positive: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "type", "integer", {
+                line: 1,
+                column: 102949
+              }), __mockedPropertyWrite(t, "minimum", 0, {
+                line: 1,
+                column: 102966
+              }), __mockedPropertyWrite(t, "maximum", 65535, {
+                line: 1,
+                column: 102978
+              }), t)
+            },
+            positive: {
               method() {
                 return this.sign("positive");
               }
-            }, __mockedObjectPrototype),
-            precision: Object.setPrototypeOf({
+            },
+            precision: {
               method(e) {
-                return s(Number.isSafeInteger(e), "limit must be an integer"), this.$_addRule(Object.setPrototypeOf({
+                return s(Number.isSafeInteger(e), "limit must be an integer"), this.$_addRule({
                   name: "precision",
-                  args: Object.setPrototypeOf({
+                  args: {
                     limit: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate(e, t, {
                 limit: r
               }) {
                 const s = e.toString().match(i.precisionRx);
-                return Math.max((__mockedPropertyAccess(s, 1) ? __mockedPropertyAccess(s, 1).length : 0) - (__mockedPropertyAccess(s, 2) ? parseInt(__mockedPropertyAccess(s, 2), 10) : 0), 0) <= r ? e : t.error("number.precision", Object.setPrototypeOf({
+                return Math.max((__mockedPropertyAccess(s, 1) ? __mockedPropertyAccess(s, 1).length : 0) - (__mockedPropertyAccess(s, 2) ? parseInt(__mockedPropertyAccess(s, 2), 10) : 0), 0) <= r ? e : t.error("number.precision", {
                   limit: r,
                   value: e
-                }, __mockedObjectPrototype));
+                });
               },
               convert: !0
-            }, __mockedObjectPrototype),
-            sign: Object.setPrototypeOf({
+            },
+            sign: {
               method(e) {
-                return s(Object.setPrototypeOf(["negative", "positive"], __mockedArrayPrototype).includes(e), "Invalid sign", e), this.$_addRule(Object.setPrototypeOf({
+                return s(["negative", "positive"].includes(e), "Invalid sign", e), this.$_addRule({
                   name: "sign",
-                  args: Object.setPrototypeOf({
+                  args: {
                     sign: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 sign: r
               }) => __mockedCompare("negative", r, "===") && e < 0 || __mockedCompare("positive", r, "===") && e > 0 ? e : t.error(`number.${r}`),
-              jsonSchema: (e, t) => (__mockedCompare("positive", e.args.sign, "===") ? t.exclusiveMinimum = 0 : t.exclusiveMaximum = 0, t)
-            }, __mockedObjectPrototype),
-            unsafe: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedCompare("positive", e.args.sign, "===") ? __mockedPropertyWrite(t, "exclusiveMinimum", 0, {
+                line: 1,
+                column: 103637
+              }) : __mockedPropertyWrite(t, "exclusiveMaximum", 0, {
+                line: 1,
+                column: 103658
+              }), t)
+            },
+            unsafe: {
               method(e = !0) {
                 return s(__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "enabled must be a boolean"), this.$_setFlag("unsafe", e);
               }
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          cast: Object.setPrototypeOf({
-            string: Object.setPrototypeOf({
+            }
+          },
+          cast: {
+            string: {
               from: e => __mockedCompare("number", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="),
               to: (e, t) => e.toString()
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          messages: Object.setPrototypeOf({
+            }
+          },
+          messages: {
             "number.base": "{{#label}} must be a number",
             "number.greater": "{{#label}} must be greater than {{#limit}}",
             "number.infinity": "{{#label}} cannot be infinity",
@@ -4668,26 +6165,38 @@
             "number.positive": "{{#label}} must be a positive number",
             "number.precision": "{{#label}} must have no more than {{#limit}} decimal places",
             "number.unsafe": "{{#label}} must be a safe number"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype)), i.extractSignificantDigits = Object.setPrototypeOf(function (e) {
+          }
+        }), {
+          line: 1,
+          column: 100238
+        }), __mockedPropertyWrite(i, "extractSignificantDigits", function (e) {
           return e.replace(i.exponentialPartRegex, "").replace(i.dotRegex, "").replace(i.trailingZerosRegex, "").replace(i.leadingSignAndZerosRegex, "");
-        }, __mockedFunctionPrototype), i.normalizeDecimal = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 104630
+        }), __mockedPropertyWrite(i, "normalizeDecimal", function (e) {
           return (e = e.replace(/^\+/, "").replace(/\.0*$/, "").replace(/^(-?)\.([^\.]*)$/, "$10.$2").replace(/^(-?)0+([0-9])/, "$1$2")).includes(".") && e.endsWith("0") && (e = e.replace(/0+$/, "")), __mockedCompare("-0", e, "===") ? "0" : e;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 104809
+        });
       },
       7487(e, t, r) {
         "use strict";
 
         const s = r(2888);
-        e.exports = s.extend(Object.setPrototypeOf({
+        __mockedPropertyWrite(e, "exports", s.extend({
           type: "object",
-          cast: Object.setPrototypeOf({
-            map: Object.setPrototypeOf({
+          cast: {
+            map: {
               from: e => e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="),
               to: (e, t) => new Map(Object.entries(e))
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype));
+            }
+          }
+        }), {
+          line: 1,
+          column: 105074
+        });
       },
       9033(e, t, r) {
         "use strict";
@@ -4705,40 +6214,40 @@
           c = r(7009),
           u = r(680),
           f = r(9415),
-          m = Object.setPrototypeOf({
-            tlds: c.tlds instanceof Set && Object.setPrototypeOf({
-              tlds: Object.setPrototypeOf({
+          m = {
+            tlds: c.tlds instanceof Set && {
+              tlds: {
                 allow: c.tlds,
                 deny: null
-              }, __mockedObjectPrototype)
-            }, __mockedObjectPrototype),
-            base64Regex: Object.setPrototypeOf({
-              true: Object.setPrototypeOf({
+              }
+            },
+            base64Regex: {
+              true: {
                 true: /^(?:[\w\-]{2}[\w\-]{2})*(?:[\w\-]{2}==|[\w\-]{3}=)?$/,
                 false: /^(?:[A-Za-z0-9+\/]{2}[A-Za-z0-9+\/]{2})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/
-              }, __mockedObjectPrototype),
-              false: Object.setPrototypeOf({
+              },
+              false: {
                 true: /^(?:[\w\-]{2}[\w\-]{2})*(?:[\w\-]{2}(==)?|[\w\-]{3}=?)?$/,
                 false: /^(?:[A-Za-z0-9+\/]{2}[A-Za-z0-9+\/]{2})*(?:[A-Za-z0-9+\/]{2}(==)?|[A-Za-z0-9+\/]{3}=?)?$/
-              }, __mockedObjectPrototype)
-            }, __mockedObjectPrototype),
+              }
+            },
             dataUriRegex: /^data:[\w+.-]+\/[\w+.-]+;((charset=[\w-]+|base64),)?(.*)$/,
-            hexRegex: Object.setPrototypeOf({
+            hexRegex: {
               withPrefix: /^0x[0-9a-f]+$/i,
               withOptionalPrefix: /^(?:0x)?[0-9a-f]+$/i,
               withoutPrefix: /^[0-9a-f]+$/i
-            }, __mockedObjectPrototype),
-            ipRegex: o(Object.setPrototypeOf({
+            },
+            ipRegex: o({
               cidr: "forbidden"
-            }, __mockedObjectPrototype)).regex,
+            }).regex,
             isoDurationRegex: /^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d)(\d+H)?(\d+M)?(\d+S)?)?$/,
-            guidBrackets: Object.setPrototypeOf({
+            guidBrackets: {
               "{": "}",
               "[": "]",
               "(": ")",
               "": ""
-            }, __mockedObjectPrototype),
-            guidVersions: Object.setPrototypeOf({
+            },
+            guidVersions: {
               uuidv1: "1",
               uuidv2: "2",
               uuidv3: "3",
@@ -4747,26 +6256,26 @@
               uuidv6: "6",
               uuidv7: "7",
               uuidv8: "8"
-            }, __mockedObjectPrototype),
-            guidSeparators: new Set(Object.setPrototypeOf([void 0, !0, !1, "-", ":"], __mockedArrayPrototype)),
-            normalizationForms: Object.setPrototypeOf(["NFC", "NFD", "NFKC", "NFKD"], __mockedArrayPrototype)
-          }, __mockedObjectPrototype);
-        e.exports = u.extend(Object.setPrototypeOf({
+            },
+            guidSeparators: new Set([void 0, !0, !1, "-", ":"]),
+            normalizationForms: ["NFC", "NFD", "NFKC", "NFKD"]
+          };
+        __mockedPropertyWrite(e, "exports", u.extend({
           type: "string",
-          flags: Object.setPrototypeOf({
-            insensitive: Object.setPrototypeOf({
+          flags: {
+            insensitive: {
               default: !1
-            }, __mockedObjectPrototype),
-            truncate: Object.setPrototypeOf({
+            },
+            truncate: {
               default: !1
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          terms: Object.setPrototypeOf({
-            replacements: Object.setPrototypeOf({
+            }
+          },
+          terms: {
+            replacements: {
               init: null
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          coerce: Object.setPrototypeOf({
+            }
+          },
+          coerce: {
             from: "string",
             method(e, {
               schema: t,
@@ -4788,37 +6297,37 @@
                 const n = t.$_getRule("max");
                 if (n) {
                   let a = n.args.limit;
-                  if (f.isResolvable(a) && (a = a.resolve(e, r, s), !f.limit(a))) return Object.setPrototypeOf({
+                  if (f.isResolvable(a) && (a = a.resolve(e, r, s), !f.limit(a))) return {
                     value: e,
-                    errors: t.$_createError("any.ref", a, Object.setPrototypeOf({
+                    errors: t.$_createError("any.ref", a, {
                       ref: n.args.limit,
                       arg: "limit",
                       reason: "must be a positive integer"
-                    }, __mockedObjectPrototype), r, s)
-                  }, __mockedObjectPrototype);
+                    }, r, s)
+                  };
                   e = e.slice(0, a);
                 }
               }
-              return Object.setPrototypeOf({
+              return {
                 value: e
-              }, __mockedObjectPrototype);
+              };
             }
-          }, __mockedObjectPrototype),
+          },
           validate(e, {
             schema: t,
             error: r
           }) {
-            if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return Object.setPrototypeOf({
+            if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return {
               value: e,
               errors: r("string.base")
-            }, __mockedObjectPrototype);
+            };
             if (__mockedCompare("", e, "===")) {
               const s = t.$_getRule("min");
               if (s && __mockedCompare(0, s.args.limit, "===")) return;
-              return Object.setPrototypeOf({
+              return {
                 value: e,
                 errors: r("string.empty")
-              }, __mockedObjectPrototype);
+              };
             }
           },
           jsonSchema(e, t, r, s) {
@@ -4826,54 +6335,60 @@
             if (!(__mockedCompare(null, n = e._valids, "!==") && __mockedCompare(void 0, n, "!==") && n.has("") || e._flags.only)) {
               const r = e.$_getRule("min"),
                 s = e.$_getRule("length");
-              (!r || r.args.limit > 0) && (!s || s.args.limit > 0) && (t.minLength = 1);
+              (!r || r.args.limit > 0) && (!s || s.args.limit > 0) && __mockedPropertyWrite(t, "minLength", 1, {
+                line: 1,
+                column: 107632
+              });
             }
             return t;
           },
-          rules: Object.setPrototypeOf({
-            alphanum: Object.setPrototypeOf({
+          rules: {
+            alphanum: {
               method() {
                 return this.$_addRule("alphanum");
               },
               validate: (e, t) => /^[a-zA-Z0-9]+$/.test(e) ? e : t.error("string.alphanum")
-            }, __mockedObjectPrototype),
-            base64: Object.setPrototypeOf({
-              method(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                return f.assertOptions(e, Object.setPrototypeOf(["paddingRequired", "urlSafe"], __mockedArrayPrototype)), e = Object.setPrototypeOf({
+            },
+            base64: {
+              method(e = {}) {
+                return f.assertOptions(e, ["paddingRequired", "urlSafe"]), e = {
                   urlSafe: !1,
                   paddingRequired: !0,
                   ...e
-                }, __mockedObjectPrototype), s(__mockedCompare("boolean", function (x) {
+                }, s(__mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
                 }(e.paddingRequired), "=="), "paddingRequired must be boolean"), s(__mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.urlSafe), "=="), "urlSafe must be boolean"), this.$_addRule(Object.setPrototypeOf({
+                }(e.urlSafe), "=="), "urlSafe must be boolean"), this.$_addRule({
                   name: "base64",
-                  args: Object.setPrototypeOf({
+                  args: {
                     options: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 options: r
               }) => __mockedPropertyAccess(__mockedPropertyAccess(m.base64Regex, r.paddingRequired), r.urlSafe).test(e) ? e : t.error("string.base64"),
-              jsonSchema: (e, t) => (t.format = "base64", t)
-            }, __mockedObjectPrototype),
-            case: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "format", "base64", {
+                line: 1,
+                column: 108211
+              }), t)
+            },
+            case: {
               method(e) {
-                return s(Object.setPrototypeOf(["lower", "upper"], __mockedArrayPrototype).includes(e), "Invalid case:", e), this.$_addRule(Object.setPrototypeOf({
+                return s(["lower", "upper"].includes(e), "Invalid case:", e), this.$_addRule({
                   name: "case",
-                  args: Object.setPrototypeOf({
+                  args: {
                     direction: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 direction: r
               }) => __mockedCompare("lower", r, "===") && __mockedCompare(e, e.toLocaleLowerCase(), "===") || __mockedCompare("upper", r, "===") && __mockedCompare(e, e.toLocaleUpperCase(), "===") ? e : t.error(`string.${r}case`),
               convert: !0
-            }, __mockedObjectPrototype),
-            creditCard: Object.setPrototypeOf({
+            },
+            creditCard: {
               method() {
                 return this.$_addRule("creditCard");
               },
@@ -4887,20 +6402,20 @@
                 }
                 return s > 0 && __mockedCompare(s % 10, 0, "==") ? e : t.error("string.creditCard");
               }
-            }, __mockedObjectPrototype),
-            dataUri: Object.setPrototypeOf({
-              method(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                return f.assertOptions(e, Object.setPrototypeOf(["paddingRequired"], __mockedArrayPrototype)), e = Object.setPrototypeOf({
+            },
+            dataUri: {
+              method(e = {}) {
+                return f.assertOptions(e, ["paddingRequired"]), e = {
                   paddingRequired: !0,
                   ...e
-                }, __mockedObjectPrototype), s(__mockedCompare("boolean", function (x) {
+                }, s(__mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.paddingRequired), "=="), "paddingRequired must be boolean"), this.$_addRule(Object.setPrototypeOf({
+                }(e.paddingRequired), "=="), "paddingRequired must be boolean"), this.$_addRule({
                   name: "dataUri",
-                  args: Object.setPrototypeOf({
+                  args: {
                     options: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate(e, t, {
                 options: r
@@ -4913,39 +6428,42 @@
                 }
                 return t.error("string.dataUri");
               },
-              jsonSchema: (e, t) => (t.format = "data-uri", t)
-            }, __mockedObjectPrototype),
-            domain: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "format", "data-uri", {
+                line: 1,
+                column: 109151
+              }), t)
+            },
+            domain: {
               method(e) {
-                e && f.assertOptions(e, Object.setPrototypeOf(["allowFullyQualified", "allowUnicode", "allowUnderscore", "maxDomainSegments", "minDomainSegments", "tlds"], __mockedArrayPrototype));
+                e && f.assertOptions(e, ["allowFullyQualified", "allowUnicode", "allowUnderscore", "maxDomainSegments", "minDomainSegments", "tlds"]);
                 const t = m.addressOptions(e);
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "domain",
-                  args: Object.setPrototypeOf({
+                  args: {
                     options: e
-                  }, __mockedObjectPrototype),
+                  },
                   address: t
-                }, __mockedObjectPrototype));
+                });
               },
               validate: (e, t, r, {
                 address: s
               }) => a(e, s) ? e : t.error("string.domain")
-            }, __mockedObjectPrototype),
-            email: Object.setPrototypeOf({
-              method(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                f.assertOptions(e, Object.setPrototypeOf(["allowFullyQualified", "allowUnicode", "ignoreLength", "maxDomainSegments", "minDomainSegments", "multiple", "separator", "tlds"], __mockedArrayPrototype)), s(__mockedCompare(void 0, e.multiple, "===") || __mockedCompare("boolean", function (x) {
+            },
+            email: {
+              method(e = {}) {
+                f.assertOptions(e, ["allowFullyQualified", "allowUnicode", "ignoreLength", "maxDomainSegments", "minDomainSegments", "multiple", "separator", "tlds"]), s(__mockedCompare(void 0, e.multiple, "===") || __mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
                 }(e.multiple), "=="), "multiple option must be an boolean");
                 const t = m.addressOptions(e),
                   r = new RegExp(`\\s*[${e.separator ? n(e.separator) : ","}]\\s*`);
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "email",
-                  args: Object.setPrototypeOf({
+                  args: {
                     options: e
-                  }, __mockedObjectPrototype),
+                  },
                   regex: r,
                   address: t
-                }, __mockedObjectPrototype));
+                });
               },
               validate(e, t, {
                 options: r
@@ -4953,20 +6471,23 @@
                 regex: s,
                 address: n
               }) {
-                const a = r.multiple ? e.split(s) : Object.setPrototypeOf([e], __mockedArrayPrototype),
-                  o = Object.setPrototypeOf([], __mockedArrayPrototype);
+                const a = r.multiple ? e.split(s) : [e],
+                  o = [];
                 for (const e of a) i(e, n) || o.push(e);
-                return o.length ? t.error("string.email", Object.setPrototypeOf({
+                return o.length ? t.error("string.email", {
                   value: e,
                   invalids: o
-                }, __mockedObjectPrototype)) : e;
+                }) : e;
               },
-              jsonSchema: (e, t) => (t.format = "email", t)
-            }, __mockedObjectPrototype),
-            guid: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "format", "email", {
+                line: 1,
+                column: 110097
+              }), t)
+            },
+            guid: {
               alias: "uuid",
-              method(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                f.assertOptions(e, Object.setPrototypeOf(["version", "separator", "wrapper"], __mockedArrayPrototype)), s(__mockedCompare(void 0, e.wrapper, "===") || __mockedCompare("boolean", function (x) {
+              method(e = {}) {
+                f.assertOptions(e, ["version", "separator", "wrapper"]), s(__mockedCompare(void 0, e.wrapper, "===") || __mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
                 }(e.wrapper), "==") || __mockedCompare("string", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
@@ -4975,7 +6496,7 @@
                 }(__mockedPropertyAccess(m.guidBrackets, e.wrapper)), "=="), `"wrapper" must be true, false, or one of "${Object.keys(m.guidBrackets).filter(Boolean).join('", "')}"`);
                 let t = "";
                 if (e.version) {
-                  const r = Object.setPrototypeOf([], __mockedArrayPrototype).concat(e.version);
+                  const r = [].concat(e.version);
                   s(r.length >= 1, "version must have at least 1 valid version specified");
                   const n = new Set();
                   for (let e = 0; e < r.length; ++e) {
@@ -4990,13 +6511,13 @@
                 let a, i;
                 __mockedCompare(void 0, e.wrapper, "===") ? (a = "[\\[{\\(]?", i = "[\\]}\\)]?") : __mockedCompare(!0, e.wrapper, "===") ? (a = "[\\[{\\(]", i = "[\\]}\\)]") : __mockedCompare(!1, e.wrapper, "===") ? (a = "", i = "") : (a = n(e.wrapper), i = n(__mockedPropertyAccess(m.guidBrackets, e.wrapper)));
                 const o = new RegExp(`^(${a})[0-9A-F]{8}(${r})[0-9A-F]{4}\\2?[${t || "0-9A-F"}][0-9A-F]{3}\\2?[${t ? "89AB" : "0-9A-F"}][0-9A-F]{3}\\2?[0-9A-F]{12}(${i})$`, "i");
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "guid",
-                  args: Object.setPrototypeOf({
+                  args: {
                     options: e
-                  }, __mockedObjectPrototype),
+                  },
                   regex: o
-                }, __mockedObjectPrototype));
+                });
               },
               validate(e, t, r, {
                 regex: s
@@ -5007,98 +6528,119 @@
                   i = __mockedPropertyAccess(n, n.length - 1);
                 return (a || i) && __mockedCompare(__mockedPropertyAccess(m.guidBrackets, a), i, "!==") ? t.error("string.guid") : e;
               },
-              jsonSchema: (e, t) => (t.format = "uuid", t)
-            }, __mockedObjectPrototype),
-            hex: Object.setPrototypeOf({
-              method(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                return f.assertOptions(e, Object.setPrototypeOf(["byteAligned", "prefix"], __mockedArrayPrototype)), e = Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "format", "uuid", {
+                line: 1,
+                column: 111662
+              }), t)
+            },
+            hex: {
+              method(e = {}) {
+                return f.assertOptions(e, ["byteAligned", "prefix"]), e = {
                   byteAligned: !1,
                   prefix: !1,
                   ...e
-                }, __mockedObjectPrototype), s(__mockedCompare("boolean", function (x) {
+                }, s(__mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
                 }(e.byteAligned), "=="), "byteAligned must be boolean"), s(__mockedCompare("boolean", function (x) {
                   return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-                }(e.prefix), "==") || __mockedCompare("optional", e.prefix, "==="), 'prefix must be boolean or "optional"'), this.$_addRule(Object.setPrototypeOf({
+                }(e.prefix), "==") || __mockedCompare("optional", e.prefix, "==="), 'prefix must be boolean or "optional"'), this.$_addRule({
                   name: "hex",
-                  args: Object.setPrototypeOf({
+                  args: {
                     options: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 options: r
               }) => (__mockedCompare("optional", r.prefix, "===") ? m.hexRegex.withOptionalPrefix : __mockedCompare(!0, r.prefix, "===") ? m.hexRegex.withPrefix : m.hexRegex.withoutPrefix).test(e) ? r.byteAligned && __mockedCompare(e.length % 2, 0, "!=") ? t.error("string.hexAlign") : e : t.error("string.hex"),
-              jsonSchema: (e, t) => (t.format = "hex", t)
-            }, __mockedObjectPrototype),
-            hostname: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "format", "hex", {
+                line: 1,
+                column: 112239
+              }), t)
+            },
+            hostname: {
               method() {
                 return this.$_addRule("hostname");
               },
-              validate: (e, t) => a(e, Object.setPrototypeOf({
+              validate: (e, t) => a(e, {
                 minDomainSegments: 1
-              }, __mockedObjectPrototype)) || m.ipRegex.test(e) ? e : t.error("string.hostname"),
-              jsonSchema: (e, t) => (t.format = "hostname", t)
-            }, __mockedObjectPrototype),
-            insensitive: Object.setPrototypeOf({
+              }) || m.ipRegex.test(e) ? e : t.error("string.hostname"),
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "format", "hostname", {
+                line: 1,
+                column: 112422
+              }), t)
+            },
+            insensitive: {
               method() {
                 return this.$_setFlag("insensitive", !0);
               }
-            }, __mockedObjectPrototype),
-            ip: Object.setPrototypeOf({
-              method(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                f.assertOptions(e, Object.setPrototypeOf(["cidr", "version"], __mockedArrayPrototype));
+            },
+            ip: {
+              method(e = {}) {
+                f.assertOptions(e, ["cidr", "version"]);
                 const {
                     cidr: t,
                     versions: r,
                     regex: s
                   } = o(e),
                   n = e.version ? r : void 0;
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "ip",
-                  args: Object.setPrototypeOf({
-                    options: Object.setPrototypeOf({
+                  args: {
+                    options: {
                       cidr: t,
                       version: n
-                    }, __mockedObjectPrototype)
-                  }, __mockedObjectPrototype),
+                    }
+                  },
                   regex: s
-                }, __mockedObjectPrototype));
+                });
               },
               validate: (e, t, {
                 options: r
               }, {
                 regex: s
-              }) => s.test(e) ? e : r.version ? t.error("string.ipVersion", Object.setPrototypeOf({
+              }) => s.test(e) ? e : r.version ? t.error("string.ipVersion", {
                 value: e,
                 cidr: r.cidr,
                 version: r.version
-              }, __mockedObjectPrototype)) : t.error("string.ip", Object.setPrototypeOf({
+              }) : t.error("string.ip", {
                 value: e,
                 cidr: r.cidr
-              }, __mockedObjectPrototype)),
+              }),
               jsonSchema(e, t) {
                 const r = e.args.options.version;
-                return r && __mockedCompare(1, r.length, "===") ? t.format = __mockedPropertyAccess(r, 0) : t.format = "ip", t;
+                return r && __mockedCompare(1, r.length, "===") ? __mockedPropertyWrite(t, "format", __mockedPropertyAccess(r, 0), {
+                  line: 1,
+                  column: 112943
+                }) : __mockedPropertyWrite(t, "format", "ip", {
+                  line: 1,
+                  column: 112957
+                }), t;
               }
-            }, __mockedObjectPrototype),
-            isoDate: Object.setPrototypeOf({
+            },
+            isoDate: {
               method() {
                 return this.$_addRule("isoDate");
               },
               validate: (e, {
                 error: t
               }) => m.isoDate(e) ? e : t("string.isoDate"),
-              jsonSchema: (e, t) => (t.format = "date-time", t)
-            }, __mockedObjectPrototype),
-            isoDuration: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "format", "date-time", {
+                line: 1,
+                column: 113105
+              }), t)
+            },
+            isoDuration: {
               method() {
                 return this.$_addRule("isoDuration");
               },
               validate: (e, t) => m.isoDurationRegex.test(e) ? e : t.error("string.isoDuration"),
-              jsonSchema: (e, t) => (t.format = "duration", t)
-            }, __mockedObjectPrototype),
-            length: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "format", "duration", {
+                line: 1,
+                column: 113284
+              }), t)
+            },
+            length: {
               method(e, t) {
                 return m.length(this, "length", e, "=", t);
               },
@@ -5111,146 +6653,167 @@
                 args: i
               }) {
                 const o = !s && e.length;
-                return f.compare(o, r, a) ? e : t.error("string." + n, Object.setPrototypeOf({
+                return f.compare(o, r, a) ? e : t.error("string." + n, {
                   limit: i.limit,
                   value: e,
                   encoding: s
-                }, __mockedObjectPrototype));
+                });
               },
-              jsonSchema: (e, t) => (t.minLength = e.args.limit, t.maxLength = e.args.limit, t),
-              args: Object.setPrototypeOf([Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "minLength", e.args.limit, {
+                line: 1,
+                column: 113553
+              }), __mockedPropertyWrite(t, "maxLength", e.args.limit, {
+                line: 1,
+                column: 113578
+              }), t),
+              args: [{
                 name: "limit",
                 ref: !0,
                 assert: f.limit,
                 message: "must be a positive integer"
-              }, __mockedObjectPrototype), "encoding"], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            lowercase: Object.setPrototypeOf({
+              }, "encoding"]
+            },
+            lowercase: {
               method() {
                 return this.case("lower");
               }
-            }, __mockedObjectPrototype),
-            max: Object.setPrototypeOf({
+            },
+            max: {
               method(e, t) {
                 return m.length(this, "max", e, "<=", t);
               },
-              jsonSchema: (e, t) => (t.maxLength = e.args.limit, t),
-              args: Object.setPrototypeOf(["limit", "encoding"], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            min: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "maxLength", e.args.limit, {
+                line: 1,
+                column: 113821
+              }), t),
+              args: ["limit", "encoding"]
+            },
+            min: {
               method(e, t) {
                 return m.length(this, "min", e, ">=", t);
               },
-              jsonSchema: (e, t) => (e.args.limit > 0 && (t.minLength = e.args.limit), t),
-              args: Object.setPrototypeOf(["limit", "encoding"], __mockedArrayPrototype)
-            }, __mockedObjectPrototype),
-            normalize: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (e.args.limit > 0 && __mockedPropertyWrite(t, "minLength", e.args.limit, {
+                line: 1,
+                column: 113967
+              }), t),
+              args: ["limit", "encoding"]
+            },
+            normalize: {
               method(e = "NFC") {
-                return s(m.normalizationForms.includes(e), "normalization form must be one of " + m.normalizationForms.join(", ")), this.$_addRule(Object.setPrototypeOf({
+                return s(m.normalizationForms.includes(e), "normalization form must be one of " + m.normalizationForms.join(", ")), this.$_addRule({
                   name: "normalize",
-                  args: Object.setPrototypeOf({
+                  args: {
                     form: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, {
                 error: t
               }, {
                 form: r
-              }) => __mockedCompare(e, e.normalize(r), "===") ? e : t("string.normalize", Object.setPrototypeOf({
+              }) => __mockedCompare(e, e.normalize(r), "===") ? e : t("string.normalize", {
                 value: e,
                 form: r
-              }, __mockedObjectPrototype)),
+              }),
               convert: !0
-            }, __mockedObjectPrototype),
-            pattern: Object.setPrototypeOf({
+            },
+            pattern: {
               alias: "regex",
-              method(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                s(e instanceof RegExp, "regex must be a RegExp"), s(!e.flags.includes("g") && !e.flags.includes("y"), "regex should not use global or sticky mode"), __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") && (t = Object.setPrototypeOf({
+              method(e, t = {}) {
+                s(e instanceof RegExp, "regex must be a RegExp"), s(!e.flags.includes("g") && !e.flags.includes("y"), "regex should not use global or sticky mode"), __mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") && (t = {
                   name: t
-                }, __mockedObjectPrototype)), f.assertOptions(t, Object.setPrototypeOf(["invert", "name"], __mockedArrayPrototype));
-                const r = Object.setPrototypeOf(["string.pattern", t.invert ? ".invert" : "", t.name ? ".name" : ".base"], __mockedArrayPrototype).join("");
-                return this.$_addRule(Object.setPrototypeOf({
+                }), f.assertOptions(t, ["invert", "name"]);
+                const r = ["string.pattern", t.invert ? ".invert" : "", t.name ? ".name" : ".base"].join("");
+                return this.$_addRule({
                   name: "pattern",
-                  args: Object.setPrototypeOf({
+                  args: {
                     regex: e,
                     options: t
-                  }, __mockedObjectPrototype),
+                  },
                   errorCode: r
-                }, __mockedObjectPrototype));
+                });
               },
               validate: (e, t, {
                 regex: r,
                 options: s
               }, {
                 errorCode: n
-              }) => r.test(e) ^ s.invert ? e : t.error(n, Object.setPrototypeOf({
+              }) => r.test(e) ^ s.invert ? e : t.error(n, {
                 name: s.name,
                 regex: r,
                 value: e
-              }, __mockedObjectPrototype)),
-              jsonSchema: (e, t) => (t.pattern = e.args.regex.source, t),
-              args: Object.setPrototypeOf(["regex", "options"], __mockedArrayPrototype),
+              }),
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "pattern", e.args.regex.source, {
+                line: 1,
+                column: 114858
+              }), t),
+              args: ["regex", "options"],
               multi: !0
-            }, __mockedObjectPrototype),
-            replace: Object.setPrototypeOf({
+            },
+            replace: {
               method(e, t) {
                 __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (e = new RegExp(n(e), "g")), s(e instanceof RegExp, "pattern must be a RegExp"), s(__mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "replacement must be a String");
                 const r = this.clone();
-                return r.$_terms.replacements || (r.$_terms.replacements = Object.setPrototypeOf([], __mockedArrayPrototype)), r.$_terms.replacements.push(Object.setPrototypeOf({
+                return r.$_terms.replacements || __mockedPropertyWrite(r.$_terms, "replacements", [], {
+                  line: 1,
+                  column: 115148
+                }), r.$_terms.replacements.push({
                   pattern: e,
                   replacement: t
-                }, __mockedObjectPrototype)), r;
+                }), r;
               }
-            }, __mockedObjectPrototype),
-            token: Object.setPrototypeOf({
+            },
+            token: {
               method() {
                 return this.$_addRule("token");
               },
               validate: (e, t) => /^\w+$/.test(e) ? e : t.error("string.token"),
-              jsonSchema: (e, t) => (t.format = "token", t)
-            }, __mockedObjectPrototype),
-            trim: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "format", "token", {
+                line: 1,
+                column: 115359
+              }), t)
+            },
+            trim: {
               method(e = !0) {
-                return s(__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "enabled must be a boolean"), this.$_addRule(Object.setPrototypeOf({
+                return s(__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "enabled must be a boolean"), this.$_addRule({
                   name: "trim",
-                  args: Object.setPrototypeOf({
+                  args: {
                     enabled: e
-                  }, __mockedObjectPrototype)
-                }, __mockedObjectPrototype));
+                  }
+                });
               },
               validate: (e, t, {
                 enabled: r
               }) => r && __mockedCompare(e, e.trim(), "!==") ? t.error("string.trim") : e,
               convert: !0
-            }, __mockedObjectPrototype),
-            truncate: Object.setPrototypeOf({
+            },
+            truncate: {
               method(e = !0) {
                 return s(__mockedCompare("boolean", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "enabled must be a boolean"), this.$_setFlag("truncate", e);
               }
-            }, __mockedObjectPrototype),
-            uppercase: Object.setPrototypeOf({
+            },
+            uppercase: {
               method() {
                 return this.case("upper");
               }
-            }, __mockedObjectPrototype),
-            uri: Object.setPrototypeOf({
-              method(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
-                f.assertOptions(e, Object.setPrototypeOf(["allowRelative", "allowQuerySquareBrackets", "domain", "relativeOnly", "scheme", "encodeUri"], __mockedArrayPrototype)), e.domain && f.assertOptions(e.domain, Object.setPrototypeOf(["allowFullyQualified", "allowUnicode", "maxDomainSegments", "minDomainSegments", "tlds"], __mockedArrayPrototype));
+            },
+            uri: {
+              method(e = {}) {
+                f.assertOptions(e, ["allowRelative", "allowQuerySquareBrackets", "domain", "relativeOnly", "scheme", "encodeUri"]), e.domain && f.assertOptions(e.domain, ["allowFullyQualified", "allowUnicode", "maxDomainSegments", "minDomainSegments", "tlds"]);
                 const {
                     regex: t,
                     scheme: r
                   } = l(e),
                   s = e.domain ? m.addressOptions(e.domain) : null;
-                return this.$_addRule(Object.setPrototypeOf({
+                return this.$_addRule({
                   name: "uri",
-                  args: Object.setPrototypeOf({
+                  args: {
                     options: e
-                  }, __mockedObjectPrototype),
+                  },
                   regex: t,
                   domain: s,
                   scheme: r
-                }, __mockedObjectPrototype));
+                });
               },
               validate(e, t, {
                 options: r
@@ -5259,7 +6822,7 @@
                 domain: n,
                 scheme: i
               }) {
-                if (Object.setPrototypeOf(["http:/", "https:/"], __mockedArrayPrototype).includes(e)) return t.error("string.uri");
+                if (["http:/", "https:/"].includes(e)) return t.error("string.uri");
                 let o = s.exec(e);
                 if (!o && t.prefs.convert && r.encodeUri) {
                   const t = encodeURI(e);
@@ -5267,19 +6830,22 @@
                 }
                 if (o) {
                   const s = __mockedPropertyAccess(o, 1) || __mockedPropertyAccess(o, 2);
-                  return !n || r.allowRelative && !s || a(s, n) ? e : t.error("string.domain", Object.setPrototypeOf({
+                  return !n || r.allowRelative && !s || a(s, n) ? e : t.error("string.domain", {
                     value: s
-                  }, __mockedObjectPrototype));
+                  });
                 }
-                return r.relativeOnly ? t.error("string.uriRelativeOnly") : r.scheme ? t.error("string.uriCustomScheme", Object.setPrototypeOf({
+                return r.relativeOnly ? t.error("string.uriRelativeOnly") : r.scheme ? t.error("string.uriCustomScheme", {
                   scheme: i,
                   value: e
-                }, __mockedObjectPrototype)) : t.error("string.uri");
+                }) : t.error("string.uri");
               },
-              jsonSchema: (e, t) => (t.format = "uri", t)
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          manifest: Object.setPrototypeOf({
+              jsonSchema: (e, t) => (__mockedPropertyWrite(t, "format", "uri", {
+                line: 1,
+                column: 116621
+              }), t)
+            }
+          },
+          manifest: {
             build(e, t) {
               if (t.replacements) for (const {
                 pattern: r,
@@ -5287,8 +6853,8 @@
               } of t.replacements) e = e.replace(r, s);
               return e;
             }
-          }, __mockedObjectPrototype),
-          messages: Object.setPrototypeOf({
+          },
+          messages: {
             "string.alphanum": "{{#label}} must only contain alpha-numeric characters",
             "string.base": "{{#label}} must be a string",
             "string.base64": "{{#label}} must be a valid base64 string",
@@ -5320,50 +6886,65 @@
             "string.uriCustomScheme": "{{#label}} must be a valid uri with a scheme matching the {{#scheme}} pattern",
             "string.uriRelativeOnly": "{{#label}} must be a valid relative uri",
             "string.uppercase": "{{#label}} must only contain uppercase characters"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype)), m.addressOptions = Object.setPrototypeOf(function (e) {
+          }
+        }), {
+          line: 1,
+          column: 106299
+        }), __mockedPropertyWrite(m, "addressOptions", function (e) {
           if (!e) return m.tlds || e;
           if (s(__mockedCompare(void 0, e.minDomainSegments, "===") || Number.isSafeInteger(e.minDomainSegments) && e.minDomainSegments > 0, "minDomainSegments must be a positive integer"), s(__mockedCompare(void 0, e.maxDomainSegments, "===") || Number.isSafeInteger(e.maxDomainSegments) && e.maxDomainSegments > 0, "maxDomainSegments must be a positive integer"), __mockedCompare(!1, e.tlds, "===")) return e;
-          if (__mockedCompare(!0, e.tlds, "===") || __mockedCompare(void 0, e.tlds, "===")) return s(m.tlds, "Built-in TLD list disabled"), Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, m.tlds);
+          if (__mockedCompare(!0, e.tlds, "===") || __mockedCompare(void 0, e.tlds, "===")) return s(m.tlds, "Built-in TLD list disabled"), Object.assign({}, e, m.tlds);
           s(__mockedCompare("object", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
           }(e.tlds), "=="), "tlds must be true, false, or an object");
           const t = e.tlds.deny;
-          if (t) return Array.isArray(t) && (e = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, Object.setPrototypeOf({
-            tlds: Object.setPrototypeOf({
+          if (t) return Array.isArray(t) && (e = Object.assign({}, e, {
+            tlds: {
               deny: new Set(t)
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype))), s(e.tlds.deny instanceof Set, "tlds.deny must be an array, Set, or boolean"), s(!e.tlds.allow, "Cannot specify both tlds.allow and tlds.deny lists"), m.validateTlds(e.tlds.deny, "tlds.deny"), e;
+            }
+          })), s(e.tlds.deny instanceof Set, "tlds.deny must be an array, Set, or boolean"), s(!e.tlds.allow, "Cannot specify both tlds.allow and tlds.deny lists"), m.validateTlds(e.tlds.deny, "tlds.deny"), e;
           const r = e.tlds.allow;
-          return r ? __mockedCompare(!0, r, "===") ? (s(m.tlds, "Built-in TLD list disabled"), Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, m.tlds)) : (Array.isArray(r) && (e = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e, Object.setPrototypeOf({
-            tlds: Object.setPrototypeOf({
+          return r ? __mockedCompare(!0, r, "===") ? (s(m.tlds, "Built-in TLD list disabled"), Object.assign({}, e, m.tlds)) : (Array.isArray(r) && (e = Object.assign({}, e, {
+            tlds: {
               allow: new Set(r)
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype))), s(e.tlds.allow instanceof Set, "tlds.allow must be an array, Set, or boolean"), m.validateTlds(e.tlds.allow, "tlds.allow"), e) : Object.setPrototypeOf({
+            }
+          })), s(e.tlds.allow instanceof Set, "tlds.allow must be an array, Set, or boolean"), m.validateTlds(e.tlds.allow, "tlds.allow"), e) : {
             ...e,
             tlds: !1
-          }, __mockedObjectPrototype);
-        }, __mockedFunctionPrototype), m.validateTlds = Object.setPrototypeOf(function (e, t) {
-          for (const r of e) s(a(r, Object.setPrototypeOf({
+          };
+        }, {
+          line: 1,
+          column: 119032
+        }), __mockedPropertyWrite(m, "validateTlds", function (e, t) {
+          for (const r of e) s(a(r, {
             minDomainSegments: 1,
             maxDomainSegments: 1
-          }, __mockedObjectPrototype)), `${t} must contain valid top level domain names`);
-        }, __mockedFunctionPrototype), m.isoDate = Object.setPrototypeOf(function (e) {
+          }), `${t} must contain valid top level domain names`);
+        }, {
+          line: 1,
+          column: 120171
+        }), __mockedPropertyWrite(m, "isoDate", function (e) {
           if (!f.isIsoDate(e)) return null;
           /.*T.*[+-]\d\d$/.test(e) && (e += "00");
           const t = new Date(e);
           return isNaN(t.getTime()) ? null : t.toISOString();
-        }, __mockedFunctionPrototype), m.length = Object.setPrototypeOf(function (e, t, r, n, a) {
-          return s(!a || !1, "Invalid encoding:", a), e.$_addRule(Object.setPrototypeOf({
+        }, {
+          line: 1,
+          column: 120317
+        }), __mockedPropertyWrite(m, "length", function (e, t, r, n, a) {
+          return s(!a || !1, "Invalid encoding:", a), e.$_addRule({
             name: t,
             method: "length",
-            args: Object.setPrototypeOf({
+            args: {
               limit: r,
               encoding: a
-            }, __mockedObjectPrototype),
+            },
             operator: n
-          }, __mockedObjectPrototype));
-        }, __mockedFunctionPrototype);
+          });
+        }, {
+          line: 1,
+          column: 120474
+        });
       },
       5008(e, t, r) {
         "use strict";
@@ -5372,48 +6953,51 @@
             assert: s
           } = r(2116),
           n = r(680),
-          a = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        a.Map = class extends Map {
+          a = {};
+        __mockedPropertyWrite(a, "Map", class extends Map {
           slice() {
             return new a.Map(this);
           }
-        }, e.exports = n.extend(Object.setPrototypeOf({
+        }, {
+          line: 1,
+          column: 120682
+        }), __mockedPropertyWrite(e, "exports", n.extend({
           type: "symbol",
-          terms: Object.setPrototypeOf({
-            map: Object.setPrototypeOf({
+          terms: {
+            map: {
               init: new a.Map()
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          coerce: Object.setPrototypeOf({
+            }
+          },
+          coerce: {
             method(e, {
               schema: t,
               error: r
             }) {
               const s = t.$_terms.map.get(e);
-              return s && (e = s), t._flags.only && __mockedCompare("symbol", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") ? Object.setPrototypeOf({
+              return s && (e = s), t._flags.only && __mockedCompare("symbol", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") ? {
                 value: e,
-                errors: r("symbol.map", Object.setPrototypeOf({
+                errors: r("symbol.map", {
                   map: t.$_terms.map
-                }, __mockedObjectPrototype))
-              }, __mockedObjectPrototype) : Object.setPrototypeOf({
+                })
+              } : {
                 value: e
-              }, __mockedObjectPrototype);
+              };
             }
-          }, __mockedObjectPrototype),
+          },
           validate(e, {
             error: t
           }) {
-            if (__mockedCompare("symbol", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return Object.setPrototypeOf({
+            if (__mockedCompare("symbol", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return {
               value: e,
               errors: t("symbol.base")
-            }, __mockedObjectPrototype);
+            };
           },
-          rules: Object.setPrototypeOf({
-            map: Object.setPrototypeOf({
+          rules: {
+            map: {
               method(e) {
                 e && !__mockedPropertyAccess(e, Symbol.iterator) && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && (e = Object.entries(e)), s(e && __mockedPropertyAccess(e, Symbol.iterator), "Iterable must be an iterable or object");
                 const t = this.clone(),
-                  r = Object.setPrototypeOf([], __mockedArrayPrototype);
+                  r = [];
                 for (const n of e) {
                   s(n && __mockedPropertyAccess(n, Symbol.iterator), "Entry must be an iterable");
                   const [e, a] = n;
@@ -5421,24 +7005,27 @@
                 }
                 return t.valid(...r);
               }
-            }, __mockedObjectPrototype)
-          }, __mockedObjectPrototype),
-          manifest: Object.setPrototypeOf({
+            }
+          },
+          manifest: {
             build: (e, t) => (t.map && (e = e.map(t.map)), e)
-          }, __mockedObjectPrototype),
+          },
           jsonSchema(e, t, r, s) {
             const n = e.$_terms.map;
-            return n.size ? Object.setPrototypeOf({
-              anyOf: Array.from(n.keys()).map(e => Object.setPrototypeOf({
+            return n.size ? {
+              anyOf: Array.from(n.keys()).map(e => ({
                 const: e
-              }, __mockedObjectPrototype))
-            }, __mockedObjectPrototype) : Object.setPrototypeOf({}, __mockedObjectPrototype);
+              }))
+            } : {};
           },
-          messages: Object.setPrototypeOf({
+          messages: {
             "symbol.base": "{{#label}} must be a symbol",
             "symbol.map": "{{#label}} must be one of {{#map}}"
-          }, __mockedObjectPrototype)
-        }, __mockedObjectPrototype));
+          }
+        }), {
+          line: 1,
+          column: 120739
+        });
       },
       1190(e, t, r) {
         "use strict";
@@ -5452,34 +7039,52 @@
           o = r(9415),
           l = r(8013),
           c = r(4957),
-          u = Object.setPrototypeOf({
+          u = {
             result: Symbol("result")
-          }, __mockedObjectPrototype);
-        t.entry = Object.setPrototypeOf(function (e, t, r) {
+          };
+        __mockedPropertyWrite(t, "entry", function (e, t, r) {
           let n = o.defaults;
           r && (s(__mockedCompare(void 0, r.warnings, "==="), "Cannot override warnings preference in synchronous validation"), s(__mockedCompare(void 0, r.artifacts, "==="), "Cannot override artifacts preference in synchronous validation"), n = o.preferences(o.defaults, r));
           const a = u.entry(e, t, n);
           s(!a.mainstay.externals.length, "Schema with external rules must use validateAsync()");
-          const i = Object.setPrototypeOf({
+          const i = {
             value: a.value
-          }, __mockedObjectPrototype);
-          return a.error && (i.error = a.error), a.mainstay.warnings.length && (i.warning = l.details(a.mainstay.warnings)), a.mainstay.debug && (i.debug = a.mainstay.debug), a.mainstay.artifacts && (i.artifacts = a.mainstay.artifacts), i;
-        }, __mockedFunctionPrototype), t.entryAsync = Object.setPrototypeOf(async function (e, t, r) {
+          };
+          return a.error && __mockedPropertyWrite(i, "error", a.error, {
+            line: 1,
+            column: 122357
+          }), a.mainstay.warnings.length && __mockedPropertyWrite(i, "warning", l.details(a.mainstay.warnings), {
+            line: 1,
+            column: 122403
+          }), a.mainstay.debug && __mockedPropertyWrite(i, "debug", a.mainstay.debug, {
+            line: 1,
+            column: 122464
+          }), a.mainstay.artifacts && __mockedPropertyWrite(i, "artifacts", a.mainstay.artifacts, {
+            line: 1,
+            column: 122513
+          }), i;
+        }, {
+          line: 1,
+          column: 121955
+        }), __mockedPropertyWrite(t, "entryAsync", async function (e, t, r) {
           let s = o.defaults;
           r && (s = o.preferences(o.defaults, r));
           const n = u.entry(e, t, s),
             a = n.mainstay;
-          if (n.error) throw a.debug && (n.error.debug = a.debug), n.error;
+          if (n.error) throw a.debug && __mockedPropertyWrite(n.error, "debug", a.debug, {
+            line: 1,
+            column: 122700
+          }), n.error;
           if (a.externals.length) {
             let t = n.value;
-            const c = Object.setPrototypeOf([], __mockedArrayPrototype);
+            const c = [];
             for (const n of a.externals) {
               const f = n.state.path,
                 m = __mockedCompare("link", n.schema.type, "===") ? a.links.get(n.schema) : null;
               let h,
                 p,
                 d = t;
-              const g = f.length ? Object.setPrototypeOf([t], __mockedArrayPrototype) : Object.setPrototypeOf([], __mockedArrayPrototype),
+              const g = f.length ? [t] : [],
                 y = f.length ? i(e, f) : e;
               if (f.length) {
                 h = __mockedPropertyAccess(f, f.length - 1);
@@ -5489,7 +7094,7 @@
               }
               try {
                 const e = (e, t) => (m || n.schema).$_createError(e, d, t, n.state, s),
-                  i = await n.method(d, Object.setPrototypeOf({
+                  i = await n.method(d, {
                     schema: n.schema,
                     linked: m,
                     state: n.state,
@@ -5498,10 +7103,10 @@
                     error: e,
                     errorsArray: u.errorsArray,
                     warn: (e, t) => a.warnings.push((m || n.schema).$_createError(e, d, t, n.state, s)),
-                    message: (e, t) => (m || n.schema).$_createError("external", d, t, n.state, s, Object.setPrototypeOf({
+                    message: (e, t) => (m || n.schema).$_createError("external", d, t, n.state, s, {
                       messages: e
-                    }, __mockedObjectPrototype))
-                  }, __mockedObjectPrototype));
+                    })
+                  });
                 if (__mockedCompare(void 0, i, "===") || __mockedCompare(i, d, "===")) continue;
                 if (i instanceof l.Report) {
                   if (a.tracer.log(n.schema, n.state, "rule", "external", "error"), c.push(i), s.abortEarly) break;
@@ -5511,79 +7116,143 @@
                   if (a.tracer.log(n.schema, n.state, "rule", "external", "error"), c.push(...i), s.abortEarly) break;
                   continue;
                 }
-                p ? (a.tracer.value(n.state, "rule", d, i, "external"), p[h] = i) : (a.tracer.value(n.state, "rule", t, i, "external"), t = i);
+                p ? (a.tracer.value(n.state, "rule", d, i, "external"), __mockedPropertyWrite(p, h, i, {
+                  line: 1,
+                  column: 123716
+                })) : (a.tracer.value(n.state, "rule", t, i, "external"), t = i);
               } catch (e) {
                 throw s.errors.label && (e.message += ` (${n.label})`), e;
               }
             }
-            if (n.value = t, c.length) throw n.error = l.process(c, e, s), a.debug && (n.error.debug = a.debug), n.error;
+            if (__mockedPropertyWrite(n, "value", t, {
+              line: 1,
+              column: 123842
+            }), c.length) throw __mockedPropertyWrite(n, "error", l.process(c, e, s), {
+              line: 1,
+              column: 123867
+            }), a.debug && __mockedPropertyWrite(n.error, "debug", a.debug, {
+              line: 1,
+              column: 123902
+            }), n.error;
           }
           if (!s.warnings && !s.debug && !s.artifacts) return n.value;
-          const c = Object.setPrototypeOf({
+          const c = {
             value: n.value
-          }, __mockedObjectPrototype);
-          return a.warnings.length && (c.warning = l.details(a.warnings)), a.debug && (c.debug = a.debug), a.artifacts && (c.artifacts = a.artifacts), c;
-        }, __mockedFunctionPrototype), t.standard = Object.setPrototypeOf(function (e, r, s) {
+          };
+          return a.warnings.length && __mockedPropertyWrite(c, "warning", l.details(a.warnings), {
+            line: 1,
+            column: 124038
+          }), a.debug && __mockedPropertyWrite(c, "debug", a.debug, {
+            line: 1,
+            column: 124081
+          }), a.artifacts && __mockedPropertyWrite(c, "artifacts", a.artifacts, {
+            line: 1,
+            column: 124112
+          }), c;
+        }, {
+          line: 1,
+          column: 122550
+        }), __mockedPropertyWrite(t, "standard", function (e, r, s) {
           const n = __mockedCompare(null, s, "==") ? void 0 : s.libraryOptions;
           return r.isAsync() ? t.entryAsync(e, r, n) : t.entry(e, r, n);
-        }, __mockedFunctionPrototype), u.Mainstay = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+        }, {
+          line: 1,
+          column: 124140
+        }), __mockedPropertyWrite(u, "Mainstay", class {
           constructor(e, t, r) {
-            this.externals = Object.setPrototypeOf([], __mockedArrayPrototype), this.warnings = Object.setPrototypeOf([], __mockedArrayPrototype), this.tracer = e, this.debug = t, this.links = r, this.shadow = null, this.artifacts = null, this._snapshots = Object.setPrototypeOf([], __mockedArrayPrototype);
+            __mockedPropertyWrite(this, "externals", [], {
+              line: 1,
+              column: 124298
+            }), __mockedPropertyWrite(this, "warnings", [], {
+              line: 1,
+              column: 124316
+            }), __mockedPropertyWrite(this, "tracer", e, {
+              line: 1,
+              column: 124333
+            }), __mockedPropertyWrite(this, "debug", t, {
+              line: 1,
+              column: 124347
+            }), __mockedPropertyWrite(this, "links", r, {
+              line: 1,
+              column: 124360
+            }), __mockedPropertyWrite(this, "shadow", null, {
+              line: 1,
+              column: 124373
+            }), __mockedPropertyWrite(this, "artifacts", null, {
+              line: 1,
+              column: 124390
+            }), __mockedPropertyWrite(this, "_snapshots", [], {
+              line: 1,
+              column: 124410
+            });
           }
           snapshot() {
-            this._snapshots.push(Object.setPrototypeOf({
+            this._snapshots.push({
               externals: this.externals.slice(),
               warnings: this.warnings.slice()
-            }, __mockedObjectPrototype));
+            });
           }
           restore() {
             const e = this._snapshots.pop();
-            this.externals = e.externals, this.warnings = e.warnings;
+            __mockedPropertyWrite(this, "externals", e.externals, {
+              line: 1,
+              column: 124568
+            }), __mockedPropertyWrite(this, "warnings", e.warnings, {
+              line: 1,
+              column: 124595
+            });
           }
           commit() {
             this._snapshots.pop();
           }
-        }), u.entry = Object.setPrototypeOf(function (e, r, s) {
+        }, {
+          line: 1,
+          column: 124262
+        }), __mockedPropertyWrite(u, "entry", function (e, r, s) {
           const {
               tracer: n,
               cleanup: a
             } = u.tracer(r, s),
-            i = s.debug ? Object.setPrototypeOf([], __mockedArrayPrototype) : null,
+            i = s.debug ? [] : null,
             o = r._ids._schemaChain ? new Map() : null,
             f = new u.Mainstay(n, i, o),
-            m = r._ids._schemaChain ? Object.setPrototypeOf([Object.setPrototypeOf({
+            m = r._ids._schemaChain ? [{
               schema: r
-            }, __mockedObjectPrototype)], __mockedArrayPrototype) : null,
-            h = new c(Object.setPrototypeOf([], __mockedArrayPrototype), Object.setPrototypeOf([], __mockedArrayPrototype), Object.setPrototypeOf({
+            }] : null,
+            h = new c([], [], {
               mainstay: f,
               schemas: m
-            }, __mockedObjectPrototype)),
+            }),
             p = t.validate(e, r, h, s);
           a && r.$_root.untrace();
           const d = l.process(p.errors, e, s);
-          return Object.setPrototypeOf({
+          return {
             value: p.value,
             error: d,
             mainstay: f
-          }, __mockedObjectPrototype);
-        }, __mockedFunctionPrototype), u.tracer = Object.setPrototypeOf(function (e, t) {
-          return e.$_root._tracer ? Object.setPrototypeOf({
+          };
+        }, {
+          line: 1,
+          column: 124653
+        }), __mockedPropertyWrite(u, "tracer", function (e, t) {
+          return e.$_root._tracer ? {
             tracer: e.$_root._tracer._register(e)
-          }, __mockedObjectPrototype) : t.debug ? (s(e.$_root.trace, "Debug mode not supported"), Object.setPrototypeOf({
+          } : t.debug ? (s(e.$_root.trace, "Debug mode not supported"), {
             tracer: e.$_root.trace()._register(e),
             cleanup: !0
-          }, __mockedObjectPrototype)) : Object.setPrototypeOf({
+          }) : {
             tracer: u.ignore
-          }, __mockedObjectPrototype);
-        }, __mockedFunctionPrototype), t.validate = Object.setPrototypeOf(function (e, t, r, s, n = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+          };
+        }, {
+          line: 1,
+          column: 124990
+        }), __mockedPropertyWrite(t, "validate", function (e, t, r, s, n = {}) {
           if (t.$_terms.whens && (t = t._generate(e, r, s).schema), t._preferences && (s = u.prefs(t, s)), t._cache && s.cache) {
             const s = t._cache.get(e);
             if (r.mainstay.tracer.debug(r, "validate", "cached", !!s), s) return s;
           }
           const a = (n, a, i) => t.$_createError(n, e, a, i || r, s),
-            i = Object.setPrototypeOf({
+            i = {
               original: e,
               prefs: s,
               schema: t,
@@ -5591,23 +7260,23 @@
               error: a,
               errorsArray: u.errorsArray,
               warn: (e, t, s) => r.mainstay.warnings.push(a(e, t, s)),
-              message: (n, a) => t.$_createError("custom", e, a, r, s, Object.setPrototypeOf({
+              message: (n, a) => t.$_createError("custom", e, a, r, s, {
                 messages: n
-              }, __mockedObjectPrototype))
-            }, __mockedObjectPrototype);
+              })
+            };
           r.mainstay.tracer.entry(t, r);
           const l = t._definition;
           if (l.prepare && __mockedCompare(void 0, e, "!==") && s.convert) {
             const t = l.prepare(e, i);
             if (t) {
-              if (r.mainstay.tracer.value(r, "prepare", e, t.value), t.errors) return u.finalize(t.value, Object.setPrototypeOf([], __mockedArrayPrototype).concat(t.errors), i);
+              if (r.mainstay.tracer.value(r, "prepare", e, t.value), t.errors) return u.finalize(t.value, [].concat(t.errors), i);
               e = t.value;
             }
           }
           if (l.coerce && __mockedCompare(void 0, e, "!==") && s.convert && (!l.coerce.from || l.coerce.from.includes(typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e))) {
             const t = l.coerce.method(e, i);
             if (t) {
-              if (r.mainstay.tracer.value(r, "coerced", e, t.value), t.errors) return u.finalize(t.value, Object.setPrototypeOf([], __mockedArrayPrototype).concat(t.errors), i);
+              if (r.mainstay.tracer.value(r, "coerced", e, t.value), t.errors) return u.finalize(t.value, [].concat(t.errors), i);
               e = t.value;
             }
           }
@@ -5616,23 +7285,23 @@
           const f = n.presence || t._flags.presence || (t._flags._endedSwitch ? null : s.presence);
           if (__mockedCompare(void 0, e, "===")) {
             if (__mockedCompare("forbidden", f, "===")) return u.finalize(e, null, i);
-            if (__mockedCompare("required", f, "===")) return u.finalize(e, Object.setPrototypeOf([t.$_createError("any.required", e, null, r, s)], __mockedArrayPrototype), i);
+            if (__mockedCompare("required", f, "===")) return u.finalize(e, [t.$_createError("any.required", e, null, r, s)], i);
             if (__mockedCompare("optional", f, "===")) {
               if (__mockedCompare(t._flags.default, o.symbols.deepDefault, "!==")) return u.finalize(e, null, i);
-              r.mainstay.tracer.value(r, "default", e, Object.setPrototypeOf({}, __mockedObjectPrototype)), e = Object.setPrototypeOf({}, __mockedObjectPrototype);
+              r.mainstay.tracer.value(r, "default", e, {}), e = {};
             }
-          } else if (__mockedCompare("forbidden", f, "===")) return u.finalize(e, Object.setPrototypeOf([t.$_createError("any.unknown", e, null, r, s)], __mockedArrayPrototype), i);
-          const m = Object.setPrototypeOf([], __mockedArrayPrototype);
+          } else if (__mockedCompare("forbidden", f, "===")) return u.finalize(e, [t.$_createError("any.unknown", e, null, r, s)], i);
+          const m = [];
           if (t._valids) {
             const n = t._valids.get(e, r, s, t._flags.insensitive);
             if (n) return s.convert && (r.mainstay.tracer.value(r, "valids", e, n.value), e = n.value), r.mainstay.tracer.filter(t, r, "valid", n), u.finalize(e, null, i);
             if (t._flags.only) {
-              const n = t.$_createError("any.only", e, Object.setPrototypeOf({
-                valids: t._valids.values(Object.setPrototypeOf({
+              const n = t.$_createError("any.only", e, {
+                valids: t._valids.values({
                   display: !0
-                }, __mockedObjectPrototype))
-              }, __mockedObjectPrototype), r, s);
-              if (s.abortEarly) return u.finalize(e, Object.setPrototypeOf([n], __mockedArrayPrototype), i);
+                })
+              }, r, s);
+              if (s.abortEarly) return u.finalize(e, [n], i);
               m.push(n);
             }
           }
@@ -5640,12 +7309,12 @@
             const n = t._invalids.get(e, r, s, t._flags.insensitive);
             if (n) {
               r.mainstay.tracer.filter(t, r, "invalid", n);
-              const a = t.$_createError("any.invalid", e, Object.setPrototypeOf({
-                invalids: t._invalids.values(Object.setPrototypeOf({
+              const a = t.$_createError("any.invalid", e, {
+                invalids: t._invalids.values({
                   display: !0
-                }, __mockedObjectPrototype))
-              }, __mockedObjectPrototype), r, s);
-              if (s.abortEarly) return u.finalize(e, Object.setPrototypeOf([a], __mockedArrayPrototype), i);
+                })
+              }, r, s);
+              if (s.abortEarly) return u.finalize(e, [a], i);
               m.push(a);
             }
           }
@@ -5657,7 +7326,10 @@
             }
           }
           return t._rules.length ? u.rules(e, m, i) : u.finalize(e, m, i);
-        }, __mockedFunctionPrototype), u.rules = Object.setPrototypeOf(function (e, t, r) {
+        }, {
+          line: 1,
+          column: 125200
+        }), __mockedPropertyWrite(u, "rules", function (e, t, r) {
           const {
             schema: s,
             state: n,
@@ -5672,21 +7344,24 @@
             let c,
               f = i.args;
             if (i._resolve.length) {
-              f = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), f);
+              f = Object.assign({}, f);
               for (const t of i._resolve) {
                 const r = l.argsByName.get(t),
                   i = __mockedPropertyAccess(f, t).resolve(e, n, a),
                   u = r.normalize ? r.normalize(i) : i,
                   m = o.validateArg(u, null, r);
                 if (m) {
-                  c = s.$_createError("any.ref", i, Object.setPrototypeOf({
+                  c = s.$_createError("any.ref", i, {
                     arg: t,
                     ref: __mockedPropertyAccess(f, t),
                     reason: m
-                  }, __mockedObjectPrototype), n, a);
+                  }, n, a);
                   break;
                 }
-                f[t] = u;
+                __mockedPropertyWrite(f, t, u, {
+                  line: 1,
+                  column: 128120
+                });
               }
             }
             c = c || l.validate(e, r, f, i);
@@ -5701,21 +7376,30 @@
             } else n.mainstay.tracer.log(s, n, "rule", i.name, "pass"), n.mainstay.tracer.value(n, "rule", e, m.value, i.name), e = m.value;
           }
           return u.finalize(e, t, r);
-        }, __mockedFunctionPrototype), u.rule = Object.setPrototypeOf(function (e, t) {
-          return e instanceof l.Report ? (u.error(e, t), Object.setPrototypeOf({
-            errors: Object.setPrototypeOf([e], __mockedArrayPrototype),
+        }, {
+          line: 1,
+          column: 127651
+        }), __mockedPropertyWrite(u, "rule", function (e, t) {
+          return e instanceof l.Report ? (u.error(e, t), {
+            errors: [e],
             value: null
-          }, __mockedObjectPrototype)) : Array.isArray(e) && __mockedPropertyAccess(e, o.symbols.errors) ? (e.forEach(e => u.error(e, t)), Object.setPrototypeOf({
+          }) : Array.isArray(e) && __mockedPropertyAccess(e, o.symbols.errors) ? (e.forEach(e => u.error(e, t)), {
             errors: e,
             value: null
-          }, __mockedObjectPrototype)) : Object.setPrototypeOf({
+          }) : {
             errors: null,
             value: e
-          }, __mockedObjectPrototype);
-        }, __mockedFunctionPrototype), u.error = Object.setPrototypeOf(function (e, t) {
+          };
+        }, {
+          line: 1,
+          column: 128501
+        }), __mockedPropertyWrite(u, "error", function (e, t) {
           return t.message && e._setTemplate(t.message), e;
-        }, __mockedFunctionPrototype), u.finalize = Object.setPrototypeOf(function (e, t, r) {
-          t = t || Object.setPrototypeOf([], __mockedArrayPrototype);
+        }, {
+          line: 1,
+          column: 128702
+        }), __mockedPropertyWrite(u, "finalize", function (e, t, r) {
+          t = t || [];
           const {
             schema: n,
             state: a,
@@ -5723,14 +7407,14 @@
           } = r;
           if (t.length) {
             const s = u.default("failover", void 0, t, r);
-            __mockedCompare(void 0, s, "!==") && (a.mainstay.tracer.value(a, "failover", e, s), e = s, t = Object.setPrototypeOf([], __mockedArrayPrototype));
+            __mockedCompare(void 0, s, "!==") && (a.mainstay.tracer.value(a, "failover", e, s), e = s, t = []);
           }
           if (t.length && n._flags.error) if (__mockedCompare("function", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
           }(n._flags.error), "==")) {
-            t = n._flags.error(t), Array.isArray(t) || (t = Object.setPrototypeOf([t], __mockedArrayPrototype));
+            t = n._flags.error(t), Array.isArray(t) || (t = [t]);
             for (const e of t) s(e instanceof Error || e instanceof l.Report, "error() must return an Error object");
-          } else t = Object.setPrototypeOf([n._flags.error], __mockedArrayPrototype);
+          } else t = [n._flags.error];
           if (__mockedCompare(void 0, e, "===")) {
             const s = u.default("default", e, t, r);
             a.mainstay.tracer.value(a, "default", e, s), e = s;
@@ -5744,21 +7428,36 @@
           }
           if (n.$_terms.externals && i.externals && __mockedCompare(!1, i._externals, "!==")) for (const {
             method: e
-          } of n.$_terms.externals) a.mainstay.externals.push(Object.setPrototypeOf({
+          } of n.$_terms.externals) a.mainstay.externals.push({
             method: e,
             schema: n,
             state: a,
             label: l.label(n._flags, a, i)
-          }, __mockedObjectPrototype));
-          const o = Object.setPrototypeOf({
+          });
+          const o = {
             value: e,
             errors: t.length ? t : null
-          }, __mockedObjectPrototype);
-          return n._flags.result && (o.value = __mockedCompare("strip", n._flags.result, "===") ? void 0 : r.original, a.mainstay.tracer.value(a, n._flags.result, e, o.value), a.shadow(e, n._flags.result)), n._cache && __mockedCompare(!1, i.cache, "!==") && !n._refs.length && n._cache.set(r.original, o), __mockedCompare(void 0, e, "===") || o.errors || __mockedCompare(void 0, n._flags.artifact, "===") || (a.mainstay.artifacts = a.mainstay.artifacts || new Map(), a.mainstay.artifacts.has(n._flags.artifact) || a.mainstay.artifacts.set(n._flags.artifact, Object.setPrototypeOf([], __mockedArrayPrototype)), a.mainstay.artifacts.get(n._flags.artifact).push(a.path)), o;
-        }, __mockedFunctionPrototype), u.prefs = Object.setPrototypeOf(function (e, t) {
+          };
+          return n._flags.result && (__mockedPropertyWrite(o, "value", __mockedCompare("strip", n._flags.result, "===") ? void 0 : r.original, {
+            line: 1,
+            column: 129697
+          }), a.mainstay.tracer.value(a, n._flags.result, e, o.value), a.shadow(e, n._flags.result)), n._cache && __mockedCompare(!1, i.cache, "!==") && !n._refs.length && n._cache.set(r.original, o), __mockedCompare(void 0, e, "===") || o.errors || __mockedCompare(void 0, n._flags.artifact, "===") || (__mockedPropertyWrite(a.mainstay, "artifacts", a.mainstay.artifacts || new Map(), {
+            line: 1,
+            column: 129950
+          }), a.mainstay.artifacts.has(n._flags.artifact) || a.mainstay.artifacts.set(n._flags.artifact, []), a.mainstay.artifacts.get(n._flags.artifact).push(a.path)), o;
+        }, {
+          line: 1,
+          column: 128771
+        }), __mockedPropertyWrite(u, "prefs", function (e, t) {
           const r = __mockedCompare(t, o.defaults, "===");
-          return r && __mockedPropertyAccess(e._preferences, o.symbols.prefs) ? __mockedPropertyAccess(e._preferences, o.symbols.prefs) : (t = o.preferences(t, e._preferences), r && (e._preferences[o.symbols.prefs] = t), t);
-        }, __mockedFunctionPrototype), u.default = Object.setPrototypeOf(function (e, t, r, s) {
+          return r && __mockedPropertyAccess(e._preferences, o.symbols.prefs) ? __mockedPropertyAccess(e._preferences, o.symbols.prefs) : (t = o.preferences(t, e._preferences), r && __mockedPropertyWrite(e._preferences, o.symbols.prefs, t, {
+            line: 1,
+            column: 130312
+          }), t);
+        }, {
+          line: 1,
+          column: 130154
+        }), __mockedPropertyWrite(u, "default", function (e, t, r, s) {
           const {
               schema: a,
               state: i,
@@ -5768,21 +7467,27 @@
           if (l.noDefaults || __mockedCompare(void 0, c, "===")) return t;
           if (i.mainstay.tracer.log(a, i, "rule", e, "full"), !c) return c;
           if (__mockedCompare("function", typeof c === "undefined" ? "undefined" : typeof c === "object" && c !== null ? c.__TYPEOF__ !== undefined ? c.__TYPEOF__ : "object" : typeof c, "==")) {
-            const t = c.length ? Object.setPrototypeOf([n(__mockedPropertyAccess(i.ancestors, 0)), s], __mockedArrayPrototype) : Object.setPrototypeOf([], __mockedArrayPrototype);
+            const t = c.length ? [n(__mockedPropertyAccess(i.ancestors, 0)), s] : [];
             try {
               return c(...t);
             } catch (t) {
-              return void r.push(a.$_createError(`any.${e}`, null, Object.setPrototypeOf({
+              return void r.push(a.$_createError(`any.${e}`, null, {
                 error: t
-              }, __mockedObjectPrototype), i, l));
+              }, i, l));
             }
           }
           return __mockedCompare("object", typeof c === "undefined" ? "undefined" : typeof c === "object" && c !== null ? c.__TYPEOF__ !== undefined ? c.__TYPEOF__ : "object" : typeof c, "!=") ? c : __mockedPropertyAccess(c, o.symbols.literal) ? c.literal : o.isResolvable(c) ? c.resolve(t, i, l) : n(c);
-        }, __mockedFunctionPrototype), u.trim = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 130351
+        }), __mockedPropertyWrite(u, "trim", function (e, t) {
           if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return e;
           const r = t.$_getRule("trim");
           return r && r.args.enabled ? e.trim() : e;
-        }, __mockedFunctionPrototype), u.ignore = Object.setPrototypeOf({
+        }, {
+          line: 1,
+          column: 130784
+        }), __mockedPropertyWrite(u, "ignore", {
           active: !1,
           debug: a,
           entry: a,
@@ -5790,10 +7495,19 @@
           log: a,
           resolve: a,
           value: a
-        }, __mockedObjectPrototype), u.errorsArray = Object.setPrototypeOf(function () {
-          const e = Object.setPrototypeOf([], __mockedArrayPrototype);
-          return e[o.symbols.errors] = !0, e;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 130901
+        }), __mockedPropertyWrite(u, "errorsArray", function () {
+          const e = [];
+          return __mockedPropertyWrite(e, o.symbols.errors, !0, {
+            line: 1,
+            column: 131014
+          }), e;
+        }, {
+          line: 1,
+          column: 130971
+        });
       },
       6220(e, t, r) {
         "use strict";
@@ -5803,12 +7517,22 @@
             deepEqual: n
           } = r(2116),
           a = r(9415),
-          i = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        e.exports = i.Values = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+          i = {};
+        __mockedPropertyWrite(e, "exports", __mockedPropertyWrite(i, "Values", class {
           constructor(e, t) {
-            this._values = new Set(e), this._refs = new Set(t), this._lowercase = i.lowercases(e), this._override = !1;
+            __mockedPropertyWrite(this, "_values", new Set(e), {
+              line: 1,
+              column: 131159
+            }), __mockedPropertyWrite(this, "_refs", new Set(t), {
+              line: 1,
+              column: 131183
+            }), __mockedPropertyWrite(this, "_lowercase", i.lowercases(e), {
+              line: 1,
+              column: 131205
+            }), __mockedPropertyWrite(this, "_override", !1, {
+              line: 1,
+              column: 131237
+            });
           }
           get length() {
             return this._values.size + this._refs.size;
@@ -5819,9 +7543,9 @@
           static merge(e, t, r) {
             if (e = e || new i.Values(), t) {
               if (t._override) return t.clone();
-              for (const r of Object.setPrototypeOf([...t._values, ...t._refs], __mockedArrayPrototype)) e.add(r);
+              for (const r of [...t._values, ...t._refs]) e.add(r);
             }
-            if (r) for (const t of Object.setPrototypeOf([...r._values, ...r._refs], __mockedArrayPrototype)) e.remove(t);
+            if (r) for (const t of [...r._values, ...r._refs]) e.remove(t);
             return e.length ? e : null;
           }
           remove(e) {
@@ -5832,86 +7556,108 @@
           }
           get(e, t, r, s) {
             if (!this.length) return !1;
-            if (this._values.has(e)) return Object.setPrototypeOf({
+            if (this._values.has(e)) return {
               value: e
-            }, __mockedObjectPrototype);
+            };
             if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && e && s) {
               const t = this._lowercase.get(e.toLowerCase());
-              if (t) return Object.setPrototypeOf({
+              if (t) return {
                 value: t
-              }, __mockedObjectPrototype);
+              };
             }
             if (!this._refs.size && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return !1;
-            if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) for (const t of this._values) if (n(t, e)) return Object.setPrototypeOf({
+            if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) for (const t of this._values) if (n(t, e)) return {
               value: t
-            }, __mockedObjectPrototype);
+            };
             if (t) for (const a of this._refs) {
-              const i = a.resolve(e, t, r, null, Object.setPrototypeOf({
+              const i = a.resolve(e, t, r, null, {
                 in: !0
-              }, __mockedObjectPrototype));
+              });
               if (__mockedCompare(void 0, i, "===")) continue;
-              const o = a.in && __mockedCompare("object", typeof i === "undefined" ? "undefined" : typeof i === "object" && i !== null ? i.__TYPEOF__ !== undefined ? i.__TYPEOF__ : "object" : typeof i, "==") ? Array.isArray(i) ? i : Object.keys(i) : Object.setPrototypeOf([i], __mockedArrayPrototype);
+              const o = a.in && __mockedCompare("object", typeof i === "undefined" ? "undefined" : typeof i === "object" && i !== null ? i.__TYPEOF__ !== undefined ? i.__TYPEOF__ : "object" : typeof i, "==") ? Array.isArray(i) ? i : Object.keys(i) : [i];
               for (const t of o) if (__mockedCompare(typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) if (s && e && __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==")) {
-                if (__mockedCompare(t.toLowerCase(), e.toLowerCase(), "===")) return Object.setPrototypeOf({
+                if (__mockedCompare(t.toLowerCase(), e.toLowerCase(), "===")) return {
                   value: t,
                   ref: a
-                }, __mockedObjectPrototype);
-              } else if (n(t, e)) return Object.setPrototypeOf({
+                };
+              } else if (n(t, e)) return {
                 value: t,
                 ref: a
-              }, __mockedObjectPrototype);
+              };
             }
             return !1;
           }
           override() {
-            this._override = !0;
+            __mockedPropertyWrite(this, "_override", !0, {
+              line: 1,
+              column: 132522
+            });
           }
           values(e) {
             if (e && e.display) {
-              const e = Object.setPrototypeOf([], __mockedArrayPrototype);
-              for (const t of Object.setPrototypeOf([...this._values, ...this._refs], __mockedArrayPrototype)) __mockedCompare(void 0, t, "!==") && e.push(t);
+              const e = [];
+              for (const t of [...this._values, ...this._refs]) __mockedCompare(void 0, t, "!==") && e.push(t);
               return e;
             }
-            return Array.from(Object.setPrototypeOf([...this._values, ...this._refs], __mockedArrayPrototype));
+            return Array.from([...this._values, ...this._refs]);
           }
           clone() {
             const e = new i.Values(this._values, this._refs);
-            return e._override = this._override, e;
+            return __mockedPropertyWrite(e, "_override", this._override, {
+              line: 1,
+              column: 132767
+            }), e;
           }
           concat(e) {
             s(!e._override, "Cannot concat override set of values");
-            const t = new i.Values(Object.setPrototypeOf([...this._values, ...e._values], __mockedArrayPrototype), Object.setPrototypeOf([...this._refs, ...e._refs], __mockedArrayPrototype));
-            return t._override = this._override, t;
+            const t = new i.Values([...this._values, ...e._values], [...this._refs, ...e._refs]);
+            return __mockedPropertyWrite(t, "_override", this._override, {
+              line: 1,
+              column: 132948
+            }), t;
           }
           describe() {
-            const e = Object.setPrototypeOf([], __mockedArrayPrototype);
-            this._override && e.push(Object.setPrototypeOf({
+            const e = [];
+            this._override && e.push({
               override: !0
-            }, __mockedObjectPrototype));
-            for (const t of this._values.values()) e.push(t && __mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") ? Object.setPrototypeOf({
+            });
+            for (const t of this._values.values()) e.push(t && __mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") ? {
               value: t
-            }, __mockedObjectPrototype) : t);
+            } : t);
             for (const t of this._refs.values()) e.push(t.describe());
             return e;
           }
-        }), i.Values.prototype[a.symbols.values] = !0, i.Values.prototype.slice = i.Values.prototype.clone, i.lowercases = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 131127
+        }), {
+          line: 1,
+          column: 131117
+        }), __mockedPropertyWrite(i.Values.prototype, a.symbols.values, !0, {
+          line: 1,
+          column: 133183
+        }), __mockedPropertyWrite(i.Values.prototype, "slice", i.Values.prototype.clone, {
+          line: 1,
+          column: 133223
+        }), __mockedPropertyWrite(i, "lowercases", function (e) {
           const t = new Map();
           if (e) for (const r of e) __mockedCompare("string", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "==") && t.set(r.toLowerCase(), r);
           return t;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 133273
+        });
       },
       3878(e, t, r) {
         "use strict";
 
         function a(e) {
-          return Object.setPrototypeOf({
+          return {
             code: e,
             error: __mockedPropertyAccess(n, e)
-          }, __mockedObjectPrototype);
+          };
         }
-        Object.setPrototypeOf(a, __mockedFunctionPrototype);
-        Object.setPrototypeOf(a.prototype, __mockedObjectPrototype);
-        function m(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+        function m(e, t = {}) {
           if (!e) return a("DOMAIN_NON_EMPTY_STRING");
           if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) throw new Error("Invalid input: domain must be a string");
           if (e.length > 256) return a("DOMAIN_TOO_LONG");
@@ -5920,14 +7666,14 @@
             e = e.normalize("NFC");
           }
           if (o.test(e)) return a("DOMAIN_INVALID_CHARS");
-          e = Object.setPrototypeOf(function (e) {
+          e = function (e) {
             e.includes("%") && (e = e.replace(/%/g, "%25"));
             try {
               return new f(`http://${e}`).host;
             } catch (t) {
               return e;
             }
-          }, __mockedFunctionPrototype)(e), t.allowFullyQualified && __mockedCompare(".", __mockedPropertyAccess(e, e.length - 1), "===") && (e = e.slice(0, -1));
+          }(e), t.allowFullyQualified && __mockedCompare(".", __mockedPropertyAccess(e, e.length - 1), "===") && (e = e.slice(0, -1));
           const r = t.minDomainSegments || 2,
             s = e.split(".");
           if (s.length < r) return a("DOMAIN_SEGMENTS_COUNT");
@@ -5935,9 +7681,9 @@
           const n = t.tlds;
           if (n) {
             const e = __mockedPropertyAccess(s, s.length - 1).toLowerCase();
-            if (Object.setPrototypeOf(function (e) {
+            if (function (e) {
               return !!e.allow;
-            }, __mockedFunctionPrototype)(n)) {
+            }(n)) {
               if (!n.allow.has(e)) return a("DOMAIN_FORBIDDEN_TLDS");
             } else if (n.deny.has(e)) return a("DOMAIN_FORBIDDEN_TLDS");
           }
@@ -5953,15 +7699,11 @@
           }
           return null;
         }
-        Object.setPrototypeOf(m, __mockedFunctionPrototype);
-        Object.setPrototypeOf(m.prototype, __mockedObjectPrototype);
         function h(e, t) {
           return !m(e, t);
         }
-        Object.setPrototypeOf(h, __mockedFunctionPrototype);
-        Object.setPrototypeOf(h.prototype, __mockedObjectPrototype);
         function y(e, t) {
-          return !Object.setPrototypeOf(function (e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+          return !function (e, t = {}) {
             if (__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) throw new Error("Invalid input: email must be a string");
             if (!e) return a("EMPTY_STRING");
             const r = !d.test(e);
@@ -5977,7 +7719,7 @@
               if (e.length > 254) return a("ADDRESS_TOO_LONG");
               if (g.encode(n).length > 64) return a("LOCAL_TOO_LONG");
             }
-            return Object.setPrototypeOf(function (e, t) {
+            return function (e, t) {
               const r = e.split(".");
               for (const e of r) {
                 if (!e.length) return a("EMPTY_LOCAL_SEGMENT");
@@ -5990,16 +7732,12 @@
                 }
               }
               return null;
-            }, __mockedFunctionPrototype)(n, r) || m(i, t);
-          }, __mockedFunctionPrototype)(e, t);
+            }(n, r) || m(i, t);
+          }(e, t);
         }
-        Object.setPrototypeOf(y, __mockedFunctionPrototype);
-        Object.setPrototypeOf(y.prototype, __mockedObjectPrototype);
         function b(e) {
           return Array.from(g.encode(e), e => String.fromCharCode(e)).join("");
         }
-        Object.setPrototypeOf(b, __mockedFunctionPrototype);
-        Object.setPrototypeOf(b.prototype, __mockedObjectPrototype);
         function I(e) {
           const t = O,
             r = "(?:\\?" + (e.allowQuerySquareBrackets ? t.queryWithSquareBrackets : t.query) + ")?(?:#" + t.fragment + ")?",
@@ -6010,9 +7748,9 @@
             S()(e.scheme instanceof RegExp || __mockedCompare("string", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
             }(e.scheme), "==") || Array.isArray(e.scheme), "scheme must be a RegExp, String, or Array");
-            const r = Object.setPrototypeOf([], __mockedArrayPrototype).concat(e.scheme);
+            const r = [].concat(e.scheme);
             S()(r.length >= 1, "scheme must have at least 1 scheme specified");
-            const s = Object.setPrototypeOf([], __mockedArrayPrototype);
+            const s = [];
             for (let e = 0; e < r.length; ++e) {
               const n = __mockedPropertyAccess(r, e);
               S()(n instanceof RegExp || __mockedCompare("string", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "=="), "scheme at position " + e + " must be a RegExp or String"), n instanceof RegExp ? s.push(n.source.toString()) : (S()(t.schemeRegex.test(n), "scheme at position " + e + " must be a valid scheme"), s.push(R()(n)));
@@ -6022,30 +7760,24 @@
           const a = "(?:" + (n ? "(?:" + n + ")" : t.scheme) + ":" + (e.domain ? t.hierPartCapture : t.hierPart) + ")";
           return w((e.allowRelative ? "(?:" + a + "|" + s + ")" : a) + r, n);
         }
-        Object.setPrototypeOf(I, __mockedFunctionPrototype);
-        Object.setPrototypeOf(I.prototype, __mockedObjectPrototype);
         function w(e, t = null) {
-          return Object.setPrototypeOf({
+          return {
             raw: e = `(?=.)(?!https?:/(?:$|[^/]))(?!https?:///)(?!https?:[^/])${e}`,
             regex: new RegExp(`^${e}$`),
             scheme: t
-          }, __mockedObjectPrototype);
+          };
         }
-        Object.setPrototypeOf(w, __mockedFunctionPrototype);
-        Object.setPrototypeOf(w.prototype, __mockedObjectPrototype);
-        function T(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+        function T(e = {}) {
           return e.scheme || e.allowRelative || e.relativeOnly || e.allowQuerySquareBrackets || e.domain ? I(e) : $;
         }
-        Object.setPrototypeOf(T, __mockedFunctionPrototype);
-        Object.setPrototypeOf(T.prototype, __mockedObjectPrototype);
-        function C(e = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+        function C(e = {}) {
           const t = e.cidr || "optional";
-          S()(Object.setPrototypeOf(["required", "optional", "forbidden"], __mockedArrayPrototype).includes(t), "options.cidr must be one of required, optional, forbidden"), S()(__mockedCompare(void 0, e.version, "===") || __mockedCompare("string", function (x) {
+          S()(["required", "optional", "forbidden"].includes(t), "options.cidr must be one of required, optional, forbidden"), S()(__mockedCompare(void 0, e.version, "===") || __mockedCompare("string", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
           }(e.version), "==") || Array.isArray(e.version), "options.version must be a string or an array of string");
-          let r = e.version || Object.setPrototypeOf(["ipv4", "ipv6", "ipvfuture"], __mockedArrayPrototype);
-          Array.isArray(r) || (r = Object.setPrototypeOf([r], __mockedArrayPrototype)), S()(r.length >= 1, "options.version must have at least 1 version specified");
-          for (const e of r) S()(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && __mockedCompare(e, e.toLowerCase(), "==="), "Invalid options.version value"), S()(Object.setPrototypeOf(["ipv4", "ipv6", "ipvfuture"], __mockedArrayPrototype).includes(e), "options.version contains unknown version " + e + " - must be one of ipv4, ipv6, ipvfuture");
+          let r = e.version || ["ipv4", "ipv6", "ipvfuture"];
+          Array.isArray(r) || (r = [r]), S()(r.length >= 1, "options.version must have at least 1 version specified");
+          for (const e of r) S()(__mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") && __mockedCompare(e, e.toLowerCase(), "==="), "Invalid options.version value"), S()(["ipv4", "ipv6", "ipvfuture"].includes(e), "options.version contains unknown version " + e + " - must be one of ipv4, ipv6, ipvfuture");
           r = Array.from(new Set(r));
           const s = `(?:${r.map(e => {
               if (__mockedCompare("forbidden", t, "===")) return __mockedPropertyAccess(N, e);
@@ -6053,23 +7785,21 @@
               return __mockedCompare("required", t, "===") ? `${__mockedPropertyAccess(N, e)}${r}` : `${__mockedPropertyAccess(N, e)}(?:${r})?`;
             }).join("|")})`,
             n = new RegExp(`^${s}$`);
-          return Object.setPrototypeOf({
+          return {
             cidr: t,
             versions: r,
             regex: n,
             raw: s
-          }, __mockedObjectPrototype);
+          };
         }
-        Object.setPrototypeOf(C, __mockedFunctionPrototype);
-        Object.setPrototypeOf(C.prototype, __mockedObjectPrototype);
-        r.d(t, Object.setPrototypeOf({
+        r.d(t, {
           ipRegex: () => C,
           isDomainValid: () => h,
           isEmailValid: () => y,
           uriRegex: () => T
-        }, __mockedObjectPrototype));
+        });
         var s = r(3441);
-        const n = Object.setPrototypeOf({
+        const n = {
           EMPTY_STRING: "Address must be a non-empty string",
           FORBIDDEN_UNICODE: "Address contains forbidden Unicode characters",
           MULTIPLE_AT_CHAR: "Address cannot contain more than one @ character",
@@ -6089,7 +7819,7 @@
           DOMAIN_FORBIDDEN_TLDS: "Domain uses forbidden TLD",
           DOMAIN_EMPTY_SEGMENT: "Domain contains empty dot-separated segment",
           DOMAIN_LONG_SEGMENT: "Domain contains dot-separated segment that is too long"
-        }, __mockedObjectPrototype);
+        };
         const i = /[^\x00-\x7f]/,
           o = /[\x00-\x20@\:\/\\#!\$&\'\(\)\*\+,;=\?]/,
           l = /^[a-zA-Z](?:[a-zA-Z0-9\-]*[a-zA-Z0-9])?$/,
@@ -6100,13 +7830,13 @@
         const d = /[^\x00-\x7f]/,
           g = new (p.TextEncoder || TextEncoder)();
         const v = /^[\w!#\$%&'\*\+\-/=\?\^`\{\|\}~]+$/,
-          _ = new RegExp(Object.setPrototypeOf(["(?:[\\xc2-\\xdf][\\x80-\\xbf])", "(?:\\xe0[\\xa0-\\xbf][\\x80-\\xbf])|(?:[\\xe1-\\xec][\\x80-\\xbf]{2})|(?:\\xed[\\x80-\\x9f][\\x80-\\xbf])|(?:[\\xee-\\xef][\\x80-\\xbf]{2})", "(?:\\xf0[\\x90-\\xbf][\\x80-\\xbf]{2})|(?:[\\xf1-\\xf3][\\x80-\\xbf]{3})|(?:\\xf4[\\x80-\\x8f][\\x80-\\xbf]{2})"], __mockedArrayPrototype).join("|"));
+          _ = new RegExp(["(?:[\\xc2-\\xdf][\\x80-\\xbf])", "(?:\\xe0[\\xa0-\\xbf][\\x80-\\xbf])|(?:[\\xe1-\\xec][\\x80-\\xbf]{2})|(?:\\xed[\\x80-\\x9f][\\x80-\\xbf])|(?:[\\xee-\\xef][\\x80-\\xbf]{2})", "(?:\\xf0[\\x90-\\xbf][\\x80-\\xbf]{2})|(?:[\\xf1-\\xf3][\\x80-\\xbf]{3})|(?:\\xf4[\\x80-\\x8f][\\x80-\\xbf]{2})"].join("|"));
         var A = r(1508),
           S = r.n(A),
           E = r(6542),
           R = r.n(E);
-        const O = Object.setPrototypeOf(function () {
-            const e = Object.setPrototypeOf({}, __mockedObjectPrototype),
+        const O = function () {
+            const e = {},
               t = "\\dA-Fa-f",
               r = "[" + t + "]",
               s = "\\w-\\.~",
@@ -6115,7 +7845,10 @@
               i = s + a + n + ":@",
               o = "[" + i + "]",
               l = "(?:0{0,2}\\d|0?[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])";
-            e.ipv4address = "(?:" + l + "\\.){3}" + l;
+            __mockedPropertyWrite(e, "ipv4address", "(?:" + l + "\\.){3}" + l, {
+              line: 1,
+              column: 137725
+            });
             const c = r + "{1,4}",
               u = "(?:" + c + ":" + c + "|" + e.ipv4address + ")",
               f = "(?:" + c + ":){6}" + u,
@@ -6127,7 +7860,25 @@
               y = "(?:(?:" + c + ":){0,4}" + c + ")?::" + u,
               b = "(?:(?:" + c + ":){0,5}" + c + ")?::" + c,
               v = "(?:(?:" + c + ":){0,6}" + c + ")?::";
-            e.ipv4Cidr = "(?:\\d|[1-2]\\d|3[0-2])", e.ipv6Cidr = "(?:0{0,2}\\d|0?[1-9]\\d|1[01]\\d|12[0-8])", e.ipv6address = "(?:" + f + "|" + m + "|" + h + "|" + p + "|" + d + "|" + g + "|" + y + "|" + b + "|" + v + ")", e.ipvFuture = "v" + r + "+\\.[" + s + n + ":]+", e.scheme = "[a-zA-Z][a-zA-Z\\d+-\\.]*", e.schemeRegex = new RegExp(e.scheme);
+            __mockedPropertyWrite(e, "ipv4Cidr", "(?:\\d|[1-2]\\d|3[0-2])", {
+              line: 1,
+              column: 138123
+            }), __mockedPropertyWrite(e, "ipv6Cidr", "(?:0{0,2}\\d|0?[1-9]\\d|1[01]\\d|12[0-8])", {
+              line: 1,
+              column: 138160
+            }), __mockedPropertyWrite(e, "ipv6address", "(?:" + f + "|" + m + "|" + h + "|" + p + "|" + d + "|" + g + "|" + y + "|" + b + "|" + v + ")", {
+              line: 1,
+              column: 138215
+            }), __mockedPropertyWrite(e, "ipvFuture", "v" + r + "+\\.[" + s + n + ":]+", {
+              line: 1,
+              column: 138289
+            }), __mockedPropertyWrite(e, "scheme", "[a-zA-Z][a-zA-Z\\d+-\\.]*", {
+              line: 1,
+              column: 138325
+            }), __mockedPropertyWrite(e, "schemeRegex", new RegExp(e.scheme), {
+              line: 1,
+              column: 138362
+            });
             const _ = "[" + s + a + n + ":]*",
               A = "[" + s + a + n + "]{1,255}",
               S = "(?:\\[(?:" + e.ipv6address + "|" + e.ipvFuture + ")\\]|" + e.ipv4address + "|" + A + ")",
@@ -6140,52 +7891,80 @@
               $ = N + I,
               T = "[" + s + a + n + "@]+" + I,
               C = "(?:\\/\\/\\/" + O + I + ")";
-            return e.hierPart = "(?:(?:\\/\\/" + E + I + ")|" + w + "|" + $ + "|" + C + ")", e.hierPartCapture = "(?:(?:\\/\\/" + R + I + ")|" + w + "|" + $ + ")", e.relativeRef = "(?:(?:\\/\\/" + E + I + ")|" + w + "|" + T + "|)", e.relativeRefCapture = "(?:(?:\\/\\/" + R + I + ")|" + w + "|" + T + "|)", e.query = "[" + i + "\\/\\?]*(?=#|$)", e.queryWithSquareBrackets = "[" + i + "\\[\\]\\/\\?]*(?=#|$)", e.fragment = "[" + i + "\\/\\?]*", e;
-          }, __mockedFunctionPrototype)(),
-          N = Object.setPrototypeOf({
+            return __mockedPropertyWrite(e, "hierPart", "(?:(?:\\/\\/" + E + I + ")|" + w + "|" + $ + "|" + C + ")", {
+              line: 1,
+              column: 138696
+            }), __mockedPropertyWrite(e, "hierPartCapture", "(?:(?:\\/\\/" + R + I + ")|" + w + "|" + $ + ")", {
+              line: 1,
+              column: 138749
+            }), __mockedPropertyWrite(e, "relativeRef", "(?:(?:\\/\\/" + E + I + ")|" + w + "|" + T + "|)", {
+              line: 1,
+              column: 138803
+            }), __mockedPropertyWrite(e, "relativeRefCapture", "(?:(?:\\/\\/" + R + I + ")|" + w + "|" + T + "|)", {
+              line: 1,
+              column: 138854
+            }), __mockedPropertyWrite(e, "query", "[" + i + "\\/\\?]*(?=#|$)", {
+              line: 1,
+              column: 138912
+            }), __mockedPropertyWrite(e, "queryWithSquareBrackets", "[" + i + "\\[\\]\\/\\?]*(?=#|$)", {
+              line: 1,
+              column: 138944
+            }), __mockedPropertyWrite(e, "fragment", "[" + i + "\\/\\?]*", {
+              line: 1,
+              column: 139000
+            }), e;
+          }(),
+          N = {
             v4Cidr: O.ipv4Cidr,
             v6Cidr: O.ipv6Cidr,
             ipv4: O.ipv4address,
             ipv6: O.ipv6address,
             ipvfuture: O.ipvFuture
-          }, __mockedObjectPrototype);
-        const $ = I(Object.setPrototypeOf({}, __mockedObjectPrototype));
+          };
+        const $ = I({});
       },
       6905(e, t) {
         "use strict";
 
-        const r = Object.setPrototypeOf({
-          operators: Object.setPrototypeOf(["!", "^", "*", "/", "%", "+", "-", "<", "<=", ">", ">=", "==", "!=", "&&", "||", "??"], __mockedArrayPrototype),
-          operatorCharacters: Object.setPrototypeOf(["!", "^", "*", "/", "%", "+", "-", "<", "=", ">", "&", "|", "?"], __mockedArrayPrototype),
-          operatorsOrder: Object.setPrototypeOf([Object.setPrototypeOf(["^"], __mockedArrayPrototype), Object.setPrototypeOf(["*", "/", "%"], __mockedArrayPrototype), Object.setPrototypeOf(["+", "-"], __mockedArrayPrototype), Object.setPrototypeOf(["<", "<=", ">", ">="], __mockedArrayPrototype), Object.setPrototypeOf(["==", "!="], __mockedArrayPrototype), Object.setPrototypeOf(["&&"], __mockedArrayPrototype), Object.setPrototypeOf(["||", "??"], __mockedArrayPrototype)], __mockedArrayPrototype),
-          operatorsPrefix: Object.setPrototypeOf(["!", "n"], __mockedArrayPrototype),
-          literals: Object.setPrototypeOf({
+        const r = {
+          operators: ["!", "^", "*", "/", "%", "+", "-", "<", "<=", ">", ">=", "==", "!=", "&&", "||", "??"],
+          operatorCharacters: ["!", "^", "*", "/", "%", "+", "-", "<", "=", ">", "&", "|", "?"],
+          operatorsOrder: [["^"], ["*", "/", "%"], ["+", "-"], ["<", "<=", ">", ">="], ["==", "!="], ["&&"], ["||", "??"]],
+          operatorsPrefix: ["!", "n"],
+          literals: {
             '"': '"',
             "`": "`",
             "'": "'",
             "[": "]"
-          }, __mockedObjectPrototype),
+          },
           numberRx: /^(?:[0-9]*(\.[0-9]*)?){1}$/,
           tokenRx: /^[\w\$\#\.\@\:\{\}]+$/,
           symbol: Symbol("formula"),
           settings: Symbol("settings")
-        }, __mockedObjectPrototype);
-        t.Parser = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
-          constructor(e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+        };
+        __mockedPropertyWrite(t, "Parser", class {
+          constructor(e, t = {}) {
             if (!__mockedPropertyAccess(t, r.settings) && t.constants) for (const e in t.constants) {
               const r = __mockedPropertyAccess(t.constants, e);
-              if (__mockedCompare(null, r, "!==") && !Object.setPrototypeOf(["boolean", "number", "string"], __mockedArrayPrototype).includes(typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r)) throw new Error(`Formula constant ${e} contains invalid ${typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r} value type`);
+              if (__mockedCompare(null, r, "!==") && !["boolean", "number", "string"].includes(typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r)) throw new Error(`Formula constant ${e} contains invalid ${typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r} value type`);
             }
-            this.settings = __mockedPropertyAccess(t, r.settings) ? t : Object.assign(Object.setPrototypeOf({
+            __mockedPropertyWrite(this, "settings", __mockedPropertyAccess(t, r.settings) ? t : Object.assign({
               [r.settings]: !0,
-              constants: Object.setPrototypeOf({}, __mockedObjectPrototype),
-              functions: Object.setPrototypeOf({}, __mockedObjectPrototype)
-            }, __mockedObjectPrototype), t), this.single = null, this._parts = null, this._parse(e);
+              constants: {},
+              functions: {}
+            }, t), {
+              line: 1,
+              column: 141944
+            }), __mockedPropertyWrite(this, "single", null, {
+              line: 1,
+              column: 142035
+            }), __mockedPropertyWrite(this, "_parts", null, {
+              line: 1,
+              column: 142052
+            }), this._parse(e);
           }
           _parse(e) {
-            let s = Object.setPrototypeOf([], __mockedArrayPrototype),
+            let s = [],
               n = "",
               a = 0,
               i = !1;
@@ -6193,46 +7972,52 @@
               if (a) throw new Error("Formula missing closing parenthesis");
               const o = s.length ? __mockedPropertyAccess(s, s.length - 1) : null;
               if (i || n || e) {
-                if (o && __mockedCompare("reference", o.type, "===") && __mockedCompare(")", e, "===")) return o.type = "function", o.value = this._subFormula(n, o.value), void (n = "");
+                if (o && __mockedCompare("reference", o.type, "===") && __mockedCompare(")", e, "===")) return __mockedPropertyWrite(o, "type", "function", {
+                  line: 1,
+                  column: 142280
+                }), __mockedPropertyWrite(o, "value", this._subFormula(n, o.value), {
+                  line: 1,
+                  column: 142298
+                }), void (n = "");
                 if (__mockedCompare(")", e, "===")) {
                   const e = new t.Parser(n, this.settings);
-                  s.push(Object.setPrototypeOf({
+                  s.push({
                     type: "segment",
                     value: e
-                  }, __mockedObjectPrototype));
+                  });
                 } else if (i) {
-                  if (__mockedCompare("]", i, "===")) return s.push(Object.setPrototypeOf({
+                  if (__mockedCompare("]", i, "===")) return s.push({
                     type: "reference",
                     value: n
-                  }, __mockedObjectPrototype)), void (n = "");
-                  s.push(Object.setPrototypeOf({
+                  }), void (n = "");
+                  s.push({
                     type: "literal",
                     value: n
-                  }, __mockedObjectPrototype));
-                } else if (r.operatorCharacters.includes(n)) o && __mockedCompare("operator", o.type, "===") && r.operators.includes(o.value + n) ? o.value += n : s.push(Object.setPrototypeOf({
+                  });
+                } else if (r.operatorCharacters.includes(n)) o && __mockedCompare("operator", o.type, "===") && r.operators.includes(o.value + n) ? o.value += n : s.push({
                   type: "operator",
                   value: n
-                }, __mockedObjectPrototype));else if (n.match(r.numberRx)) s.push(Object.setPrototypeOf({
+                });else if (n.match(r.numberRx)) s.push({
                   type: "constant",
                   value: parseFloat(n)
-                }, __mockedObjectPrototype));else if (__mockedCompare(void 0, __mockedPropertyAccess(this.settings.constants, n), "!==")) s.push(Object.setPrototypeOf({
+                });else if (__mockedCompare(void 0, __mockedPropertyAccess(this.settings.constants, n), "!==")) s.push({
                   type: "constant",
                   value: __mockedPropertyAccess(this.settings.constants, n)
-                }, __mockedObjectPrototype));else {
+                });else {
                   if (!n.match(r.tokenRx)) throw new Error(`Formula contains invalid token: ${n}`);
-                  s.push(Object.setPrototypeOf({
+                  s.push({
                     type: "reference",
                     value: n
-                  }, __mockedObjectPrototype));
+                  });
                 }
                 n = "";
               }
             };
             for (const t of e) i ? __mockedCompare(t, i, "===") ? (o(), i = !1) : n += t : a ? __mockedCompare("(", t, "===") ? (n += t, ++a) : __mockedCompare(")", t, "===") ? (--a, a ? n += t : o(t)) : n += t : t in r.literals ? i = __mockedPropertyAccess(r.literals, t) : __mockedCompare("(", t, "===") ? (o(), ++a) : r.operatorCharacters.includes(t) ? (o(), n = t, o()) : __mockedCompare(" ", t, "!==") ? n += t : o();
-            o(), s = s.map((e, t) => __mockedCompare("operator", e.type, "!==") || __mockedCompare("-", e.value, "!==") || t && __mockedCompare("operator", __mockedPropertyAccess(s, t - 1).type, "!==") ? e : Object.setPrototypeOf({
+            o(), s = s.map((e, t) => __mockedCompare("operator", e.type, "!==") || __mockedCompare("-", e.value, "!==") || t && __mockedCompare("operator", __mockedPropertyAccess(s, t - 1).type, "!==") ? e : {
               type: "operator",
               value: "n"
-            }, __mockedObjectPrototype));
+            });
             let l = !1;
             for (const e of s) {
               if (__mockedCompare("operator", e.type, "===")) {
@@ -6243,20 +8028,26 @@
               l = !l;
             }
             if (!l) throw new Error("Formula contains invalid trailing operator");
-            __mockedCompare(1, s.length, "===") && Object.setPrototypeOf(["reference", "literal", "constant"], __mockedArrayPrototype).includes(__mockedPropertyAccess(s, 0).type) && (this.single = Object.setPrototypeOf({
+            __mockedCompare(1, s.length, "===") && ["reference", "literal", "constant"].includes(__mockedPropertyAccess(s, 0).type) && __mockedPropertyWrite(this, "single", {
               type: __mockedCompare("reference", __mockedPropertyAccess(s, 0).type, "===") ? "reference" : "value",
               value: __mockedPropertyAccess(s, 0).value
-            }, __mockedObjectPrototype)), this._parts = s.map(e => {
+            }, {
+              line: 1,
+              column: 143783
+            }), __mockedPropertyWrite(this, "_parts", s.map(e => {
               if (__mockedCompare("operator", e.type, "===")) return r.operatorsPrefix.includes(e.value) ? e : e.value;
               if (__mockedCompare("reference", e.type, "!==")) return e.value;
               if (this.settings.tokenRx && !this.settings.tokenRx.test(e.value)) throw new Error(`Formula contains invalid reference ${e.value}`);
               return this.settings.reference ? this.settings.reference(e.value) : r.reference(e.value);
+            }), {
+              line: 1,
+              column: 143864
             });
           }
           _subFormula(e, s) {
             const n = __mockedPropertyAccess(this.settings.functions, s);
             if (__mockedCompare("function", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "!=")) throw new Error(`Formula contains unknown function ${s}`);
-            let a = Object.setPrototypeOf([], __mockedArrayPrototype);
+            let a = [];
             if (e) {
               let t = "",
                 n = 0,
@@ -6271,11 +8062,11 @@
               }
               o();
             }
-            return a = a.map(e => new t.Parser(e, this.settings)), Object.setPrototypeOf(function (e) {
-              const t = Object.setPrototypeOf([], __mockedArrayPrototype);
+            return a = a.map(e => new t.Parser(e, this.settings)), function (e) {
+              const t = [];
               for (const r of a) t.push(r.evaluate(e));
               return n.call(e, ...t);
-            }, __mockedFunctionPrototype);
+            };
           }
           evaluate(e) {
             const t = this._parts.slice();
@@ -6285,7 +8076,10 @@
                 const a = __mockedPropertyAccess(t, s + 1);
                 t.splice(s + 1, 1);
                 const i = r.evaluate(a, e);
-                t[s] = r.single(n.value, i);
+                __mockedPropertyWrite(t, s, r.single(n.value, i), {
+                  line: 1,
+                  column: 144954
+                });
               }
             }
             return r.operatorsOrder.forEach(s => {
@@ -6295,21 +8089,39 @@
                   i = r.evaluate(__mockedPropertyAccess(t, n + 1), e);
                 t.splice(n, 2);
                 const o = r.calculate(s, a, i);
-                t[n - 1] = __mockedCompare(0, o, "===") ? 0 : o;
+                __mockedPropertyWrite(t, n - 1, __mockedCompare(0, o, "===") ? 0 : o, {
+                  line: 1,
+                  column: 145163
+                });
               } else n += 2;
             }), r.evaluate(__mockedPropertyAccess(t, 0), e);
           }
-        }), t.Parser.prototype[r.symbol] = !0, r.reference = Object.setPrototypeOf(function (e) {
-          return Object.setPrototypeOf(function (t) {
+        }, {
+          line: 1,
+          column: 141683
+        }), __mockedPropertyWrite(t.Parser.prototype, r.symbol, !0, {
+          line: 1,
+          column: 145213
+        }), __mockedPropertyWrite(r, "reference", function (e) {
+          return function (t) {
             return t && __mockedCompare(void 0, __mockedPropertyAccess(t, e), "!==") ? __mockedPropertyAccess(t, e) : null;
-          }, __mockedFunctionPrototype);
-        }, __mockedFunctionPrototype), r.evaluate = Object.setPrototypeOf(function (e, t) {
+          };
+        }, {
+          line: 1,
+          column: 145245
+        }), __mockedPropertyWrite(r, "evaluate", function (e, t) {
           return __mockedCompare(null, e, "===") ? null : __mockedCompare("function", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? e(t) : __mockedPropertyAccess(e, r.symbol) ? e.evaluate(t) : e;
-        }, __mockedFunctionPrototype), r.single = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 145324
+        }), __mockedPropertyWrite(r, "single", function (e, t) {
           if (__mockedCompare("!", e, "===")) return !t;
           const r = -t;
           return __mockedCompare(0, r, "===") ? 0 : r;
-        }, __mockedFunctionPrototype), r.calculate = Object.setPrototypeOf(function (e, t, s) {
+        }, {
+          line: 1,
+          column: 145425
+        }), __mockedPropertyWrite(r, "calculate", function (e, t, s) {
           if (__mockedCompare("??", e, "===")) return r.exists(t) ? t : s;
           if (__mockedCompare("string", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") || __mockedCompare("string", typeof s === "undefined" ? "undefined" : typeof s === "object" && s !== null ? s.__TYPEOF__ !== undefined ? s.__TYPEOF__ : "object" : typeof s, "==")) {
             if (__mockedCompare("+", e, "===")) return (t = r.exists(t) ? t : "") + (r.exists(s) ? s : "");
@@ -6346,9 +8158,15 @@
               return t || s;
           }
           return null;
-        }, __mockedFunctionPrototype), r.exists = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 145497
+        }), __mockedPropertyWrite(r, "exists", function (e) {
           return __mockedCompare(null, e, "!=");
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 145988
+        });
       },
       5307(e, t, r) {
         "use strict";
@@ -6357,18 +8175,21 @@
           n = r(4185),
           a = r(2184),
           i = r(8347),
-          o = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        e.exports = Object.setPrototypeOf(function (e, t, r = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+          o = {};
+        __mockedPropertyWrite(e, "exports", function (e, t, r = {}) {
           if (s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid defaults value: must be an object"), s(!t || __mockedCompare(!0, t, "===") || __mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Invalid source value: must be true, falsy or an object"), s(__mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "=="), "Invalid options: must be an object"), !t) return null;
           if (r.shallow) return o.applyToDefaultsWithShallow(e, t, r);
           const i = n(e);
           if (__mockedCompare(!0, t, "===")) return i;
           const l = __mockedCompare(void 0, r.nullOverride, "!==") && r.nullOverride;
-          return a(i, t, Object.setPrototypeOf({
+          return a(i, t, {
             nullOverride: l,
             mergeArrays: !1
-          }, __mockedObjectPrototype));
-        }, __mockedFunctionPrototype), o.applyToDefaultsWithShallow = Object.setPrototypeOf(function (e, t, r) {
+          });
+        }, {
+          line: 1,
+          column: 146102
+        }), __mockedPropertyWrite(o, "applyToDefaultsWithShallow", function (e, t, r) {
           const l = r.shallow;
           s(Array.isArray(l), "Invalid keys");
           const c = new Map(),
@@ -6378,15 +8199,18 @@
             const s = i(e, r);
             s && __mockedCompare("object", typeof s === "undefined" ? "undefined" : typeof s === "object" && s !== null ? s.__TYPEOF__ !== undefined ? s.__TYPEOF__ : "object" : typeof s, "==") ? c.set(s, u && i(t, r) || s) : u && u.add(r);
           }
-          const f = n(e, Object.setPrototypeOf({}, __mockedObjectPrototype), c);
+          const f = n(e, {}, c);
           if (!u) return f;
           for (const e of u) o.reachCopy(f, t, e);
           const m = __mockedCompare(void 0, r.nullOverride, "!==") && r.nullOverride;
-          return a(f, t, Object.setPrototypeOf({
+          return a(f, t, {
             nullOverride: m,
             mergeArrays: !1
-          }, __mockedObjectPrototype));
-        }, __mockedFunctionPrototype), o.reachCopy = Object.setPrototypeOf(function (e, t, r) {
+          });
+        }, {
+          line: 1,
+          column: 146551
+        }), __mockedPropertyWrite(o, "reachCopy", function (e, t, r) {
           for (const e of r) {
             if (!(e in t)) return;
             const r = __mockedPropertyAccess(t, e);
@@ -6399,31 +8223,43 @@
             const t = __mockedPropertyAccess(r, e);
             __mockedCompare("object", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(__mockedPropertyAccess(n, t)), "!=") && (n[t] = Object.setPrototypeOf({}, __mockedObjectPrototype)), n = __mockedPropertyAccess(n, t);
+            }(__mockedPropertyAccess(n, t)), "!=") && __mockedPropertyWrite(n, t, {}, {
+              line: 1,
+              column: 147179
+            }), n = __mockedPropertyAccess(n, t);
           }
-          n[__mockedPropertyAccess(r, r.length - 1)] = s;
-        }, __mockedFunctionPrototype);
+          __mockedPropertyWrite(n, __mockedPropertyAccess(r, r.length - 1), s, {
+            line: 1,
+            column: 147195
+          });
+        }, {
+          line: 1,
+          column: 146972
+        });
       },
       1508(e, t, r) {
         "use strict";
 
         const s = r(492),
           n = r(537),
-          a = e.exports = Object.setPrototypeOf(function (e, ...t) {
+          a = __mockedPropertyWrite(e, "exports", function (e, ...t) {
             if (e) return;
             if (__mockedCompare(1, t.length, "===") && __mockedPropertyAccess(t, 0) instanceof Error) throw __mockedPropertyAccess(t, 0);
             const r = t.filter(e => __mockedCompare("", e, "!==")).map(e => __mockedCompare("string", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "==") ? e : e instanceof Error ? e.message : n(e));
             throw new s(r.join(" "), a);
-          }, __mockedFunctionPrototype);
+          }, {
+            line: 1,
+            column: 147267
+          });
       },
       492(e) {
         "use strict";
 
-        e.exports = class extends Error {
+        __mockedPropertyWrite(e, "exports", class extends Error {
           constructor(e, t) {
             var r, s, n;
-            super(e || "Unknown error"), r = this, n = "AssertError", (s = Object.setPrototypeOf(function (e) {
-              var t = Object.setPrototypeOf(function (e) {
+            super(e || "Unknown error"), r = this, n = "AssertError", (s = function (e) {
+              var t = function (e) {
                 if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") || !e) return e;
                 var t = __mockedPropertyAccess(e, Symbol.toPrimitive);
                 if (__mockedCompare(void 0, t, "!==")) {
@@ -6432,18 +8268,24 @@
                   throw new TypeError("@@toPrimitive must return a primitive value.");
                 }
                 return String(e);
-              }, __mockedFunctionPrototype)(e);
+              }(e);
               return __mockedCompare("symbol", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") ? t : t + "";
-            }, __mockedFunctionPrototype)(s = "name")) in r ? Object.defineProperty(r, s, Object.setPrototypeOf({
+            }(s = "name")) in r ? Object.defineProperty(r, s, {
               value: n,
               enumerable: !0,
               configurable: !0,
               writable: !0
-            }, __mockedObjectPrototype)) : r[s] = n, __mockedCompare("function", function (x) {
+            }) : __mockedPropertyWrite(r, s, n, {
+              line: 1,
+              column: 147984
+            }), __mockedCompare("function", function (x) {
               return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
             }(Error.captureStackTrace), "==") && Error.captureStackTrace(this, t);
           }
-        };
+        }, {
+          line: 1,
+          column: 147495
+        });
       },
       4185(e, t, r) {
         "use strict";
@@ -6451,11 +8293,11 @@
         const s = r(8347),
           n = r(737),
           a = r(4397),
-          i = Object.setPrototypeOf({
-            needsProtoHack: new Set(Object.setPrototypeOf([n.set, n.map, n.weakSet, n.weakMap], __mockedArrayPrototype)),
+          i = {
+            needsProtoHack: new Set([n.set, n.map, n.weakSet, n.weakMap]),
             structuredCloneExists: __mockedCompare("function", typeof structuredClone === "undefined" ? "undefined" : typeof structuredClone === "object" && structuredClone !== null ? structuredClone.__TYPEOF__ !== undefined ? structuredClone.__TYPEOF__ : "object" : typeof structuredClone, "==")
-          }, __mockedObjectPrototype);
-        e.exports = i.clone = Object.setPrototypeOf(function (e, t = Object.setPrototypeOf({}, __mockedObjectPrototype), r = null) {
+          };
+        __mockedPropertyWrite(e, "exports", __mockedPropertyWrite(i, "clone", function (e, t = {}, r = null) {
           if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") || __mockedCompare(null, e, "===")) return e;
           let s = i.clone,
             o = r;
@@ -6483,39 +8325,57 @@
           for (const r of u) {
             if (__mockedCompare("__proto__", r, "===")) continue;
             if (__mockedCompare(l, n.array, "===") && __mockedCompare("length", r, "===")) {
-              c.length = e.length;
+              __mockedPropertyWrite(c, "length", e.length, {
+                line: 1,
+                column: 148913
+              });
               continue;
             }
             if (i.structuredCloneExists && __mockedCompare(l, n.error, "===") && __mockedCompare("stack", r, "===")) continue;
             const a = Object.getOwnPropertyDescriptor(e, r);
-            a ? a.get || a.set ? Object.defineProperty(c, r, a) : a.enumerable ? c[r] = s(__mockedPropertyAccess(e, r), t, o) : Object.defineProperty(c, r, Object.setPrototypeOf({
+            a ? a.get || a.set ? Object.defineProperty(c, r, a) : a.enumerable ? __mockedPropertyWrite(c, r, s(__mockedPropertyAccess(e, r), t, o), {
+              line: 1,
+              column: 149104
+            }) : Object.defineProperty(c, r, {
               enumerable: !1,
               writable: !0,
               configurable: !0,
               value: s(__mockedPropertyAccess(e, r), t, o)
-            }, __mockedObjectPrototype)) : Object.defineProperty(c, r, Object.setPrototypeOf({
+            }) : Object.defineProperty(c, r, {
               enumerable: !0,
               writable: !0,
               configurable: !0,
               value: s(__mockedPropertyAccess(e, r), t, o)
-            }, __mockedObjectPrototype));
+            });
           }
           return c;
-        }, __mockedFunctionPrototype), i.cloneWithShallow = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 148259
+        }), {
+          line: 1,
+          column: 148249
+        }), __mockedPropertyWrite(i, "cloneWithShallow", function (e, t) {
           const r = t.shallow;
-          (t = Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), t)).shallow = !1;
+          __mockedPropertyWrite(t = Object.assign({}, t), "shallow", !1, {
+            line: 1,
+            column: 149360
+          });
           const n = new Map();
           for (const t of r) {
             const r = s(e, t);
             __mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") && __mockedCompare("function", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") || n.set(r, r);
           }
           return i.clone(e, t, n);
-        }, __mockedFunctionPrototype), i.base = Object.setPrototypeOf(function (e, t, r) {
-          if (__mockedCompare(!1, r.prototype, "===")) return i.needsProtoHack.has(t) ? new t.constructor() : __mockedCompare(t, n.array, "===") ? Object.setPrototypeOf([], __mockedArrayPrototype) : Object.setPrototypeOf({}, __mockedObjectPrototype);
+        }, {
+          line: 1,
+          column: 149309
+        }), __mockedPropertyWrite(i, "base", function (e, t, r) {
+          if (__mockedCompare(!1, r.prototype, "===")) return i.needsProtoHack.has(t) ? new t.constructor() : __mockedCompare(t, n.array, "===") ? [] : {};
           const s = Object.getPrototypeOf(e);
           if (s && s.isImmutable) return e;
           if (__mockedCompare(t, n.array, "===")) {
-            const e = Object.setPrototypeOf([], __mockedArrayPrototype);
+            const e = [];
             return __mockedCompare(s, t, "!==") && Object.setPrototypeOf(e, s), e;
           }
           if (__mockedCompare(t, n.error, "===") && i.structuredCloneExists && (__mockedCompare(s, t, "===") || Error.isPrototypeOf(s.constructor))) {
@@ -6527,20 +8387,26 @@
             return __mockedCompare(s, t, "!==") && Object.setPrototypeOf(e, s), e;
           }
           return Object.create(s);
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 149520
+        });
       },
       1722(e, t, r) {
         "use strict";
 
         const s = r(737),
-          n = Object.setPrototypeOf({
+          n = {
             mismatched: null
-          }, __mockedObjectPrototype);
-        e.exports = Object.setPrototypeOf(function (e, t, r) {
-          return r = Object.assign(Object.setPrototypeOf({
+          };
+        __mockedPropertyWrite(e, "exports", function (e, t, r) {
+          return r = Object.assign({
             prototype: !0
-          }, __mockedObjectPrototype), r), !!n.isDeepEqual(e, t, r, Object.setPrototypeOf([], __mockedArrayPrototype));
-        }, __mockedFunctionPrototype), n.isDeepEqual = Object.setPrototypeOf(function (e, t, r, a) {
+          }, r), !!n.isDeepEqual(e, t, r, []);
+        }, {
+          line: 1,
+          column: 150124
+        }), __mockedPropertyWrite(n, "isDeepEqual", function (e, t, r, a) {
           if (__mockedCompare(e, t, "===")) return __mockedCompare(0, e, "!==") || __mockedCompare(1 / e, 1 / t, "==");
           const i = typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e;
           if (__mockedCompare(i, typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "!==")) return !1;
@@ -6567,11 +8433,17 @@
           } finally {
             a.pop();
           }
-        }, __mockedFunctionPrototype), n.getSharedType = Object.setPrototypeOf(function (e, t, r) {
+        }, {
+          line: 1,
+          column: 150218
+        }), __mockedPropertyWrite(n, "getSharedType", function (e, t, r) {
           if (r) return __mockedCompare(Object.getPrototypeOf(e), Object.getPrototypeOf(t), "!==") ? n.mismatched : s.getInternalProto(e);
           const a = s.getInternalProto(e);
           return __mockedCompare(a, s.getInternalProto(t), "!==") ? n.mismatched : a;
-        }, __mockedFunctionPrototype), n.valueOf = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 150806
+        }), __mockedPropertyWrite(n, "valueOf", function (e) {
           const t = e.valueOf;
           if (__mockedCompare(void 0, t, "===")) return e;
           try {
@@ -6579,12 +8451,21 @@
           } catch (e) {
             return e;
           }
-        }, __mockedFunctionPrototype), n.hasOwnEnumerableProperty = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 151016
+        }), __mockedPropertyWrite(n, "hasOwnEnumerableProperty", function (e, t) {
           return Object.prototype.propertyIsEnumerable.call(e, t);
-        }, __mockedFunctionPrototype), n.isSetSimpleEqual = Object.setPrototypeOf(function (e, t) {
+        }, {
+          line: 1,
+          column: 151120
+        }), __mockedPropertyWrite(n, "isSetSimpleEqual", function (e, t) {
           for (const r of Set.prototype.values.call(e)) if (!Set.prototype.has.call(t, r)) return !1;
           return !0;
-        }, __mockedFunctionPrototype), n.isDeepEqualObj = Object.setPrototypeOf(function (e, t, r, a, i) {
+        }, {
+          line: 1,
+          column: 151217
+        }), __mockedPropertyWrite(n, "isDeepEqualObj", function (e, t, r, a, i) {
           const {
               isDeepEqual: o,
               valueOf: l,
@@ -6647,22 +8528,32 @@
             for (const e of s) if (c(r, e)) return !1;
           }
           return !0;
-        }, __mockedFunctionPrototype), n.SeenEntry = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+        }, {
+          line: 1,
+          column: 151345
+        }), __mockedPropertyWrite(n, "SeenEntry", class {
           constructor(e, t) {
-            this.obj = e, this.ref = t;
+            __mockedPropertyWrite(this, "obj", e, {
+              line: 1,
+              column: 152807
+            }), __mockedPropertyWrite(this, "ref", t, {
+              line: 1,
+              column: 152818
+            });
           }
           isSame(e, t) {
             return __mockedCompare(this.obj, e, "===") && __mockedCompare(this.ref, t, "===");
           }
+        }, {
+          line: 1,
+          column: 152772
         });
       },
       5972(e) {
         "use strict";
 
-        const t = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        e.exports = Object.setPrototypeOf(function (e) {
+        const t = {};
+        __mockedPropertyWrite(e, "exports", function (e) {
           if (!e) return "";
           let r = "";
           for (let s = 0; s < e.length; ++s) {
@@ -6670,33 +8561,84 @@
             t.isSafe(n) ? r += __mockedPropertyAccess(e, s) : r += t.escapeHtmlChar(n);
           }
           return r;
-        }, __mockedFunctionPrototype), t.escapeHtmlChar = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 152910
+        }), __mockedPropertyWrite(t, "escapeHtmlChar", function (e) {
           const r = t.namedHtml.get(e);
           return r || (e >= 256 ? "&#" + e + ";" : `&#x${e.toString(16).padStart(2, "0")};`);
-        }, __mockedFunctionPrototype), t.isSafe = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 153061
+        }), __mockedPropertyWrite(t, "isSafe", function (e) {
           return t.safeCharCodes.has(e);
-        }, __mockedFunctionPrototype), t.namedHtml = new Map(Object.setPrototypeOf([Object.setPrototypeOf([38, "&amp;"], __mockedArrayPrototype), Object.setPrototypeOf([60, "&lt;"], __mockedArrayPrototype), Object.setPrototypeOf([62, "&gt;"], __mockedArrayPrototype), Object.setPrototypeOf([34, "&quot;"], __mockedArrayPrototype), Object.setPrototypeOf([160, "&nbsp;"], __mockedArrayPrototype), Object.setPrototypeOf([162, "&cent;"], __mockedArrayPrototype), Object.setPrototypeOf([163, "&pound;"], __mockedArrayPrototype), Object.setPrototypeOf([164, "&curren;"], __mockedArrayPrototype), Object.setPrototypeOf([169, "&copy;"], __mockedArrayPrototype), Object.setPrototypeOf([174, "&reg;"], __mockedArrayPrototype)], __mockedArrayPrototype)), t.safeCharCodes = Object.setPrototypeOf(function () {
+        }, {
+          line: 1,
+          column: 153188
+        }), __mockedPropertyWrite(t, "namedHtml", new Map([[38, "&amp;"], [60, "&lt;"], [62, "&gt;"], [34, "&quot;"], [160, "&nbsp;"], [162, "&cent;"], [163, "&pound;"], [164, "&curren;"], [169, "&copy;"], [174, "&reg;"]]), {
+          line: 1,
+          column: 153240
+        }), __mockedPropertyWrite(t, "safeCharCodes", function () {
           const e = new Set();
           for (let t = 32; t < 123; ++t) (t >= 97 || t >= 65 && t <= 90 || t >= 48 && t <= 57 || __mockedCompare(32, t, "===") || __mockedCompare(46, t, "===") || __mockedCompare(44, t, "===") || __mockedCompare(45, t, "===") || __mockedCompare(58, t, "===") || __mockedCompare(95, t, "===")) && e.add(t);
           return e;
-        }, __mockedFunctionPrototype)();
+        }(), {
+          line: 1,
+          column: 153406
+        });
       },
       6542(e) {
         "use strict";
 
-        e.exports = Object.setPrototypeOf(function (e) {
+        __mockedPropertyWrite(e, "exports", function (e) {
           return e.replace(/[\^\$\.\*\+\-\?\=\!\:\|\\\/\(\)\[\]\{\}\,]/g, "\\$&");
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 153600
+        });
       },
       8028(e) {
         "use strict";
 
-        e.exports = Object.setPrototypeOf(function () {}, __mockedFunctionPrototype);
+        __mockedPropertyWrite(e, "exports", function () {}, {
+          line: 1,
+          column: 153716
+        });
       },
       2116(e, t, r) {
         "use strict";
 
-        t.applyToDefaults = r(5307), t.assert = r(1508), t.AssertError = r(492), r(5220), r(7105), t.clone = r(4185), r(1966), t.deepEqual = r(1722), r(7884), t.escapeHtml = r(5972), r(3453), t.escapeRegex = r(6542), r(9704), t.ignore = r(8028), r(3397), r(153), t.merge = r(2184), r(1137), t.reach = r(8347), r(4561), r(537), r(4841);
+        __mockedPropertyWrite(t, "applyToDefaults", r(5307), {
+          line: 1,
+          column: 153765
+        }), __mockedPropertyWrite(t, "assert", r(1508), {
+          line: 1,
+          column: 153791
+        }), __mockedPropertyWrite(t, "AssertError", r(492), {
+          line: 1,
+          column: 153808
+        }), r(5220), r(7105), __mockedPropertyWrite(t, "clone", r(4185), {
+          line: 1,
+          column: 153845
+        }), r(1966), __mockedPropertyWrite(t, "deepEqual", r(1722), {
+          line: 1,
+          column: 153869
+        }), r(7884), __mockedPropertyWrite(t, "escapeHtml", r(5972), {
+          line: 1,
+          column: 153897
+        }), r(3453), __mockedPropertyWrite(t, "escapeRegex", r(6542), {
+          line: 1,
+          column: 153926
+        }), r(9704), __mockedPropertyWrite(t, "ignore", r(8028), {
+          line: 1,
+          column: 153956
+        }), r(3397), r(153), __mockedPropertyWrite(t, "merge", r(2184), {
+          line: 1,
+          column: 153988
+        }), r(1137), __mockedPropertyWrite(t, "reach", r(8347), {
+          line: 1,
+          column: 154012
+        }), r(4561), r(537), r(4841);
       },
       2184(e, t, r) {
         "use strict";
@@ -6704,17 +8646,20 @@
         const s = r(1508),
           n = r(4185),
           a = r(4397),
-          i = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        e.exports = i.merge = Object.setPrototypeOf(function (e, t, r) {
+          i = {};
+        __mockedPropertyWrite(e, "exports", __mockedPropertyWrite(i, "merge", function (e, t, r) {
           if (s(e && __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "=="), "Invalid target value: must be an object"), s(__mockedCompare(null, t, "==") || __mockedCompare("object", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "=="), "Invalid source value: must be null, undefined, or an object"), !t) return e;
-          if (r = Object.assign(Object.setPrototypeOf({
+          if (r = Object.assign({
             nullOverride: !0,
             mergeArrays: !0
-          }, __mockedObjectPrototype), r), Array.isArray(t)) {
-            s(Array.isArray(e), "Cannot merge array onto an object"), r.mergeArrays || (e.length = 0);
-            for (let s = 0; s < t.length; ++s) e.push(n(__mockedPropertyAccess(t, s), Object.setPrototypeOf({
+          }, r), Array.isArray(t)) {
+            s(Array.isArray(e), "Cannot merge array onto an object"), r.mergeArrays || __mockedPropertyWrite(e, "length", 0, {
+              line: 1,
+              column: 154472
+            });
+            for (let s = 0; s < t.length; ++s) e.push(n(__mockedPropertyAccess(t, s), {
               symbols: r.symbols
-            }, __mockedObjectPrototype)));
+            }));
             return e;
           }
           const o = a.keys(t, r);
@@ -6726,26 +8671,38 @@
               if (__mockedCompare(__mockedPropertyAccess(e, a), l, "===")) continue;
               !__mockedPropertyAccess(e, a) || __mockedCompare("object", function (x) {
                 return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-              }(__mockedPropertyAccess(e, a)), "!=") || __mockedCompare(Array.isArray(__mockedPropertyAccess(e, a)), Array.isArray(l), "!==") || l instanceof Date || l instanceof RegExp ? e[a] = n(l, Object.setPrototypeOf({
+              }(__mockedPropertyAccess(e, a)), "!=") || __mockedCompare(Array.isArray(__mockedPropertyAccess(e, a)), Array.isArray(l), "!==") || l instanceof Date || l instanceof RegExp ? __mockedPropertyWrite(e, a, n(l, {
                 symbols: r.symbols
-              }, __mockedObjectPrototype)) : i.merge(__mockedPropertyAccess(e, a), l, r);
-            } else (__mockedCompare(null, l, "!=") || r.nullOverride) && (e[a] = l);
+              }), {
+                line: 1,
+                column: 154864
+              }) : i.merge(__mockedPropertyAccess(e, a), l, r);
+            } else (__mockedCompare(null, l, "!=") || r.nullOverride) && __mockedPropertyWrite(e, a, l, {
+              line: 1,
+              column: 154944
+            });
           }
           return e;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 154128
+        }), {
+          line: 1,
+          column: 154118
+        });
       },
       8347(e, t, r) {
         "use strict";
 
         const s = r(1508),
-          n = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        e.exports = Object.setPrototypeOf(function (e, t, r) {
+          n = {};
+        __mockedPropertyWrite(e, "exports", function (e, t, r) {
           if (__mockedCompare(!1, t, "===") || __mockedCompare(null, t, "==")) return e;
           __mockedCompare("string", function (x) {
             return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-          }(r = r || Object.setPrototypeOf({}, __mockedObjectPrototype)), "==") && (r = Object.setPrototypeOf({
+          }(r = r || {}), "==") && (r = {
             separator: r
-          }, __mockedObjectPrototype));
+          });
           const a = Array.isArray(t);
           s(!a || !r.separator, "Separator option is not valid for array-based chain");
           const i = a ? t : t.split(r.separator || ".");
@@ -6761,29 +8718,38 @@
               s(!r.strict || __mockedCompare(e + 1, i.length, "==="), "Missing segment", a, "in reach path ", t), s(__mockedCompare("object", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "==") || __mockedCompare(!0, r.functions, "===") || __mockedCompare("function", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "!="), "Invalid segment", a, "in reach path ", t), o = r.default;
               break;
             }
-            o = l ? __mockedCompare("set", l, "===") ? __mockedPropertyAccess(Object.setPrototypeOf([...o], __mockedArrayPrototype), a) : o.get(a) : __mockedPropertyAccess(o, a);
+            o = l ? __mockedCompare("set", l, "===") ? __mockedPropertyAccess([...o], a) : o.get(a) : __mockedPropertyAccess(o, a);
           }
           return o;
-        }, __mockedFunctionPrototype), n.iterables = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 155009
+        }), __mockedPropertyWrite(n, "iterables", function (e) {
           return e instanceof Set ? "set" : e instanceof Map ? "map" : void 0;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 155721
+        });
       },
       537(e) {
         "use strict";
 
-        e.exports = Object.setPrototypeOf(function (...e) {
+        __mockedPropertyWrite(e, "exports", function (...e) {
           try {
             return JSON.stringify(...e);
           } catch (e) {
             return "[Cannot display object: " + e.message + "]";
           }
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 155827
+        });
       },
       737(e, t) {
         "use strict";
 
-        const r = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        t = e.exports = Object.setPrototypeOf({
+        const r = {};
+        t = __mockedPropertyWrite(e, "exports", {
           array: Array.prototype,
           buffer: !1,
           date: Date.prototype,
@@ -6796,21 +8762,33 @@
           url: URL.prototype,
           weakMap: WeakMap.prototype,
           weakSet: WeakSet.prototype
-        }, __mockedObjectPrototype), r.typeMap = new Map(Object.setPrototypeOf([Object.setPrototypeOf(["[object Error]", t.error], __mockedArrayPrototype), Object.setPrototypeOf(["[object Map]", t.map], __mockedArrayPrototype), Object.setPrototypeOf(["[object Promise]", t.promise], __mockedArrayPrototype), Object.setPrototypeOf(["[object Set]", t.set], __mockedArrayPrototype), Object.setPrototypeOf(["[object URL]", t.url], __mockedArrayPrototype), Object.setPrototypeOf(["[object WeakMap]", t.weakMap], __mockedArrayPrototype), Object.setPrototypeOf(["[object WeakSet]", t.weakSet], __mockedArrayPrototype)], __mockedArrayPrototype)), t.getInternalProto = Object.setPrototypeOf(function (e) {
+        }, {
+          line: 1,
+          column: 155978
+        }), __mockedPropertyWrite(r, "typeMap", new Map([["[object Error]", t.error], ["[object Map]", t.map], ["[object Promise]", t.promise], ["[object Set]", t.set], ["[object URL]", t.url], ["[object WeakMap]", t.weakMap], ["[object WeakSet]", t.weakSet]]), {
+          line: 1,
+          column: 156244
+        }), __mockedPropertyWrite(t, "getInternalProto", function (e) {
           if (Array.isArray(e)) return t.array;
           if (e instanceof Date) return t.date;
           if (e instanceof RegExp) return t.regex;
           if (e instanceof Error) return t.error;
           const s = Object.prototype.toString.call(e);
           return r.typeMap.get(s) || t.generic;
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 156454
+        });
       },
       4397(e, t) {
         "use strict";
 
-        t.keys = Object.setPrototypeOf(function (e, t = Object.setPrototypeOf({}, __mockedObjectPrototype)) {
+        __mockedPropertyWrite(t, "keys", function (e, t = {}) {
           return __mockedCompare(!1, t.symbols, "!==") ? Reflect.ownKeys(e) : Object.getOwnPropertyNames(e);
-        }, __mockedFunctionPrototype);
+        }, {
+          line: 1,
+          column: 156732
+        });
       },
       5661(e, t, r) {
         "use strict";
@@ -6818,29 +8796,33 @@
         const {
             assert: s
           } = r(2116),
-          n = Object.setPrototypeOf({}, __mockedObjectPrototype);
-        t.Sorter = function (c) {
-          return Object.setPrototypeOf(c, __mockedObjectPrototype);
-        }(class {
+          n = {};
+        __mockedPropertyWrite(t, "Sorter", class {
           constructor() {
-            this._items = Object.setPrototypeOf([], __mockedArrayPrototype), this.nodes = Object.setPrototypeOf([], __mockedArrayPrototype);
+            __mockedPropertyWrite(this, "_items", [], {
+              line: 1,
+              column: 156911
+            }), __mockedPropertyWrite(this, "nodes", [], {
+              line: 1,
+              column: 156926
+            });
           }
           add(e, t) {
             var r, n, a, i;
-            const o = Object.setPrototypeOf([], __mockedArrayPrototype).concat(__mockedCompare(null, r = (t = __mockedCompare(null, t, "!=") ? t : Object.setPrototypeOf({}, __mockedObjectPrototype)).before, "!==") && __mockedCompare(void 0, r, "!==") ? r : Object.setPrototypeOf([], __mockedArrayPrototype)),
-              l = Object.setPrototypeOf([], __mockedArrayPrototype).concat(__mockedCompare(null, n = t.after, "!==") && __mockedCompare(void 0, n, "!==") ? n : Object.setPrototypeOf([], __mockedArrayPrototype)),
+            const o = [].concat(__mockedCompare(null, r = (t = __mockedCompare(null, t, "!=") ? t : {}).before, "!==") && __mockedCompare(void 0, r, "!==") ? r : []),
+              l = [].concat(__mockedCompare(null, n = t.after, "!==") && __mockedCompare(void 0, n, "!==") ? n : []),
               c = __mockedCompare(null, a = t.group, "!==") && __mockedCompare(void 0, a, "!==") ? a : "?",
               u = __mockedCompare(null, i = t.sort, "!==") && __mockedCompare(void 0, i, "!==") ? i : 0;
-            s(!o.includes(c), `Item cannot come before itself: ${c}`), s(!o.includes("?"), "Item cannot come before unassociated items"), s(!l.includes(c), `Item cannot come after itself: ${c}`), s(!l.includes("?"), "Item cannot come after unassociated items"), Array.isArray(e) || (e = Object.setPrototypeOf([e], __mockedArrayPrototype));
+            s(!o.includes(c), `Item cannot come before itself: ${c}`), s(!o.includes("?"), "Item cannot come before unassociated items"), s(!l.includes(c), `Item cannot come after itself: ${c}`), s(!l.includes("?"), "Item cannot come after unassociated items"), Array.isArray(e) || (e = [e]);
             for (const t of e) {
-              const e = Object.setPrototypeOf({
+              const e = {
                 seq: this._items.length,
                 sort: u,
                 before: o,
                 after: l,
                 group: c,
                 node: t
-              }, __mockedObjectPrototype);
+              };
               this._items.push(e);
             }
             if (!t.manual) {
@@ -6850,10 +8832,13 @@
             return this.nodes;
           }
           merge(e) {
-            Array.isArray(e) || (e = Object.setPrototypeOf([e], __mockedArrayPrototype));
-            for (const t of e) if (t) for (const e of t._items) this._items.push(Object.assign(Object.setPrototypeOf({}, __mockedObjectPrototype), e));
+            Array.isArray(e) || (e = [e]);
+            for (const t of e) if (t) for (const e of t._items) this._items.push(Object.assign({}, e));
             this._items.sort(n.mergeSort);
-            for (let e = 0; e < this._items.length; ++e) __mockedPropertyAccess(this._items, e).seq = e;
+            for (let e = 0; e < this._items.length; ++e) __mockedPropertyWrite(__mockedPropertyAccess(this._items, e), "seq", e, {
+              line: 1,
+              column: 157851
+            });
             const t = this._sort();
             return s(t, "merge created a dependencies error"), this.nodes;
           }
@@ -6862,46 +8847,67 @@
             return s(e, "sort created a dependencies error"), this.nodes;
           }
           _sort() {
-            const e = Object.setPrototypeOf({}, __mockedObjectPrototype),
+            const e = {},
               t = Object.create(null),
               r = Object.create(null);
             for (const a of this._items) {
               var s;
               const i = a.seq,
                 o = a.group;
-              r[o] = __mockedCompare(null, s = __mockedPropertyAccess(r, o), "!==") && __mockedCompare(void 0, s, "!==") ? s : Object.setPrototypeOf([], __mockedArrayPrototype), __mockedPropertyAccess(r, o).push(i), e[i] = a.before;
+              __mockedPropertyWrite(r, o, __mockedCompare(null, s = __mockedPropertyAccess(r, o), "!==") && __mockedCompare(void 0, s, "!==") ? s : [], {
+                line: 1,
+                column: 158161
+              }), __mockedPropertyAccess(r, o).push(i), __mockedPropertyWrite(e, i, a.before, {
+                line: 1,
+                column: 158212
+              });
               for (const e of a.after) {
                 var n;
-                t[e] = __mockedCompare(null, n = __mockedPropertyAccess(t, e), "!==") && __mockedCompare(void 0, n, "!==") ? n : Object.setPrototypeOf([], __mockedArrayPrototype), __mockedPropertyAccess(t, e).push(i);
+                __mockedPropertyWrite(t, e, __mockedCompare(null, n = __mockedPropertyAccess(t, e), "!==") && __mockedCompare(void 0, n, "!==") ? n : [], {
+                  line: 1,
+                  column: 158256
+                }), __mockedPropertyAccess(t, e).push(i);
               }
             }
             for (const t in e) {
-              const s = Object.setPrototypeOf([], __mockedArrayPrototype);
+              const s = [];
               for (const n in __mockedPropertyAccess(e, t)) {
                 var a;
                 const i = __mockedPropertyAccess(__mockedPropertyAccess(e, t), n);
-                r[i] = __mockedCompare(null, a = __mockedPropertyAccess(r, i), "!==") && __mockedCompare(void 0, a, "!==") ? a : Object.setPrototypeOf([], __mockedArrayPrototype), s.push(...__mockedPropertyAccess(r, i));
+                __mockedPropertyWrite(r, i, __mockedCompare(null, a = __mockedPropertyAccess(r, i), "!==") && __mockedCompare(void 0, a, "!==") ? a : [], {
+                  line: 1,
+                  column: 158380
+                }), s.push(...__mockedPropertyAccess(r, i));
               }
-              e[t] = s;
+              __mockedPropertyWrite(e, t, s, {
+                line: 1,
+                column: 158434
+              });
             }
             for (const s in t) if (__mockedPropertyAccess(r, s)) for (const n of __mockedPropertyAccess(r, s)) __mockedPropertyAccess(e, n).push(...__mockedPropertyAccess(t, s));
-            const i = Object.setPrototypeOf({}, __mockedObjectPrototype);
+            const i = {};
             for (const t in e) {
               const r = __mockedPropertyAccess(e, t);
               for (const e of r) {
                 var o;
-                i[e] = __mockedCompare(null, o = __mockedPropertyAccess(i, e), "!==") && __mockedCompare(void 0, o, "!==") ? o : Object.setPrototypeOf([], __mockedArrayPrototype), __mockedPropertyAccess(i, e).push(t);
+                __mockedPropertyWrite(i, e, __mockedCompare(null, o = __mockedPropertyAccess(i, e), "!==") && __mockedCompare(void 0, o, "!==") ? o : [], {
+                  line: 1,
+                  column: 158571
+                }), __mockedPropertyAccess(i, e).push(t);
               }
             }
-            const l = Object.setPrototypeOf({}, __mockedObjectPrototype),
-              c = Object.setPrototypeOf([], __mockedArrayPrototype);
+            const l = {},
+              c = [];
             for (let e = 0; e < this._items.length; ++e) {
               let t = e;
               if (__mockedPropertyAccess(i, e)) {
                 t = null;
                 for (let e = 0; e < this._items.length; ++e) {
                   if (__mockedCompare(!0, __mockedPropertyAccess(l, e), "===")) continue;
-                  __mockedPropertyAccess(i, e) || (i[e] = Object.setPrototypeOf([], __mockedArrayPrototype));
+                  __mockedPropertyAccess(i, e) || __mockedPropertyWrite(i, e, [], {
+                    line: 1,
+                    column: 158768
+                  });
                   const r = __mockedPropertyAccess(i, e).length;
                   let s = 0;
                   for (let t = 0; t < r; ++t) __mockedPropertyAccess(l, __mockedPropertyAccess(__mockedPropertyAccess(i, e), t)) && ++s;
@@ -6911,19 +8917,37 @@
                   }
                 }
               }
-              __mockedCompare(null, t, "!==") && (l[t] = !0, c.push(t));
+              __mockedCompare(null, t, "!==") && (__mockedPropertyWrite(l, t, !0, {
+                line: 1,
+                column: 158874
+              }), c.push(t));
             }
             if (__mockedCompare(c.length, this._items.length, "!==")) return !1;
-            const u = Object.setPrototypeOf({}, __mockedObjectPrototype);
-            for (const e of this._items) u[e.seq] = e;
-            this._items = Object.setPrototypeOf([], __mockedArrayPrototype), this.nodes = Object.setPrototypeOf([], __mockedArrayPrototype);
+            const u = {};
+            for (const e of this._items) __mockedPropertyWrite(u, e.seq, e, {
+              line: 1,
+              column: 158973
+            });
+            __mockedPropertyWrite(this, "_items", [], {
+              line: 1,
+              column: 158984
+            }), __mockedPropertyWrite(this, "nodes", [], {
+              line: 1,
+              column: 158999
+            });
             for (const e of c) {
               const t = __mockedPropertyAccess(u, e);
               this.nodes.push(t.node), this._items.push(t);
             }
             return !0;
           }
-        }), n.mergeSort = (e, t) => __mockedCompare(e.sort, t.sort, "===") ? 0 : e.sort < t.sort ? -1 : 1;
+        }, {
+          line: 1,
+          column: 156882
+        }), __mockedPropertyWrite(n, "mergeSort", (e, t) => __mockedCompare(e.sort, t.sort, "===") ? 0 : e.sort < t.sort ? -1 : 1, {
+          line: 1,
+          column: 159099
+        });
       },
       554() {},
       9017() {},
@@ -6944,37 +8968,61 @@
       7009(e, t, r) {
         "use strict";
 
-        Object.defineProperty(t, "__esModule", Object.setPrototypeOf({
+        Object.defineProperty(t, "__esModule", {
           value: !0
-        }, __mockedObjectPrototype)), t.tlds = void 0;
+        }), __mockedPropertyWrite(t, "tlds", void 0, {
+          line: 1,
+          column: 159371
+        });
         const s = r(5416);
-        t.tlds = new Set(s.TLDS.map(e => e.toLowerCase()));
+        __mockedPropertyWrite(t, "tlds", new Set(s.TLDS.map(e => e.toLowerCase())), {
+          line: 1,
+          column: 159401
+        });
       },
       5416(e, t) {
         "use strict";
 
-        Object.defineProperty(t, "__esModule", Object.setPrototypeOf({
+        Object.defineProperty(t, "__esModule", {
           value: !0
-        }, __mockedObjectPrototype)), t.TLDS = void 0, t.TLDS = Object.setPrototypeOf(["AAA", "AARP", "ABB", "ABBOTT", "ABBVIE", "ABC", "ABLE", "ABOGADO", "ABUDHABI", "AC", "ACADEMY", "ACCENTURE", "ACCOUNTANT", "ACCOUNTANTS", "ACO", "ACTOR", "AD", "ADS", "ADULT", "AE", "AEG", "AERO", "AETNA", "AF", "AFL", "AFRICA", "AG", "AGAKHAN", "AGENCY", "AI", "AIG", "AIRBUS", "AIRFORCE", "AIRTEL", "AKDN", "AL", "ALIBABA", "ALIPAY", "ALLFINANZ", "ALLSTATE", "ALLY", "ALSACE", "ALSTOM", "AM", "AMAZON", "AMERICANEXPRESS", "AMERICANFAMILY", "AMEX", "AMFAM", "AMICA", "AMSTERDAM", "ANALYTICS", "ANDROID", "ANQUAN", "ANZ", "AO", "AOL", "APARTMENTS", "APP", "APPLE", "AQ", "AQUARELLE", "AR", "ARAB", "ARAMCO", "ARCHI", "ARMY", "ARPA", "ART", "ARTE", "AS", "ASDA", "ASIA", "ASSOCIATES", "AT", "ATHLETA", "ATTORNEY", "AU", "AUCTION", "AUDI", "AUDIBLE", "AUDIO", "AUSPOST", "AUTHOR", "AUTO", "AUTOS", "AW", "AWS", "AX", "AXA", "AZ", "AZURE", "BA", "BABY", "BAIDU", "BANAMEX", "BAND", "BANK", "BAR", "BARCELONA", "BARCLAYCARD", "BARCLAYS", "BAREFOOT", "BARGAINS", "BASEBALL", "BASKETBALL", "BAUHAUS", "BAYERN", "BB", "BBC", "BBT", "BBVA", "BCG", "BCN", "BD", "BE", "BEATS", "BEAUTY", "BEER", "BERLIN", "BEST", "BESTBUY", "BET", "BF", "BG", "BH", "BHARTI", "BI", "BIBLE", "BID", "BIKE", "BING", "BINGO", "BIO", "BIZ", "BJ", "BLACK", "BLACKFRIDAY", "BLOCKBUSTER", "BLOG", "BLOOMBERG", "BLUE", "BM", "BMS", "BMW", "BN", "BNPPARIBAS", "BO", "BOATS", "BOEHRINGER", "BOFA", "BOM", "BOND", "BOO", "BOOK", "BOOKING", "BOSCH", "BOSTIK", "BOSTON", "BOT", "BOUTIQUE", "BOX", "BR", "BRADESCO", "BRIDGESTONE", "BROADWAY", "BROKER", "BROTHER", "BRUSSELS", "BS", "BT", "BUILD", "BUILDERS", "BUSINESS", "BUY", "BUZZ", "BV", "BW", "BY", "BZ", "BZH", "CA", "CAB", "CAFE", "CAL", "CALL", "CALVINKLEIN", "CAM", "CAMERA", "CAMP", "CANON", "CAPETOWN", "CAPITAL", "CAPITALONE", "CAR", "CARAVAN", "CARDS", "CARE", "CAREER", "CAREERS", "CARS", "CASA", "CASE", "CASH", "CASINO", "CAT", "CATERING", "CATHOLIC", "CBA", "CBN", "CBRE", "CC", "CD", "CENTER", "CEO", "CERN", "CF", "CFA", "CFD", "CG", "CH", "CHANEL", "CHANNEL", "CHARITY", "CHASE", "CHAT", "CHEAP", "CHINTAI", "CHRISTMAS", "CHROME", "CHURCH", "CI", "CIPRIANI", "CIRCLE", "CISCO", "CITADEL", "CITI", "CITIC", "CITY", "CK", "CL", "CLAIMS", "CLEANING", "CLICK", "CLINIC", "CLINIQUE", "CLOTHING", "CLOUD", "CLUB", "CLUBMED", "CM", "CN", "CO", "COACH", "CODES", "COFFEE", "COLLEGE", "COLOGNE", "COM", "COMMBANK", "COMMUNITY", "COMPANY", "COMPARE", "COMPUTER", "COMSEC", "CONDOS", "CONSTRUCTION", "CONSULTING", "CONTACT", "CONTRACTORS", "COOKING", "COOL", "COOP", "CORSICA", "COUNTRY", "COUPON", "COUPONS", "COURSES", "CPA", "CR", "CREDIT", "CREDITCARD", "CREDITUNION", "CRICKET", "CROWN", "CRS", "CRUISE", "CRUISES", "CU", "CUISINELLA", "CV", "CW", "CX", "CY", "CYMRU", "CYOU", "CZ", "DAD", "DANCE", "DATA", "DATE", "DATING", "DATSUN", "DAY", "DCLK", "DDS", "DE", "DEAL", "DEALER", "DEALS", "DEGREE", "DELIVERY", "DELL", "DELOITTE", "DELTA", "DEMOCRAT", "DENTAL", "DENTIST", "DESI", "DESIGN", "DEV", "DHL", "DIAMONDS", "DIET", "DIGITAL", "DIRECT", "DIRECTORY", "DISCOUNT", "DISCOVER", "DISH", "DIY", "DJ", "DK", "DM", "DNP", "DO", "DOCS", "DOCTOR", "DOG", "DOMAINS", "DOT", "DOWNLOAD", "DRIVE", "DTV", "DUBAI", "DUPONT", "DURBAN", "DVAG", "DVR", "DZ", "EARTH", "EAT", "EC", "ECO", "EDEKA", "EDU", "EDUCATION", "EE", "EG", "EMAIL", "EMERCK", "ENERGY", "ENGINEER", "ENGINEERING", "ENTERPRISES", "EPSON", "EQUIPMENT", "ER", "ERICSSON", "ERNI", "ES", "ESQ", "ESTATE", "ET", "EU", "EUROVISION", "EUS", "EVENTS", "EXCHANGE", "EXPERT", "EXPOSED", "EXPRESS", "EXTRASPACE", "FAGE", "FAIL", "FAIRWINDS", "FAITH", "FAMILY", "FAN", "FANS", "FARM", "FARMERS", "FASHION", "FAST", "FEDEX", "FEEDBACK", "FERRARI", "FERRERO", "FI", "FIDELITY", "FIDO", "FILM", "FINAL", "FINANCE", "FINANCIAL", "FIRE", "FIRESTONE", "FIRMDALE", "FISH", "FISHING", "FIT", "FITNESS", "FJ", "FK", "FLICKR", "FLIGHTS", "FLIR", "FLORIST", "FLOWERS", "FLY", "FM", "FO", "FOO", "FOOD", "FOOTBALL", "FORD", "FOREX", "FORSALE", "FORUM", "FOUNDATION", "FOX", "FR", "FREE", "FRESENIUS", "FRL", "FROGANS", "FRONTIER", "FTR", "FUJITSU", "FUN", "FUND", "FURNITURE", "FUTBOL", "FYI", "GA", "GAL", "GALLERY", "GALLO", "GALLUP", "GAME", "GAMES", "GAP", "GARDEN", "GAY", "GB", "GBIZ", "GD", "GDN", "GE", "GEA", "GENT", "GENTING", "GEORGE", "GF", "GG", "GGEE", "GH", "GI", "GIFT", "GIFTS", "GIVES", "GIVING", "GL", "GLASS", "GLE", "GLOBAL", "GLOBO", "GM", "GMAIL", "GMBH", "GMO", "GMX", "GN", "GODADDY", "GOLD", "GOLDPOINT", "GOLF", "GOODYEAR", "GOOG", "GOOGLE", "GOP", "GOT", "GOV", "GP", "GQ", "GR", "GRAINGER", "GRAPHICS", "GRATIS", "GREEN", "GRIPE", "GROCERY", "GROUP", "GS", "GT", "GU", "GUCCI", "GUGE", "GUIDE", "GUITARS", "GURU", "GW", "GY", "HAIR", "HAMBURG", "HANGOUT", "HAUS", "HBO", "HDFC", "HDFCBANK", "HEALTH", "HEALTHCARE", "HELP", "HELSINKI", "HERE", "HERMES", "HIPHOP", "HISAMITSU", "HITACHI", "HIV", "HK", "HKT", "HM", "HN", "HOCKEY", "HOLDINGS", "HOLIDAY", "HOMEDEPOT", "HOMEGOODS", "HOMES", "HOMESENSE", "HONDA", "HORSE", "HOSPITAL", "HOST", "HOSTING", "HOT", "HOTELS", "HOTMAIL", "HOUSE", "HOW", "HR", "HSBC", "HT", "HU", "HUGHES", "HYATT", "HYUNDAI", "IBM", "ICBC", "ICE", "ICU", "ID", "IE", "IEEE", "IFM", "IKANO", "IL", "IM", "IMAMAT", "IMDB", "IMMO", "IMMOBILIEN", "IN", "INC", "INDUSTRIES", "INFINITI", "INFO", "ING", "INK", "INSTITUTE", "INSURANCE", "INSURE", "INT", "INTERNATIONAL", "INTUIT", "INVESTMENTS", "IO", "IPIRANGA", "IQ", "IR", "IRISH", "IS", "ISMAILI", "IST", "ISTANBUL", "IT", "ITAU", "ITV", "JAGUAR", "JAVA", "JCB", "JE", "JEEP", "JETZT", "JEWELRY", "JIO", "JLL", "JM", "JMP", "JNJ", "JO", "JOBS", "JOBURG", "JOT", "JOY", "JP", "JPMORGAN", "JPRS", "JUEGOS", "JUNIPER", "KAUFEN", "KDDI", "KE", "KERRYHOTELS", "KERRYPROPERTIES", "KFH", "KG", "KH", "KI", "KIA", "KIDS", "KIM", "KINDLE", "KITCHEN", "KIWI", "KM", "KN", "KOELN", "KOMATSU", "KOSHER", "KP", "KPMG", "KPN", "KR", "KRD", "KRED", "KUOKGROUP", "KW", "KY", "KYOTO", "KZ", "LA", "LACAIXA", "LAMBORGHINI", "LAMER", "LAND", "LANDROVER", "LANXESS", "LASALLE", "LAT", "LATINO", "LATROBE", "LAW", "LAWYER", "LB", "LC", "LDS", "LEASE", "LECLERC", "LEFRAK", "LEGAL", "LEGO", "LEXUS", "LGBT", "LI", "LIDL", "LIFE", "LIFEINSURANCE", "LIFESTYLE", "LIGHTING", "LIKE", "LILLY", "LIMITED", "LIMO", "LINCOLN", "LINK", "LIVE", "LIVING", "LK", "LLC", "LLP", "LOAN", "LOANS", "LOCKER", "LOCUS", "LOL", "LONDON", "LOTTE", "LOTTO", "LOVE", "LPL", "LPLFINANCIAL", "LR", "LS", "LT", "LTD", "LTDA", "LU", "LUNDBECK", "LUXE", "LUXURY", "LV", "LY", "MA", "MADRID", "MAIF", "MAISON", "MAKEUP", "MAN", "MANAGEMENT", "MANGO", "MAP", "MARKET", "MARKETING", "MARKETS", "MARRIOTT", "MARSHALLS", "MATTEL", "MBA", "MC", "MCKINSEY", "MD", "ME", "MED", "MEDIA", "MEET", "MELBOURNE", "MEME", "MEMORIAL", "MEN", "MENU", "MERCKMSD", "MG", "MH", "MIAMI", "MICROSOFT", "MIL", "MINI", "MINT", "MIT", "MITSUBISHI", "MK", "ML", "MLB", "MLS", "MM", "MMA", "MN", "MO", "MOBI", "MOBILE", "MODA", "MOE", "MOI", "MOM", "MONASH", "MONEY", "MONSTER", "MORMON", "MORTGAGE", "MOSCOW", "MOTO", "MOTORCYCLES", "MOV", "MOVIE", "MP", "MQ", "MR", "MS", "MSD", "MT", "MTN", "MTR", "MU", "MUSEUM", "MUSIC", "MV", "MW", "MX", "MY", "MZ", "NA", "NAB", "NAGOYA", "NAME", "NAVY", "NBA", "NC", "NE", "NEC", "NET", "NETBANK", "NETFLIX", "NETWORK", "NEUSTAR", "NEW", "NEWS", "NEXT", "NEXTDIRECT", "NEXUS", "NF", "NFL", "NG", "NGO", "NHK", "NI", "NICO", "NIKE", "NIKON", "NINJA", "NISSAN", "NISSAY", "NL", "NO", "NOKIA", "NORTON", "NOW", "NOWRUZ", "NOWTV", "NP", "NR", "NRA", "NRW", "NTT", "NU", "NYC", "NZ", "OBI", "OBSERVER", "OFFICE", "OKINAWA", "OLAYAN", "OLAYANGROUP", "OLLO", "OM", "OMEGA", "ONE", "ONG", "ONL", "ONLINE", "OOO", "OPEN", "ORACLE", "ORANGE", "ORG", "ORGANIC", "ORIGINS", "OSAKA", "OTSUKA", "OTT", "OVH", "PA", "PAGE", "PANASONIC", "PARIS", "PARS", "PARTNERS", "PARTS", "PARTY", "PAY", "PCCW", "PE", "PET", "PF", "PFIZER", "PG", "PH", "PHARMACY", "PHD", "PHILIPS", "PHONE", "PHOTO", "PHOTOGRAPHY", "PHOTOS", "PHYSIO", "PICS", "PICTET", "PICTURES", "PID", "PIN", "PING", "PINK", "PIONEER", "PIZZA", "PK", "PL", "PLACE", "PLAY", "PLAYSTATION", "PLUMBING", "PLUS", "PM", "PN", "PNC", "POHL", "POKER", "POLITIE", "PORN", "POST", "PR", "PRAXI", "PRESS", "PRIME", "PRO", "PROD", "PRODUCTIONS", "PROF", "PROGRESSIVE", "PROMO", "PROPERTIES", "PROPERTY", "PROTECTION", "PRU", "PRUDENTIAL", "PS", "PT", "PUB", "PW", "PWC", "PY", "QA", "QPON", "QUEBEC", "QUEST", "RACING", "RADIO", "RE", "READ", "REALESTATE", "REALTOR", "REALTY", "RECIPES", "RED", "REDUMBRELLA", "REHAB", "REISE", "REISEN", "REIT", "RELIANCE", "REN", "RENT", "RENTALS", "REPAIR", "REPORT", "REPUBLICAN", "REST", "RESTAURANT", "REVIEW", "REVIEWS", "REXROTH", "RICH", "RICHARDLI", "RICOH", "RIL", "RIO", "RIP", "RO", "ROCKS", "RODEO", "ROGERS", "ROOM", "RS", "RSVP", "RU", "RUGBY", "RUHR", "RUN", "RW", "RWE", "RYUKYU", "SA", "SAARLAND", "SAFE", "SAFETY", "SAKURA", "SALE", "SALON", "SAMSCLUB", "SAMSUNG", "SANDVIK", "SANDVIKCOROMANT", "SANOFI", "SAP", "SARL", "SAS", "SAVE", "SAXO", "SB", "SBI", "SBS", "SC", "SCB", "SCHAEFFLER", "SCHMIDT", "SCHOLARSHIPS", "SCHOOL", "SCHULE", "SCHWARZ", "SCIENCE", "SCOT", "SD", "SE", "SEARCH", "SEAT", "SECURE", "SECURITY", "SEEK", "SELECT", "SENER", "SERVICES", "SEVEN", "SEW", "SEX", "SEXY", "SFR", "SG", "SH", "SHANGRILA", "SHARP", "SHELL", "SHIA", "SHIKSHA", "SHOES", "SHOP", "SHOPPING", "SHOUJI", "SHOW", "SI", "SILK", "SINA", "SINGLES", "SITE", "SJ", "SK", "SKI", "SKIN", "SKY", "SKYPE", "SL", "SLING", "SM", "SMART", "SMILE", "SN", "SNCF", "SO", "SOCCER", "SOCIAL", "SOFTBANK", "SOFTWARE", "SOHU", "SOLAR", "SOLUTIONS", "SONG", "SONY", "SOY", "SPA", "SPACE", "SPORT", "SPOT", "SR", "SRL", "SS", "ST", "STADA", "STAPLES", "STAR", "STATEBANK", "STATEFARM", "STC", "STCGROUP", "STOCKHOLM", "STORAGE", "STORE", "STREAM", "STUDIO", "STUDY", "STYLE", "SU", "SUCKS", "SUPPLIES", "SUPPLY", "SUPPORT", "SURF", "SURGERY", "SUZUKI", "SV", "SWATCH", "SWISS", "SX", "SY", "SYDNEY", "SYSTEMS", "SZ", "TAB", "TAIPEI", "TALK", "TAOBAO", "TARGET", "TATAMOTORS", "TATAR", "TATTOO", "TAX", "TAXI", "TC", "TCI", "TD", "TDK", "TEAM", "TECH", "TECHNOLOGY", "TEL", "TEMASEK", "TENNIS", "TEVA", "TF", "TG", "TH", "THD", "THEATER", "THEATRE", "TIAA", "TICKETS", "TIENDA", "TIPS", "TIRES", "TIROL", "TJ", "TJMAXX", "TJX", "TK", "TKMAXX", "TL", "TM", "TMALL", "TN", "TO", "TODAY", "TOKYO", "TOOLS", "TOP", "TORAY", "TOSHIBA", "TOTAL", "TOURS", "TOWN", "TOYOTA", "TOYS", "TR", "TRADE", "TRADING", "TRAINING", "TRAVEL", "TRAVELERS", "TRAVELERSINSURANCE", "TRUST", "TRV", "TT", "TUBE", "TUI", "TUNES", "TUSHU", "TV", "TVS", "TW", "TZ", "UA", "UBANK", "UBS", "UG", "UK", "UNICOM", "UNIVERSITY", "UNO", "UOL", "UPS", "US", "UY", "UZ", "VA", "VACATIONS", "VANA", "VANGUARD", "VC", "VE", "VEGAS", "VENTURES", "VERISIGN", "VERSICHERUNG", "VET", "VG", "VI", "VIAJES", "VIDEO", "VIG", "VIKING", "VILLAS", "VIN", "VIP", "VIRGIN", "VISA", "VISION", "VIVA", "VIVO", "VLAANDEREN", "VN", "VODKA", "VOLVO", "VOTE", "VOTING", "VOTO", "VOYAGE", "VU", "WALES", "WALMART", "WALTER", "WANG", "WANGGOU", "WATCH", "WATCHES", "WEATHER", "WEATHERCHANNEL", "WEBCAM", "WEBER", "WEBSITE", "WED", "WEDDING", "WEIBO", "WEIR", "WF", "WHOSWHO", "WIEN", "WIKI", "WILLIAMHILL", "WIN", "WINDOWS", "WINE", "WINNERS", "WME", "WOODSIDE", "WORK", "WORKS", "WORLD", "WOW", "WS", "WTC", "WTF", "XBOX", "XEROX", "XIHUAN", "XIN", "XN--11B4C3D", "XN--1CK2E1B", "XN--1QQW23A", "XN--2SCRJ9C", "XN--30RR7Y", "XN--3BST00M", "XN--3DS443G", "XN--3E0B707E", "XN--3HCRJ9C", "XN--3PXU8K", "XN--42C2D9A", "XN--45BR5CYL", "XN--45BRJ9C", "XN--45Q11C", "XN--4DBRK0CE", "XN--4GBRIM", "XN--54B7FTA0CC", "XN--55QW42G", "XN--55QX5D", "XN--5SU34J936BGSG", "XN--5TZM5G", "XN--6FRZ82G", "XN--6QQ986B3XL", "XN--80ADXHKS", "XN--80AO21A", "XN--80AQECDR1A", "XN--80ASEHDB", "XN--80ASWG", "XN--8Y0A063A", "XN--90A3AC", "XN--90AE", "XN--90AIS", "XN--9DBQ2A", "XN--9ET52U", "XN--9KRT00A", "XN--B4W605FERD", "XN--BCK1B9A5DRE4C", "XN--C1AVG", "XN--C2BR7G", "XN--CCK2B3B", "XN--CCKWCXETD", "XN--CG4BKI", "XN--CLCHC0EA0B2G2A9GCD", "XN--CZR694B", "XN--CZRS0T", "XN--CZRU2D", "XN--D1ACJ3B", "XN--D1ALF", "XN--E1A4C", "XN--ECKVDTC9D", "XN--EFVY88H", "XN--FCT429K", "XN--FHBEI", "XN--FIQ228C5HS", "XN--FIQ64B", "XN--FIQS8S", "XN--FIQZ9S", "XN--FJQ720A", "XN--FLW351E", "XN--FPCRJ9C3D", "XN--FZC2C9E2C", "XN--FZYS8D69UVGM", "XN--G2XX48C", "XN--GCKR3F0F", "XN--GECRJ9C", "XN--GK3AT1E", "XN--H2BREG3EVE", "XN--H2BRJ9C", "XN--H2BRJ9C8C", "XN--HXT814E", "XN--I1B6B1A6A2E", "XN--IMR513N", "XN--IO0A7I", "XN--J1AEF", "XN--J1AMH", "XN--J6W193G", "XN--JLQ480N2RG", "XN--JVR189M", "XN--KCRX77D1X4A", "XN--KPRW13D", "XN--KPRY57D", "XN--KPUT3I", "XN--L1ACC", "XN--LGBBAT1AD8J", "XN--MGB9AWBF", "XN--MGBA3A3EJT", "XN--MGBA3A4F16A", "XN--MGBA7C0BBN0A", "XN--MGBAAM7A8H", "XN--MGBAB2BD", "XN--MGBAH1A3HJKRD", "XN--MGBAI9AZGQP6J", "XN--MGBAYH7GPA", "XN--MGBBH1A", "XN--MGBBH1A71E", "XN--MGBC0A9AZCG", "XN--MGBCA7DZDO", "XN--MGBCPQ6GPA1A", "XN--MGBERP4A5D4AR", "XN--MGBGU82A", "XN--MGBI4ECEXP", "XN--MGBPL2FH", "XN--MGBT3DHD", "XN--MGBTX2B", "XN--MGBX4CD0AB", "XN--MIX891F", "XN--MK1BU44C", "XN--MXTQ1M", "XN--NGBC5AZD", "XN--NGBE9E0A", "XN--NGBRX", "XN--NODE", "XN--NQV7F", "XN--NQV7FS00EMA", "XN--NYQY26A", "XN--O3CW4H", "XN--OGBPF8FL", "XN--OTU796D", "XN--P1ACF", "XN--P1AI", "XN--PGBS0DH", "XN--PSSY2U", "XN--Q7CE6A", "XN--Q9JYB4C", "XN--QCKA1PMC", "XN--QXA6A", "XN--QXAM", "XN--RHQV96G", "XN--ROVU88B", "XN--RVC1E0AM3E", "XN--S9BRJ9C", "XN--SES554G", "XN--T60B56A", "XN--TCKWE", "XN--TIQ49XQYJ", "XN--UNUP4Y", "XN--VERMGENSBERATER-CTB", "XN--VERMGENSBERATUNG-PWB", "XN--VHQUV", "XN--VUQ861B", "XN--W4R85EL8FHU5DNRA", "XN--W4RS40L", "XN--WGBH1C", "XN--WGBL6A", "XN--XHQ521B", "XN--XKC2AL3HYE2A", "XN--XKC2DL3A5EE0H", "XN--Y9A3AQ", "XN--YFRO4I67O", "XN--YGBI2AMMX", "XN--ZFR164B", "XXX", "XYZ", "YACHTS", "YAHOO", "YAMAXUN", "YANDEX", "YE", "YODOBASHI", "YOGA", "YOKOHAMA", "YOU", "YOUTUBE", "YT", "YUN", "ZA", "ZAPPOS", "ZARA", "ZERO", "ZIP", "ZM", "ZONE", "ZUERICH", "ZW"], __mockedArrayPrototype);
+        }), __mockedPropertyWrite(t, "TLDS", void 0, {
+          line: 1,
+          column: 159521
+        }), __mockedPropertyWrite(t, "TLDS", ["AAA", "AARP", "ABB", "ABBOTT", "ABBVIE", "ABC", "ABLE", "ABOGADO", "ABUDHABI", "AC", "ACADEMY", "ACCENTURE", "ACCOUNTANT", "ACCOUNTANTS", "ACO", "ACTOR", "AD", "ADS", "ADULT", "AE", "AEG", "AERO", "AETNA", "AF", "AFL", "AFRICA", "AG", "AGAKHAN", "AGENCY", "AI", "AIG", "AIRBUS", "AIRFORCE", "AIRTEL", "AKDN", "AL", "ALIBABA", "ALIPAY", "ALLFINANZ", "ALLSTATE", "ALLY", "ALSACE", "ALSTOM", "AM", "AMAZON", "AMERICANEXPRESS", "AMERICANFAMILY", "AMEX", "AMFAM", "AMICA", "AMSTERDAM", "ANALYTICS", "ANDROID", "ANQUAN", "ANZ", "AO", "AOL", "APARTMENTS", "APP", "APPLE", "AQ", "AQUARELLE", "AR", "ARAB", "ARAMCO", "ARCHI", "ARMY", "ARPA", "ART", "ARTE", "AS", "ASDA", "ASIA", "ASSOCIATES", "AT", "ATHLETA", "ATTORNEY", "AU", "AUCTION", "AUDI", "AUDIBLE", "AUDIO", "AUSPOST", "AUTHOR", "AUTO", "AUTOS", "AW", "AWS", "AX", "AXA", "AZ", "AZURE", "BA", "BABY", "BAIDU", "BANAMEX", "BAND", "BANK", "BAR", "BARCELONA", "BARCLAYCARD", "BARCLAYS", "BAREFOOT", "BARGAINS", "BASEBALL", "BASKETBALL", "BAUHAUS", "BAYERN", "BB", "BBC", "BBT", "BBVA", "BCG", "BCN", "BD", "BE", "BEATS", "BEAUTY", "BEER", "BERLIN", "BEST", "BESTBUY", "BET", "BF", "BG", "BH", "BHARTI", "BI", "BIBLE", "BID", "BIKE", "BING", "BINGO", "BIO", "BIZ", "BJ", "BLACK", "BLACKFRIDAY", "BLOCKBUSTER", "BLOG", "BLOOMBERG", "BLUE", "BM", "BMS", "BMW", "BN", "BNPPARIBAS", "BO", "BOATS", "BOEHRINGER", "BOFA", "BOM", "BOND", "BOO", "BOOK", "BOOKING", "BOSCH", "BOSTIK", "BOSTON", "BOT", "BOUTIQUE", "BOX", "BR", "BRADESCO", "BRIDGESTONE", "BROADWAY", "BROKER", "BROTHER", "BRUSSELS", "BS", "BT", "BUILD", "BUILDERS", "BUSINESS", "BUY", "BUZZ", "BV", "BW", "BY", "BZ", "BZH", "CA", "CAB", "CAFE", "CAL", "CALL", "CALVINKLEIN", "CAM", "CAMERA", "CAMP", "CANON", "CAPETOWN", "CAPITAL", "CAPITALONE", "CAR", "CARAVAN", "CARDS", "CARE", "CAREER", "CAREERS", "CARS", "CASA", "CASE", "CASH", "CASINO", "CAT", "CATERING", "CATHOLIC", "CBA", "CBN", "CBRE", "CC", "CD", "CENTER", "CEO", "CERN", "CF", "CFA", "CFD", "CG", "CH", "CHANEL", "CHANNEL", "CHARITY", "CHASE", "CHAT", "CHEAP", "CHINTAI", "CHRISTMAS", "CHROME", "CHURCH", "CI", "CIPRIANI", "CIRCLE", "CISCO", "CITADEL", "CITI", "CITIC", "CITY", "CK", "CL", "CLAIMS", "CLEANING", "CLICK", "CLINIC", "CLINIQUE", "CLOTHING", "CLOUD", "CLUB", "CLUBMED", "CM", "CN", "CO", "COACH", "CODES", "COFFEE", "COLLEGE", "COLOGNE", "COM", "COMMBANK", "COMMUNITY", "COMPANY", "COMPARE", "COMPUTER", "COMSEC", "CONDOS", "CONSTRUCTION", "CONSULTING", "CONTACT", "CONTRACTORS", "COOKING", "COOL", "COOP", "CORSICA", "COUNTRY", "COUPON", "COUPONS", "COURSES", "CPA", "CR", "CREDIT", "CREDITCARD", "CREDITUNION", "CRICKET", "CROWN", "CRS", "CRUISE", "CRUISES", "CU", "CUISINELLA", "CV", "CW", "CX", "CY", "CYMRU", "CYOU", "CZ", "DAD", "DANCE", "DATA", "DATE", "DATING", "DATSUN", "DAY", "DCLK", "DDS", "DE", "DEAL", "DEALER", "DEALS", "DEGREE", "DELIVERY", "DELL", "DELOITTE", "DELTA", "DEMOCRAT", "DENTAL", "DENTIST", "DESI", "DESIGN", "DEV", "DHL", "DIAMONDS", "DIET", "DIGITAL", "DIRECT", "DIRECTORY", "DISCOUNT", "DISCOVER", "DISH", "DIY", "DJ", "DK", "DM", "DNP", "DO", "DOCS", "DOCTOR", "DOG", "DOMAINS", "DOT", "DOWNLOAD", "DRIVE", "DTV", "DUBAI", "DUPONT", "DURBAN", "DVAG", "DVR", "DZ", "EARTH", "EAT", "EC", "ECO", "EDEKA", "EDU", "EDUCATION", "EE", "EG", "EMAIL", "EMERCK", "ENERGY", "ENGINEER", "ENGINEERING", "ENTERPRISES", "EPSON", "EQUIPMENT", "ER", "ERICSSON", "ERNI", "ES", "ESQ", "ESTATE", "ET", "EU", "EUROVISION", "EUS", "EVENTS", "EXCHANGE", "EXPERT", "EXPOSED", "EXPRESS", "EXTRASPACE", "FAGE", "FAIL", "FAIRWINDS", "FAITH", "FAMILY", "FAN", "FANS", "FARM", "FARMERS", "FASHION", "FAST", "FEDEX", "FEEDBACK", "FERRARI", "FERRERO", "FI", "FIDELITY", "FIDO", "FILM", "FINAL", "FINANCE", "FINANCIAL", "FIRE", "FIRESTONE", "FIRMDALE", "FISH", "FISHING", "FIT", "FITNESS", "FJ", "FK", "FLICKR", "FLIGHTS", "FLIR", "FLORIST", "FLOWERS", "FLY", "FM", "FO", "FOO", "FOOD", "FOOTBALL", "FORD", "FOREX", "FORSALE", "FORUM", "FOUNDATION", "FOX", "FR", "FREE", "FRESENIUS", "FRL", "FROGANS", "FRONTIER", "FTR", "FUJITSU", "FUN", "FUND", "FURNITURE", "FUTBOL", "FYI", "GA", "GAL", "GALLERY", "GALLO", "GALLUP", "GAME", "GAMES", "GAP", "GARDEN", "GAY", "GB", "GBIZ", "GD", "GDN", "GE", "GEA", "GENT", "GENTING", "GEORGE", "GF", "GG", "GGEE", "GH", "GI", "GIFT", "GIFTS", "GIVES", "GIVING", "GL", "GLASS", "GLE", "GLOBAL", "GLOBO", "GM", "GMAIL", "GMBH", "GMO", "GMX", "GN", "GODADDY", "GOLD", "GOLDPOINT", "GOLF", "GOODYEAR", "GOOG", "GOOGLE", "GOP", "GOT", "GOV", "GP", "GQ", "GR", "GRAINGER", "GRAPHICS", "GRATIS", "GREEN", "GRIPE", "GROCERY", "GROUP", "GS", "GT", "GU", "GUCCI", "GUGE", "GUIDE", "GUITARS", "GURU", "GW", "GY", "HAIR", "HAMBURG", "HANGOUT", "HAUS", "HBO", "HDFC", "HDFCBANK", "HEALTH", "HEALTHCARE", "HELP", "HELSINKI", "HERE", "HERMES", "HIPHOP", "HISAMITSU", "HITACHI", "HIV", "HK", "HKT", "HM", "HN", "HOCKEY", "HOLDINGS", "HOLIDAY", "HOMEDEPOT", "HOMEGOODS", "HOMES", "HOMESENSE", "HONDA", "HORSE", "HOSPITAL", "HOST", "HOSTING", "HOT", "HOTELS", "HOTMAIL", "HOUSE", "HOW", "HR", "HSBC", "HT", "HU", "HUGHES", "HYATT", "HYUNDAI", "IBM", "ICBC", "ICE", "ICU", "ID", "IE", "IEEE", "IFM", "IKANO", "IL", "IM", "IMAMAT", "IMDB", "IMMO", "IMMOBILIEN", "IN", "INC", "INDUSTRIES", "INFINITI", "INFO", "ING", "INK", "INSTITUTE", "INSURANCE", "INSURE", "INT", "INTERNATIONAL", "INTUIT", "INVESTMENTS", "IO", "IPIRANGA", "IQ", "IR", "IRISH", "IS", "ISMAILI", "IST", "ISTANBUL", "IT", "ITAU", "ITV", "JAGUAR", "JAVA", "JCB", "JE", "JEEP", "JETZT", "JEWELRY", "JIO", "JLL", "JM", "JMP", "JNJ", "JO", "JOBS", "JOBURG", "JOT", "JOY", "JP", "JPMORGAN", "JPRS", "JUEGOS", "JUNIPER", "KAUFEN", "KDDI", "KE", "KERRYHOTELS", "KERRYPROPERTIES", "KFH", "KG", "KH", "KI", "KIA", "KIDS", "KIM", "KINDLE", "KITCHEN", "KIWI", "KM", "KN", "KOELN", "KOMATSU", "KOSHER", "KP", "KPMG", "KPN", "KR", "KRD", "KRED", "KUOKGROUP", "KW", "KY", "KYOTO", "KZ", "LA", "LACAIXA", "LAMBORGHINI", "LAMER", "LAND", "LANDROVER", "LANXESS", "LASALLE", "LAT", "LATINO", "LATROBE", "LAW", "LAWYER", "LB", "LC", "LDS", "LEASE", "LECLERC", "LEFRAK", "LEGAL", "LEGO", "LEXUS", "LGBT", "LI", "LIDL", "LIFE", "LIFEINSURANCE", "LIFESTYLE", "LIGHTING", "LIKE", "LILLY", "LIMITED", "LIMO", "LINCOLN", "LINK", "LIVE", "LIVING", "LK", "LLC", "LLP", "LOAN", "LOANS", "LOCKER", "LOCUS", "LOL", "LONDON", "LOTTE", "LOTTO", "LOVE", "LPL", "LPLFINANCIAL", "LR", "LS", "LT", "LTD", "LTDA", "LU", "LUNDBECK", "LUXE", "LUXURY", "LV", "LY", "MA", "MADRID", "MAIF", "MAISON", "MAKEUP", "MAN", "MANAGEMENT", "MANGO", "MAP", "MARKET", "MARKETING", "MARKETS", "MARRIOTT", "MARSHALLS", "MATTEL", "MBA", "MC", "MCKINSEY", "MD", "ME", "MED", "MEDIA", "MEET", "MELBOURNE", "MEME", "MEMORIAL", "MEN", "MENU", "MERCKMSD", "MG", "MH", "MIAMI", "MICROSOFT", "MIL", "MINI", "MINT", "MIT", "MITSUBISHI", "MK", "ML", "MLB", "MLS", "MM", "MMA", "MN", "MO", "MOBI", "MOBILE", "MODA", "MOE", "MOI", "MOM", "MONASH", "MONEY", "MONSTER", "MORMON", "MORTGAGE", "MOSCOW", "MOTO", "MOTORCYCLES", "MOV", "MOVIE", "MP", "MQ", "MR", "MS", "MSD", "MT", "MTN", "MTR", "MU", "MUSEUM", "MUSIC", "MV", "MW", "MX", "MY", "MZ", "NA", "NAB", "NAGOYA", "NAME", "NAVY", "NBA", "NC", "NE", "NEC", "NET", "NETBANK", "NETFLIX", "NETWORK", "NEUSTAR", "NEW", "NEWS", "NEXT", "NEXTDIRECT", "NEXUS", "NF", "NFL", "NG", "NGO", "NHK", "NI", "NICO", "NIKE", "NIKON", "NINJA", "NISSAN", "NISSAY", "NL", "NO", "NOKIA", "NORTON", "NOW", "NOWRUZ", "NOWTV", "NP", "NR", "NRA", "NRW", "NTT", "NU", "NYC", "NZ", "OBI", "OBSERVER", "OFFICE", "OKINAWA", "OLAYAN", "OLAYANGROUP", "OLLO", "OM", "OMEGA", "ONE", "ONG", "ONL", "ONLINE", "OOO", "OPEN", "ORACLE", "ORANGE", "ORG", "ORGANIC", "ORIGINS", "OSAKA", "OTSUKA", "OTT", "OVH", "PA", "PAGE", "PANASONIC", "PARIS", "PARS", "PARTNERS", "PARTS", "PARTY", "PAY", "PCCW", "PE", "PET", "PF", "PFIZER", "PG", "PH", "PHARMACY", "PHD", "PHILIPS", "PHONE", "PHOTO", "PHOTOGRAPHY", "PHOTOS", "PHYSIO", "PICS", "PICTET", "PICTURES", "PID", "PIN", "PING", "PINK", "PIONEER", "PIZZA", "PK", "PL", "PLACE", "PLAY", "PLAYSTATION", "PLUMBING", "PLUS", "PM", "PN", "PNC", "POHL", "POKER", "POLITIE", "PORN", "POST", "PR", "PRAXI", "PRESS", "PRIME", "PRO", "PROD", "PRODUCTIONS", "PROF", "PROGRESSIVE", "PROMO", "PROPERTIES", "PROPERTY", "PROTECTION", "PRU", "PRUDENTIAL", "PS", "PT", "PUB", "PW", "PWC", "PY", "QA", "QPON", "QUEBEC", "QUEST", "RACING", "RADIO", "RE", "READ", "REALESTATE", "REALTOR", "REALTY", "RECIPES", "RED", "REDUMBRELLA", "REHAB", "REISE", "REISEN", "REIT", "RELIANCE", "REN", "RENT", "RENTALS", "REPAIR", "REPORT", "REPUBLICAN", "REST", "RESTAURANT", "REVIEW", "REVIEWS", "REXROTH", "RICH", "RICHARDLI", "RICOH", "RIL", "RIO", "RIP", "RO", "ROCKS", "RODEO", "ROGERS", "ROOM", "RS", "RSVP", "RU", "RUGBY", "RUHR", "RUN", "RW", "RWE", "RYUKYU", "SA", "SAARLAND", "SAFE", "SAFETY", "SAKURA", "SALE", "SALON", "SAMSCLUB", "SAMSUNG", "SANDVIK", "SANDVIKCOROMANT", "SANOFI", "SAP", "SARL", "SAS", "SAVE", "SAXO", "SB", "SBI", "SBS", "SC", "SCB", "SCHAEFFLER", "SCHMIDT", "SCHOLARSHIPS", "SCHOOL", "SCHULE", "SCHWARZ", "SCIENCE", "SCOT", "SD", "SE", "SEARCH", "SEAT", "SECURE", "SECURITY", "SEEK", "SELECT", "SENER", "SERVICES", "SEVEN", "SEW", "SEX", "SEXY", "SFR", "SG", "SH", "SHANGRILA", "SHARP", "SHELL", "SHIA", "SHIKSHA", "SHOES", "SHOP", "SHOPPING", "SHOUJI", "SHOW", "SI", "SILK", "SINA", "SINGLES", "SITE", "SJ", "SK", "SKI", "SKIN", "SKY", "SKYPE", "SL", "SLING", "SM", "SMART", "SMILE", "SN", "SNCF", "SO", "SOCCER", "SOCIAL", "SOFTBANK", "SOFTWARE", "SOHU", "SOLAR", "SOLUTIONS", "SONG", "SONY", "SOY", "SPA", "SPACE", "SPORT", "SPOT", "SR", "SRL", "SS", "ST", "STADA", "STAPLES", "STAR", "STATEBANK", "STATEFARM", "STC", "STCGROUP", "STOCKHOLM", "STORAGE", "STORE", "STREAM", "STUDIO", "STUDY", "STYLE", "SU", "SUCKS", "SUPPLIES", "SUPPLY", "SUPPORT", "SURF", "SURGERY", "SUZUKI", "SV", "SWATCH", "SWISS", "SX", "SY", "SYDNEY", "SYSTEMS", "SZ", "TAB", "TAIPEI", "TALK", "TAOBAO", "TARGET", "TATAMOTORS", "TATAR", "TATTOO", "TAX", "TAXI", "TC", "TCI", "TD", "TDK", "TEAM", "TECH", "TECHNOLOGY", "TEL", "TEMASEK", "TENNIS", "TEVA", "TF", "TG", "TH", "THD", "THEATER", "THEATRE", "TIAA", "TICKETS", "TIENDA", "TIPS", "TIRES", "TIROL", "TJ", "TJMAXX", "TJX", "TK", "TKMAXX", "TL", "TM", "TMALL", "TN", "TO", "TODAY", "TOKYO", "TOOLS", "TOP", "TORAY", "TOSHIBA", "TOTAL", "TOURS", "TOWN", "TOYOTA", "TOYS", "TR", "TRADE", "TRADING", "TRAINING", "TRAVEL", "TRAVELERS", "TRAVELERSINSURANCE", "TRUST", "TRV", "TT", "TUBE", "TUI", "TUNES", "TUSHU", "TV", "TVS", "TW", "TZ", "UA", "UBANK", "UBS", "UG", "UK", "UNICOM", "UNIVERSITY", "UNO", "UOL", "UPS", "US", "UY", "UZ", "VA", "VACATIONS", "VANA", "VANGUARD", "VC", "VE", "VEGAS", "VENTURES", "VERISIGN", "VERSICHERUNG", "VET", "VG", "VI", "VIAJES", "VIDEO", "VIG", "VIKING", "VILLAS", "VIN", "VIP", "VIRGIN", "VISA", "VISION", "VIVA", "VIVO", "VLAANDEREN", "VN", "VODKA", "VOLVO", "VOTE", "VOTING", "VOTO", "VOYAGE", "VU", "WALES", "WALMART", "WALTER", "WANG", "WANGGOU", "WATCH", "WATCHES", "WEATHER", "WEATHERCHANNEL", "WEBCAM", "WEBER", "WEBSITE", "WED", "WEDDING", "WEIBO", "WEIR", "WF", "WHOSWHO", "WIEN", "WIKI", "WILLIAMHILL", "WIN", "WINDOWS", "WINE", "WINNERS", "WME", "WOODSIDE", "WORK", "WORKS", "WORLD", "WOW", "WS", "WTC", "WTF", "XBOX", "XEROX", "XIHUAN", "XIN", "XN--11B4C3D", "XN--1CK2E1B", "XN--1QQW23A", "XN--2SCRJ9C", "XN--30RR7Y", "XN--3BST00M", "XN--3DS443G", "XN--3E0B707E", "XN--3HCRJ9C", "XN--3PXU8K", "XN--42C2D9A", "XN--45BR5CYL", "XN--45BRJ9C", "XN--45Q11C", "XN--4DBRK0CE", "XN--4GBRIM", "XN--54B7FTA0CC", "XN--55QW42G", "XN--55QX5D", "XN--5SU34J936BGSG", "XN--5TZM5G", "XN--6FRZ82G", "XN--6QQ986B3XL", "XN--80ADXHKS", "XN--80AO21A", "XN--80AQECDR1A", "XN--80ASEHDB", "XN--80ASWG", "XN--8Y0A063A", "XN--90A3AC", "XN--90AE", "XN--90AIS", "XN--9DBQ2A", "XN--9ET52U", "XN--9KRT00A", "XN--B4W605FERD", "XN--BCK1B9A5DRE4C", "XN--C1AVG", "XN--C2BR7G", "XN--CCK2B3B", "XN--CCKWCXETD", "XN--CG4BKI", "XN--CLCHC0EA0B2G2A9GCD", "XN--CZR694B", "XN--CZRS0T", "XN--CZRU2D", "XN--D1ACJ3B", "XN--D1ALF", "XN--E1A4C", "XN--ECKVDTC9D", "XN--EFVY88H", "XN--FCT429K", "XN--FHBEI", "XN--FIQ228C5HS", "XN--FIQ64B", "XN--FIQS8S", "XN--FIQZ9S", "XN--FJQ720A", "XN--FLW351E", "XN--FPCRJ9C3D", "XN--FZC2C9E2C", "XN--FZYS8D69UVGM", "XN--G2XX48C", "XN--GCKR3F0F", "XN--GECRJ9C", "XN--GK3AT1E", "XN--H2BREG3EVE", "XN--H2BRJ9C", "XN--H2BRJ9C8C", "XN--HXT814E", "XN--I1B6B1A6A2E", "XN--IMR513N", "XN--IO0A7I", "XN--J1AEF", "XN--J1AMH", "XN--J6W193G", "XN--JLQ480N2RG", "XN--JVR189M", "XN--KCRX77D1X4A", "XN--KPRW13D", "XN--KPRY57D", "XN--KPUT3I", "XN--L1ACC", "XN--LGBBAT1AD8J", "XN--MGB9AWBF", "XN--MGBA3A3EJT", "XN--MGBA3A4F16A", "XN--MGBA7C0BBN0A", "XN--MGBAAM7A8H", "XN--MGBAB2BD", "XN--MGBAH1A3HJKRD", "XN--MGBAI9AZGQP6J", "XN--MGBAYH7GPA", "XN--MGBBH1A", "XN--MGBBH1A71E", "XN--MGBC0A9AZCG", "XN--MGBCA7DZDO", "XN--MGBCPQ6GPA1A", "XN--MGBERP4A5D4AR", "XN--MGBGU82A", "XN--MGBI4ECEXP", "XN--MGBPL2FH", "XN--MGBT3DHD", "XN--MGBTX2B", "XN--MGBX4CD0AB", "XN--MIX891F", "XN--MK1BU44C", "XN--MXTQ1M", "XN--NGBC5AZD", "XN--NGBE9E0A", "XN--NGBRX", "XN--NODE", "XN--NQV7F", "XN--NQV7FS00EMA", "XN--NYQY26A", "XN--O3CW4H", "XN--OGBPF8FL", "XN--OTU796D", "XN--P1ACF", "XN--P1AI", "XN--PGBS0DH", "XN--PSSY2U", "XN--Q7CE6A", "XN--Q9JYB4C", "XN--QCKA1PMC", "XN--QXA6A", "XN--QXAM", "XN--RHQV96G", "XN--ROVU88B", "XN--RVC1E0AM3E", "XN--S9BRJ9C", "XN--SES554G", "XN--T60B56A", "XN--TCKWE", "XN--TIQ49XQYJ", "XN--UNUP4Y", "XN--VERMGENSBERATER-CTB", "XN--VERMGENSBERATUNG-PWB", "XN--VHQUV", "XN--VUQ861B", "XN--W4R85EL8FHU5DNRA", "XN--W4RS40L", "XN--WGBH1C", "XN--WGBL6A", "XN--XHQ521B", "XN--XKC2AL3HYE2A", "XN--XKC2DL3A5EE0H", "XN--Y9A3AQ", "XN--YFRO4I67O", "XN--YGBI2AMMX", "XN--ZFR164B", "XXX", "XYZ", "YACHTS", "YAHOO", "YAMAXUN", "YANDEX", "YE", "YODOBASHI", "YOGA", "YOKOHAMA", "YOU", "YOUTUBE", "YT", "YUN", "ZA", "ZAPPOS", "ZARA", "ZERO", "ZIP", "ZM", "ZONE", "ZUERICH", "ZW"], {
+          line: 1,
+          column: 159535
+        });
       },
       6913(e) {
         "use strict";
 
-        e.exports = Object.setPrototypeOf({
+        __mockedPropertyWrite(e, "exports", {
           version: "18.1.2"
-        }, __mockedObjectPrototype);
+        }, {
+          line: 1,
+          column: 171900
+        });
       }
-    }, __mockedObjectPrototype),
-    t = Object.setPrototypeOf({}, __mockedObjectPrototype);
-  return r.n = e => {
+    },
+    t = {};
+  return __mockedPropertyWrite(r, "n", e => {
     var t = e && e.__esModule ? () => e.default : () => e;
-    return r.d(t, Object.setPrototypeOf({
+    return r.d(t, {
       a: t
-    }, __mockedObjectPrototype)), t;
-  }, r.d = (e, t) => {
-    for (var s in t) r.o(t, s) && !r.o(e, s) && Object.defineProperty(e, s, Object.setPrototypeOf({
+    }), t;
+  }, {
+    line: 1,
+    column: 172060
+  }), __mockedPropertyWrite(r, "d", (e, t) => {
+    for (var s in t) r.o(t, s) && !r.o(e, s) && Object.defineProperty(e, s, {
       enumerable: !0,
       get: __mockedPropertyAccess(t, s)
-    }, __mockedObjectPrototype));
-  }, r.o = (e, t) => Object.prototype.hasOwnProperty.call(e, t), r(1100);
+    });
+  }, {
+    line: 1,
+    column: 172133
+  }), __mockedPropertyWrite(r, "o", (e, t) => Object.prototype.hasOwnProperty.call(e, t), {
+    line: 1,
+    column: 172234
+  }), r(1100);
 })());

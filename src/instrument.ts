@@ -35,18 +35,20 @@ import {identifier,
     MemberExpression
 } from '@babel/types';
 import babelGenerator from '@babel/generator';
+import { mockedPropertyWrite } from './helper.js';
 
-const mockPrototypeTemplate = babelTemplate.expression('Object.setPrototypeOf(%%objexpr%%, %%proto%%)');
+
 
 const mockTypeofTemplate = babelTemplate.expression('typeof %%varname%% === "undefined" ? "undefined" : typeof %%varname%% === "object" && %%varname%% !== null ? %%varname%%.__TYPEOF__ !== undefined ? %%varname%%.__TYPEOF__ : "object" : typeof %%varname%%');
 
 const mockTypeofExprTemplate = babelTemplate.expression('(function(x) { return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x})(%%expr%%)');
 
-const mockClassExprTemplate = babelTemplate.expression('(function(c) { return Object.setPrototypeOf(c, __mockedObjectPrototype); })(%%classexpr%%)');
 
 const mockComparisonTemplate = babelTemplate.expression('__mockedCompare(%%left%%, %%right%%, %%cmpop%%)');
 
 const mockPropertyAccessTemplate = babelTemplate.expression('__mockedPropertyAccess(%%expr%%, %%prop%%)');
+
+const mockPropertyWriteTemplate = babelTemplate.expression('__mockedPropertyWrite(%%expr%%, %%prop%%, %%value%%, {line: %%startline%%, column: %%startcolumn%%})');
 
 export function instrument(source: string, opts?: any) {
     opts = opts || {};
@@ -82,55 +84,6 @@ export function instrument(source: string, opts?: any) {
 
             }
 
-            else if (path.isObjectExpression()) {
-                path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedObjectPrototype')}));
-                path.skip();
-            }
-            
-            else if (path.isFunctionExpression()) {
-                path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedFunctionPrototype')}));
-                path.skip();
-            }
-
-            else if (path.isFunctionDeclaration()) {
-                let inserted = path.insertAfter([
-                    expressionStatement(mockPrototypeTemplate({objexpr: path.node.id, proto: identifier('__mockedFunctionPrototype')})),
-                    expressionStatement(mockPrototypeTemplate({objexpr: memberExpression(path.node.id as Identifier, identifier('prototype')), proto: identifier('__mockedObjectPrototype')}))
-                ]);
-                inserted.forEach(x => x.skip());
-            }
-
-            else if (path.isClassDeclaration() && !path.get('superClass').node) {
-                let inserted = path.insertAfter(expressionStatement(mockPrototypeTemplate({objexpr: memberExpression(path.get('id').node as Identifier, identifier('prototype'), false), proto: identifier('__mockedObjectPrototype')})));
-                inserted.forEach(x => x.skip());
-            }
-
-            else if (path.isClassExpression() && !path.get('superClass').node) {
-                path.replaceWith(mockClassExprTemplate({classexpr: path.node}));
-                path.skip();
-            }
-
-            else if (path.isNewExpression()) {
-                let callee = path.get('callee').node;
-                if (callee.type === 'Identifier' && callee.name === 'Object') {
-                    path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedObjectPrototype')}));
-                    path.skip();
-                }
-                if (callee.type === 'Identifier' && callee.name === 'Function') {
-                    path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedFunctionPrototype')}));
-                    path.skip();
-                }
-
-                if (callee.type === 'Identifier' && callee.name === 'Array') {
-                    path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedArrayPrototype')}));
-                    path.skip();
-                }
-            }
-
-            else if (path.isArrayExpression()) {
-                path.replaceWith(mockPrototypeTemplate({objexpr: path.node, proto: identifier('__mockedArrayPrototype')}));
-                path.skip();
-            }
 
             else if (path.isBinaryExpression() ) {
                 if (path.node.operator === '===' || path.node.operator === '!==' || path.node.operator === '==' || path.node.operator === '!=') {
@@ -142,6 +95,29 @@ export function instrument(source: string, opts?: any) {
             else if (path.isMemberExpression() && path.node.computed && !(path.parentPath.isAssignmentExpression() && path.parentKey === 'left')) {
                 path.replaceWith(mockPropertyAccessTemplate({expr: path.node.object, prop: path.node.property}));
                 path.skip();
+            }
+
+            else if (path.isAssignmentExpression() && path.node.operator === '=' && path.node.left.type === 'MemberExpression') {
+                if (path.node.left.computed) {
+                    path.replaceWith(mockPropertyWriteTemplate({
+                        expr: path.node.left.object,
+                        prop: path.node.left.property,
+                        value: path.node.right,
+                        startline: numericLiteral(path.node.loc!.start.line),
+                        startcolumn: numericLiteral(path.node.loc!.start.column)
+                    }));
+                    path.skip();
+                }
+                else {
+                    path.replaceWith(mockPropertyWriteTemplate({
+                        expr: path.node.left.object,
+                        prop: stringLiteral((path.node.left.property as Identifier).name),
+                        value: path.node.right,
+                        startline: numericLiteral(path.node.loc!.start.line),
+                        startcolumn: numericLiteral(path.node.loc!.start.column)
+                    }));
+                    path.skip();
+                }
             }
 
             /* Limit the iteration count */
