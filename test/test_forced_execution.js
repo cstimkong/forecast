@@ -2,7 +2,6 @@
 import {forcedExecution} from '../lib/forced-execution.js';
 import {proxyString, makeProxyObject} from '../lib/proxy.js';
 import module from 'module';
-import {mockedArrayPrototype, mockedFunctionPrototype, mockedObjectPrototype} from '../lib/proxy.js'
 import { mockedCompare, mockedPropertyAccess, mockedPropertyWrite } from '../lib/helper.js';
 describe('test forced execution', function() {
     it('test forced execution 1', function(done) {

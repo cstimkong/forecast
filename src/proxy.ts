@@ -1,10 +1,9 @@
 /**
  * 
  * This file is part of Forecast.
- *
  */
 
-import { randomChoice, ModifyPrototypeSignal } from './helper.js';
+import { randomChoice } from './helper.js';
 
 const TAINT_STRING_LITERAL = '__taintstr__';
 
@@ -62,69 +61,6 @@ export const proxyString: any = (function() {
     return o;
 })();
 
-export const mockedObjectPrototype = (function() {
-    return new Proxy(Object.prototype, {
-        get(target, p) {
-            if (p === '__proto__') {
-                return null;
-            }
-            if (p === 'constructor') {
-                return MockedObject;
-            }
-            return (target as any)[p];
-        },
-        set(_, p, v, receiver) {
-            if (receiver === mockedObjectPrototype) {
-                throw new ModifyPrototypeSignal('Object.prototype', p, v);
-            }
-            Object.defineProperty(receiver, p, {value: v, writable: true, configurable: true, enumerable: true});
-            return true;
-            
-        }
-    })
-})();
-
-export const mockedFunctionPrototype = (function() {
-    return new Proxy(Function.prototype, {
-        set(_, p, v, receiver) {
-            if (receiver === mockedObjectPrototype) {
-                throw new ModifyPrototypeSignal('Function.prototype', p, v);
-            }
-            Object.defineProperty(receiver, p, {value: v, writable: true, configurable: true, enumerable: true});
-            return true;
-        }
-    });
-})();
-
-export const mockedArrayPrototype = (function() {
-    return new Proxy(Array.prototype, {
-        set(_, p, v, receiver) {
-            if (receiver === mockedObjectPrototype) {
-                throw new ModifyPrototypeSignal('Array.prototype', p, v);
-            }
-            Object.defineProperty(receiver, p, {value: v, writable: true, configurable: true, enumerable: true});
-            return true;
-        }
-    });
-})();
-
-export const MockedObject = (function() {
-    return new Proxy(Object, {
-        get(target, p) {
-            if (p === 'prototype') {
-                return mockedObjectPrototype;
-            }
-            return (target as any)[p];
-        },
-        construct() {
-            return Object.create(mockedObjectPrototype);
-        },
-        apply() {
-            return Object.create(mockedObjectPrototype);
-        }
-    })
-})();
-
 
 /**
  * 
@@ -134,10 +70,6 @@ export function makeProxyObject() {
 
     return new Proxy((function () { }) as any, {
         get: function (target, p, _) {
-            // Sign of a proxy object
-            if (p === '__ISTAINTED__') {
-                return true;
-            }
 
             // Return the internal `target`
             if (p === '__INTERNAL__') {

@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import module from 'module';
 import {instrument} from '../lib/instrument.js';
-import {mockedArrayPrototype, mockedFunctionPrototype, mockedObjectPrototype} from '../lib/proxy.js';
 import {mockedCompare, mockedPropertyAccess, mockedPropertyWrite} from '../lib/helper.js';
 it('test instrumentation', function(done) {
 

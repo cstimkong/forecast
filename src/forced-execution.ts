@@ -1,5 +1,14 @@
 import { randomChoice, ModifyPrototypeSignal } from "./helper.js";
 import { makeProxyObject, makeProxyArray, proxyString } from "./proxy.js"
+
+export type ExecutionResult = {
+    polluted: boolean,
+    async?: boolean,
+    args: any[],
+    result?: any,
+    location?: {line: number, column: number}
+}
+
 /**
  * Forcefully execute a function. The executed function should be instrumented first.
  * 
@@ -7,8 +16,10 @@ import { makeProxyObject, makeProxyArray, proxyString } from "./proxy.js"
  * @param argCount number of arguments
  * @param thisArg `this` in the function execution (optional). `thisArg` should be 
  * retrieved in other forced executions (typically as the return object).
+ * @returns the execution result
+ * @
  */
-export async function forcedExecution(f: Function, argCount: number, thisArg: any, globalContext: any) {
+export async function forcedExecution(f: Function, argCount: number, thisArg?: any) : Promise<ExecutionResult> {
     let argArray = [];
     for (let i = 0; i < argCount; i++) {
         argArray.push(randomChoice([
@@ -21,17 +32,26 @@ export async function forcedExecution(f: Function, argCount: number, thisArg: an
     }
     try {
         let result = f.apply(thisArg, argArray);
+        let _async = false;
         if (result instanceof Promise) {
             result = await result;
+            _async = true;
         }
-        return [false, argArray.map(x => x.__INTERNAL__), result];
+        return {
+            polluted: false, 
+            args: argArray.map(x => x.__INTERNAL__),
+            result: result,
+            async: _async
+        }
     } catch (e: any) {
-        if (e instanceof Error) {
-            throw new Error(`Error in forced execution: ${e.message}`);
-        }
         if (e instanceof ModifyPrototypeSignal) {
-            return [true, argArray.map(x => x.__INTERNAL__), undefined];
+            return {
+                polluted: true, 
+                args: argArray.map(x => x.__INTERNAL__),
+                location: e.location
+            };
         }
+        throw new Error(`Error in forced execution: ${e.message}`);
         
     }
 }

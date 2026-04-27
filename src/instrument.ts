@@ -1,5 +1,6 @@
 /**
- *  This file is part of FesaJS.
+ * 
+ *  This file is part of Forecast.
  */
 
 import babelTraverse, { NodePath } from '@babel/traverse';

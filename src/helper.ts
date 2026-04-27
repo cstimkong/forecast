@@ -1,10 +1,8 @@
 
 /**
  * 
- * This file is part of FesaJS
+ * This file is part of Forecast.
  */
-
-/* Helper functions for FesaJS  */
 
 export function makeArbitraryString(): string {
     let length = Math.floor(Math.random() * 10);
@@ -46,9 +44,9 @@ export function randomChoice<T>(funcs: {(): T}[]) {
 
 export class ModifyPrototypeSignal {
     obj: any;
-    location: any;
+    location: {line: number, column: number};
     prop?: any;
-    constructor(obj: any, location: any, prop?: any) {
+    constructor(obj: any, location: {line: number, column: number}, prop?: any) {
         this.obj = obj;
         this.location = location;
         this.prop = prop;
@@ -97,12 +95,33 @@ export function mockedPropertyAccess(e: any, p: any) {
     return e[p];
 }
 
-export function mockedPropertyWrite(e: any, p: any, v: any, loc: any) {
+export function mockedPropertyWrite(e: any, p: any, v: any, loc: {line: number, column: number}) {
     if (e === Object.prototype) {
         if (isTaintedString(p))
             throw new ModifyPrototypeSignal('Object.prototype', loc);
         else if (typeof p === 'string')
             throw new ModifyPrototypeSignal('Object.prototype', loc, p);
+    }
+
+    else if (e === Array.prototype) {
+        if (isTaintedString(p))
+            throw new ModifyPrototypeSignal('Array.prototype', loc);
+        else if (typeof p === 'string')
+            throw new ModifyPrototypeSignal('Array.prototype', loc, p);
+    }
+
+    else if (e === Function.prototype) {
+        if (isTaintedString(p))
+            throw new ModifyPrototypeSignal('Function.prototype', loc);
+        else if (typeof p === 'string')
+            throw new ModifyPrototypeSignal('Function.prototype', loc, p);
+    }
+
+    else if (e === Map.prototype) {
+        if (isTaintedString(p))
+            throw new ModifyPrototypeSignal('Map.prototype', loc);
+        else if (typeof p === 'string')
+            throw new ModifyPrototypeSignal('Map.prototype', loc, p);
     }
 
     e[p] = v;
