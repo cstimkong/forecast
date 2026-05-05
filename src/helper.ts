@@ -82,7 +82,7 @@ export function mockedCompare(a: any, b: any, op: string) {
 }
 
 export function mockedPropertyAccess(e: any, p: any) {
-    if (isTaintedString(p)) {
+    if (isProxyString(p)) {
         if (typeof e === 'object' || typeof e === 'function') {
             return randomChoice([
                 function() { return Object.getPrototypeOf(e); },
@@ -97,28 +97,28 @@ export function mockedPropertyAccess(e: any, p: any) {
 
 export function mockedPropertyWrite(e: any, p: any, v: any, loc: {line: number, column: number}) {
     if (e === Object.prototype) {
-        if (isTaintedString(p))
+        if (isProxyString(p))
             throw new ModifyPrototypeSignal('Object.prototype', loc);
         else if (typeof p === 'string')
             throw new ModifyPrototypeSignal('Object.prototype', loc, p);
     }
 
     else if (e === Array.prototype) {
-        if (isTaintedString(p))
+        if (isProxyString(p))
             throw new ModifyPrototypeSignal('Array.prototype', loc);
         else if (typeof p === 'string')
             throw new ModifyPrototypeSignal('Array.prototype', loc, p);
     }
 
     else if (e === Function.prototype) {
-        if (isTaintedString(p))
+        if (isProxyString(p))
             throw new ModifyPrototypeSignal('Function.prototype', loc);
         else if (typeof p === 'string')
             throw new ModifyPrototypeSignal('Function.prototype', loc, p);
     }
 
     else if (e === Map.prototype) {
-        if (isTaintedString(p))
+        if (isProxyString(p))
             throw new ModifyPrototypeSignal('Map.prototype', loc);
         else if (typeof p === 'string')
             throw new ModifyPrototypeSignal('Map.prototype', loc, p);
@@ -128,6 +128,6 @@ export function mockedPropertyWrite(e: any, p: any, v: any, loc: {line: number, 
     return v;
 }
 
-function isTaintedString(s: any) {
+export function isProxyString(s: any) {
     return typeof s === 'object' && s !== null && s.__TYPEOF__ === 'string';
 }
