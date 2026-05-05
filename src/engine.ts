@@ -6,12 +6,12 @@
 
 import { forcedExecution } from "./forced-execution.js";
 import { isProxyString, randomChoice } from "./helper.js";
-import { proxyString } from "./proxy.js";
+import { hasProxyStringProperty, proxyString } from "./proxy.js";
 import cloneDeep from 'clone-deep';
 
-type CallPath = (string | {args: any[]})[];
+type CallPath = (string | {args: any[], async?: boolean})[];
 
-async function run(lib: any, maxExecutionTime: number) {
+async function run(lib: any, options: {maxExecutionTime: number, iterationCount: number}) {
     let candidates: {path: CallPath, ref: Function, thisArg?: any}[] = [];
     let successResults: CallPath[] = [];
 
@@ -23,10 +23,11 @@ async function run(lib: any, maxExecutionTime: number) {
         }
     }
 
-
-    while (true) {
+    let iter = 0;
+    while (iter < options.iterationCount && candidates.length > 0) {
         let p = candidates.shift();
-        for (let i = 0; i < maxExecutionTime; i++) {
+        iter++;
+        for (let i = 0; i < options.maxExecutionTime; i++) {
             let argCount = randomChoice([0, 1, 2, 3, 4].map(x => function() { return x; }));
             let result = await forcedExecution(p!.ref, argCount, p!.thisArg);
             if (result.polluted) {
@@ -34,13 +35,33 @@ async function run(lib: any, maxExecutionTime: number) {
                 clonedPath.push({args: result.args});
                 successResults.push(clonedPath);
             } else {
-                
+                if (typeof result.result === 'object' && searchProxyString(result.result, 4)) {
+                    for (let x in result.result) {
+                        if (typeof result.result[x] === 'function') {
+                            let clonedPath = cloneDeep(p!.path);
+                            clonedPath.push({args: result.args, async: result.async!}, x);
+                            candidates.push({path: clonedPath, ref: result.result[x], thisArg: result.result});
+                        }
+                    }
+                }
             }
         }
     }
 }
 
-
+function searchProxyString(obj: any, maxDepth: number) {
+    if (maxDepth <= 0)
+        return false;
+    if (hasProxyStringProperty(obj)) {
+        return true;
+    }
+    for (let x of Object.keys(obj)) {
+        if (searchProxyString(obj[x], maxDepth - 1)) {
+            return true;
+        }
+    }
+    return false;
+}
 
 function stringifyObject(obj: any) {
     if (obj === null) {

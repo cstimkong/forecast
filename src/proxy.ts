@@ -134,3 +134,10 @@ export function makeProxyObject() {
 
     });
 }
+
+export function hasProxyStringProperty(obj: any) {
+    if (typeof obj === 'object')
+        return Object.hasOwn(obj, TAINT_STRING_LITERAL);
+
+    return false;
+}
