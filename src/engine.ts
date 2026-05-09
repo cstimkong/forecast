@@ -7,11 +7,14 @@
 import { forcedExecution } from "./forced-execution.js";
 import { isProxyString, randomChoice } from "./helper.js";
 import { hasProxyStringProperty, proxyString } from "./proxy.js";
+import { defaultOptionValues } from "./defaults.js";
 import cloneDeep from 'clone-deep';
 
-type CallPath = (string | {args: any[], async?: boolean})[];
+export type CallPath = (string | {args: any[], async?: boolean})[];
 
-async function run(lib: any, options: {maxExecutionTime: number, iterationCount: number}) {
+async function run(lib: any, options: {maxExecutionTime?: number, iterationCount?: number}) {
+    let maxExecutionTime = options.maxExecutionTime || defaultOptionValues.maxExecutionTime;
+    let iterationCount = options.iterationCount || defaultOptionValues.iterationCount;
     let candidates: {path: CallPath, ref: Function, thisArg?: any}[] = [];
     let successResults: CallPath[] = [];
 
@@ -24,10 +27,10 @@ async function run(lib: any, options: {maxExecutionTime: number, iterationCount:
     }
 
     let iter = 0;
-    while (iter < options.iterationCount && candidates.length > 0) {
+    while (iter < iterationCount && candidates.length > 0) {
         let p = candidates.shift();
         iter++;
-        for (let i = 0; i < options.maxExecutionTime; i++) {
+        for (let i = 0; i < maxExecutionTime; i++) {
             let argCount = randomChoice([0, 1, 2, 3, 4].map(x => function() { return x; }));
             let result = await forcedExecution(p!.ref, argCount, p!.thisArg);
             if (result.polluted) {
@@ -47,6 +50,8 @@ async function run(lib: any, options: {maxExecutionTime: number, iterationCount:
             }
         }
     }
+
+    return successResults;
 }
 
 function searchProxyString(obj: any, maxDepth: number) {

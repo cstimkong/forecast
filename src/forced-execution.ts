@@ -1,5 +1,5 @@
 import { randomChoice, ModifyPrototypeSignal } from "./helper.js";
-import { makeProxyObject, makeProxyArray, proxyString } from "./proxy.js"
+import { makeProxyObject, makeProxyArray, proxyString, toFixedValue } from "./proxy.js"
 
 export type ExecutionResult = {
     polluted: boolean,
@@ -39,7 +39,7 @@ export async function forcedExecution(f: Function, argCount: number, thisArg?: a
         }
         return {
             polluted: false, 
-            args: argArray.map(x => x.__INTERNAL__),
+            args: argArray.map(x => toFixedValue(x)),
             result: result,
             async: _async
         }
@@ -47,7 +47,7 @@ export async function forcedExecution(f: Function, argCount: number, thisArg?: a
         if (e instanceof ModifyPrototypeSignal) {
             return {
                 polluted: true, 
-                args: argArray.map(x => x.__INTERNAL__),
+                args: argArray.map(x => toFixedValue(x)),
                 location: e.location
             };
         }

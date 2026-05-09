@@ -5,7 +5,9 @@
 
 import { randomChoice } from './helper.js';
 
-const TAINT_STRING_LITERAL = '__taintstr__';
+import { defaultOptionValues } from './defaults.js';
+
+const PROXY_STRING_LITERAL = defaultOptionValues.proxyStringLiteral;
 
 export function makeProxyArray(): Array<any> {
     let array = [];
@@ -22,9 +24,12 @@ export function makeProxyArray(): Array<any> {
 export const proxyString: any = (function() {
     let o: any = {
         [Symbol.toPrimitive]() {
-            return TAINT_STRING_LITERAL;
+            return PROXY_STRING_LITERAL;
         },
-        __TYPEOF__: 'string'
+        __TYPEOF__: 'string',
+        get __INTERNAL__() {
+            return proxyString;
+        }
     };
 
     for (let m of ['charAt', 'substring', 'slice', 'replace', 'trim', 'trimLeft', 'trimRight', 'toUpperCase', 'toLowerCase', 'toLocaleUpperCase', 'toLocaleLowerCase', 'toString', 'replace']) {
@@ -91,7 +96,7 @@ export function makeProxyObject() {
                 return target[p];
             }
 
-            if (p === TAINT_STRING_LITERAL) {
+            if (p === PROXY_STRING_LITERAL) {
                 return randomChoice([
                     function() {
                         return Object.prototype;
@@ -137,7 +142,32 @@ export function makeProxyObject() {
 
 export function hasProxyStringProperty(obj: any) {
     if (typeof obj === 'object')
-        return Object.hasOwn(obj, TAINT_STRING_LITERAL);
+        return Object.hasOwn(obj, PROXY_STRING_LITERAL);
 
     return false;
+}
+
+export function toFixedValue(obj: any): any {
+    if (obj === proxyString) {
+        return proxyString;
+    }
+
+    if (obj !== null && obj !== undefined && obj.__INTERNAL__) {
+        let __internal = obj.__INTERNAL__;
+        let o: any = {};
+        for (let x of Object.keys(__internal)) {
+            o[x] = toFixedValue(__internal[x]);
+        }
+        return o;
+    }
+
+    if (Array.isArray(obj)) {
+        let l = [];
+        for (let x of obj) {
+            l.push(toFixedValue(x));
+        }
+        return l;
+    }
+
+    return obj;
 }
