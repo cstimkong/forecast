@@ -29,7 +29,8 @@ export const proxyString: any = (function() {
         __TYPEOF__: 'string',
         get __INTERNAL__() {
             return proxyString;
-        }
+        },
+        [Symbol.toStringTag]: 'String'
     };
 
     for (let m of ['charAt', 'substring', 'slice', 'replace', 'trim', 'trimLeft', 'trimRight', 'toUpperCase', 'toLowerCase', 'toLocaleUpperCase', 'toLocaleLowerCase', 'toString', 'replace']) {
@@ -141,7 +142,7 @@ export function makeProxyObject() {
 }
 
 export function hasProxyStringProperty(obj: any) {
-    if (typeof obj === 'object')
+    if (typeof obj === 'object' && obj !== null)
         return Object.hasOwn(obj, PROXY_STRING_LITERAL);
 
     return false;

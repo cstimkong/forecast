@@ -10,10 +10,11 @@ import { hasProxyStringProperty } from "./proxy.js";
 import { defaultOptionValues } from "./defaults.js";
 import cloneDeep from 'clone-deep';
 import pino from 'pino';
+import { isProxy } from "util/types";
 
 export type CallPath = (string | {args: any[], async?: boolean})[];
 
-async function run(lib: any, options?: {maxExecutionTime?: number, iterationCount?: number, loggerEnabled?: boolean}) {
+export async function run(lib: any, options?: {maxExecutionTime?: number, iterationCount?: number, loggerEnabled?: boolean}) {
     if (options === undefined) {
         options = {};
     }
@@ -26,20 +27,31 @@ async function run(lib: any, options?: {maxExecutionTime?: number, iterationCoun
     if (typeof lib === 'function') {
         candidates.push({path: [], ref: lib});
         logger.info(`Added function (library itself).`);
-    } else {
-        for (let x of Object.getOwnPropertyNames(lib)) {
+    }
+    for (let x of Object.keys(lib)) {
+        if (typeof lib[x] === 'function') {
             candidates.push({path: [x], ref: lib[x]});
             logger.info(`Added function (.${x}).`);
         }
     }
+    
 
     let iter = 0;
     while (iter < iterationCount && candidates.length > 0) {
         let p = candidates.shift();
+        logger.info(`Processing ${stringifyPath(p!.path)}.`);
+
         iter++;
         for (let i = 0; i < maxExecutionTime; i++) {
             let argCount = randomChoice([0, 1, 2, 3, 4].map(x => function() { return x; }));
-            let result = await forcedExecution(p!.ref, argCount, p!.thisArg);
+            let result;
+            try {
+                result = await forcedExecution(p!.ref, argCount, p!.thisArg);
+            } catch (e: any) {
+                logger.debug(`Forced execution error: ${e.message}`);
+                continue;
+            }
+            
             if (result.polluted) {
                 let clonedPath = cloneDeep(p!.path);
                 clonedPath.push({args: result.args});
@@ -62,6 +74,12 @@ async function run(lib: any, options?: {maxExecutionTime?: number, iterationCoun
 }
 
 function searchProxyString(obj: any, maxDepth: number) {
+    if (isProxyString(obj))
+        return false;
+
+    if (typeof obj !== 'object' || obj === null || obj === undefined)
+        return false;
+
     if (maxDepth <= 0)
         return false;
     if (hasProxyStringProperty(obj)) {
