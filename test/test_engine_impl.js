@@ -1,4 +1,4 @@
-import {stringifyArgument, stringifyPath, run} from '../lib/engine.js';
+import {stringifyArgument, stringifyPath, run} from '../lib/fuzzing.js';
 import { mockedCompare, mockedPropertyAccess, mockedPropertyWrite } from '../lib/helper.js';
 import {proxyString} from '../lib/proxy.js';
 import module from 'module';

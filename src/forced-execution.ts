@@ -12,9 +12,11 @@ export type ExecutionResult = {
     async?: boolean,
     args: any[],
     result?: any,
-    location?: ProtoPollutionLocation;
+    location?: ProtoPollutionLocation
+    stringOperations?: StringOperation[];
 }
 
+export type StringOperation = {call: string, args: any[]};
 export type ProtoPollutionLocation = {line: number, column: number};
 
 /**
@@ -39,6 +41,7 @@ export async function forcedExecution(f: Function, argCount: number, thisArg?: a
         ]));
     }
     try {
+        (globalThis as any).__strop = [];
         let result = f.apply(thisArg, argArray);
         let _async = false;
         if (result instanceof Promise) {
@@ -49,7 +52,8 @@ export async function forcedExecution(f: Function, argCount: number, thisArg?: a
             polluted: false, 
             args: argArray.map(x => toFixedValue(x)),
             result: result,
-            async: _async
+            async: _async,
+            stringOperations: (globalThis as any).__strop
         }
     } catch (e: any) {
         if (e instanceof ModifyPrototypeSignal) {

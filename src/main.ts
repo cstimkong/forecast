@@ -7,16 +7,11 @@
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 
-import loadNodeJSModule from './moduleloader.js';
-import { solve } from './analysis.js';
-
-import { mainProcess } from './engine.js';
-
 let argv: any = yargs(hideBin(process.argv))
-.usage('Forecast executable file').option('path', {
+.usage('Forecast tool for prototype pollution detection').option('path', {
     alias: 'p',
     type: 'string',
-    description: 'CommonJS librarh path (used in require call)'
+    description: 'JavaScript library path (used in require call)'
 })
 .option('mocha', {
     type: 'boolean',
@@ -57,5 +52,3 @@ let argv: any = yargs(hideBin(process.argv))
   .demandOption(['path'])
   .help().parse();
 
-mainProcess(argv.path, {});
-// TODO

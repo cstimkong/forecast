@@ -2,6 +2,9 @@
   "name": "forecast-js",
   "devDependencies": {
     "@babel/cli": "^7.28.0",
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@types/babel__core": "^7.20.5",
     "@types/babel__generator": "^7.27.0",
     "@types/babel__parser": "^7.0.0",
@@ -11,6 +14,7 @@
     "@types/object-hash": "^3.0.6",
     "@types/yargs": "^17.0.33",
     "mocha": "^11.7.1",
+    "rollup": "^4.60.3",
     "typescript": "^5.9.2"
   },
   "dependencies": {

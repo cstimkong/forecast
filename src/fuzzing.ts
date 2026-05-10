@@ -4,7 +4,7 @@
  * 
  */
 
-import { forcedExecution, ProtoPollutionLocation } from "./forced-execution.js";
+import { forcedExecution, ProtoPollutionLocation, StringOperation } from "./forced-execution.js";
 import { isProxyString, randomChoice } from "./helper.js";
 import { hasProxyStringProperty } from "./proxy.js";
 import { defaultOptionValues } from "./defaults.js";
@@ -12,7 +12,7 @@ import cloneDeep from 'clone-deep';
 import pino from 'pino';
 import { isProxy } from "util/types";
 
-export type CallPath = (string | {args: any[], async?: boolean})[];
+export type CallPath = (string | {args: any[], async?: boolean, stringOperations?: StringOperation[]})[];
 
 /**
  * Evaluate the library and output the possible call paths along with the prototype pollution locations.
@@ -61,7 +61,7 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
             
             if (result.polluted) {
                 let clonedPath = cloneDeep(p!.path);
-                clonedPath.push({args: result.args});
+                clonedPath.push({args: result.args, stringOperations: result.stringOperations!});
                 successResults.push([clonedPath, result.location!]);
                 logger.info(`Prototype pollution triggered at ${stringifyPath(clonedPath)}, location: Line ${result.location!.line}, Column: ${result.location!.column}`);
             } else {
