@@ -10,18 +10,18 @@ import { hasProxyStringProperty } from "./proxy.js";
 import { defaultOptionValues } from "./defaults.js";
 import cloneDeep from 'clone-deep';
 import pino from 'pino';
-import { isProxy } from "util/types";
 
 export type CallPath = (string | {args: any[], async?: boolean, stringOperations?: StringOperation[]})[];
 
+export type FuzzingResult = {callPath: CallPath, location: ProtoPollutionLocation};
 /**
- * Evaluate the library and output the possible call paths along with the prototype pollution locations.
+ * Fuzzing the library and output the possible call paths along with the prototype pollution locations.
  * 
  * @param lib the object referring to a library
  * @param options Options for running
  * @returns An array of call path and prototype pollution location pairs
  */
-export async function run(lib: any, options?: {maxExecutionTime?: number, iterationCount?: number, loggerEnabled?: boolean}) {
+export async function run(lib: any, options?: {maxExecutionTime?: number, iterationCount?: number, loggerEnabled?: boolean}): Promise<FuzzingResult[]> {
     if (options === undefined) {
         options = {};
     }
@@ -29,7 +29,7 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
     let maxExecutionTime = options.maxExecutionTime || defaultOptionValues.maxExecutionTime;
     let iterationCount = options.iterationCount || defaultOptionValues.iterationCount;
     let candidates: {path: CallPath, ref: Function, thisArg?: any}[] = [];
-    let successResults: [CallPath, ProtoPollutionLocation][] = [];
+    let successResults: FuzzingResult[] = [];
 
     if (typeof lib === 'function') {
         candidates.push({path: [], ref: lib});
@@ -62,14 +62,14 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
             if (result.polluted) {
                 let clonedPath = cloneDeep(p!.path);
                 clonedPath.push({args: result.args, stringOperations: result.stringOperations!});
-                successResults.push([clonedPath, result.location!]);
+                successResults.push({callPath: clonedPath, location: result.location!});
                 logger.info(`Prototype pollution triggered at ${stringifyPath(clonedPath)}, location: Line ${result.location!.line}, Column: ${result.location!.column}`);
             } else {
                 if (typeof result.result === 'object' && searchProxyString(result.result, 4)) {
                     for (let x in result.result) {
                         if (typeof result.result[x] === 'function') {
                             let clonedPath = cloneDeep(p!.path);
-                            clonedPath.push({args: result.args, async: result.async!}, x);
+                            clonedPath.push({args: result.args, async: result.async!, stringOperations: result.stringOperations!}, x);
                             candidates.push({path: clonedPath, ref: result.result[x], thisArg: result.result});
                         }
                     }
