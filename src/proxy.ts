@@ -157,6 +157,7 @@ export function hasProxyStringProperty(obj: any) {
     return false;
 }
 
+
 export function toFixedValue(obj: any): any {
     if (obj === proxyString) {
         return proxyString;

@@ -63,6 +63,7 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
                 let clonedPath = cloneDeep(p!.path);
                 clonedPath.push({args: result.args});
                 successResults.push([clonedPath, result.location!]);
+                logger.info(`Prototype pollution triggered at ${stringifyPath(clonedPath)}, location: Line ${result.location!.line}, Column: ${result.location!.column}`);
             } else {
                 if (typeof result.result === 'object' && searchProxyString(result.result, 4)) {
                     for (let x in result.result) {
