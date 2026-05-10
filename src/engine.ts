@@ -14,6 +14,13 @@ import { isProxy } from "util/types";
 
 export type CallPath = (string | {args: any[], async?: boolean})[];
 
+/**
+ * Evaluate the library and output the possible call paths along with the prototype pollution locations.
+ * 
+ * @param lib the object referring to a library
+ * @param options Options for running
+ * @returns An array of call path and prototype pollution location pairs
+ */
 export async function run(lib: any, options?: {maxExecutionTime?: number, iterationCount?: number, loggerEnabled?: boolean}) {
     if (options === undefined) {
         options = {};
@@ -94,7 +101,7 @@ function searchProxyString(obj: any, maxDepth: number) {
 }
 
 /**
- * Make the path human readable.
+ * Make the call path human readable.
  */
 export function stringifyPath(p: CallPath) {
     let s = "";
@@ -111,12 +118,19 @@ export function stringifyPath(p: CallPath) {
                 t = t.substring(0, t.length - 1);
             }
             t += ")";
-            s += t;
+            if (x.async) {
+                s = '(await ' + s + t + ')';
+            } else {
+                s += t;
+            }
         }
     }
     return s;
 }
 
+/**
+ * Make the argument human readable
+ */
 export function stringifyArgument(obj: any, maxDepth: number) {
     if (maxDepth === 0) {
         return '[...]';
