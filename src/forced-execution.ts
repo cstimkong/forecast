@@ -1,3 +1,9 @@
+/**
+ * 
+ * This file is part of Forecast
+ * 
+ */
+
 import { randomChoice, ModifyPrototypeSignal } from "./helper.js";
 import { makeProxyObject, makeProxyArray, proxyString, toFixedValue } from "./proxy.js"
 
@@ -6,8 +12,10 @@ export type ExecutionResult = {
     async?: boolean,
     args: any[],
     result?: any,
-    location?: {line: number, column: number}
+    location?: ProtoPollutionLocation;
 }
+
+export type ProtoPollutionLocation = {line: number, column: number};
 
 /**
  * Forcefully execute a function. The executed function should be instrumented first.

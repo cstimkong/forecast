@@ -4,25 +4,32 @@
  * 
  */
 
-import { forcedExecution } from "./forced-execution.js";
+import { forcedExecution, ProtoPollutionLocation } from "./forced-execution.js";
 import { isProxyString, randomChoice } from "./helper.js";
-import { hasProxyStringProperty, proxyString } from "./proxy.js";
+import { hasProxyStringProperty } from "./proxy.js";
 import { defaultOptionValues } from "./defaults.js";
 import cloneDeep from 'clone-deep';
+import pino from 'pino';
 
 export type CallPath = (string | {args: any[], async?: boolean})[];
 
-async function run(lib: any, options: {maxExecutionTime?: number, iterationCount?: number}) {
+async function run(lib: any, options?: {maxExecutionTime?: number, iterationCount?: number, loggerEnabled?: boolean}) {
+    if (options === undefined) {
+        options = {};
+    }
+    let logger = pino();
     let maxExecutionTime = options.maxExecutionTime || defaultOptionValues.maxExecutionTime;
     let iterationCount = options.iterationCount || defaultOptionValues.iterationCount;
     let candidates: {path: CallPath, ref: Function, thisArg?: any}[] = [];
-    let successResults: CallPath[] = [];
+    let successResults: [CallPath, ProtoPollutionLocation][] = [];
 
     if (typeof lib === 'function') {
         candidates.push({path: [], ref: lib});
+        logger.info(`Added function (library itself).`);
     } else {
         for (let x of Object.getOwnPropertyNames(lib)) {
             candidates.push({path: [x], ref: lib[x]});
+            logger.info(`Added function (.${x}).`);
         }
     }
 
@@ -36,7 +43,7 @@ async function run(lib: any, options: {maxExecutionTime?: number, iterationCount
             if (result.polluted) {
                 let clonedPath = cloneDeep(p!.path);
                 clonedPath.push({args: result.args});
-                successResults.push(clonedPath);
+                successResults.push([clonedPath, result.location!]);
             } else {
                 if (typeof result.result === 'object' && searchProxyString(result.result, 4)) {
                     for (let x in result.result) {
@@ -68,7 +75,35 @@ function searchProxyString(obj: any, maxDepth: number) {
     return false;
 }
 
-function stringifyObject(obj: any) {
+/**
+ * Make the path human readable.
+ */
+export function stringifyPath(p: CallPath) {
+    let s = "";
+    for (let x of p) {
+        if (typeof x === 'string') {
+            s += "." + x;
+        }
+        else {
+            let t = "(";
+            for (let e of x.args) {
+                t += stringifyArgument(e, 4) + ',';
+            }
+            if (t.endsWith(',')) {
+                t = t.substring(0, t.length - 1);
+            }
+            t += ")";
+            s += t;
+        }
+    }
+    return s;
+}
+
+export function stringifyArgument(obj: any, maxDepth: number) {
+    if (maxDepth === 0) {
+        return '[...]';
+    }
+
     if (obj === null) {
         return 'null';
     }
@@ -78,7 +113,7 @@ function stringifyObject(obj: any) {
     }
 
     if (isProxyString(obj)) {
-        return "[[proxystr]]";
+        return "__proxystr__";
     }
 
     if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') {
@@ -89,7 +124,7 @@ function stringifyObject(obj: any) {
         let s = '{';
         for (let x of Object.keys(obj)) {
             let k = JSON.stringify(x);
-            let v = stringifyObject(obj[x]);
+            let v = stringifyArgument(obj[x], maxDepth - 1);
             s += k + ":" + v + ',';
         }
         if (s.endsWith(',')) {

@@ -1,7 +1,7 @@
 
 /**
  * 
- * This file is part of FesaJS
+ * This file is part of Forecast
  */
 
 import { makeRandomId, randomChoice } from './helper.js';
