@@ -2,6 +2,7 @@
 /**
  * 
  * This file is part of Forecast
+ * 
  */
 
 import { makeRandomId, randomChoice } from './helper.js';

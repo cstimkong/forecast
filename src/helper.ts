@@ -74,6 +74,16 @@ export function mockedCompare(a: any, b: any, op: string) {
         }
     }
     else {
+        if (!tainted[0] && tainted[1]) {
+            if ((globalThis as any).__strop) {
+                ((globalThis as any).__strop as Array<any>).push({call: op, args: [a]});
+            }
+        }
+        if (tainted[0] && !tainted[1]) {
+            if ((globalThis as any).__strop) {
+                ((globalThis as any).__strop as Array<any>).push({call: op, args: [b]});
+            }
+        }
         return randomChoice([
             function() { return true; },
             function() { return false; }
