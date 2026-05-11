@@ -21,8 +21,8 @@ describe('test engine implementation', function() {
         let result = await run(jp);
         // console.log(result);
 
-        // for (let r of result) {
-        //     console.log(stringifyPath(r[0]), r[1]);
-        // }
+        for (let r of result) {
+            console.log(r.callPath);
+        }
     })
 });

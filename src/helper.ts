@@ -141,3 +141,9 @@ export function mockedPropertyWrite(e: any, p: any, v: any, loc: {line: number, 
 export function isProxyString(s: any) {
     return typeof s === 'object' && s !== null && s.__TYPEOF__ === 'string';
 }
+
+export function mockEnv() {
+    (globalThis as any).__mockedCompare = mockedCompare;
+    (globalThis as any).__mockedPropertyAccess = mockedPropertyAccess;
+    (globalThis as any).__mockedPropertyWrite = mockedPropertyWrite;
+}

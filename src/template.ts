@@ -9,8 +9,6 @@ import { makeRandomId, randomChoice } from './helper.js';
 
 export type GrammarType = 'normalstring' | 'xml' | 'json' | 'url' | 'filepath' | 'split' | 'querystring' | 'surroundedtext' | 'toml' | 'yaml' | 'any';
 
-export function generateTemplateString(grammarType: GrammarType): string;
-export function generateTemplateString(grammarTypes: GrammarType[]): string;
 
 /**
  * 

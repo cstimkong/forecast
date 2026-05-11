@@ -6,21 +6,16 @@
 import babelTraverse, { NodePath } from '@babel/traverse';
 import { parse, parseExpression } from '@babel/parser';
 import babelTemplate from '@babel/template';
-import {identifier,
+import {
+    identifier,
     functionExpression,
     parenthesizedExpression,
     stringLiteral,
     numericLiteral,
     booleanLiteral,
-    nullLiteral,
     callExpression,
-    memberExpression,
-    objectExpression,
-    objectProperty,
-    unaryExpression,
     binaryExpression,
     logicalExpression,
-    conditionalExpression,
     newExpression,
     returnStatement,
     blockStatement,
@@ -32,17 +27,14 @@ import {identifier,
     variableDeclarator,
     Statement,
     Expression,
-    Identifier,
-    MemberExpression
+    Identifier
 } from '@babel/types';
 import babelGenerator from '@babel/generator';
-import { mockedPropertyWrite } from './helper.js';
-
+import { defaultOptionValues } from './defaults.js'
 
 const mockTypeofTemplate = babelTemplate.expression('typeof %%varname%% === "undefined" ? "undefined" : typeof %%varname%% === "object" && %%varname%% !== null ? %%varname%%.__TYPEOF__ !== undefined ? %%varname%%.__TYPEOF__ : "object" : typeof %%varname%%');
 
 const mockTypeofExprTemplate = babelTemplate.expression('(function(x) { return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x})(%%expr%%)');
-
 
 const mockComparisonTemplate = babelTemplate.expression('__mockedCompare(%%left%%, %%right%%, %%cmpop%%)');
 
@@ -50,9 +42,16 @@ const mockPropertyAccessTemplate = babelTemplate.expression('__mockedPropertyAcc
 
 const mockPropertyWriteTemplate = babelTemplate.expression('__mockedPropertyWrite(%%expr%%, %%prop%%, %%value%%, {line: %%startline%%, column: %%startcolumn%%})');
 
-export function instrument(source: string, opts?: any) {
+export function instrument(source: string, opts?: { maxLoop?: number, filename?: string }) {
     opts = opts || {};
-    let ast = parse(source, { sourceFilename: opts.filename });
+    opts.maxLoop = opts.maxLoop || defaultOptionValues.maxLoop;
+    let ast;
+    if (opts.filename) {
+        ast = parse(source, { sourceFilename: opts.filename });
+    }
+    else {
+        ast = parse(source);
+    }
 
     babelTraverse.default(ast, {
         enter: function (path) {
@@ -72,28 +71,28 @@ export function instrument(source: string, opts?: any) {
         },
 
         exit: function (path: NodePath) {
-            
+
             if (path.isUnaryExpression() && path.node.operator === 'typeof') {
                 if (path.get('argument').isIdentifier()) {
-                    path.replaceWith(mockTypeofTemplate({varname: path.get('argument').node as Identifier}))
+                    path.replaceWith(mockTypeofTemplate({ varname: path.get('argument').node as Identifier }))
                 }
                 else {
-                    path.replaceWith(mockTypeofExprTemplate({expr: path.get('argument').node}));
+                    path.replaceWith(mockTypeofExprTemplate({ expr: path.get('argument').node }));
                 }
                 path.skip();
 
             }
 
 
-            else if (path.isBinaryExpression() ) {
+            else if (path.isBinaryExpression()) {
                 if (path.node.operator === '===' || path.node.operator === '!==' || path.node.operator === '==' || path.node.operator === '!=') {
-                    path.replaceWith(mockComparisonTemplate({left: path.get('left').node, right: path.get('right').node, cmpop: stringLiteral(path.node.operator)}));
+                    path.replaceWith(mockComparisonTemplate({ left: path.get('left').node, right: path.get('right').node, cmpop: stringLiteral(path.node.operator) }));
                     path.skip();
                 }
             }
 
             else if (path.isMemberExpression() && path.node.computed && !(path.parentPath.isAssignmentExpression() && path.parentKey === 'left')) {
-                path.replaceWith(mockPropertyAccessTemplate({expr: path.node.object, prop: path.node.property}));
+                path.replaceWith(mockPropertyAccessTemplate({ expr: path.node.object, prop: path.node.property }));
                 path.skip();
             }
 
@@ -175,11 +174,10 @@ export function instrument(source: string, opts?: any) {
                 path.replaceWith(newBlock);
                 path.skip();
             }
-                            
-           
+
+
         }
     });
 
     return babelGenerator.default(ast).code;
 }
-

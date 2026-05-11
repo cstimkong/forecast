@@ -60,7 +60,8 @@ export async function forcedExecution(f: Function, argCount: number, thisArg?: a
             return {
                 polluted: true, 
                 args: argArray.map(x => toFixedValue(x)),
-                location: e.location
+                location: e.location,
+                stringOperations: (globalThis as any).__strop
             };
         }
         throw new Error(`Error in forced execution: ${e.message}`);
