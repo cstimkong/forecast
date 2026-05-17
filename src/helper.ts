@@ -7,7 +7,7 @@
 export function makeArbitraryString(): string {
     let length = Math.floor(Math.random() * 10);
     let str = '';
-    for (let i = 0; i < length; i++) {
+    for (let i = 1; i < length; i++) {
         str += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
     }
     return str;
