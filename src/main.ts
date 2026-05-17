@@ -13,7 +13,7 @@ import { run } from './fuzzing.js';
 import { addHook } from 'pirates';
 import { instrument } from './instrument.js';
 import { mockEnv } from './helper.js';
-import { fillCallPath } from './exploitation.js';
+import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
 
 (async function() {
     let argv: any = yargs(hideBin(process.argv))
@@ -76,6 +76,12 @@ import { fillCallPath } from './exploitation.js';
     }
     let fuzzingResults = await run(lib, opts);
     for (let r of fuzzingResults) {
-        
+        let filledCallPaths = fillCallPath(r.callPath);
+        for (let c of filledCallPaths) {
+            makeExploit(c);
+        }
+        for (let p of filledCallPaths) {
+            await executeCallPath(lib, p);
+        }
     }
 })();
