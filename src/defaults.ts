@@ -9,5 +9,6 @@ export const defaultOptionValues = {
     iterationCount: 200,
     maxLoop: 500,
     maxPlaceholder: 5,
+    maxTemplates: 200,
     proxyStringLiteral: '__PROXY_STRING_forecast'
 }

@@ -13,6 +13,7 @@ import { run } from './fuzzing.js';
 import { addHook } from 'pirates';
 import { instrument } from './instrument.js';
 import { mockEnv } from './helper.js';
+import { fillCallPath } from './exploitation.js';
 
 (async function() {
     let argv: any = yargs(hideBin(process.argv))
@@ -75,6 +76,6 @@ import { mockEnv } from './helper.js';
     }
     let fuzzingResults = await run(lib, opts);
     for (let r of fuzzingResults) {
-        // TODO
+        
     }
 })();

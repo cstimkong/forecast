@@ -6,7 +6,7 @@ For the information of prototype pollution, please refer to [Synk.io](https://le
 
 ### Overall framework
 
-The `FesaJS` framework comprises three phases:
+The `Forecast` framework comprises three phases:
 
 - Forced execution based Fuzzing
 

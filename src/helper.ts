@@ -8,7 +8,7 @@ export function makeArbitraryString(): string {
     let length = Math.floor(Math.random() * 10);
     let str = '';
     for (let i = 0; i < length; i++) {
-        str += String.fromCharCode(Math.floor(Math.random() * 26) + 97); // a-z
+        str += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
     }
     return str;
 }
@@ -41,6 +41,12 @@ export function randomChoice<T>(funcs: {(): T}[]) {
     let idx = Math.floor(Math.random() * funcs.length);
     return funcs[idx]!();
 }
+
+export function randomElement(e: any[]) {
+    let idx = Math.floor(Math.random() * e.length);
+    return e[idx];
+}
+
 
 export class ModifyPrototypeSignal {
     obj: any;
