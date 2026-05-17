@@ -5,14 +5,14 @@
  */
 
 import { createRequire } from 'module';
-import path from 'path';
 import {cwd} from 'process'
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
-import { run } from './fuzzing.js';
+import { run, stringifyPath } from './fuzzing.js';
 import { addHook } from 'pirates';
+import pino from 'pino';
 import { instrument } from './instrument.js';
-import { mockEnv } from './helper.js';
+import { mockEnv, ModifyPrototypeSignal } from './helper.js';
 import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
 
 (async function() {
@@ -37,10 +37,10 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
         default: 300,
         description: 'Timeout of the Forecast execution in second'
     })
-    .option('detection-only', {
+    .option('candidate-only', {
         type: 'boolean',
         default: false,
-        description: 'Only detect the vulnerability, without exploitation'
+        description: 'Only detect the candidate vulnerability, without actual exploitation'
     })
     .option('max-execution-time', {
         type: 'number',
@@ -61,6 +61,7 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
     .demandOption(['path'])
     .help().parse();
 
+    let logger = pino();
     let revert = addHook((code, filename) => {
         return instrument(code, { filename });
     }, {exts: ['.js', '.cjs']});
@@ -74,14 +75,34 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
     if (argv.maxExecutionTime) {
         opts.maxExecutionTime = argv.maxExecution as number;
     }
+
+    logger.info(`Start to test the library ${argv.path}`);
     let fuzzingResults = await run(lib, opts);
+    if (fuzzingResults.length === 0) {
+        logger.info('No candidate exploit path is found.');
+    }
+    if (argv.candidateOnly) {
+        return;
+    }
+    
     for (let r of fuzzingResults) {
+        logger.info(`Start to deal with the path ${stringifyPath(r.callPath)}`);
         let filledCallPaths = fillCallPath(r.callPath);
         for (let c of filledCallPaths) {
             makeExploit(c);
         }
         for (let p of filledCallPaths) {
-            await executeCallPath(lib, p);
+            logger.info(`Start to execute with the path ${stringifyPath(p)}`);
+            try {
+                await executeCallPath(lib, p);
+            } catch (e) {
+                if (e instanceof ModifyPrototypeSignal) {
+                    logger.info(`Success exploit: ${stringifyPath(p)}`);
+                }
+                else if (e instanceof Error) {
+                    logger.debug(`Error occured in the execution: ${e.message}`);
+                }
+            }
         }
     }
 })();
