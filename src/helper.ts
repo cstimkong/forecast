@@ -4,6 +4,8 @@
  * This file is part of Forecast.
  */
 
+import { isProxy } from "util/types";
+
 export function makeArbitraryString(): string {
     let length = Math.floor(Math.random() * 10);
     let str = '';
@@ -144,6 +146,16 @@ export function mockedPropertyWrite(e: any, p: any, v: any, loc: {line: number, 
     return v;
 }
 
+export function mockedInExpression(a: any, b: any) {
+    if (typeof b !== 'object' && typeof b !== 'function') {
+        throw new Error('Unallowed operation');
+    }
+    if (isProxyString(b)) {
+        throw new Error('Unallowed operation');
+    }
+    return a in b;
+}
+
 export function isProxyString(s: any) {
     return typeof s === 'object' && s !== null && s.__TYPEOF__ === 'string';
 }
@@ -152,4 +164,5 @@ export function mockEnv() {
     (globalThis as any).__mockedCompare = mockedCompare;
     (globalThis as any).__mockedPropertyAccess = mockedPropertyAccess;
     (globalThis as any).__mockedPropertyWrite = mockedPropertyWrite;
+    (globalThis as any).__mockedInExpression = mockedInExpression;
 }

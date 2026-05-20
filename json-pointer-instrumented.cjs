@@ -51,7 +51,16 @@
         }
         return __mockedPropertyAccess(n, i).exports;
       }
-      for (var u = __mockedCompare("function", typeof require === "undefined" ? "undefined" : typeof require === "object" && require !== null ? require.__TYPEOF__ !== undefined ? require.__TYPEOF__ : "object" : typeof require, "==") && require, i = 0; i < t.length; i++) o(__mockedPropertyAccess(t, i));
+      {
+        let __loopguard__ = 0;
+        for (var u = __mockedCompare("function", typeof require === "undefined" ? "undefined" : typeof require === "object" && require !== null ? require.__TYPEOF__ !== undefined ? require.__TYPEOF__ : "object" : typeof require, "==") && require, i = 0; (function (x) {
+          if (x < 500) return true;
+          throw new Error("Loop limit");
+        })(__loopguard__) && i < t.length; i++) {
+          o(__mockedPropertyAccess(t, i));
+          __loopguard__ += 1;
+        }
+      }
       return o;
     }
     return r;
@@ -74,22 +83,40 @@
         line: 2,
         column: 246
       }), __mockedPropertyWrite(api, "get", function (r, e) {
-        for (var i, a = Array.isArray(e) ? e : api.parse(e); a.length;) {
-          if (i = a.shift(), __mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") || !(i in r)) throw new Error("Invalid reference token: " + i);
-          r = __mockedPropertyAccess(r, i);
+        {
+          let __loopguard__ = 0;
+          for (var i, a = Array.isArray(e) ? e : api.parse(e); (function (x) {
+            if (x < 500) return true;
+            throw new Error("Loop limit");
+          })(__loopguard__) && a.length;) {
+            {
+              if (i = a.shift(), __mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") || !__mockedInExpression(i, r)) throw new Error("Invalid reference token: " + i);
+              r = __mockedPropertyAccess(r, i);
+            }
+            __loopguard__ += 1;
+          }
         }
         return r;
       }, {
         line: 2,
         column: 265
       }), __mockedPropertyWrite(api, "set", function (r, e, i) {
-        for (var a, t = Array.isArray(e) ? e : api.parse(e), n = __mockedPropertyAccess(t, 0); t.length > 1;) __mockedCompare("-", a = t.shift(), "===") && Array.isArray(r) && (a = r.length), n = __mockedPropertyAccess(t, 0), a in r || (n.match(/^(\d+|-)$/) ? __mockedPropertyWrite(r, a, [], {
-          line: 2,
-          column: 627
-        }) : __mockedPropertyWrite(r, a, {}, {
-          line: 2,
-          column: 635
-        })), r = __mockedPropertyAccess(r, a);
+        {
+          let __loopguard__ = 0;
+          for (var a, t = Array.isArray(e) ? e : api.parse(e), n = __mockedPropertyAccess(t, 0); (function (x) {
+            if (x < 500) return true;
+            throw new Error("Loop limit");
+          })(__loopguard__) && t.length > 1;) {
+            __mockedCompare("-", a = t.shift(), "===") && Array.isArray(r) && (a = r.length), n = __mockedPropertyAccess(t, 0), __mockedInExpression(a, r) || (n.match(/^(\d+|-)$/) ? __mockedPropertyWrite(r, a, [], {
+              line: 2,
+              column: 627
+            }) : __mockedPropertyWrite(r, a, {}, {
+              line: 2,
+              column: 635
+            })), r = __mockedPropertyAccess(r, a);
+            __loopguard__ += 1;
+          }
+        }
         return __mockedCompare("-", n, "===") && Array.isArray(r) && (n = r.length), __mockedPropertyWrite(r, n, i, {
           line: 2,
           column: 697
@@ -174,8 +201,17 @@
         }
         var l = obj.length;
         if (__mockedCompare(l, +l, "===")) {
-          for (var i = 0; i < l; i++) {
-            fn.call(ctx, __mockedPropertyAccess(obj, i), i, obj);
+          {
+            let __loopguard__ = 0;
+            for (var i = 0; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && i < l; i++) {
+              {
+                fn.call(ctx, __mockedPropertyAccess(obj, i), i, obj);
+              }
+              __loopguard__ += 1;
+            }
           }
         } else {
           for (var k in obj) {

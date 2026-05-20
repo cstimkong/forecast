@@ -190,9 +190,18 @@
                   const r = [];
                   for (const s of this.$_terms.whens) {
                     const n = s.is ? [s] : s.switch;
-                    for (let s = 0; s < n.length; ++s) {
-                      const a = __mockedPropertyAccess(n, s);
-                      a.then && r.push(t.concat(a.then).$_jsonSchema(e, m)), a.otherwise && r.push(t.concat(a.otherwise).$_jsonSchema(e, m)), a.then && (__mockedCompare(s, n.length - 1, "!==") || a.otherwise) || r.push(t.$_jsonSchema(e, m));
+                    {
+                      let __loopguard__ = 0;
+                      for (let s = 0; (function (x) {
+                        if (x < 500) return true;
+                        throw new Error("Loop limit");
+                      })(__loopguard__) && s < n.length; ++s) {
+                        {
+                          const a = __mockedPropertyAccess(n, s);
+                          a.then && r.push(t.concat(a.then).$_jsonSchema(e, m)), a.otherwise && r.push(t.concat(a.otherwise).$_jsonSchema(e, m)), a.then && (__mockedCompare(s, n.length - 1, "!==") || a.otherwise) || r.push(t.$_jsonSchema(e, m));
+                        }
+                        __loopguard__ += 1;
+                      }
                     }
                   }
                   const s = [];
@@ -461,14 +470,23 @@
                 const r = __mockedCompare(null, this.$_temp.ruleset, "===") ? this._rules.length - 1 : this.$_temp.ruleset;
                 s(r >= 0 && r < this._rules.length, "Cannot apply rules to empty ruleset");
                 const a = this.clone();
-                for (let i = r; i < a._rules.length; ++i) {
-                  const r = __mockedPropertyAccess(a._rules, i),
-                    o = n(r);
-                  for (const n in e) __mockedPropertyAccess(t.modifiers, n)(o, __mockedPropertyAccess(e, n)), s(__mockedCompare(o.name, r.name, "==="), "Cannot change rule name");
-                  __mockedPropertyWrite(a._rules, i, o, {
-                    line: 1,
-                    column: 10291
-                  }), __mockedCompare(a._singleRules.get(o.name), r, "===") && a._singleRules.set(o.name, o);
+                {
+                  let __loopguard__ = 0;
+                  for (let i = r; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && i < a._rules.length; ++i) {
+                    {
+                      const r = __mockedPropertyAccess(a._rules, i),
+                        o = n(r);
+                      for (const n in e) __mockedPropertyAccess(t.modifiers, n)(o, __mockedPropertyAccess(e, n)), s(__mockedCompare(o.name, r.name, "==="), "Cannot change rule name");
+                      __mockedPropertyWrite(a._rules, i, o, {
+                        line: 1,
+                        column: 10291
+                      }), __mockedCompare(a._singleRules.get(o.name), r, "===") && a._singleRules.set(o.name, o);
+                    }
+                    __loopguard__ += 1;
+                  }
                 }
                 return __mockedPropertyWrite(a.$_temp, "ruleset", !1, {
                   line: 1,
@@ -727,43 +745,61 @@
                 };
                 const s = [],
                   n = [];
-                for (let a = 0; a < this.$_terms.whens.length; ++a) {
-                  const i = __mockedPropertyAccess(this.$_terms.whens, a);
-                  if (i.concat) {
-                    s.push(i.concat), n.push(`${a}.concat`);
-                    continue;
-                  }
-                  const o = i.ref ? i.ref.resolve(e, t, r) : e,
-                    l = i.is ? [i] : i.switch,
-                    c = n.length;
-                  for (let c = 0; c < l.length; ++c) {
-                    const {
-                        is: u,
-                        then: f,
-                        otherwise: m
-                      } = __mockedPropertyAccess(l, c),
-                      h = `${a}${i.switch ? "." + c : ""}`;
-                    if (u.$_match(o, t.nest(u, `${h}.is`), r)) {
-                      if (f) {
-                        const a = t.localize([...t.path, `${h}.then`], t.ancestors, t.schemas),
-                          {
-                            schema: i,
-                            id: o
-                          } = f._generate(e, a, r);
-                        s.push(i), n.push(`${h}.then${o ? `(${o})` : ""}`);
-                        break;
+                {
+                  let __loopguard__ = 0;
+                  for (let a = 0; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && a < this.$_terms.whens.length; ++a) {
+                    {
+                      const i = __mockedPropertyAccess(this.$_terms.whens, a);
+                      if (i.concat) {
+                        s.push(i.concat), n.push(`${a}.concat`);
+                        continue;
                       }
-                    } else if (m) {
-                      const a = t.localize([...t.path, `${h}.otherwise`], t.ancestors, t.schemas),
-                        {
-                          schema: i,
-                          id: o
-                        } = m._generate(e, a, r);
-                      s.push(i), n.push(`${h}.otherwise${o ? `(${o})` : ""}`);
-                      break;
+                      const o = i.ref ? i.ref.resolve(e, t, r) : e,
+                        l = i.is ? [i] : i.switch,
+                        c = n.length;
+                      {
+                        let __loopguard__ = 0;
+                        for (let c = 0; (function (x) {
+                          if (x < 500) return true;
+                          throw new Error("Loop limit");
+                        })(__loopguard__) && c < l.length; ++c) {
+                          {
+                            const {
+                                is: u,
+                                then: f,
+                                otherwise: m
+                              } = __mockedPropertyAccess(l, c),
+                              h = `${a}${i.switch ? "." + c : ""}`;
+                            if (u.$_match(o, t.nest(u, `${h}.is`), r)) {
+                              if (f) {
+                                const a = t.localize([...t.path, `${h}.then`], t.ancestors, t.schemas),
+                                  {
+                                    schema: i,
+                                    id: o
+                                  } = f._generate(e, a, r);
+                                s.push(i), n.push(`${h}.then${o ? `(${o})` : ""}`);
+                                break;
+                              }
+                            } else if (m) {
+                              const a = t.localize([...t.path, `${h}.otherwise`], t.ancestors, t.schemas),
+                                {
+                                  schema: i,
+                                  id: o
+                                } = m._generate(e, a, r);
+                              s.push(i), n.push(`${h}.otherwise${o ? `(${o})` : ""}`);
+                              break;
+                            }
+                          }
+                          __loopguard__ += 1;
+                        }
+                      }
+                      if (i.break && n.length > c) break;
                     }
+                    __loopguard__ += 1;
                   }
-                  if (i.break && n.length > c) break;
                 }
                 const a = n.join(", ");
                 if (t.mainstay.tracer.debug(t, "rule", "when", a), !a) return {
@@ -803,9 +839,18 @@
                 const r = __mockedCompare(!1, t.clone, "!==") ? this.clone() : this;
                 r._singleRules.delete(e);
                 const s = [];
-                for (let t = 0; t < r._rules.length; ++t) {
-                  const n = __mockedPropertyAccess(r._rules, t);
-                  __mockedCompare(n.name, e, "!==") || n.keep ? s.push(n) : r._inRuleset() && t < r.$_temp.ruleset && --r.$_temp.ruleset;
+                {
+                  let __loopguard__ = 0;
+                  for (let t = 0; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && t < r._rules.length; ++t) {
+                    {
+                      const n = __mockedPropertyAccess(r._rules, t);
+                      __mockedCompare(n.name, e, "!==") || n.keep ? s.push(n) : r._inRuleset() && t < r.$_temp.ruleset && --r.$_temp.ruleset;
+                    }
+                    __loopguard__ += 1;
+                  }
                 }
                 return __mockedPropertyWrite(r, "_rules", s, {
                   line: 1,
@@ -1328,26 +1373,35 @@
             switch: [],
             break: o.break
           };
-          for (let t = 0; t < o.switch.length; ++t) {
-            const r = __mockedPropertyAccess(o.switch, t),
-              i = __mockedCompare(t, o.switch.length - 1, "===");
-            n.assertOptions(r, i ? ["is", "then", "otherwise"] : ["is", "then"]), s(__mockedCompare(void 0, r.is, "!=="), 'Switch statement missing "is"'), s(__mockedCompare(void 0, r.then, "!=="), 'Switch statement missing "then"');
-            const c = {
-              is: e.$_compile(r.is),
-              then: e.$_compile(r.then)
-            };
-            if (a.isRef(r.is) || n.isSchema(r.is) || __mockedPropertyWrite(c, "is", c.is.required(), {
-              line: 1,
-              column: 25886
-            }), i) {
-              s(__mockedCompare(void 0, o.otherwise, "===") || __mockedCompare(void 0, r.otherwise, "==="), 'Cannot specify "otherwise" inside and outside a "switch"');
-              const t = __mockedCompare(void 0, o.otherwise, "!==") ? o.otherwise : r.otherwise;
-              __mockedCompare(void 0, t, "!==") && (s(__mockedCompare(void 0, l.break, "==="), "Cannot specify both otherwise and break"), __mockedPropertyWrite(c, "otherwise", e.$_compile(t), {
-                line: 1,
-                column: 26144
-              }));
+          {
+            let __loopguard__ = 0;
+            for (let t = 0; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && t < o.switch.length; ++t) {
+              {
+                const r = __mockedPropertyAccess(o.switch, t),
+                  i = __mockedCompare(t, o.switch.length - 1, "===");
+                n.assertOptions(r, i ? ["is", "then", "otherwise"] : ["is", "then"]), s(__mockedCompare(void 0, r.is, "!=="), 'Switch statement missing "is"'), s(__mockedCompare(void 0, r.then, "!=="), 'Switch statement missing "then"');
+                const c = {
+                  is: e.$_compile(r.is),
+                  then: e.$_compile(r.then)
+                };
+                if (a.isRef(r.is) || n.isSchema(r.is) || __mockedPropertyWrite(c, "is", c.is.required(), {
+                  line: 1,
+                  column: 25886
+                }), i) {
+                  s(__mockedCompare(void 0, o.otherwise, "===") || __mockedCompare(void 0, r.otherwise, "==="), 'Cannot specify "otherwise" inside and outside a "switch"');
+                  const t = __mockedCompare(void 0, o.otherwise, "!==") ? o.otherwise : r.otherwise;
+                  __mockedCompare(void 0, t, "!==") && (s(__mockedCompare(void 0, l.break, "==="), "Cannot specify both otherwise and break"), __mockedPropertyWrite(c, "otherwise", e.$_compile(t), {
+                    line: 1,
+                    column: 26144
+                  }));
+                }
+                l.switch.push(c);
+              }
+              __loopguard__ += 1;
             }
-            l.switch.push(c);
           }
           return l;
         }, {
@@ -2271,22 +2325,31 @@
               column: 39279
             }));
           }
-          for (let s = 0; s < e._rules.length; ++s) {
-            const n = __mockedPropertyAccess(e._rules, s),
-              a = i.scan(n.args, {
-                source: "rules",
-                name: n.name
-              }, t);
-            if (__mockedCompare(void 0, a, "!==")) {
-              r = r || e.clone();
-              const t = Object.assign({}, n);
-              __mockedPropertyWrite(t, "args", a, {
-                line: 1,
-                column: 39455
-              }), __mockedPropertyWrite(r._rules, s, t, {
-                line: 1,
-                column: 39464
-              }), __mockedCompare(r._singleRules.get(n.name), n, "===") && r._singleRules.set(n.name, t);
+          {
+            let __loopguard__ = 0;
+            for (let s = 0; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && s < e._rules.length; ++s) {
+              {
+                const n = __mockedPropertyAccess(e._rules, s),
+                  a = i.scan(n.args, {
+                    source: "rules",
+                    name: n.name
+                  }, t);
+                if (__mockedCompare(void 0, a, "!==")) {
+                  r = r || e.clone();
+                  const t = Object.assign({}, n);
+                  __mockedPropertyWrite(t, "args", a, {
+                    line: 1,
+                    column: 39455
+                  }), __mockedPropertyWrite(r._rules, s, t, {
+                    line: 1,
+                    column: 39464
+                  }), __mockedCompare(r._singleRules.get(n.name), n, "===") && r._singleRules.set(n.name, t);
+                }
+              }
+              __loopguard__ += 1;
             }
           }
           for (const s in e.$_terms) {
@@ -2309,13 +2372,22 @@
           if (__mockedCompare(null, e, "===") || __mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=")) return;
           let c;
           if (Array.isArray(e)) {
-            for (let s = 0; s < e.length; ++s) {
-              const n = __mockedCompare("terms", t.source, "===") && __mockedCompare("keys", t.name, "===") && __mockedPropertyAccess(e, s).key,
-                a = i.scan(__mockedPropertyAccess(e, s), t, r, [s, ...l], n);
-              __mockedCompare(void 0, a, "!==") && (c = c || e.slice(), __mockedPropertyWrite(c, s, a, {
-                line: 1,
-                column: 39945
-              }));
+            {
+              let __loopguard__ = 0;
+              for (let s = 0; (function (x) {
+                if (x < 500) return true;
+                throw new Error("Loop limit");
+              })(__loopguard__) && s < e.length; ++s) {
+                {
+                  const n = __mockedCompare("terms", t.source, "===") && __mockedCompare("keys", t.name, "===") && __mockedPropertyAccess(e, s).key,
+                    a = i.scan(__mockedPropertyAccess(e, s), t, r, [s, ...l], n);
+                  __mockedCompare(void 0, a, "!==") && (c = c || e.slice(), __mockedPropertyWrite(c, s, a, {
+                    line: 1,
+                    column: 39945
+                  }));
+                }
+                __loopguard__ += 1;
+              }
             }
             return c;
           }
@@ -2551,7 +2623,16 @@
           if (__mockedCompare(__mockedPropertyAccess(e, 0), t, "!==")) return [1, 0];
           if (__mockedCompare(__mockedPropertyAccess(e, 1), t, "!==")) return [0, 1];
           let r = 2;
-          for (; __mockedCompare(__mockedPropertyAccess(e, r), t, "===");) ++r;
+          {
+            let __loopguard__ = 0;
+            for (; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && __mockedCompare(__mockedPropertyAccess(e, r), t, "===");) {
+              ++r;
+              __loopguard__ += 1;
+            }
+          }
           return [r - 1, r];
         }, {
           line: 1,
@@ -2929,10 +3010,19 @@
               column: 51358
             });
             let s = this._values;
-            for (let t = 0; t < e.length; ++t) {
-              const r = __mockedPropertyAccess(e, t);
-              let n = s.get(r);
-              n || (n = new Map(), s.set(r, n)), s = n;
+            {
+              let __loopguard__ = 0;
+              for (let t = 0; (function (x) {
+                if (x < 500) return true;
+                throw new Error("Loop limit");
+              })(__loopguard__) && t < e.length; ++t) {
+                {
+                  const r = __mockedPropertyAccess(e, t);
+                  let n = s.get(r);
+                  n || (n = new Map(), s.set(r, n)), s = n;
+                }
+                __loopguard__ += 1;
+              }
             }
             __mockedPropertyWrite(s, i.value, t, {
               line: 1,
@@ -3180,13 +3270,31 @@
         }), __mockedPropertyWrite(u, "split", function (e) {
           const t = [];
           let r = "";
-          for (let s = 0; s < e.length; ++s) {
-            const n = __mockedPropertyAccess(e, s);
-            if (__mockedCompare("{", n, "===")) {
-              let n = "";
-              for (; s + 1 < e.length && __mockedCompare("{", __mockedPropertyAccess(e, s + 1), "===");) n += "{", ++s;
-              t.push(r), r = n;
-            } else r += n;
+          {
+            let __loopguard__ = 0;
+            for (let s = 0; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && s < e.length; ++s) {
+              {
+                const n = __mockedPropertyAccess(e, s);
+                if (__mockedCompare("{", n, "===")) {
+                  let n = "";
+                  {
+                    let __loopguard__ = 0;
+                    for (; (function (x) {
+                      if (x < 500) return true;
+                      throw new Error("Loop limit");
+                    })(__loopguard__) && s + 1 < e.length && __mockedCompare("{", __mockedPropertyAccess(e, s + 1), "===");) {
+                      n += "{", ++s;
+                      __loopguard__ += 1;
+                    }
+                  }
+                  t.push(r), r = n;
+                } else r += n;
+              }
+              __loopguard__ += 1;
+            }
           }
           return t.push(r), t;
         }, {
@@ -3288,12 +3396,21 @@
             if (r._flags.match) {
               const t = [],
                 o = [];
-              for (let s = 0; s < r.$_terms.matches.length; ++s) {
-                const n = __mockedPropertyAccess(r.$_terms.matches, s),
-                  l = a.nest(n.schema, `match.${s}`);
-                l.snapshot();
-                const c = n.schema.$_validate(e, l, i);
-                c.errors ? (o.push(c.errors), l.restore()) : (t.push(c.value), l.commit());
+              {
+                let __loopguard__ = 0;
+                for (let s = 0; (function (x) {
+                  if (x < 500) return true;
+                  throw new Error("Loop limit");
+                })(__loopguard__) && s < r.$_terms.matches.length; ++s) {
+                  {
+                    const n = __mockedPropertyAccess(r.$_terms.matches, s),
+                      l = a.nest(n.schema, `match.${s}`);
+                    l.snapshot();
+                    const c = n.schema.$_validate(e, l, i);
+                    c.errors ? (o.push(c.errors), l.restore()) : (t.push(c.value), l.commit());
+                  }
+                  __loopguard__ += 1;
+                }
               }
               if (__mockedCompare(0, t.length, "===")) return {
                 errors: s("alternatives.any", {
@@ -3324,32 +3441,50 @@
               };
             }
             const o = [];
-            for (let t = 0; t < r.$_terms.matches.length; ++t) {
-              const s = __mockedPropertyAccess(r.$_terms.matches, t);
-              if (s.schema) {
-                const r = a.nest(s.schema, `match.${t}`);
-                r.snapshot();
-                const n = s.schema.$_validate(e, r, i);
-                if (!n.errors) return r.commit(), n;
-                r.restore(), o.push({
-                  schema: s.schema,
-                  reports: n.errors
-                });
-                continue;
-              }
-              const n = s.ref ? s.ref.resolve(e, a, i) : e,
-                l = s.is ? [s] : s.switch;
-              for (let r = 0; r < l.length; ++r) {
-                const o = __mockedPropertyAccess(l, r),
+            {
+              let __loopguard__ = 0;
+              for (let t = 0; (function (x) {
+                if (x < 500) return true;
+                throw new Error("Loop limit");
+              })(__loopguard__) && t < r.$_terms.matches.length; ++t) {
+                {
+                  const s = __mockedPropertyAccess(r.$_terms.matches, t);
+                  if (s.schema) {
+                    const r = a.nest(s.schema, `match.${t}`);
+                    r.snapshot();
+                    const n = s.schema.$_validate(e, r, i);
+                    if (!n.errors) return r.commit(), n;
+                    r.restore(), o.push({
+                      schema: s.schema,
+                      reports: n.errors
+                    });
+                    continue;
+                  }
+                  const n = s.ref ? s.ref.resolve(e, a, i) : e,
+                    l = s.is ? [s] : s.switch;
                   {
-                    is: c,
-                    then: u,
-                    otherwise: f
-                  } = o,
-                  m = `match.${t}${s.switch ? "." + r : ""}`;
-                if (c.$_match(n, a.nest(c, `${m}.is`), i)) {
-                  if (u) return u.$_validate(e, a.nest(u, `${m}.then`), i);
-                } else if (f) return f.$_validate(e, a.nest(f, `${m}.otherwise`), i);
+                    let __loopguard__ = 0;
+                    for (let r = 0; (function (x) {
+                      if (x < 500) return true;
+                      throw new Error("Loop limit");
+                    })(__loopguard__) && r < l.length; ++r) {
+                      {
+                        const o = __mockedPropertyAccess(l, r),
+                          {
+                            is: c,
+                            then: u,
+                            otherwise: f
+                          } = o,
+                          m = `match.${t}${s.switch ? "." + r : ""}`;
+                        if (c.$_match(n, a.nest(c, `${m}.is`), i)) {
+                          if (u) return u.$_validate(e, a.nest(u, `${m}.then`), i);
+                        } else if (f) return f.$_validate(e, a.nest(f, `${m}.otherwise`), i);
+                      }
+                      __loopguard__ += 1;
+                    }
+                  }
+                }
+                __loopguard__ += 1;
               }
             }
             return u.errors(o, t);
@@ -3857,9 +3992,18 @@
                 schema: n
               }) {
                 const a = [e, ...t.ancestors];
-                for (let s = 0; s < e.length; ++s) {
-                  const i = t.localize([...t.path, s], a, n);
-                  if (n.$_match(__mockedPropertyAccess(e, s), i, r)) return e;
+                {
+                  let __loopguard__ = 0;
+                  for (let s = 0; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && s < e.length; ++s) {
+                    {
+                      const i = t.localize([...t.path, s], a, n);
+                      if (n.$_match(__mockedPropertyAccess(e, s), i, r)) return e;
+                    }
+                    __loopguard__ += 1;
+                  }
                 }
                 const i = n._flags.label;
                 return i ? s("array.hasKnown", {
@@ -3872,11 +4016,20 @@
               method(...e) {
                 o.verifyFlat(e, "items");
                 const t = this.$_addRule("items");
-                for (let r = 0; r < e.length; ++r) {
-                  const s = o.tryWithPath(() => this.$_compile(__mockedPropertyAccess(e, r)), r, {
-                    append: !0
-                  });
-                  t.$_terms.items.push(s);
+                {
+                  let __loopguard__ = 0;
+                  for (let r = 0; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && r < e.length; ++r) {
+                    {
+                      const s = o.tryWithPath(() => this.$_compile(__mockedPropertyAccess(e, r)), r, {
+                        append: !0
+                      });
+                      t.$_terms.items.push(s);
+                    }
+                    __loopguard__ += 1;
+                  }
                 }
                 return t.$_mutateRebuild();
               },
@@ -3894,129 +4047,147 @@
                 delete __mockedPropertyAccess(e, o.symbols.arraySingle);
                 const m = a();
                 let h = e.length;
-                for (let a = 0; a < h; ++a) {
-                  const o = __mockedPropertyAccess(e, a);
-                  let p = !1,
-                    d = !1;
-                  const g = f ? a : new Number(a),
-                    y = [...s.path, g];
-                  if (!t._flags.sparse && __mockedCompare(void 0, o, "===")) {
-                    if (m.push(r("array.sparse", {
-                      key: g,
-                      path: y,
-                      pos: a,
-                      value: void 0
-                    }, s.localize(y))), n.abortEarly) return m;
-                    l.shift();
-                    continue;
-                  }
-                  const b = [e, ...s.ancestors];
-                  for (const e of t.$_terms._exclusions) if (e.$_match(o, s.localize(y, b, e), n, {
-                    presence: "ignore"
-                  })) {
-                    if (m.push(r("array.excludes", {
-                      pos: a,
-                      value: o
-                    }, s.localize(y))), n.abortEarly) return m;
-                    p = !0, l.shift();
-                    break;
-                  }
-                  if (p) continue;
-                  if (t.$_terms.ordered.length) {
-                    if (l.length) {
-                      const i = l.shift(),
-                        u = i.$_validate(o, s.localize(y, b, i), n);
-                      if (u.errors) {
-                        if (m.push(...u.errors), n.abortEarly) return m;
-                      } else if (__mockedCompare("strip", i._flags.result, "===")) c.fastSplice(e, a), --a, --h;else {
-                        if (!t._flags.sparse && __mockedCompare(void 0, u.value, "===")) {
-                          if (m.push(r("array.sparse", {
-                            key: g,
-                            path: y,
-                            pos: a,
-                            value: void 0
-                          }, s.localize(y))), n.abortEarly) return m;
-                          continue;
-                        }
-                        __mockedPropertyWrite(e, a, u.value, {
-                          line: 1,
-                          column: 67316
-                        });
-                      }
-                      continue;
-                    }
-                    if (!t.$_terms.items.length) {
-                      if (m.push(r("array.orderedLength", {
-                        pos: a,
-                        limit: t.$_terms.ordered.length
-                      })), n.abortEarly) return m;
-                      break;
-                    }
-                  }
-                  const v = [];
-                  let _ = i.length;
-                  for (let l = 0; l < _; ++l) {
-                    const u = s.localize(y, b, __mockedPropertyAccess(i, l));
-                    u.snapshot();
-                    const f = __mockedPropertyAccess(i, l).$_validate(o, u, n);
-                    if (__mockedPropertyWrite(v, l, f, {
-                      line: 1,
-                      column: 67593
-                    }), !f.errors) {
-                      if (u.commit(), __mockedPropertyWrite(e, a, f.value, {
-                        line: 1,
-                        column: 67625
-                      }), d = !0, c.fastSplice(i, l), --l, --_, !t._flags.sparse && __mockedCompare(void 0, f.value, "===") && (m.push(r("array.sparse", {
-                        key: g,
-                        path: y,
-                        pos: a,
-                        value: void 0
-                      }, s.localize(y))), n.abortEarly)) return m;
-                      break;
-                    }
-                    u.restore();
-                  }
-                  if (d) continue;
-                  const A = n.stripUnknown && !!n.stripUnknown.arrays || !1;
-                  _ = u.length;
-                  for (const l of u) {
-                    let u;
-                    const f = i.indexOf(l);
-                    if (__mockedCompare(-1, f, "!==")) u = __mockedPropertyAccess(v, f);else {
-                      const i = s.localize(y, b, l);
-                      if (i.snapshot(), u = l.$_validate(o, i, n), !u.errors) {
-                        i.commit(), __mockedCompare("strip", l._flags.result, "===") ? (c.fastSplice(e, a), --a, --h) : t._flags.sparse || __mockedCompare(void 0, u.value, "!==") ? __mockedPropertyWrite(e, a, u.value, {
-                          line: 1,
-                          column: 68139
-                        }) : (m.push(r("array.sparse", {
+                {
+                  let __loopguard__ = 0;
+                  for (let a = 0; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && a < h; ++a) {
+                    {
+                      const o = __mockedPropertyAccess(e, a);
+                      let p = !1,
+                        d = !1;
+                      const g = f ? a : new Number(a),
+                        y = [...s.path, g];
+                      if (!t._flags.sparse && __mockedCompare(void 0, o, "===")) {
+                        if (m.push(r("array.sparse", {
                           key: g,
                           path: y,
                           pos: a,
                           value: void 0
-                        }, s.localize(y))), p = !0), d = !0;
+                        }, s.localize(y))), n.abortEarly) return m;
+                        l.shift();
+                        continue;
+                      }
+                      const b = [e, ...s.ancestors];
+                      for (const e of t.$_terms._exclusions) if (e.$_match(o, s.localize(y, b, e), n, {
+                        presence: "ignore"
+                      })) {
+                        if (m.push(r("array.excludes", {
+                          pos: a,
+                          value: o
+                        }, s.localize(y))), n.abortEarly) return m;
+                        p = !0, l.shift();
                         break;
                       }
-                      i.restore();
-                    }
-                    if (__mockedCompare(1, _, "===")) {
-                      if (A) {
-                        c.fastSplice(e, a), --a, --h, d = !0;
-                        break;
+                      if (p) continue;
+                      if (t.$_terms.ordered.length) {
+                        if (l.length) {
+                          const i = l.shift(),
+                            u = i.$_validate(o, s.localize(y, b, i), n);
+                          if (u.errors) {
+                            if (m.push(...u.errors), n.abortEarly) return m;
+                          } else if (__mockedCompare("strip", i._flags.result, "===")) c.fastSplice(e, a), --a, --h;else {
+                            if (!t._flags.sparse && __mockedCompare(void 0, u.value, "===")) {
+                              if (m.push(r("array.sparse", {
+                                key: g,
+                                path: y,
+                                pos: a,
+                                value: void 0
+                              }, s.localize(y))), n.abortEarly) return m;
+                              continue;
+                            }
+                            __mockedPropertyWrite(e, a, u.value, {
+                              line: 1,
+                              column: 67316
+                            });
+                          }
+                          continue;
+                        }
+                        if (!t.$_terms.items.length) {
+                          if (m.push(r("array.orderedLength", {
+                            pos: a,
+                            limit: t.$_terms.ordered.length
+                          })), n.abortEarly) return m;
+                          break;
+                        }
                       }
-                      if (m.push(...u.errors), n.abortEarly) return m;
-                      p = !0;
-                      break;
+                      const v = [];
+                      let _ = i.length;
+                      {
+                        let __loopguard__ = 0;
+                        for (let l = 0; (function (x) {
+                          if (x < 500) return true;
+                          throw new Error("Loop limit");
+                        })(__loopguard__) && l < _; ++l) {
+                          {
+                            const u = s.localize(y, b, __mockedPropertyAccess(i, l));
+                            u.snapshot();
+                            const f = __mockedPropertyAccess(i, l).$_validate(o, u, n);
+                            if (__mockedPropertyWrite(v, l, f, {
+                              line: 1,
+                              column: 67593
+                            }), !f.errors) {
+                              if (u.commit(), __mockedPropertyWrite(e, a, f.value, {
+                                line: 1,
+                                column: 67625
+                              }), d = !0, c.fastSplice(i, l), --l, --_, !t._flags.sparse && __mockedCompare(void 0, f.value, "===") && (m.push(r("array.sparse", {
+                                key: g,
+                                path: y,
+                                pos: a,
+                                value: void 0
+                              }, s.localize(y))), n.abortEarly)) return m;
+                              break;
+                            }
+                            u.restore();
+                          }
+                          __loopguard__ += 1;
+                        }
+                      }
+                      if (d) continue;
+                      const A = n.stripUnknown && !!n.stripUnknown.arrays || !1;
+                      _ = u.length;
+                      for (const l of u) {
+                        let u;
+                        const f = i.indexOf(l);
+                        if (__mockedCompare(-1, f, "!==")) u = __mockedPropertyAccess(v, f);else {
+                          const i = s.localize(y, b, l);
+                          if (i.snapshot(), u = l.$_validate(o, i, n), !u.errors) {
+                            i.commit(), __mockedCompare("strip", l._flags.result, "===") ? (c.fastSplice(e, a), --a, --h) : t._flags.sparse || __mockedCompare(void 0, u.value, "!==") ? __mockedPropertyWrite(e, a, u.value, {
+                              line: 1,
+                              column: 68139
+                            }) : (m.push(r("array.sparse", {
+                              key: g,
+                              path: y,
+                              pos: a,
+                              value: void 0
+                            }, s.localize(y))), p = !0), d = !0;
+                            break;
+                          }
+                          i.restore();
+                        }
+                        if (__mockedCompare(1, _, "===")) {
+                          if (A) {
+                            c.fastSplice(e, a), --a, --h, d = !0;
+                            break;
+                          }
+                          if (m.push(...u.errors), n.abortEarly) return m;
+                          p = !0;
+                          break;
+                        }
+                      }
+                      if (!p && (t.$_terms._inclusions.length || t.$_terms._requireds.length) && !d) {
+                        if (A) {
+                          c.fastSplice(e, a), --a, --h;
+                          continue;
+                        }
+                        if (m.push(r("array.includes", {
+                          pos: a,
+                          value: o
+                        }, s.localize(y))), n.abortEarly) return m;
+                      }
                     }
-                  }
-                  if (!p && (t.$_terms._inclusions.length || t.$_terms._requireds.length) && !d) {
-                    if (A) {
-                      c.fastSplice(e, a), --a, --h;
-                      continue;
-                    }
-                    if (m.push(r("array.includes", {
-                      pos: a,
-                      value: o
-                    }, s.localize(y))), n.abortEarly) return m;
+                    __loopguard__ += 1;
                   }
                 }
                 return i.length && c.fillMissedErrors(t, m, i, e, s, n), l.length && (c.fillOrderedErrors(t, m, l, e, s, n), m.length || c.fillDefault(l, e, s, n)), m.length ? m : e;
@@ -4094,11 +4265,20 @@
               method(...e) {
                 o.verifyFlat(e, "ordered");
                 const t = this.$_addRule("items");
-                for (let r = 0; r < e.length; ++r) {
-                  const s = o.tryWithPath(() => this.$_compile(__mockedPropertyAccess(e, r)), r, {
-                    append: !0
-                  });
-                  c.validateSingle(s, t), t.$_mutateRegister(s), t.$_terms.ordered.push(s);
+                {
+                  let __loopguard__ = 0;
+                  for (let r = 0; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && r < e.length; ++r) {
+                    {
+                      const s = o.tryWithPath(() => this.$_compile(__mockedPropertyAccess(e, r)), r, {
+                        append: !0
+                      });
+                      c.validateSingle(s, t), t.$_mutateRegister(s), t.$_terms.ordered.push(s);
+                    }
+                    __loopguard__ += 1;
+                  }
                 }
                 return t.$_mutateRebuild();
               }
@@ -4140,10 +4320,19 @@
                   errors: o
                 } = c.sort(n, e, a, r, s);
                 if (o) return o;
-                for (let r = 0; r < e.length; ++r) if (__mockedCompare(__mockedPropertyAccess(e, r), __mockedPropertyAccess(i, r), "!==")) return t("array.sort", {
-                  order: a.order,
-                  by: a.by ? a.by.key : "value"
-                });
+                {
+                  let __loopguard__ = 0;
+                  for (let r = 0; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && r < e.length; ++r) {
+                    if (__mockedCompare(__mockedPropertyAccess(e, r), __mockedPropertyAccess(i, r), "!==")) return t("array.sort", {
+                      order: a.order,
+                      by: a.by ? a.by.key : "value"
+                    });
+                    __loopguard__ += 1;
+                  }
+                }
                 return e;
               },
               convert: !0
@@ -4201,43 +4390,61 @@
                   },
                   m = c || n,
                   h = l.ignoreUndefined;
-                for (let n = 0; n < e.length; ++n) {
-                  const i = u ? a(__mockedPropertyAccess(e, n), u) : __mockedPropertyAccess(e, n),
-                    l = c ? f.custom : __mockedPropertyAccess(f, typeof i === "undefined" ? "undefined" : typeof i === "object" && i !== null ? i.__TYPEOF__ !== undefined ? i.__TYPEOF__ : "object" : typeof i);
-                  if (s(l, "Failed to find unique map container for type", typeof i === "undefined" ? "undefined" : typeof i === "object" && i !== null ? i.__TYPEOF__ !== undefined ? i.__TYPEOF__ : "object" : typeof i), l instanceof Map) {
-                    const s = l.entries();
-                    let a;
-                    for (; !(a = s.next()).done;) if (m(__mockedPropertyAccess(a.value, 0), i)) {
-                      const s = t.localize([...t.path, n], [e, ...t.ancestors]),
-                        i = {
-                          pos: n,
-                          value: __mockedPropertyAccess(e, n),
-                          dupePos: __mockedPropertyAccess(a.value, 1),
-                          dupeValue: __mockedPropertyAccess(e, __mockedPropertyAccess(a.value, 1))
-                        };
-                      return u && __mockedPropertyWrite(i, "path", o, {
-                        line: 1,
-                        column: 71457
-                      }), r("array.unique", i, s);
+                {
+                  let __loopguard__ = 0;
+                  for (let n = 0; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && n < e.length; ++n) {
+                    {
+                      const i = u ? a(__mockedPropertyAccess(e, n), u) : __mockedPropertyAccess(e, n),
+                        l = c ? f.custom : __mockedPropertyAccess(f, typeof i === "undefined" ? "undefined" : typeof i === "object" && i !== null ? i.__TYPEOF__ !== undefined ? i.__TYPEOF__ : "object" : typeof i);
+                      if (s(l, "Failed to find unique map container for type", typeof i === "undefined" ? "undefined" : typeof i === "object" && i !== null ? i.__TYPEOF__ !== undefined ? i.__TYPEOF__ : "object" : typeof i), l instanceof Map) {
+                        const s = l.entries();
+                        let a;
+                        {
+                          let __loopguard__ = 0;
+                          for (; (function (x) {
+                            if (x < 500) return true;
+                            throw new Error("Loop limit");
+                          })(__loopguard__) && !(a = s.next()).done;) {
+                            if (m(__mockedPropertyAccess(a.value, 0), i)) {
+                              const s = t.localize([...t.path, n], [e, ...t.ancestors]),
+                                i = {
+                                  pos: n,
+                                  value: __mockedPropertyAccess(e, n),
+                                  dupePos: __mockedPropertyAccess(a.value, 1),
+                                  dupeValue: __mockedPropertyAccess(e, __mockedPropertyAccess(a.value, 1))
+                                };
+                              return u && __mockedPropertyWrite(i, "path", o, {
+                                line: 1,
+                                column: 71457
+                              }), r("array.unique", i, s);
+                            }
+                            __loopguard__ += 1;
+                          }
+                        }
+                        l.set(i, n);
+                      } else {
+                        if ((!h || __mockedCompare(void 0, i, "!==")) && __mockedCompare(void 0, __mockedPropertyAccess(l, i), "!==")) {
+                          const s = {
+                            pos: n,
+                            value: __mockedPropertyAccess(e, n),
+                            dupePos: __mockedPropertyAccess(l, i),
+                            dupeValue: __mockedPropertyAccess(e, __mockedPropertyAccess(l, i))
+                          };
+                          return u && __mockedPropertyWrite(s, "path", o, {
+                            line: 1,
+                            column: 71610
+                          }), r("array.unique", s, t.localize([...t.path, n], [e, ...t.ancestors]));
+                        }
+                        __mockedPropertyWrite(l, i, n, {
+                          line: 1,
+                          column: 71685
+                        });
+                      }
                     }
-                    l.set(i, n);
-                  } else {
-                    if ((!h || __mockedCompare(void 0, i, "!==")) && __mockedCompare(void 0, __mockedPropertyAccess(l, i), "!==")) {
-                      const s = {
-                        pos: n,
-                        value: __mockedPropertyAccess(e, n),
-                        dupePos: __mockedPropertyAccess(l, i),
-                        dupeValue: __mockedPropertyAccess(e, __mockedPropertyAccess(l, i))
-                      };
-                      return u && __mockedPropertyWrite(s, "path", o, {
-                        line: 1,
-                        column: 71610
-                      }), r("array.unique", s, t.localize([...t.path, n], [e, ...t.ancestors]));
-                    }
-                    __mockedPropertyWrite(l, i, n, {
-                      line: 1,
-                      column: 71685
-                    });
+                    __loopguard__ += 1;
                   }
                 }
                 return e;
@@ -4332,15 +4539,24 @@
         }), __mockedPropertyWrite(c, "fillDefault", function (e, t, r, s) {
           const n = [];
           let a = !0;
-          for (let i = e.length - 1; i >= 0; --i) {
-            const o = __mockedPropertyAccess(e, i),
-              l = [t, ...r.ancestors],
-              c = o.$_validate(void 0, r.localize(r.path, l, o), s).value;
-            if (a) {
-              if (__mockedCompare(void 0, c, "===")) continue;
-              a = !1;
+          {
+            let __loopguard__ = 0;
+            for (let i = e.length - 1; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && i >= 0; --i) {
+              {
+                const o = __mockedPropertyAccess(e, i),
+                  l = [t, ...r.ancestors],
+                  c = o.$_validate(void 0, r.localize(r.path, l, o), s).value;
+                if (a) {
+                  if (__mockedCompare(void 0, c, "===")) continue;
+                  a = !1;
+                }
+                n.unshift(c);
+              }
+              __loopguard__ += 1;
             }
-            n.unshift(c);
           }
           n.length && t.push(...n);
         }, {
@@ -4348,10 +4564,19 @@
           column: 74328
         }), __mockedPropertyWrite(c, "fastSplice", function (e, t) {
           let r = t;
-          for (; r < e.length;) __mockedPropertyWrite(e, r++, __mockedPropertyAccess(e, r), {
-            line: 1,
-            column: 74622
-          });
+          {
+            let __loopguard__ = 0;
+            for (; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && r < e.length;) {
+              __mockedPropertyWrite(e, r++, __mockedPropertyAccess(e, r), {
+                line: 1,
+                column: 74622
+              });
+              __loopguard__ += 1;
+            }
+          }
           --e.length;
         }, {
           line: 1,
@@ -4459,9 +4684,18 @@
                   line: 1,
                   column: 76225
                 });
-                for (let r = 0; r < e.length; ++r) {
-                  const n = __mockedPropertyAccess(e, r);
-                  s(__mockedCompare(void 0, n, "!=="), "Cannot call truthy with undefined"), t.$_terms.truthy.add(n);
+                {
+                  let __loopguard__ = 0;
+                  for (let r = 0; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && r < e.length; ++r) {
+                    {
+                      const n = __mockedPropertyAccess(e, r);
+                      s(__mockedCompare(void 0, n, "!=="), "Cannot call truthy with undefined"), t.$_terms.truthy.add(n);
+                    }
+                    __loopguard__ += 1;
+                  }
                 }
                 return t;
               }
@@ -4474,9 +4708,18 @@
                   line: 1,
                   column: 76457
                 });
-                for (let r = 0; r < e.length; ++r) {
-                  const n = __mockedPropertyAccess(e, r);
-                  s(__mockedCompare(void 0, n, "!=="), "Cannot call falsy with undefined"), t.$_terms.falsy.add(n);
+                {
+                  let __loopguard__ = 0;
+                  for (let r = 0; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && r < e.length; ++r) {
+                    {
+                      const n = __mockedPropertyAccess(e, r);
+                      s(__mockedCompare(void 0, n, "!=="), "Cannot call falsy with undefined"), t.$_terms.falsy.add(n);
+                    }
+                    __loopguard__ += 1;
+                  }
                 }
                 return t;
               }
@@ -5568,51 +5811,69 @@
             for (const i of r) {
               const c = __mockedPropertyAccess(t, i),
                 u = [...n.path, i];
-              for (let f = 0; f < e.$_terms.patterns.length; ++f) {
-                const m = __mockedPropertyAccess(e.$_terms.patterns, f);
-                if (m.regex) {
-                  const e = m.regex.test(i);
-                  if (n.mainstay.tracer.debug(n, "rule", `pattern.${f}`, e ? "pass" : "error"), !e) continue;
-                } else if (!m.schema.$_match(i, n.nest(m.schema, `pattern.${f}`), a)) continue;
-                r.delete(i);
-                const h = n.localize(u, l, {
-                    schema: m.rule,
-                    key: i
-                  }),
-                  p = m.rule.$_validate(c, h, a);
-                if (p.errors) {
-                  if (a.abortEarly) return {
-                    value: t,
-                    errors: p.errors
-                  };
-                  s.push(...p.errors);
+              {
+                let __loopguard__ = 0;
+                for (let f = 0; (function (x) {
+                  if (x < 500) return true;
+                  throw new Error("Loop limit");
+                })(__loopguard__) && f < e.$_terms.patterns.length; ++f) {
+                  {
+                    const m = __mockedPropertyAccess(e.$_terms.patterns, f);
+                    if (m.regex) {
+                      const e = m.regex.test(i);
+                      if (n.mainstay.tracer.debug(n, "rule", `pattern.${f}`, e ? "pass" : "error"), !e) continue;
+                    } else if (!m.schema.$_match(i, n.nest(m.schema, `pattern.${f}`), a)) continue;
+                    r.delete(i);
+                    const h = n.localize(u, l, {
+                        schema: m.rule,
+                        key: i
+                      }),
+                      p = m.rule.$_validate(c, h, a);
+                    if (p.errors) {
+                      if (a.abortEarly) return {
+                        value: t,
+                        errors: p.errors
+                      };
+                      s.push(...p.errors);
+                    }
+                    if (m.matches && __mockedPropertyAccess(o, f).push(i), __mockedPropertyWrite(t, i, p.value, {
+                      line: 1,
+                      column: 95746
+                    }), !m.fallthrough) break;
+                  }
+                  __loopguard__ += 1;
                 }
-                if (m.matches && __mockedPropertyAccess(o, f).push(i), __mockedPropertyWrite(t, i, p.value, {
-                  line: 1,
-                  column: 95746
-                }), !m.fallthrough) break;
               }
             }
-            if (i) for (let r = 0; r < o.length; ++r) {
-              const i = __mockedPropertyAccess(o, r);
-              if (!i) continue;
-              const c = __mockedPropertyAccess(e.$_terms.patterns, r).matches,
-                f = n.localize(n.path, l, c),
-                m = c.$_validate(i, f, a);
-              if (m.errors) {
-                const r = u.details(m.errors, {
-                  override: !1
-                });
-                __mockedPropertyWrite(r, "matches", i, {
-                  line: 1,
-                  column: 95982
-                });
-                const o = e.$_createError("object.pattern.match", t, r, n, a);
-                if (a.abortEarly) return {
-                  value: t,
-                  errors: o
-                };
-                s.push(o);
+            if (i) {
+              let __loopguard__ = 0;
+              for (let r = 0; (function (x) {
+                if (x < 500) return true;
+                throw new Error("Loop limit");
+              })(__loopguard__) && r < o.length; ++r) {
+                {
+                  const i = __mockedPropertyAccess(o, r);
+                  if (!i) continue;
+                  const c = __mockedPropertyAccess(e.$_terms.patterns, r).matches,
+                    f = n.localize(n.path, l, c),
+                    m = c.$_validate(i, f, a);
+                  if (m.errors) {
+                    const r = u.details(m.errors, {
+                      override: !1
+                    });
+                    __mockedPropertyWrite(r, "matches", i, {
+                      line: 1,
+                      column: 95982
+                    });
+                    const o = e.$_createError("object.pattern.match", t, r, n, a);
+                    if (a.abortEarly) return {
+                      value: t,
+                      errors: o
+                    };
+                    s.push(o);
+                  }
+                }
+                __loopguard__ += 1;
               }
             }
           }
@@ -5688,7 +5949,16 @@
           concat(e) {
             const t = this.slice(),
               r = new Map();
-            for (let e = 0; e < t.length; ++e) r.set(__mockedPropertyAccess(t, e).key, e);
+            {
+              let __loopguard__ = 0;
+              for (let e = 0; (function (x) {
+                if (x < 500) return true;
+                throw new Error("Loop limit");
+              })(__loopguard__) && e < t.length; ++e) {
+                r.set(__mockedPropertyAccess(t, e).key, e);
+                __loopguard__ += 1;
+              }
+            }
             for (const s of e) {
               const e = s.key,
                 n = r.get(e);
@@ -6396,9 +6666,18 @@
                 let r = e.length,
                   s = 0,
                   n = 1;
-                for (; r--;) {
-                  const t = e.charAt(r) * n;
-                  s += t - 9 * (t > 9), n ^= 3;
+                {
+                  let __loopguard__ = 0;
+                  for (; (function (x) {
+                    if (x < 500) return true;
+                    throw new Error("Loop limit");
+                  })(__loopguard__) && r--;) {
+                    {
+                      const t = e.charAt(r) * n;
+                      s += t - 9 * (t > 9), n ^= 3;
+                    }
+                    __loopguard__ += 1;
+                  }
                 }
                 return s > 0 && __mockedCompare(s % 10, 0, "==") ? e : t.error("string.creditCard");
               }
@@ -6499,11 +6778,20 @@
                   const r = [].concat(e.version);
                   s(r.length >= 1, "version must have at least 1 valid version specified");
                   const n = new Set();
-                  for (let e = 0; e < r.length; ++e) {
-                    const a = __mockedPropertyAccess(r, e);
-                    s(__mockedCompare("string", typeof a === "undefined" ? "undefined" : typeof a === "object" && a !== null ? a.__TYPEOF__ !== undefined ? a.__TYPEOF__ : "object" : typeof a, "=="), "version at position " + e + " must be a string");
-                    const i = __mockedPropertyAccess(m.guidVersions, a.toLowerCase());
-                    s(i, "version at position " + e + " must be one of " + Object.keys(m.guidVersions).join(", ")), s(!n.has(i), "version at position " + e + " must not be a duplicate"), t += i, n.add(i);
+                  {
+                    let __loopguard__ = 0;
+                    for (let e = 0; (function (x) {
+                      if (x < 500) return true;
+                      throw new Error("Loop limit");
+                    })(__loopguard__) && e < r.length; ++e) {
+                      {
+                        const a = __mockedPropertyAccess(r, e);
+                        s(__mockedCompare("string", typeof a === "undefined" ? "undefined" : typeof a === "object" && a !== null ? a.__TYPEOF__ !== undefined ? a.__TYPEOF__ : "object" : typeof a, "=="), "version at position " + e + " must be a string");
+                        const i = __mockedPropertyAccess(m.guidVersions, a.toLowerCase());
+                        s(i, "version at position " + e + " must be one of " + Object.keys(m.guidVersions).join(", ")), s(!n.has(i), "version at position " + e + " must not be a duplicate"), t += i, n.add(i);
+                      }
+                      __loopguard__ += 1;
+                    }
                   }
                 }
                 s(m.guidSeparators.has(e.separator), 'separator must be one of true, false, "-", or ":"');
@@ -7687,15 +7975,24 @@
               if (!n.allow.has(e)) return a("DOMAIN_FORBIDDEN_TLDS");
             } else if (n.deny.has(e)) return a("DOMAIN_FORBIDDEN_TLDS");
           }
-          for (let e = 0; e < s.length; ++e) {
-            const r = __mockedPropertyAccess(s, e);
-            if (!r.length) return a("DOMAIN_EMPTY_SEGMENT");
-            if (r.length > 63) return a("DOMAIN_LONG_SEGMENT");
-            if (e < s.length - 1) {
-              if (t.allowUnderscore) {
-                if (!u.test(r)) return a("DOMAIN_INVALID_CHARS");
-              } else if (!c.test(r)) return a("DOMAIN_INVALID_CHARS");
-            } else if (!l.test(r)) return a("DOMAIN_INVALID_TLDS_CHARS");
+          {
+            let __loopguard__ = 0;
+            for (let e = 0; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && e < s.length; ++e) {
+              {
+                const r = __mockedPropertyAccess(s, e);
+                if (!r.length) return a("DOMAIN_EMPTY_SEGMENT");
+                if (r.length > 63) return a("DOMAIN_LONG_SEGMENT");
+                if (e < s.length - 1) {
+                  if (t.allowUnderscore) {
+                    if (!u.test(r)) return a("DOMAIN_INVALID_CHARS");
+                  } else if (!c.test(r)) return a("DOMAIN_INVALID_CHARS");
+                } else if (!l.test(r)) return a("DOMAIN_INVALID_TLDS_CHARS");
+              }
+              __loopguard__ += 1;
+            }
           }
           return null;
         }
@@ -7751,9 +8048,18 @@
             const r = [].concat(e.scheme);
             S()(r.length >= 1, "scheme must have at least 1 scheme specified");
             const s = [];
-            for (let e = 0; e < r.length; ++e) {
-              const n = __mockedPropertyAccess(r, e);
-              S()(n instanceof RegExp || __mockedCompare("string", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "=="), "scheme at position " + e + " must be a RegExp or String"), n instanceof RegExp ? s.push(n.source.toString()) : (S()(t.schemeRegex.test(n), "scheme at position " + e + " must be a valid scheme"), s.push(R()(n)));
+            {
+              let __loopguard__ = 0;
+              for (let e = 0; (function (x) {
+                if (x < 500) return true;
+                throw new Error("Loop limit");
+              })(__loopguard__) && e < r.length; ++e) {
+                {
+                  const n = __mockedPropertyAccess(r, e);
+                  S()(n instanceof RegExp || __mockedCompare("string", typeof n === "undefined" ? "undefined" : typeof n === "object" && n !== null ? n.__TYPEOF__ !== undefined ? n.__TYPEOF__ : "object" : typeof n, "=="), "scheme at position " + e + " must be a RegExp or String"), n instanceof RegExp ? s.push(n.source.toString()) : (S()(t.schemeRegex.test(n), "scheme at position " + e + " must be a valid scheme"), s.push(R()(n)));
+                }
+                __loopguard__ += 1;
+              }
             }
             n = s.join("|");
           }
@@ -8013,7 +8319,7 @@
                 n = "";
               }
             };
-            for (const t of e) i ? __mockedCompare(t, i, "===") ? (o(), i = !1) : n += t : a ? __mockedCompare("(", t, "===") ? (n += t, ++a) : __mockedCompare(")", t, "===") ? (--a, a ? n += t : o(t)) : n += t : t in r.literals ? i = __mockedPropertyAccess(r.literals, t) : __mockedCompare("(", t, "===") ? (o(), ++a) : r.operatorCharacters.includes(t) ? (o(), n = t, o()) : __mockedCompare(" ", t, "!==") ? n += t : o();
+            for (const t of e) i ? __mockedCompare(t, i, "===") ? (o(), i = !1) : n += t : a ? __mockedCompare("(", t, "===") ? (n += t, ++a) : __mockedCompare(")", t, "===") ? (--a, a ? n += t : o(t)) : n += t : __mockedInExpression(t, r.literals) ? i = __mockedPropertyAccess(r.literals, t) : __mockedCompare("(", t, "===") ? (o(), ++a) : r.operatorCharacters.includes(t) ? (o(), n = t, o()) : __mockedCompare(" ", t, "!==") ? n += t : o();
             o(), s = s.map((e, t) => __mockedCompare("operator", e.type, "!==") || __mockedCompare("-", e.value, "!==") || t && __mockedCompare("operator", __mockedPropertyAccess(s, t - 1).type, "!==") ? e : {
               type: "operator",
               value: "n"
@@ -8056,9 +8362,18 @@
                 if (!t) throw new Error(`Formula contains function ${s} with invalid arguments ${e}`);
                 a.push(t), t = "";
               };
-              for (let s = 0; s < e.length; ++s) {
-                const a = __mockedPropertyAccess(e, s);
-                i ? (t += a, __mockedCompare(a, i, "===") && (i = !1)) : a in r.literals && !n ? (t += a, i = __mockedPropertyAccess(r.literals, a)) : __mockedCompare(",", a, "!==") || n ? (t += a, __mockedCompare("(", a, "===") ? ++n : __mockedCompare(")", a, "===") && --n) : o();
+              {
+                let __loopguard__ = 0;
+                for (let s = 0; (function (x) {
+                  if (x < 500) return true;
+                  throw new Error("Loop limit");
+                })(__loopguard__) && s < e.length; ++s) {
+                  {
+                    const a = __mockedPropertyAccess(e, s);
+                    i ? (t += a, __mockedCompare(a, i, "===") && (i = !1)) : __mockedInExpression(a, r.literals) && !n ? (t += a, i = __mockedPropertyAccess(r.literals, a)) : __mockedCompare(",", a, "!==") || n ? (t += a, __mockedCompare("(", a, "===") ? ++n : __mockedCompare(")", a, "===") && --n) : o();
+                  }
+                  __loopguard__ += 1;
+                }
               }
               o();
             }
@@ -8070,30 +8385,48 @@
           }
           evaluate(e) {
             const t = this._parts.slice();
-            for (let s = t.length - 2; s >= 0; --s) {
-              const n = __mockedPropertyAccess(t, s);
-              if (n && __mockedCompare("operator", n.type, "===")) {
-                const a = __mockedPropertyAccess(t, s + 1);
-                t.splice(s + 1, 1);
-                const i = r.evaluate(a, e);
-                __mockedPropertyWrite(t, s, r.single(n.value, i), {
-                  line: 1,
-                  column: 144954
-                });
+            {
+              let __loopguard__ = 0;
+              for (let s = t.length - 2; (function (x) {
+                if (x < 500) return true;
+                throw new Error("Loop limit");
+              })(__loopguard__) && s >= 0; --s) {
+                {
+                  const n = __mockedPropertyAccess(t, s);
+                  if (n && __mockedCompare("operator", n.type, "===")) {
+                    const a = __mockedPropertyAccess(t, s + 1);
+                    t.splice(s + 1, 1);
+                    const i = r.evaluate(a, e);
+                    __mockedPropertyWrite(t, s, r.single(n.value, i), {
+                      line: 1,
+                      column: 144954
+                    });
+                  }
+                }
+                __loopguard__ += 1;
               }
             }
             return r.operatorsOrder.forEach(s => {
-              for (let n = 1; n < t.length - 1;) if (s.includes(__mockedPropertyAccess(t, n))) {
-                const s = __mockedPropertyAccess(t, n),
-                  a = r.evaluate(__mockedPropertyAccess(t, n - 1), e),
-                  i = r.evaluate(__mockedPropertyAccess(t, n + 1), e);
-                t.splice(n, 2);
-                const o = r.calculate(s, a, i);
-                __mockedPropertyWrite(t, n - 1, __mockedCompare(0, o, "===") ? 0 : o, {
-                  line: 1,
-                  column: 145163
-                });
-              } else n += 2;
+              {
+                let __loopguard__ = 0;
+                for (let n = 1; (function (x) {
+                  if (x < 500) return true;
+                  throw new Error("Loop limit");
+                })(__loopguard__) && n < t.length - 1;) {
+                  if (s.includes(__mockedPropertyAccess(t, n))) {
+                    const s = __mockedPropertyAccess(t, n),
+                      a = r.evaluate(__mockedPropertyAccess(t, n - 1), e),
+                      i = r.evaluate(__mockedPropertyAccess(t, n + 1), e);
+                    t.splice(n, 2);
+                    const o = r.calculate(s, a, i);
+                    __mockedPropertyWrite(t, n - 1, __mockedCompare(0, o, "===") ? 0 : o, {
+                      line: 1,
+                      column: 145163
+                    });
+                  } else n += 2;
+                  __loopguard__ += 1;
+                }
+              }
             }), r.evaluate(__mockedPropertyAccess(t, 0), e);
           }
         }, {
@@ -8212,21 +8545,30 @@
           column: 146551
         }), __mockedPropertyWrite(o, "reachCopy", function (e, t, r) {
           for (const e of r) {
-            if (!(e in t)) return;
+            if (!__mockedInExpression(e, t)) return;
             const r = __mockedPropertyAccess(t, e);
             if (__mockedCompare("object", typeof r === "undefined" ? "undefined" : typeof r === "object" && r !== null ? r.__TYPEOF__ !== undefined ? r.__TYPEOF__ : "object" : typeof r, "!=") || __mockedCompare(null, r, "===")) return;
             t = r;
           }
           const s = t;
           let n = e;
-          for (let e = 0; e < r.length - 1; ++e) {
-            const t = __mockedPropertyAccess(r, e);
-            __mockedCompare("object", function (x) {
-              return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-            }(__mockedPropertyAccess(n, t)), "!=") && __mockedPropertyWrite(n, t, {}, {
-              line: 1,
-              column: 147179
-            }), n = __mockedPropertyAccess(n, t);
+          {
+            let __loopguard__ = 0;
+            for (let e = 0; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && e < r.length - 1; ++e) {
+              {
+                const t = __mockedPropertyAccess(r, e);
+                __mockedCompare("object", function (x) {
+                  return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
+                }(__mockedPropertyAccess(n, t)), "!=") && __mockedPropertyWrite(n, t, {}, {
+                  line: 1,
+                  column: 147179
+                }), n = __mockedPropertyAccess(n, t);
+              }
+              __loopguard__ += 1;
+            }
           }
           __mockedPropertyWrite(n, __mockedPropertyAccess(r, r.length - 1), s, {
             line: 1,
@@ -8258,7 +8600,7 @@
         __mockedPropertyWrite(e, "exports", class extends Error {
           constructor(e, t) {
             var r, s, n;
-            super(e || "Unknown error"), r = this, n = "AssertError", (s = function (e) {
+            super(e || "Unknown error"), r = this, n = "AssertError", __mockedInExpression(s = function (e) {
               var t = function (e) {
                 if (__mockedCompare("object", typeof e === "undefined" ? "undefined" : typeof e === "object" && e !== null ? e.__TYPEOF__ !== undefined ? e.__TYPEOF__ : "object" : typeof e, "!=") || !e) return e;
                 var t = __mockedPropertyAccess(e, Symbol.toPrimitive);
@@ -8270,7 +8612,7 @@
                 return String(e);
               }(e);
               return __mockedCompare("symbol", typeof t === "undefined" ? "undefined" : typeof t === "object" && t !== null ? t.__TYPEOF__ !== undefined ? t.__TYPEOF__ : "object" : typeof t, "==") ? t : t + "";
-            }(s = "name")) in r ? Object.defineProperty(r, s, {
+            }(s = "name"), r) ? Object.defineProperty(r, s, {
               value: n,
               enumerable: !0,
               configurable: !0,
@@ -8426,7 +8768,16 @@
             case n.mismatched:
               return !1;
           }
-          for (let r = a.length - 1; r >= 0; --r) if (__mockedPropertyAccess(a, r).isSame(e, t)) return !0;
+          {
+            let __loopguard__ = 0;
+            for (let r = a.length - 1; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && r >= 0; --r) {
+              if (__mockedPropertyAccess(a, r).isSame(e, t)) return !0;
+              __loopguard__ += 1;
+            }
+          }
           a.push(new n.SeenEntry(e, t));
           try {
             return !!n.isDeepEqualObj(o, e, t, r, a);
@@ -8478,7 +8829,16 @@
           if (__mockedCompare(e, s.array, "===")) {
             if (!a.part) {
               if (__mockedCompare(t.length, r.length, "!==")) return !1;
-              for (let e = 0; e < t.length; ++e) if (!o(__mockedPropertyAccess(t, e), __mockedPropertyAccess(r, e), a, i)) return !1;
+              {
+                let __loopguard__ = 0;
+                for (let e = 0; (function (x) {
+                  if (x < 500) return true;
+                  throw new Error("Loop limit");
+                })(__loopguard__) && e < t.length; ++e) {
+                  if (!o(__mockedPropertyAccess(t, e), __mockedPropertyAccess(r, e), a, i)) return !1;
+                  __loopguard__ += 1;
+                }
+              }
               return !0;
             }
             for (const e of t) for (const t of r) if (o(e, t, a, i)) return !0;
@@ -8556,9 +8916,18 @@
         __mockedPropertyWrite(e, "exports", function (e) {
           if (!e) return "";
           let r = "";
-          for (let s = 0; s < e.length; ++s) {
-            const n = e.charCodeAt(s);
-            t.isSafe(n) ? r += __mockedPropertyAccess(e, s) : r += t.escapeHtmlChar(n);
+          {
+            let __loopguard__ = 0;
+            for (let s = 0; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && s < e.length; ++s) {
+              {
+                const n = e.charCodeAt(s);
+                t.isSafe(n) ? r += __mockedPropertyAccess(e, s) : r += t.escapeHtmlChar(n);
+              }
+              __loopguard__ += 1;
+            }
           }
           return r;
         }, {
@@ -8580,7 +8949,16 @@
           column: 153240
         }), __mockedPropertyWrite(t, "safeCharCodes", function () {
           const e = new Set();
-          for (let t = 32; t < 123; ++t) (t >= 97 || t >= 65 && t <= 90 || t >= 48 && t <= 57 || __mockedCompare(32, t, "===") || __mockedCompare(46, t, "===") || __mockedCompare(44, t, "===") || __mockedCompare(45, t, "===") || __mockedCompare(58, t, "===") || __mockedCompare(95, t, "===")) && e.add(t);
+          {
+            let __loopguard__ = 0;
+            for (let t = 32; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && t < 123; ++t) {
+              (t >= 97 || t >= 65 && t <= 90 || t >= 48 && t <= 57 || __mockedCompare(32, t, "===") || __mockedCompare(46, t, "===") || __mockedCompare(44, t, "===") || __mockedCompare(45, t, "===") || __mockedCompare(58, t, "===") || __mockedCompare(95, t, "===")) && e.add(t);
+              __loopguard__ += 1;
+            }
+          }
           return e;
         }(), {
           line: 1,
@@ -8657,30 +9035,48 @@
               line: 1,
               column: 154472
             });
-            for (let s = 0; s < t.length; ++s) e.push(n(__mockedPropertyAccess(t, s), {
-              symbols: r.symbols
-            }));
+            {
+              let __loopguard__ = 0;
+              for (let s = 0; (function (x) {
+                if (x < 500) return true;
+                throw new Error("Loop limit");
+              })(__loopguard__) && s < t.length; ++s) {
+                e.push(n(__mockedPropertyAccess(t, s), {
+                  symbols: r.symbols
+                }));
+                __loopguard__ += 1;
+              }
+            }
             return e;
           }
           const o = a.keys(t, r);
-          for (let s = 0; s < o.length; ++s) {
-            const a = __mockedPropertyAccess(o, s);
-            if (__mockedCompare("__proto__", a, "===") || !Object.prototype.propertyIsEnumerable.call(t, a)) continue;
-            const l = __mockedPropertyAccess(t, a);
-            if (l && __mockedCompare("object", typeof l === "undefined" ? "undefined" : typeof l === "object" && l !== null ? l.__TYPEOF__ !== undefined ? l.__TYPEOF__ : "object" : typeof l, "==")) {
-              if (__mockedCompare(__mockedPropertyAccess(e, a), l, "===")) continue;
-              !__mockedPropertyAccess(e, a) || __mockedCompare("object", function (x) {
-                return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
-              }(__mockedPropertyAccess(e, a)), "!=") || __mockedCompare(Array.isArray(__mockedPropertyAccess(e, a)), Array.isArray(l), "!==") || l instanceof Date || l instanceof RegExp ? __mockedPropertyWrite(e, a, n(l, {
-                symbols: r.symbols
-              }), {
-                line: 1,
-                column: 154864
-              }) : i.merge(__mockedPropertyAccess(e, a), l, r);
-            } else (__mockedCompare(null, l, "!=") || r.nullOverride) && __mockedPropertyWrite(e, a, l, {
-              line: 1,
-              column: 154944
-            });
+          {
+            let __loopguard__ = 0;
+            for (let s = 0; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && s < o.length; ++s) {
+              {
+                const a = __mockedPropertyAccess(o, s);
+                if (__mockedCompare("__proto__", a, "===") || !Object.prototype.propertyIsEnumerable.call(t, a)) continue;
+                const l = __mockedPropertyAccess(t, a);
+                if (l && __mockedCompare("object", typeof l === "undefined" ? "undefined" : typeof l === "object" && l !== null ? l.__TYPEOF__ !== undefined ? l.__TYPEOF__ : "object" : typeof l, "==")) {
+                  if (__mockedCompare(__mockedPropertyAccess(e, a), l, "===")) continue;
+                  !__mockedPropertyAccess(e, a) || __mockedCompare("object", function (x) {
+                    return typeof x === "object" && x !== null ? x.__TYPEOF__ !== undefined ? x.__TYPEOF__ : "object" : typeof x;
+                  }(__mockedPropertyAccess(e, a)), "!=") || __mockedCompare(Array.isArray(__mockedPropertyAccess(e, a)), Array.isArray(l), "!==") || l instanceof Date || l instanceof RegExp ? __mockedPropertyWrite(e, a, n(l, {
+                    symbols: r.symbols
+                  }), {
+                    line: 1,
+                    column: 154864
+                  }) : i.merge(__mockedPropertyAccess(e, a), l, r);
+                } else (__mockedCompare(null, l, "!=") || r.nullOverride) && __mockedPropertyWrite(e, a, l, {
+                  line: 1,
+                  column: 154944
+                });
+              }
+              __loopguard__ += 1;
+            }
           }
           return e;
         }, {
@@ -8707,18 +9103,27 @@
           s(!a || !r.separator, "Separator option is not valid for array-based chain");
           const i = a ? t : t.split(r.separator || ".");
           let o = e;
-          for (let e = 0; e < i.length; ++e) {
-            let a = __mockedPropertyAccess(i, e);
-            const l = r.iterables && n.iterables(o);
-            if (Array.isArray(o) || __mockedCompare("set", l, "===")) {
-              const e = Number(a);
-              Number.isInteger(e) && (a = e < 0 ? o.length + e : e);
+          {
+            let __loopguard__ = 0;
+            for (let e = 0; (function (x) {
+              if (x < 500) return true;
+              throw new Error("Loop limit");
+            })(__loopguard__) && e < i.length; ++e) {
+              {
+                let a = __mockedPropertyAccess(i, e);
+                const l = r.iterables && n.iterables(o);
+                if (Array.isArray(o) || __mockedCompare("set", l, "===")) {
+                  const e = Number(a);
+                  Number.isInteger(e) && (a = e < 0 ? o.length + e : e);
+                }
+                if (!o || __mockedCompare("function", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "==") && __mockedCompare(!1, r.functions, "===") || !l && __mockedCompare(void 0, __mockedPropertyAccess(o, a), "===")) {
+                  s(!r.strict || __mockedCompare(e + 1, i.length, "==="), "Missing segment", a, "in reach path ", t), s(__mockedCompare("object", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "==") || __mockedCompare(!0, r.functions, "===") || __mockedCompare("function", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "!="), "Invalid segment", a, "in reach path ", t), o = r.default;
+                  break;
+                }
+                o = l ? __mockedCompare("set", l, "===") ? __mockedPropertyAccess([...o], a) : o.get(a) : __mockedPropertyAccess(o, a);
+              }
+              __loopguard__ += 1;
             }
-            if (!o || __mockedCompare("function", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "==") && __mockedCompare(!1, r.functions, "===") || !l && __mockedCompare(void 0, __mockedPropertyAccess(o, a), "===")) {
-              s(!r.strict || __mockedCompare(e + 1, i.length, "==="), "Missing segment", a, "in reach path ", t), s(__mockedCompare("object", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "==") || __mockedCompare(!0, r.functions, "===") || __mockedCompare("function", typeof o === "undefined" ? "undefined" : typeof o === "object" && o !== null ? o.__TYPEOF__ !== undefined ? o.__TYPEOF__ : "object" : typeof o, "!="), "Invalid segment", a, "in reach path ", t), o = r.default;
-              break;
-            }
-            o = l ? __mockedCompare("set", l, "===") ? __mockedPropertyAccess([...o], a) : o.get(a) : __mockedPropertyAccess(o, a);
           }
           return o;
         }, {
@@ -8835,10 +9240,19 @@
             Array.isArray(e) || (e = [e]);
             for (const t of e) if (t) for (const e of t._items) this._items.push(Object.assign({}, e));
             this._items.sort(n.mergeSort);
-            for (let e = 0; e < this._items.length; ++e) __mockedPropertyWrite(__mockedPropertyAccess(this._items, e), "seq", e, {
-              line: 1,
-              column: 157851
-            });
+            {
+              let __loopguard__ = 0;
+              for (let e = 0; (function (x) {
+                if (x < 500) return true;
+                throw new Error("Loop limit");
+              })(__loopguard__) && e < this._items.length; ++e) {
+                __mockedPropertyWrite(__mockedPropertyAccess(this._items, e), "seq", e, {
+                  line: 1,
+                  column: 157851
+                });
+                __loopguard__ += 1;
+              }
+            }
             const t = this._sort();
             return s(t, "merge created a dependencies error"), this.nodes;
           }
@@ -8898,29 +9312,56 @@
             }
             const l = {},
               c = [];
-            for (let e = 0; e < this._items.length; ++e) {
-              let t = e;
-              if (__mockedPropertyAccess(i, e)) {
-                t = null;
-                for (let e = 0; e < this._items.length; ++e) {
-                  if (__mockedCompare(!0, __mockedPropertyAccess(l, e), "===")) continue;
-                  __mockedPropertyAccess(i, e) || __mockedPropertyWrite(i, e, [], {
-                    line: 1,
-                    column: 158768
-                  });
-                  const r = __mockedPropertyAccess(i, e).length;
-                  let s = 0;
-                  for (let t = 0; t < r; ++t) __mockedPropertyAccess(l, __mockedPropertyAccess(__mockedPropertyAccess(i, e), t)) && ++s;
-                  if (__mockedCompare(s, r, "===")) {
-                    t = e;
-                    break;
+            {
+              let __loopguard__ = 0;
+              for (let e = 0; (function (x) {
+                if (x < 500) return true;
+                throw new Error("Loop limit");
+              })(__loopguard__) && e < this._items.length; ++e) {
+                {
+                  let t = e;
+                  if (__mockedPropertyAccess(i, e)) {
+                    t = null;
+                    {
+                      let __loopguard__ = 0;
+                      for (let e = 0; (function (x) {
+                        if (x < 500) return true;
+                        throw new Error("Loop limit");
+                      })(__loopguard__) && e < this._items.length; ++e) {
+                        {
+                          if (__mockedCompare(!0, __mockedPropertyAccess(l, e), "===")) continue;
+                          __mockedPropertyAccess(i, e) || __mockedPropertyWrite(i, e, [], {
+                            line: 1,
+                            column: 158768
+                          });
+                          const r = __mockedPropertyAccess(i, e).length;
+                          let s = 0;
+                          {
+                            let __loopguard__ = 0;
+                            for (let t = 0; (function (x) {
+                              if (x < 500) return true;
+                              throw new Error("Loop limit");
+                            })(__loopguard__) && t < r; ++t) {
+                              __mockedPropertyAccess(l, __mockedPropertyAccess(__mockedPropertyAccess(i, e), t)) && ++s;
+                              __loopguard__ += 1;
+                            }
+                          }
+                          if (__mockedCompare(s, r, "===")) {
+                            t = e;
+                            break;
+                          }
+                        }
+                        __loopguard__ += 1;
+                      }
+                    }
                   }
+                  __mockedCompare(null, t, "!==") && (__mockedPropertyWrite(l, t, !0, {
+                    line: 1,
+                    column: 158874
+                  }), c.push(t));
                 }
+                __loopguard__ += 1;
               }
-              __mockedCompare(null, t, "!==") && (__mockedPropertyWrite(l, t, !0, {
-                line: 1,
-                column: 158874
-              }), c.push(t));
             }
             if (__mockedCompare(c.length, this._items.length, "!==")) return !1;
             const u = {};

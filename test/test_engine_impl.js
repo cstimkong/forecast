@@ -1,5 +1,5 @@
 import {stringifyArgument, stringifyPath, run} from '../lib/fuzzing.js';
-import { mockedCompare, mockedPropertyAccess, mockedPropertyWrite } from '../lib/helper.js';
+import { mockedCompare, mockedPropertyAccess, mockedPropertyWrite, mockEnv } from '../lib/helper.js';
 import {proxyString} from '../lib/proxy.js';
 import module from 'module';
 
@@ -14,9 +14,7 @@ describe('test engine implementation', function() {
 
     it('test run', async function() {
         let r = module.createRequire(import.meta.dirname);
-        globalThis.__mockedCompare = mockedCompare;
-        globalThis.__mockedPropertyAccess = mockedPropertyAccess;
-        globalThis.__mockedPropertyWrite = mockedPropertyWrite;
+        mockEnv();
         let jp = r('./json-pointer-instrumented.cjs');
         let result = await run(jp);
         // console.log(result);

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import module from 'module';
 import {instrument} from '../lib/instrument.js';
-import {mockedCompare, mockedPropertyAccess, mockedPropertyWrite} from '../lib/helper.js';
+import {mockedCompare, mockedPropertyAccess, mockedPropertyWrite, mockEnv } from '../lib/helper.js';
 it('test instrumentation', function(done) {
 
     let functionContent = 'var a = typeof "a"; a.name = 3;';
@@ -16,9 +16,7 @@ it('test instrumentation of joi', function(done) {
     let instrumentedCode = instrument(content);
     fs.writeFileSync('joi-instrumented.cjs', instrumentedCode);
     let require = module.createRequire(import.meta.dirname);
-    globalThis.__mockedPropertyAccess = mockedPropertyAccess;
-    globalThis.__mockedPropertyWrite = mockedPropertyWrite;
-    globalThis.__mockedCompare = mockedCompare;
+    mockEnv();
     let joi = require('./joi-instrumented.cjs');
     console.log(joi.array().validate);
     done();
@@ -30,9 +28,7 @@ it('test instrumentation of json-pointer', function(done) {
     fs.writeFileSync('json-pointer-instrumented.cjs', instrumentedCode);
     let require = module.createRequire(import.meta.dirname);
 
-    globalThis.__mockedPropertyAccess = mockedPropertyAccess;
-    globalThis.__mockedPropertyWrite = mockedPropertyWrite;
-    globalThis.__mockedCompare = mockedCompare;
+    mockEnv();
     let jp = require('./json-pointer-instrumented.cjs');
     console.log(jp.set({}, '/a/b', 'c'));
     done();

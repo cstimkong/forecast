@@ -42,6 +42,8 @@ const mockPropertyAccessTemplate = babelTemplate.expression('__mockedPropertyAcc
 
 const mockPropertyWriteTemplate = babelTemplate.expression('__mockedPropertyWrite(%%expr%%, %%prop%%, %%value%%, {line: %%startline%%, column: %%startcolumn%%})');
 
+const mockInExpressionTemplate = babelTemplate.expression('__mockedInExpression(%%left%%, %%right%%)');
+
 export function instrument(source: string, opts?: { maxLoop?: number, filename?: string }) {
     opts = opts || {};
     opts.maxLoop = opts.maxLoop || defaultOptionValues.maxLoop;
@@ -87,6 +89,11 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
             else if (path.isBinaryExpression()) {
                 if (path.node.operator === '===' || path.node.operator === '!==' || path.node.operator === '==' || path.node.operator === '!=') {
                     path.replaceWith(mockComparisonTemplate({ left: path.get('left').node, right: path.get('right').node, cmpop: stringLiteral(path.node.operator) }));
+                    path.skip();
+                }
+
+                else if (path.node.operator === 'in') {
+                    path.replaceWith(mockInExpressionTemplate({ left: path.get('left').node, right: path.get('right').node }));
                     path.skip();
                 }
             }
