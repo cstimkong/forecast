@@ -7,10 +7,10 @@
 import { isProxy } from "util/types";
 
 export function makeArbitraryString(): string {
-    let length = Math.floor(Math.random() * 10);
+    let length = Math.floor(Math.random() * 10) + 1;
     let str = '';
-    for (let i = 1; i < length; i++) {
-        str += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+    for (let i = 0; i < length; i++) {
+        str += String.fromCharCode(Math.floor(Math.random() * 25) + 97);
     }
     return str;
 }

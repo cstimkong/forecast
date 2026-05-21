@@ -7,7 +7,7 @@ describe('test generate templates', () => {
 
     it('test 2', function() {
         for (let i = 0; i < 100; i++) {
-            console.log(makeExploit(['func1', {args: ['{}.{}.{}={}']}]));
+            console.log(JSON.stringify(makeExploit(['func1', {args: [{'{}.{}.{}={}': {}}, "{}.{}"]}])));
         }
         
     })
