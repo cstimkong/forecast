@@ -137,23 +137,33 @@ export function stringifyArgument(obj: any, maxDepth: number) {
         return '[...]';
     }
 
-    if (obj === null) {
+    else if (obj === null) {
         return 'null';
     }
 
-    if (obj === undefined) {
+    else if (obj === undefined) {
         return 'undefined';
     }
 
-    if (isProxyString(obj)) {
+    else if (isProxyString(obj)) {
         return "__proxystr__";
     }
 
-    if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') {
+    else if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') {
         return JSON.stringify(obj);
     }
 
-    if (typeof obj === 'object') {
+    else if (Array.isArray(obj)) {
+        let s = '[';
+        for (let x of obj) {
+            let v = stringifyArgument(x, maxDepth - 1);
+            s += v + ', ';
+        }
+        s += ']';
+        return s;
+    }
+
+    else if (typeof obj === 'object') {
         let s = '{';
         for (let x of Object.keys(obj)) {
             let k = JSON.stringify(x);

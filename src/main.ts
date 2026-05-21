@@ -92,7 +92,7 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
             makeExploit(c);
         }
         for (let p of filledCallPaths) {
-            logger.info(`Start to execute with the path ${stringifyPath(p)}`);
+            logger.info(`Start to execute with the path ${JSON.stringify(p)}`);
             try {
                 await executeCallPath(lib, p);
             } catch (e) {
