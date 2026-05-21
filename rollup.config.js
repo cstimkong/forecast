@@ -4,7 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 export default {
   input: 'lib/main.js',
   output: {
-    file: 'dist.js',
+    file: 'dist/forecast.js',
     format: 'es',
     esModule: false,
     interop: 'compat'
