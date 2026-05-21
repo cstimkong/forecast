@@ -85,6 +85,9 @@ export function makeProxyObject() {
 
     return new Proxy((function () { }) as any, {
         get: function (target, p, _) {
+            if (Object.prototype.hasOwnProperty(p)) {
+                return (Object.prototype as any)[p];
+            }
 
             // Return the internal `target`
             if (p === '__INTERNAL__') {
@@ -145,6 +148,27 @@ export function makeProxyObject() {
         deleteProperty: function (target, p) {
             delete target[p];
             return true;
+        },
+
+        ownKeys: function(target) {
+            let keys = Object.keys(target);
+            if (keys.length === 0) {
+                return randomChoice([
+                    function() { return Reflect.ownKeys(target) },
+                    function() {
+                        target[PROXY_STRING_LITERAL] = randomChoice([
+                            function() { return makeProxyObject(); },
+                            function() { return makeProxyArray(); },
+                            function() { return proxyString; },
+                            function() { return null; }
+                        ]);
+                        return Reflect.ownKeys(target);
+                    }
+                ]);
+            } else {
+                return Reflect.ownKeys(target);
+            }
+            
         }
 
     });
@@ -166,7 +190,7 @@ export function toFixedValue(obj: any): any {
         return proxyString;
     }
 
-    if (obj !== null && obj !== undefined && obj.__INTERNAL__) {
+    else if (obj !== null && obj !== undefined && obj.__INTERNAL__) {
         let __internal = obj.__INTERNAL__;
         let o: any = {};
         for (let x of Object.keys(__internal)) {
@@ -175,12 +199,19 @@ export function toFixedValue(obj: any): any {
         return o;
     }
 
-    if (Array.isArray(obj)) {
+    else if (Array.isArray(obj)) {
         let l = [];
         for (let x of obj) {
             l.push(toFixedValue(x));
         }
         return l;
+    }
+
+    else if (typeof obj === 'object' && obj !== null) {
+        for (let x of Object.keys(obj)) {
+            obj[x] = toFixedValue(obj[x]);
+        }
+        return obj;
     }
 
     return obj;

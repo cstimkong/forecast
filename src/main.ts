@@ -55,16 +55,17 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
     .option('debug',
         {
             type: 'boolean',
-            default: false
+            default: false,
+            description: 'Show debug information'
         }
     )
     .demandOption(['path'])
     .help().parse();
 
-    let logger = pino();
+    let logger = pino({level: argv.debug ? 'debug' : 'info'});
     let revert = addHook((code, filename) => {
         return instrument(code, { filename });
-    }, {exts: ['.js', '.cjs']});
+    }, {exts: ['.js', '.cjs'], ignoreNodeModules: false});
 
     mockEnv();
     let require = createRequire('file://' + cwd() + '/');
@@ -75,7 +76,8 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
     if (argv.maxExecutionTime) {
         opts.maxExecutionTime = argv.maxExecution as number;
     }
-
+    
+    opts.logger = logger;
     logger.info(`Start to test the library ${argv.path}`);
     let fuzzingResults = await run(lib, opts);
     if (fuzzingResults.length === 0) {

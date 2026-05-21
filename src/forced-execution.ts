@@ -51,7 +51,7 @@ export async function forcedExecution(f: Function, argCount: number, thisArg?: a
         return {
             polluted: false, 
             args: argArray.map(x => toFixedValue(x)),
-            result: result,
+            result: toFixedValue(result),
             async: _async,
             stringOperations: (globalThis as any).__strop
         }
