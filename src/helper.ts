@@ -5,6 +5,7 @@
  */
 
 import { isProxy } from "util/types";
+import { isProxyString } from "./proxy.js";
 
 export function makeArbitraryString(): string {
     let length = Math.floor(Math.random() * 10) + 1;
@@ -156,9 +157,6 @@ export function mockedInExpression(a: any, b: any) {
     return a in b;
 }
 
-export function isProxyString(s: any) {
-    return typeof s === 'object' && s !== null && s.__TYPEOF__ === 'string';
-}
 
 export function mockEnv() {
     (globalThis as any).__mockedCompare = mockedCompare;

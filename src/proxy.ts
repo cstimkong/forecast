@@ -182,8 +182,12 @@ export function hasProxyStringProperty(obj: any) {
 }
 
 /**
+ * Make the proxy object fixed. If the input is a proxy object, 
+ * eturn the fixed object. Otherwise, any values in this object
+ * will be fixed recursively.
  * 
- * Make a copy of the proxy object and let it fixed.
+ * @param obj the object to fix
+ * @returns the fixed object
  */
 export function toFixedValue(obj: any): any {
     if (obj === proxyString) {
@@ -215,4 +219,13 @@ export function toFixedValue(obj: any): any {
     }
 
     return obj;
+}
+
+/**
+ * Whether the input is a proxy string.
+ * @param s the input
+ * @returns boolean value indicating whether the input is a proxy string
+ */
+export function isProxyString(s: any) {
+    return typeof s === 'object' && s !== null && s.__TYPEOF__ === 'string';
 }

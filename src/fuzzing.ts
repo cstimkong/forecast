@@ -5,8 +5,8 @@
  */
 
 import { forcedExecution, ProtoPollutionLocation, StringOperation } from "./forced-execution.js";
-import { isProxyString, randomChoice } from "./helper.js";
-import { hasProxyStringProperty } from "./proxy.js";
+import { randomChoice } from "./helper.js";
+import { hasProxyStringProperty, isProxyString } from "./proxy.js";
 import { defaultOptionValues } from "./defaults.js";
 import cloneDeep from 'clone-deep';
 import pino from 'pino';
