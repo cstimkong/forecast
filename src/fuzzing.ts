@@ -14,6 +14,7 @@ import pino from 'pino';
 export type CallPath = (string | {args: any[], async?: boolean, stringOperations?: StringOperation[]})[];
 
 export type FuzzingResult = {callPath: CallPath, location: ProtoPollutionLocation};
+
 /**
  * Fuzzing the library and output the possible call paths along with the prototype pollution locations.
  * 

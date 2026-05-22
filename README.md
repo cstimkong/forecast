@@ -10,17 +10,20 @@ The `Forecast` framework comprises three phases:
 
 - Forced execution based Fuzzing
 
-- Function Call Template Refinement
+- Template generation based Fuzzing
 
-- Exploitation
+- Exploit generation
 
+### How to build
+
+Use `npm run dist` to build a standalone executable JavaScript file in `dist` directory.
 
 ### Usage
 
 Use the following command:
 
-```bash
-node forecast.js [-h] [-p] [-m <node.js module path>] [-q | --quiet]  [-a | --all] [--timeout <timeout>] [--install] [--max-fe-iteration] [--detection-only]
+```
+node dist/forecast.js [-h] <[-p | --path] module_path> [-a | --all] [--timeout <timeout>] [--max-execution-time] [--detection-only] [--debug]
 ```
 
 
@@ -28,7 +31,7 @@ node forecast.js [-h] [-p] [-m <node.js module path>] [-q | --quiet]  [-a | --al
 
 - Node.js v20 and later
 
-- TypeScript 5.9
+- TypeScript compiler
 
 ### Other Supplementaries
 
