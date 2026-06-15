@@ -1,6 +1,6 @@
 # typhonjs-object-util
 
-- package name: typhonjs-object-util
+- package name: `typhonjs-object-util`
 
 - PoC exploit: 
 
