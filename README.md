@@ -14,15 +14,14 @@ The `Forecast` framework comprises three phases:
 
 - Exploit Generation
 
-### How to build
-
-Use `npm run dist` to build a standalone executable JavaScript file in `dist` directory.
 
 ### Usage
 
-Use the following command:
+Use `npm run dist` to build a standalone executable JavaScript file in `dist` directory.
 
-```
+Then use the following command:
+
+```bash
 node dist/forecast.js [-h] <[-p | --path] module_path> [-a | --all] [--timeout <timeout>] [--max-execution-time] [--detection-only] [--debug]
 ```
 
