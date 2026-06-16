@@ -47,6 +47,11 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
         default: 1000,
         description: 'Max forced execution time'
     })
+    .option('using-meta-templates', {
+        type: 'boolean',
+        default: true,
+        description: 'Whether to use meta templates'
+    })
     .option('mock', {
         type: 'boolean',
         default: true,
@@ -99,7 +104,7 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
                 await executeCallPath(lib, p);
             } catch (e) {
                 if (e instanceof ModifyPrototypeSignal) {
-                    logger.info(`Success exploit: ${stringifyPath(p)}`);
+                    logger.info(`Success exploit: ${stringifyPath(p)}, Location: ${JSON.stringify(e.location)}`);
                 }
                 else if (e instanceof Error) {
                     logger.debug(`Error occured in the execution: ${e.message}`);
