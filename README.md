@@ -38,7 +38,7 @@ node dist/forecast.js [-h] <[-p | --path] module_path> [-a | --all] [--timeout <
 
 - `benchmark2` directory contains the package list that are used in our evaluation and the detected results.
 
-- `zero_days` directory contains the discovered zero-day vulnerabilities by Forecast.
+ * `zero_days` directory contains the discovered zero-day vulnerabilities by Forecast.
 
 
 ### References
