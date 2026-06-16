@@ -2,22 +2,23 @@
 import {forcedExecution} from '../lib/forced-execution.js';
 import {proxyString, makeProxyObject} from '../lib/proxy.js';
 import module from 'module';
+import {sep} from 'path';
 import { mockedCompare, mockedPropertyAccess, mockedPropertyWrite, mockEnv } from '../lib/helper.js';
-describe('test forced execution', function() {
-    it('test forced execution 1', function(done) {
-        let r = module.createRequire(import.meta.dirname);
-        mockEnv();
-        let jp = r('./json-pointer-instrumented.cjs');
-        for (let i = 0; i < 500; i++) {
-            try {
-                let result = jp.set(makeProxyObject(), proxyString, proxyString);
-                // console.log(result);
-            } catch (e) {
-                console.log(e);
-            }
+
+it('Test forced execution', function(done) {
+    let _require = module.createRequire('file://' + import.meta.dirname + sep + 'modules' + sep);
+    mockEnv();
+    let maxIterationTime = 500;
+    let jp = _require('./json-pointer-instrumented.cjs');
+    for (let i = 0; i < maxIterationTime; i++) {
+        try {
+            let result = jp.set(makeProxyObject(), proxyString, proxyString);
+        } catch (e) {
+            console.log(e);
         }
-        done();
-    });
+    }
+    done();
 });
+
 
 
