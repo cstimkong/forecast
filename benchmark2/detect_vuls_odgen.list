@@ -1,0 +1,8 @@
+append-field
+component-flatten
+getobject
+merge-recursive
+utils-extend
+mongo-object
+jss-plugin-extend
+framework-utils
