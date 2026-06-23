@@ -22,9 +22,9 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
         type: 'string',
         description: 'JavaScript library path (used in require call)'
     })
-    .option('mocha', {
-        type: 'boolean',
-        description: 'Client JavaScript file or project use mocha as the test framework'
+    .option('max-loop', {
+        type: 'number',
+        description: 'Max number of for/while iteration (0 for not limited)'
     })
     .option('all', {
         alias: 'a',
@@ -69,7 +69,7 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
 
     let logger = pino({level: argv.debug ? 'debug' : 'info'});
     let revert = addHook((code, filename) => {
-        return instrument(code, { filename });
+        return instrument(code, { filename, maxLoop: argv.maxLoop });
     }, {exts: ['.js', '.cjs'], ignoreNodeModules: false});
 
     mockEnv();
