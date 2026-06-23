@@ -46,7 +46,7 @@ const mockInExpressionTemplate = babelTemplate.expression('__mockedInExpression(
 
 export function instrument(source: string, opts?: { maxLoop?: number, filename?: string }) {
     opts = opts || {};
-    opts.maxLoop = opts.maxLoop || defaultOptionValues.maxLoop;
+    opts.maxLoop = opts.maxLoop !== undefined ? opts.maxLoop : defaultOptionValues.maxLoop;
     let ast;
     if (opts.filename) {
         ast = parse(source, { sourceFilename: opts.filename });
@@ -128,7 +128,7 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
 
             /* Limit the iteration count */
             else if (path.isWhileStatement() || path.isForStatement()) {
-                if (!opts || !opts.maxLoop) {
+                if (opts.maxLoop === 0) {
                     return;
                 }
                 (path.get('test') as NodePath<Statement>).replaceWith(
