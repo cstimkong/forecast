@@ -39,7 +39,7 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
     }
     for (let x of Object.keys(lib)) {
         if (typeof lib[x] === 'function') {
-            candidates.push({path: [x], ref: lib[x]});
+            candidates.push({path: [x], ref: lib[x], thisArg: lib});
             if (logger)
                 logger.info(`Added function (.${x}).`);
         }
@@ -73,7 +73,7 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
             } else {
                 if (logger)
                     logger.debug(`Forced execution result arguments: ${result.args.map(x => { return stringifyArgument(x, 4)})}`);
-                if (typeof result.result === 'object' && searchProxyString(result.result, 4)) {
+                if (typeof result.result === 'object' && result.result !== null && searchProxyString(result.result, 4)) {
                     for (let x in result.result) {
                         if (typeof result.result[x] === 'function') {
                             let clonedPath = cloneDeep(p!.path);
