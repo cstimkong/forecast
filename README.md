@@ -40,6 +40,9 @@ node dist/forecast.js [-h] <[-p | --path] module_path> [-a | --all] [--timeout <
 
 - `zero_days` directory contains the discovered zero-day vulnerabilities by Forecast.
 
+### Publication
+
+Effective Fuzzing-based Prototype Pollution Detection via Forced Execution and Template Synthesis, in ACM Transactions on Software Engineering and Methodology, accepted in 2026.
 
 ### References
 
