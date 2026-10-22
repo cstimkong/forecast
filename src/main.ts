@@ -68,7 +68,7 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
     .demandOption(['path'])
     .help().parse();
 
-    let logger = pino({level: argv.debug ? 'debug' : 'info'});
+    let logger = pino({level: argv.debug ? 'debug' : 'info'}, pino.destination(2));
     let revert = addHook((code, filename) => {
         let instrumentedCode = instrument(code, { filename, maxLoop: argv.maxLoop });
         logger.info(`instrumented code: ${instrumentedCode}`);
