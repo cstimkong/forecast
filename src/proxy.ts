@@ -83,7 +83,7 @@ export const proxyString: any = (function() {
  */
 export function makeProxyObject() {
 
-    return new Proxy((function () { }) as any, {
+    return new Proxy(({ }) as any, {
         get: function (target, p, _) {
             if (Object.prototype.hasOwnProperty(p)) {
                 return (Object.prototype as any)[p];
@@ -169,6 +169,26 @@ export function makeProxyObject() {
                 return Reflect.ownKeys(target);
             }
             
+        },
+        
+        getOwnPropertyDescriptor: function(target, p) {
+            if (p === PROXY_STRING_LITERAL) {
+                return randomChoice([
+                    function() {return undefined; },
+                    function() {
+                        target[PROXY_STRING_LITERAL] = randomChoice([
+                            function() { return makeProxyObject(); },
+                            function() { return makeProxyArray(); },
+                            function() { return proxyString; },
+                            function() { return null; }
+                        ]);
+                        return {configurable: true, enumerable: true, value: target[PROXY_STRING_LITERAL]}
+                    }
+                ])
+            }
+            else {
+                return Object.getOwnPropertyDescriptor(target, p);
+            }
         }
 
     });
@@ -183,7 +203,7 @@ export function hasProxyStringProperty(obj: any) {
 
 /**
  * Make the proxy object fixed. If the input is a proxy object, 
- * eturn the fixed object. Otherwise, any values in this object
+ * return the fixed object. Otherwise, any values in this object
  * will be fixed recursively.
  * 
  * @param obj the object to fix

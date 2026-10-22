@@ -69,7 +69,9 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
 
     let logger = pino({level: argv.debug ? 'debug' : 'info'});
     let revert = addHook((code, filename) => {
-        return instrument(code, { filename, maxLoop: argv.maxLoop });
+        let instrumentedCode = instrument(code, { filename, maxLoop: argv.maxLoop });
+        logger.info(`instrumented code: ${instrumentedCode}`);
+        return instrumentedCode;
     }, {exts: ['.js', '.cjs'], ignoreNodeModules: false});
 
     mockEnv();

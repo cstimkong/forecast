@@ -5,7 +5,7 @@
  */
 
 export const defaultOptionValues = {
-    maxExecutionTime: 100,
+    maxExecutionTime: 1000,
     iterationCount: 200,
     maxLoop: 500,
     maxPlaceholder: 5,
