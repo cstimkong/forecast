@@ -115,6 +115,9 @@ export function makeProxyObject() {
                         return Object.prototype;
                     },
                     function() {
+                        if (Object.hasOwn(target, PROXY_STRING_LITERAL)) {
+                            return target[PROXY_STRING_LITERAL];
+                        }
                         target[p] = makeProxyObject();
                         return target[p];
                     }
@@ -247,5 +250,5 @@ export function toFixedValue(obj: any): any {
  * @returns boolean value indicating whether the input is a proxy string
  */
 export function isProxyString(s: any) {
-    return typeof s === 'object' && s !== null && s.__TYPEOF__ === 'string';
+    return s === defaultOptionValues.proxyStringLiteral || (typeof s === 'object' && s !== null && s.__TYPEOF__ === 'string');
 }
