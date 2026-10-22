@@ -37,7 +37,7 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
         if (logger)
             logger.info(`Added function (library itself).`);
     }
-    for (let x of Object.keys(lib)) {
+    for (let x of Object.getOwnPropertyNames(lib)) {
         if (typeof lib[x] === 'function') {
             candidates.push({path: [x], ref: lib[x], thisArg: lib});
             if (logger)

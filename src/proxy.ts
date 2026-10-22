@@ -33,7 +33,7 @@ export const proxyString: any = (function() {
         [Symbol.toStringTag]: 'String'
     };
 
-    for (let m of ['charAt', 'substring', 'slice', 'replace', 'trim', 'trimLeft', 'trimRight', 'toUpperCase', 'toLowerCase', 'toLocaleUpperCase', 'toLocaleLowerCase', 'toString', 'replace']) {
+    for (let m of ['charAt', 'substring', 'substr', 'slice', 'replace', 'trim', 'trimLeft', 'trimRight', 'toUpperCase', 'toLowerCase', 'toLocaleUpperCase', 'toLocaleLowerCase', 'toString', 'replace']) {
         o[m] = function() {
             return o;
         }
