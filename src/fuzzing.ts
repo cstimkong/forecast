@@ -73,12 +73,13 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
             } else {
                 if (logger)
                     logger.debug(`Forced execution result arguments: ${result.args.map(x => { return stringifyArgument(x, 4)})}`);
-                if (typeof result.result === 'object' && result.result !== null && searchProxyString(result.result, 4)) {
+                if (typeof result.result === 'object' && result.result !== null) {
                     for (let x in result.result) {
                         if (typeof result.result[x] === 'function') {
                             let clonedPath = cloneDeep(p!.path);
                             clonedPath.push({args: result.args, async: result.async!, stringOperations: result.stringOperations!}, x);
                             candidates.push({path: clonedPath, ref: result.result[x], thisArg: result.result});
+                            logger?.debug(`Add candidate path ${stringifyPath(clonedPath)}`);
                         }
                     }
                 }

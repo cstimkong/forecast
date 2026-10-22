@@ -214,7 +214,7 @@ export function hasProxyStringProperty(obj: any) {
  */
 export function toFixedValue(obj: any): any {
     if (obj === proxyString) {
-        return proxyString;
+        return defaultOptionValues.proxyStringLiteral;
     }
 
     else if (obj !== null && obj !== undefined && obj.__INTERNAL__) {
