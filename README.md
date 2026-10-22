@@ -22,13 +22,14 @@ Use `npm run dist` to build a standalone executable JavaScript file in `dist` di
 Then use the following command:
 
 ```bash
-node dist/forecast.js [-h] <[-p | --path] module_path> [-a | --all] [--max-execution-time] [--candidate-only] [--debug]
+node dist/forecast.js <-p | --path> module_path [-h]  [-a | --all] [--max-execution-time] [--candidate-only] [--debug]
 ```
 
 | Parameter | Usage |
 | --------- | ----- | 
 | `-h`      | Print help information |
-| `--path`  | The path to a JavaScript library (the dependencies of the library should be installed first) |
+| `-a`, `--all`  | Find all sinks and exploits as possible |
+| `-p`,`--path`  | The path to a JavaScript library (the dependencies of the library should be installed first) |
 | `--max-execution-time` | Max count of forced execution of a function |
 | `--candidate-only` | Only output candidate API call paths |
 | `--debug`  | Output debug information | 

@@ -33,11 +33,6 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
         default: true,
         description: 'Try to detect all paths'
     })
-    .option('timeout', {
-        type: 'number',
-        default: 300,
-        description: 'Timeout of the Forecast execution in second'
-    })
     .option('candidate-only', {
         type: 'boolean',
         default: false,
@@ -131,6 +126,11 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
                     }
                     successResultMap.get(h).exploits.push(sp);
                     logger.info(`Success exploit: ${sp}, Location: ${JSON.stringify(e.location)}`);
+
+                    if (!argv.all) {
+                        logger.info('Successfully find an exploit and exit.');
+                        return;
+                    }
                 }
                 else if (e instanceof Error) {
                     logger.debug(`Error occured in the execution: ${e.message}`);
