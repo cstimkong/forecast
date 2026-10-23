@@ -8,11 +8,11 @@ For the information of prototype pollution, please refer to [Snyk.io](https://le
 
 The `Forecast` framework comprises three phases:
 
-- Forced execution based Fuzzing
+- Forced execution based Fuzzing, which generates function call templates as the sketch for generating exploits
 
-- Format-string Generation
+- Format-string Generation, which fill the function call templates with format strings
 
-- Exploit Generation
+- Exploit Generation, which generates the exploit with the placeholders in the function call templates filled with concrete values
 
 
 ### Usage
@@ -31,6 +31,7 @@ node dist/forecast.js <-p | --path> module_path [-h]  [-a | --all] [--max-execut
 | `-a`, `--all`  | Find all sinks and exploits as possible |
 | `-p`,`--path`  | The path to a JavaScript library (the dependencies of the library should be installed first) |
 | `--max-execution-time` | Max count of forced execution of a function |
+| `--max-api-calls` | Max number of the API calls in an exploit |
 | `--candidate-only` | Only output candidate API call paths |
 | `--debug`  | Output debug information | 
 
@@ -38,7 +39,7 @@ node dist/forecast.js <-p | --path> module_path [-h]  [-a | --all] [--max-execut
 
 - Node.js v20 and later
 
-- TypeScript compiler
+- TypeScript compiler (version 5.9.x tested)
 
 ### Other Supplementaries
 

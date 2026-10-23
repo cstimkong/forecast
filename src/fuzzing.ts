@@ -22,13 +22,14 @@ export type FuzzingResult = {callPath: CallPath, location: ProtoPollutionLocatio
  * @param options Options for running
  * @returns An array of call path and prototype pollution location pairs
  */
-export async function run(lib: any, options?: {maxExecutionTime?: number, iterationCount?: number, logger?: winston.Logger}): Promise<FuzzingResult[]> {
+export async function run(lib: any, options?: {maxExecutionTime?: number, iterationCount?: number, logger?: winston.Logger, maxApiCalls?: number}): Promise<FuzzingResult[]> {
     if (options === undefined) {
         options = {};
     }
     let logger = options.logger;
     let maxExecutionTime = options.maxExecutionTime || defaultOptionValues.maxExecutionTime;
     let iterationCount = options.iterationCount || defaultOptionValues.iterationCount;
+    let maxApiCalls = options.maxApiCalls || defaultOptionValues.maxApiCalls;
     let candidates: {path: CallPath, ref: Function, thisArg?: any}[] = [];
     let successResults: FuzzingResult[] = [];
 
@@ -48,7 +49,11 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
 
     let iter = 0;
     while (iter < iterationCount && candidates.length > 0) {
+        candidates.sort((a, b) => 0.5 - Math.random());
         let p = candidates.shift();
+        if (p?.path.length! > maxApiCalls) {
+            continue;
+        }
         if (logger)
             logger.info(`Processing ${stringifyPath(p!.path)}.`);
 

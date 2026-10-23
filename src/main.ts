@@ -29,7 +29,7 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
     .option('all', {
         alias: 'a',
         type: 'boolean',
-        default: true,
+        default: false,
         description: 'Try to detect all paths'
     })
     .option('candidate-only', {
@@ -41,6 +41,11 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
         type: 'number',
         default: 1000,
         description: 'Max forced execution time'
+    })
+    .option('max-api-calls',{
+        type: 'number',
+        default: 4,
+        description: 'Max number of API calls in an exploit'
     })
     .option('using-meta-templates', {
         type: 'boolean',
@@ -91,6 +96,9 @@ async function main() {
     if (argv.maxExecutionTime) {
         opts.maxExecutionTime = argv.maxExecution as number;
     }
+    if (argv.maxApiCalls) {
+        opts.maxApiCalls = argv.maxApiCalls as number;
+    }
     
     opts.logger = logger;
     logger.info(`Start to test the library ${argv.path}`);
@@ -136,7 +144,7 @@ async function main() {
                         successResultMap.set(h, {location: e.location, exploits: []});
                     }
                     successResultMap.get(h).exploits.push(sp);
-                    logger.info(`Success exploit: ${sp}, Location: ${JSON.stringify(e.location)}`);
+                    logger.info(`Success exploit: ${sp}\nLocation: ${JSON.stringify(e.location)}`);
 
                     if (!argv.all) {
                         logger.info('Successfully find an exploit and exit.');
