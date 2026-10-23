@@ -24,9 +24,9 @@
     "clone-deep": "^4.0.1",
     "json-pointer": "^0.6.2",
     "object-hash": "^3.0.0",
-    "pino": "^10.3.1",
     "pirates": "^4.0.7",
     "randexp": "^0.5.3",
+    "winston": "^3.19.0",
     "yargs": "^18.0.0"
   },
   "type": "module",

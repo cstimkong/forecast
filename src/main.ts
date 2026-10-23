@@ -10,7 +10,7 @@ import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 import { run, stringifyPath } from './fuzzing.js';
 import { addHook } from 'pirates';
-import pino from 'pino';
+import winston from 'winston';
 import objectHash from 'object-hash';
 import { instrument } from './instrument.js';
 import { mockEnv, ModifyPrototypeSignal } from './helper.js';
@@ -62,7 +62,18 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
     .demandOption(['path'])
     .help().parse();
 
-let logger = pino({level: argv.debug ? 'debug' : 'info'}, pino.destination(2));
+let logger = winston.createLogger({
+    level: argv.debug ? 'debug' : 'info',
+    format: winston.format.combine(
+        winston.format.label({label: 'Forecast'}),
+        winston.format.timestamp(),
+        winston.format.printf(({level, message, label, timestamp}) => {
+            return `${timestamp} [${label}] ${level}: ${message}`;
+        })
+    ),
+    transports: [new winston.transports.Stream({stream: process.stdout})]
+});
+
 
 let revert = addHook((code, filename) => {
     let instrumentedCode = instrument(code, { filename, maxLoop: argv.maxLoop });
@@ -146,10 +157,10 @@ async function main() {
 while (true) {
     let res = await main();
     if (res.size > 0) {
+        logger.info('-------- Result -----------');
         for (let h of res.keys()) {
             let r: any = res.get(h);
-            logger.info('-------- Result -----------');
-            logger.info(`Location: ${JSON.stringify(r.location)}\nOne exploit: ${r.exploits[0]}`);
+            logger.info(`Location: ${JSON.stringify(r.location)}\nOne exploit: ${r.exploits[0]}\n`);
         }
         break;
     }

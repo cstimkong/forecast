@@ -9,7 +9,7 @@ import { randomChoice } from "./helper.js";
 import { hasProxyStringProperty, isProxyString } from "./proxy.js";
 import { defaultOptionValues } from "./defaults.js";
 import cloneDeep from 'clone-deep';
-import pino from 'pino';
+import winston from 'winston';
 
 export type CallPath = (string | {args: any[], async?: boolean, stringOperations?: StringOperation[]})[];
 
@@ -22,7 +22,7 @@ export type FuzzingResult = {callPath: CallPath, location: ProtoPollutionLocatio
  * @param options Options for running
  * @returns An array of call path and prototype pollution location pairs
  */
-export async function run(lib: any, options?: {maxExecutionTime?: number, iterationCount?: number, logger?: pino.Logger}): Promise<FuzzingResult[]> {
+export async function run(lib: any, options?: {maxExecutionTime?: number, iterationCount?: number, logger?: winston.Logger}): Promise<FuzzingResult[]> {
     if (options === undefined) {
         options = {};
     }
