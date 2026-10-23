@@ -16,8 +16,7 @@ import { instrument } from './instrument.js';
 import { mockEnv, ModifyPrototypeSignal } from './helper.js';
 import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
 
-(async function() {
-    let argv: any = yargs(hideBin(process.argv))
+ let argv: any = yargs(hideBin(process.argv))
     .usage('Forecast tool for prototype pollution detection').option('path', {
         alias: 'p',
         type: 'string',
@@ -63,18 +62,20 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
     .demandOption(['path'])
     .help().parse();
 
-    let logger = pino({level: argv.debug ? 'debug' : 'info'}, pino.destination(2));
-    let revert = addHook((code, filename) => {
-        let instrumentedCode = instrument(code, { filename, maxLoop: argv.maxLoop });
-        logger.info(`instrumented code: ${instrumentedCode}`);
-        return instrumentedCode;
-    }, {exts: ['.js', '.cjs'], ignoreNodeModules: false});
+let logger = pino({level: argv.debug ? 'debug' : 'info'}, pino.destination(2));
 
-    mockEnv();
-    let require = createRequire('file://' + cwd() + '/');
-    let lib = require(argv.path);
-    revert();
-    
+let revert = addHook((code, filename) => {
+    let instrumentedCode = instrument(code, { filename, maxLoop: argv.maxLoop });
+    logger.info(`instrumented code: ${instrumentedCode}`);
+    return instrumentedCode;
+}, {exts: ['.js', '.cjs'], ignoreNodeModules: true});
+
+mockEnv();
+let require = createRequire('file://' + cwd() + '/');
+let lib = require(argv.path);
+revert();
+
+async function main() {
     let opts: any = {};
     if (argv.maxExecutionTime) {
         opts.maxExecutionTime = argv.maxExecution as number;
@@ -102,7 +103,7 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
     logger.info(`Number of candidate paths after filtering: ${filteredResults.length}`);
 
     if (argv.candidateOnly) {
-        return;
+        process.exit(0);
     }
     
     let successResultMap = new Map();
@@ -119,7 +120,6 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
                 await executeCallPath(lib, p);
             } catch (e) {
                 if (e instanceof ModifyPrototypeSignal) {
-                    // let h = objectHash(e.location)
                     let h = e.location.column + ',' + e.location.line;
                     if (!successResultMap.has(h)) {
                         successResultMap.set(h, {location: e.location, exploits: []});
@@ -129,7 +129,7 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
 
                     if (!argv.all) {
                         logger.info('Successfully find an exploit and exit.');
-                        return;
+                        return successResultMap;
                     }
                 }
                 else if (e instanceof Error) {
@@ -138,11 +138,19 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
             }
         }
     }
+    
+    return successResultMap;
+    
+}
 
-    logger.info('---------- Results ---------');
-
-    for (let h of successResultMap.keys()) {
-        let r: any = successResultMap.get(h);
-        logger.info(`Location: ${JSON.stringify(r.location)}\nOne exploit: ${r.exploits[0]}`);
+while (true) {
+    let res = await main();
+    if (res.size > 0) {
+        for (let h of res.keys()) {
+            let r: any = res.get(h);
+            logger.info('-------- Result -----------');
+            logger.info(`Location: ${JSON.stringify(r.location)}\nOne exploit: ${r.exploits[0]}`);
+        }
+        break;
     }
-})();
+}

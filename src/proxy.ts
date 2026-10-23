@@ -41,7 +41,7 @@ export const proxyString: any = (function() {
 
     for (let m of ['indexOf', 'lastIndexOf']) {
         o[m] = function() {
-            if ((globalThis as any).__strop) {
+            if ((globalThis as any).__strop && typeof arguments[0] === 'string' && !isProxyString(arguments[0])) {
                 ((globalThis as any).__strop as Array <any>).push({call: m, args: [arguments[0]]});
             }
             return randomChoice([
@@ -53,7 +53,7 @@ export const proxyString: any = (function() {
 
     for (let m of ['startsWith', 'endsWith', 'match']) {
         o[m] = function() {
-            if ((globalThis as any).__strop) {
+            if ((globalThis as any).__strop && typeof arguments[0] === 'string' && !isProxyString(arguments[0])) {
                 ((globalThis as any).__strop as Array <any>).push({call: m, args: [arguments[0]]});
             }
             return randomChoice([
@@ -64,7 +64,7 @@ export const proxyString: any = (function() {
     }
 
     o['split'] = function() {
-        if ((globalThis as any).__strop) {
+        if ((globalThis as any).__strop && typeof arguments[0] === 'string' && !isProxyString(arguments[0])) {
             ((globalThis as any).__strop as Array <any>).push({call: 'split', args: [arguments[0]]});
         }
         return randomChoice([

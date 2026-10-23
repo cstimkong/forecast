@@ -64,10 +64,10 @@ export class ModifyPrototypeSignal {
 
 export function mockedCompare(a: any, b: any, op: string) {
     let tainted = [false, false];
-    if (typeof a === 'object' && a !== null && a.__TYPEOF__ === 'string') {
+    if (isProxyString(a)) {
         tainted[0] = true;
     }
-    if (typeof b === 'object' && b !== null && b.__TYPEOF__ === 'string') {
+    if (isProxyString(b)) {
         tainted[1] = true;
     }
     if (!tainted[0] && !tainted[1]) {
@@ -84,12 +84,12 @@ export function mockedCompare(a: any, b: any, op: string) {
     }
     else {
         if (!tainted[0] && tainted[1]) {
-            if ((globalThis as any).__strop) {
+            if ((globalThis as any).__strop !== undefined && typeof a === 'string') {
                 ((globalThis as any).__strop as Array<any>).push({call: op, args: [a]});
             }
         }
-        if (tainted[0] && !tainted[1]) {
-            if ((globalThis as any).__strop) {
+        if (tainted[0] && !tainted[1] && typeof b === 'string') {
+            if ((globalThis as any).__strop !== undefined) {
                 ((globalThis as any).__strop as Array<any>).push({call: op, args: [b]});
             }
         }
