@@ -46,7 +46,6 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
         }
     }
     
-
     let iter = 0;
     while (iter < iterationCount && candidates.length > 0) {
         candidates.sort((a, b) => 0.5 - Math.random());

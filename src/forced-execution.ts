@@ -53,7 +53,7 @@ export async function forcedExecution(f: Function, argCount: number, thisArg?: a
             args: argArray.map(x => toFixedValue(x)),
             result: toFixedValue(result),
             async: _async,
-            stringOperations: (globalThis as any).__strop
+            stringOperations: toFixedValue((globalThis as any).__strop)
         }
     } catch (e: any) {
         if (e instanceof ModifyPrototypeSignal) {
@@ -61,7 +61,7 @@ export async function forcedExecution(f: Function, argCount: number, thisArg?: a
                 polluted: true, 
                 args: argArray.map(x => toFixedValue(x)),
                 location: e.location,
-                stringOperations: (globalThis as any).__strop
+                stringOperations: toFixedValue((globalThis as any).__strop)
             };
         }
         throw new Error(`Error in forced execution: ${e.message}`);

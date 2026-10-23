@@ -1,6 +1,6 @@
 /**
  * 
- * This file is part of FesaJS
+ * This file is part of Forecast.
  */
 
 import vm from 'vm';

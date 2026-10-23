@@ -1,6 +1,6 @@
 /**
  * 
- * This file is part of Forecast
+ * This file is part of Forecast.
  * 
  */
 
@@ -33,6 +33,7 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
         description: 'Try to detect all paths'
     })
     .option('candidate-only', {
+        alias: 'c',
         type: 'boolean',
         default: false,
         description: 'Only detect the candidate vulnerability, without actual exploitation'
@@ -99,7 +100,7 @@ async function main() {
     if (argv.maxApiCalls) {
         opts.maxApiCalls = argv.maxApiCalls as number;
     }
-    
+
     opts.logger = logger;
     logger.info(`Start to test the library ${argv.path}`);
     let fuzzingResults = await run(lib, opts);

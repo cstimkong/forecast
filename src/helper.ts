@@ -6,6 +6,7 @@
 
 import { isProxy } from "util/types";
 import { isProxyString } from "./proxy.js";
+import { defaultOptionValues } from "./defaults.js";
 
 export function makeArbitraryString(): string {
     let length = Math.floor(Math.random() * 10) + 1;
@@ -106,7 +107,7 @@ export function mockedPropertyAccess(e: any, p: any) {
             return randomChoice([
                 function() { return Object.getPrototypeOf(e); },
                 function() { return undefined; },
-                function() { return e[p] }
+                function() { return e[defaultOptionValues.proxyStringLiteral] }
             ])
             
         }
@@ -143,7 +144,13 @@ export function mockedPropertyWrite(e: any, p: any, v: any, loc: {line: number, 
             throw new ModifyPrototypeSignal('Map.prototype', loc, p);
     }
 
-    e[p] = v;
+    if (typeof p === 'string') {
+        e[p] = v;
+    }
+    else if (isProxyString(p)) {
+        e[defaultOptionValues.proxyStringLiteral] = v;
+    }
+    
     return v;
 }
 

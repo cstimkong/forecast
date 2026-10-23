@@ -105,6 +105,20 @@ export function makeProxyObject() {
                 }
             }
 
+            if (p === Symbol.toStringTag) {
+                return 'Object';
+            }
+            
+            if (p === 'toString') {
+                return function() {
+                    return '[object Object]';
+                }
+            }
+
+            if (p === '__proto__') {
+                
+            }
+
             if (Object.hasOwn(target, p)) {
                 return target[p];
             }
@@ -143,8 +157,16 @@ export function makeProxyObject() {
             ])
         },
 
-        set: function (target, p, value, receiver) {
-            target[p] = value;
+        set: function (target, p, value, _) {
+            if (typeof p !== 'string')
+                return false;
+
+            if (value === undefined || value === null || typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+                target[p] = value;
+            }
+            else {
+                target[p] = makeProxyObject();
+            }
             return true;
         },
 
@@ -217,7 +239,7 @@ export function toFixedValue(obj: any): any {
         return defaultOptionValues.proxyStringLiteral;
     }
 
-    else if (obj !== null && obj !== undefined && obj.__INTERNAL__) {
+    else if (obj !== null && typeof obj === 'object' && obj.__INTERNAL__) {
         let __internal = obj.__INTERNAL__;
         let o: any = {};
         for (let x of Object.keys(__internal)) {
@@ -235,10 +257,11 @@ export function toFixedValue(obj: any): any {
     }
 
     else if (typeof obj === 'object' && obj !== null) {
+        let o: any = {};
         for (let x of Object.keys(obj)) {
-            obj[x] = toFixedValue(obj[x]);
+            o[x] = toFixedValue(obj[x]);
         }
-        return obj;
+        return o;
     }
 
     return obj;
