@@ -28,14 +28,15 @@ export const proxyString: any = (function() {
         },
         __TYPEOF__: 'string',
         get __INTERNAL__() {
-            return proxyString;
+            return PROXY_STRING_LITERAL;
         },
-        [Symbol.toStringTag]: 'String'
+        [Symbol.toStringTag]: 'String',
+        ['constructor']: String
     };
 
     for (let m of ['charAt', 'substring', 'substr', 'slice', 'replace', 'trim', 'trimLeft', 'trimRight', 'toUpperCase', 'toLowerCase', 'toLocaleUpperCase', 'toLocaleLowerCase', 'toString', 'replace']) {
         o[m] = function() {
-            return o;
+            return proxyString;
         }
     }
 
@@ -51,7 +52,7 @@ export const proxyString: any = (function() {
         }
     }
 
-    for (let m of ['startsWith', 'endsWith', 'match']) {
+    for (let m of ['startsWith', 'endsWith']) {
         o[m] = function() {
             if ((globalThis as any).__strop && typeof arguments[0] === 'string' && !isProxyString(arguments[0])) {
                 ((globalThis as any).__strop as Array <any>).push({call: m, args: [arguments[0]]});
@@ -63,17 +64,31 @@ export const proxyString: any = (function() {
         }
     }
 
+    o['match'] = function() {
+        return randomChoice([
+            function() { return null; },
+            function() { return [proxyString]; },
+            function() { return [proxyString, proxyString]},
+            function() { return Object.assign([proxyString], {index: 0, input: proxyString})}
+        ])
+    }
+
     o['split'] = function() {
         if ((globalThis as any).__strop && typeof arguments[0] === 'string' && !isProxyString(arguments[0])) {
             ((globalThis as any).__strop as Array <any>).push({call: 'split', args: [arguments[0]]});
         }
         return randomChoice([
-            function() { return [o]},
-            function() { return [o, o]},
-            function() { return [o, o, o]}
+            function() { return [proxyString]},
+            function() { return [proxyString, proxyString]},
+            function() { return [proxyString, proxyString, proxyString]}
         ]);
     }
-    return o;
+
+    return new Proxy(o, {
+        set: function() {
+            throw new Error('Writing to the property of string is not allowed.');
+        }
+    })
 })();
 
 
