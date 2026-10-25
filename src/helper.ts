@@ -174,10 +174,42 @@ export function mockedObjectKeys(obj: any) {
     return keys;
 }
 
+function mockedEncodeURIComponent(s: string) {
+    if (isProxyString(s)) {
+        return proxyString;
+    }
+    return encodeURIComponent(s);
+}
+
+function mockedEncodeURI(s: string) {
+    if (isProxyString(s)) {
+        return proxyString;
+    }
+    return encodeURI(s);
+}
+
+function mockedDecodeURIComponent(s: string) {
+    if (isProxyString(s)) {
+        return proxyString;
+    }
+    return decodeURIComponent(s);
+}
+
+function mockedDecodeURI(s: string) {
+    if (isProxyString(s)) {
+        return proxyString;
+    }
+    return decodeURI(s);
+}
+
 export function mockEnv() {
     (globalThis as any).__mockedCompare = mockedCompare;
     (globalThis as any).__mockedPropertyAccess = mockedPropertyAccess;
     (globalThis as any).__mockedPropertyWrite = mockedPropertyWrite;
     (globalThis as any).__mockedInExpression = mockedInExpression;
     (globalThis as any).__mockedObjectKeys = mockedObjectKeys;
+    (globalThis as any).__mockedEncodeURIComponent = mockedEncodeURIComponent;
+    (globalThis as any).__mockedEncodeURI = mockedEncodeURI;
+    (globalThis as any).__mockedDecodeURIComponent = mockedDecodeURIComponent;
+    (globalThis as any).__mockedDecodeURI = mockedDecodeURI;
 }

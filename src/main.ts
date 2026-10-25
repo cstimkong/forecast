@@ -57,11 +57,6 @@ if (isMainThread) {
             default: true,
             description: 'Whether to use meta templates'
         })
-        .option('mock', {
-            type: 'boolean',
-            default: true,
-            description: 'Mock slow functions'
-        })
         .option('debug',
             {
                 type: 'boolean',
