@@ -87,6 +87,12 @@ export const proxyString: any = (function() {
     return new Proxy(o, {
         set: function() {
             throw new Error('Writing to the property of string is not allowed.');
+        },
+        defineProperty: function() {
+            throw new Error('Defining properties on the string is not allowed.');
+        },
+        deleteProperty: function() {
+            throw new Error('Deleting properties on the string is not allowed.');
         }
     })
 })();
@@ -128,10 +134,6 @@ export function makeProxyObject() {
                 return function() {
                     return '[object Object]';
                 }
-            }
-
-            if (p === '__proto__') {
-                
             }
 
             if (Object.hasOwn(target, p)) {
@@ -191,24 +193,18 @@ export function makeProxyObject() {
         },
 
         ownKeys: function(target) {
-            let keys = Object.keys(target);
-            if (keys.length === 0) {
-                return randomChoice([
-                    function() { return Reflect.ownKeys(target) },
-                    function() {
-                        target[PROXY_STRING_LITERAL] = randomChoice([
-                            function() { return makeProxyObject(); },
-                            function() { return makeProxyArray(); },
-                            function() { return proxyString; },
-                            function() { return null; }
-                        ]);
-                        return Reflect.ownKeys(target);
-                    }
-                ]);
-            } else {
-                return Reflect.ownKeys(target);
-            }
-            
+            return randomChoice([
+                function() { return Reflect.ownKeys(target) },
+                function() {
+                    target[PROXY_STRING_LITERAL] = randomChoice([
+                        function() { return makeProxyObject(); },
+                        function() { return makeProxyArray(); },
+                        function() { return proxyString; },
+                        function() { return null; }
+                    ]);
+                    return Reflect.ownKeys(target);
+                }
+            ]);
         },
         
         getOwnPropertyDescriptor: function(target, p) {

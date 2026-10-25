@@ -119,7 +119,7 @@ else {
     let logger = winston.createLogger({
         level: argv.debug ? 'debug' : 'info',
         format: winston.format.combine(
-            winston.format.label({ label: 'Forecast' }),
+            winston.format.label({ label: 'Forecast Worker' }),
             winston.format.timestamp(),
             winston.format.printf(({ level, message, label, timestamp }) => {
                 return `${timestamp} [${label}] ${level}: ${message}`;

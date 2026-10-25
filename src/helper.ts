@@ -5,7 +5,7 @@
  */
 
 import { isProxy } from "util/types";
-import { isProxyString } from "./proxy.js";
+import { isProxyString, proxyString } from "./proxy.js";
 import { defaultOptionValues } from "./defaults.js";
 
 export function makeArbitraryString(): string {
@@ -164,10 +164,20 @@ export function mockedInExpression(a: any, b: any) {
     return a in b;
 }
 
+export function mockedObjectKeys(obj: any) {
+    let keys = Object.keys(obj);
+    for (let i = 0; i < keys.length; i++) {
+        if (keys[i] === defaultOptionValues.proxyStringLiteral) {
+            keys[i] = proxyString;
+        }
+    }
+    return keys;
+}
 
 export function mockEnv() {
     (globalThis as any).__mockedCompare = mockedCompare;
     (globalThis as any).__mockedPropertyAccess = mockedPropertyAccess;
     (globalThis as any).__mockedPropertyWrite = mockedPropertyWrite;
     (globalThis as any).__mockedInExpression = mockedInExpression;
+    (globalThis as any).__mockedObjectKeys = mockedObjectKeys;
 }

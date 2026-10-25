@@ -84,7 +84,18 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                 path.skip();
 
             }
-
+            else if (path.isCallExpression()) {
+                if (path.node.callee.type === 'MemberExpression' && path.node.callee.object.type === 'Identifier'
+                    && path.node.callee.object.name === 'Object' && path.node.callee.property.type === 'Identifier' &&
+                    path.node.callee.property.name === 'keys') {
+                    path.replaceWith(
+                        callExpression(
+                        identifier('__mockedObjectKeys'), 
+                        path.node.arguments)
+                    );
+                }
+                path.skip();
+            }
 
             else if (path.isBinaryExpression()) {
                 if (path.node.operator === '===' || path.node.operator === '!==' || path.node.operator === '==' || path.node.operator === '!=') {
