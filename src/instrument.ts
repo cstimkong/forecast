@@ -94,6 +94,40 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                         path.node.arguments)
                     );
                 }
+
+                else if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'encodeURI') {
+                    path.replaceWith(
+                        callExpression(
+                            identifier('__mockedEncodeURI'),
+                            path.node.arguments
+                        )
+                    );
+                }
+                else if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'encodeURIComponent') {
+                    path.replaceWith(
+                        callExpression(
+                            identifier('__mockedEncodeURIComponent'),
+                            path.node.arguments
+                        )
+                    );
+                }
+                else if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'decodeURI') {
+                    path.replaceWith(
+                        callExpression(
+                            identifier('__mockedDecodeURI'),
+                            path.node.arguments
+                        )
+                    );
+                }
+                else if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'decodeURIComponent') {
+                    path.replaceWith(
+                        callExpression(
+                            identifier('__mockedDecodeURIComponent'),
+                            path.node.arguments
+                        )
+                    );
+                }
+
                 path.skip();
             }
 

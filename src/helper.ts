@@ -41,7 +41,7 @@ export function makeRandomId() {
     return makeArbitraryString();
 }
 
-export function randomChoice<T>(funcs: {(): T}[]) {
+export function randomChoice<T>(funcs: { (): T }[]) {
     let idx = Math.floor(Math.random() * funcs.length);
     return funcs[idx]!();
 }
@@ -54,9 +54,9 @@ export function randomElement(e: any[]) {
 
 export class ModifyPrototypeSignal {
     obj: any;
-    location: {line: number, column: number};
+    location: { line: number, column: number };
     prop?: any;
-    constructor(obj: any, location: {line: number, column: number}, prop?: any) {
+    constructor(obj: any, location: { line: number, column: number }, prop?: any) {
         this.obj = obj;
         this.location = location;
         this.prop = prop;
@@ -86,17 +86,17 @@ export function mockedCompare(a: any, b: any, op: string) {
     else {
         if (!tainted[0] && tainted[1]) {
             if ((globalThis as any).__strop !== undefined && typeof a === 'string') {
-                ((globalThis as any).__strop as Array<any>).push({call: op, args: [a]});
+                ((globalThis as any).__strop as Array<any>).push({ call: op, args: [a] });
             }
         }
         if (tainted[0] && !tainted[1] && typeof b === 'string') {
             if ((globalThis as any).__strop !== undefined) {
-                ((globalThis as any).__strop as Array<any>).push({call: op, args: [b]});
+                ((globalThis as any).__strop as Array<any>).push({ call: op, args: [b] });
             }
         }
         return randomChoice([
-            function() { return true; },
-            function() { return false; }
+            function () { return true; },
+            function () { return false; }
         ]);
     }
 }
@@ -105,17 +105,17 @@ export function mockedPropertyAccess(e: any, p: any) {
     if (isProxyString(p)) {
         if (typeof e === 'object' || typeof e === 'function') {
             return randomChoice([
-                function() { return Object.getPrototypeOf(e); },
-                function() { return undefined; },
-                function() { return e[defaultOptionValues.proxyStringLiteral] }
+                function () { return Object.getPrototypeOf(e); },
+                function () { return undefined; },
+                function () { return e[defaultOptionValues.proxyStringLiteral] }
             ])
-            
+
         }
     }
     return e[p];
 }
 
-export function mockedPropertyWrite(e: any, p: any, v: any, loc: {line: number, column: number}) {
+export function mockedPropertyWrite(e: any, p: any, v: any, loc: { line: number, column: number }) {
     if (e === Object.prototype) {
         if (isProxyString(p))
             throw new ModifyPrototypeSignal('Object.prototype', loc);
@@ -150,7 +150,7 @@ export function mockedPropertyWrite(e: any, p: any, v: any, loc: {line: number, 
     else if (isProxyString(p)) {
         e[defaultOptionValues.proxyStringLiteral] = v;
     }
-    
+
     return v;
 }
 
@@ -202,6 +202,13 @@ function mockedDecodeURI(s: string) {
     return decodeURI(s);
 }
 
+function mockedEscape(s: string) {
+    if (isProxyString(s)) {
+        return proxyString;
+    }
+    return escape(s);
+}
+
 export function mockEnv() {
     (globalThis as any).__mockedCompare = mockedCompare;
     (globalThis as any).__mockedPropertyAccess = mockedPropertyAccess;
@@ -211,5 +218,23 @@ export function mockEnv() {
     (globalThis as any).__mockedEncodeURIComponent = mockedEncodeURIComponent;
     (globalThis as any).__mockedEncodeURI = mockedEncodeURI;
     (globalThis as any).__mockedDecodeURIComponent = mockedDecodeURIComponent;
+    (globalThis as any).__mockedEscape = mockedEscape;
     (globalThis as any).__mockedDecodeURI = mockedDecodeURI;
+    (globalThis as any).window = new Proxy({}, {
+        get: function (target, p) {
+            if (p === Symbol.toPrimitive) {
+                return function () {
+                    return makeArbitraryString();
+                }
+            }
+            return (globalThis as any).window;
+        },
+
+        apply: function () {
+            return (globalThis as any).window;
+        },
+        construct: function () {
+            return (globalThis as any).window;
+        }
+    });;
 }
