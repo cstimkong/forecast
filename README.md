@@ -2,7 +2,7 @@
 
 This is the repository for `Forecast`, a tool for detecting prototype pollution vulnerability ([CWE-1321](https://cwe.mitre.org/data/definitions/1321.html)).
 
-For the information of prototype pollution, please refer to [Snyk.io](https://learn.snyk.io/lesson/prototype-pollution/)
+For the information of prototype pollution, please refer to [Snyk.io](https://learn.snyk.io/lesson/prototype-pollution/).
 
 ## Overall framework
 
@@ -50,23 +50,25 @@ to find the exploits and sinks for the library [arr-flatten-unflatten](https://w
 
 ## Requirements
 
-- Node.js v20 and later
+- [Node.js](https://nodejs.org) version 20 and later
 
-- TypeScript compiler (version 5.9.x tested)
+- [TypeScript compiler](https://www.npmjs.com/package/typescript) (version 5.9.x tested)
 
-## Other Supplementaries
+## Benchmark and Results
 
-- `benchmark1` directory contains the NPM packages that are from prior works and the detected results.
+- The directory `benchmark1` contains the NPM packages that are from prior works and the detected results.
 
-- `benchmark2` directory contains the package list that are used in our evaluation and the detected results.
+- The directory `benchmark2` contains the package list that are used in our evaluation and the detected results.
 
-- `zero_days` directory contains the discovered zero-day vulnerabilities by Forecast.
+The directory `zero_days` in the repository lists the discovered zero-day vulnerabilities by Forecast.
 
 ## Publication
 
 Effective Fuzzing-based Prototype Pollution Detection via Forced Execution and Template Synthesis, in ACM Transactions on Software Engineering and Methodology, accepted in 2026.
 
 ## References
+
+### Other Tools for Prototype Pollution Detection
 
 - [ObjLupAnsys](https://github.com/song-li/objlupansys)
 
@@ -75,6 +77,8 @@ Effective Fuzzing-based Prototype Pollution Detection via Forced Execution and T
 - [Explode.js](https://github.com/formalsec/explode-js)
 
 - [Graph.js](https://github.com/formalsec/graphjs)
+
+### Benchmarks of Prototype Pollution and Other Taint-style Vulnerabilities
 
 - [Secbench.js](https://github.com/cristianstaicu/SecBench.js)
 
