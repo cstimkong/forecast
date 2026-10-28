@@ -1,5 +1,10 @@
 {
   "name": "forecast-js",
+  "version": "1.0.0",
+  "description": "Forecast - prototype pollution detection tool",
+  "repository": "cstimkong/forecast",
+  "author": "Dezhen Kong",
+  "bin": "./dist/forecast.js",
   "devDependencies": {
     "@babel/cli": "^7.28.0",
     "@rollup/plugin-commonjs": "^29.0.2",
