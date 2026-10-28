@@ -5,7 +5,7 @@
  */
 
 import { createRequire } from 'module';
-import { cwd } from 'process'
+import { argv, cwd } from 'process'
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 import { run, stringifyPath } from './fuzzing.js';
@@ -17,7 +17,20 @@ import { mockEnv, ModifyPrototypeSignal } from './helper.js';
 import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
 import { Worker, isMainThread, workerData, parentPort } from 'worker_threads';
 import { defaultOptionValues } from './defaults.js';
-import { existsSync } from 'fs';
+
+function loadLibrary(path: string): any {
+    let revert = addHook((code, filename) => {
+        let instrumentedCode = instrument(code, { filename, maxLoop: defaultOptionValues.maxLoop });
+        return instrumentedCode;
+    }, { exts: ['.js', '.cjs'], ignoreNodeModules: true });
+
+    mockEnv();
+    let require = createRequire('file://' + cwd() + '/');
+    let lib = require(path);
+    revert();
+    return lib;
+}
+
 
 if (isMainThread) {
     let argv: any = yargs(hideBin(process.argv))
@@ -122,15 +135,8 @@ else {
         ),
         transports: [argv.logFile !== undefined ? new winston.transports.File({ filename: argv.logFile }) : new winston.transports.Stream({ stream: process.stdout})]
     });
-    let revert = addHook((code, filename) => {
-        let instrumentedCode = instrument(code, { filename, maxLoop: defaultOptionValues.maxLoop });
-        return instrumentedCode;
-    }, { exts: ['.js', '.cjs'], ignoreNodeModules: true });
 
-    mockEnv();
-    let require = createRequire('file://' + cwd() + '/');
-    let lib = require(argv.path);
-    revert();
+    let lib = loadLibrary(argv.path);
 
     async function main() {
         let opts: any = {};

@@ -4,7 +4,6 @@
  * This file is part of Forecast.
  */
 
-import { isProxy } from "util/types";
 import { isProxyString, proxyString } from "./proxy.js";
 import { defaultOptionValues } from "./defaults.js";
 
@@ -209,6 +208,43 @@ function mockedEscape(s: string) {
     return escape(s);
 }
 
+function mockedRegExp(pattern: string, flags?: string) {
+    return new Proxy(new RegExp(pattern, flags), {
+        get: function (target, p) {
+            if (p === 'exec') {
+                return function () {
+                    if (isProxyString(arguments[0])) {
+                        return randomChoice([
+                            function () { return [proxyString] },
+                            function () { return [proxyString, proxyString] },
+                            function () { return [proxyString, proxyString, proxyString] },
+                            function () { return null; }
+                        ]);
+                    } else {
+                        return RegExp.prototype.exec.apply(target, arguments as any);
+                    }
+                }
+            }
+            else if (p === 'test') {
+                return function () {
+                    if (isProxyString(arguments[0])) {
+                        return randomChoice([
+                            function () { return false; },
+                            function () { return true; }
+                        ]);
+                    } else {
+                        return RegExp.prototype.test.apply(target, arguments as any);
+                    }
+                }
+            }
+            else {
+                return (target as any)[p];
+            }
+        }
+    });
+
+}
+
 export function mockEnv() {
     (globalThis as any).__mockedCompare = mockedCompare;
     (globalThis as any).__mockedPropertyAccess = mockedPropertyAccess;
@@ -220,6 +256,7 @@ export function mockEnv() {
     (globalThis as any).__mockedDecodeURIComponent = mockedDecodeURIComponent;
     (globalThis as any).__mockedEscape = mockedEscape;
     (globalThis as any).__mockedDecodeURI = mockedDecodeURI;
+    (globalThis as any).__mockedRegExp = mockedRegExp;
     (globalThis as any).window = new Proxy({}, {
         get: function (target, p) {
             if (p === Symbol.toPrimitive) {

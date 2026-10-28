@@ -226,8 +226,15 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                 path.replaceWith(newBlock);
                 path.skip();
             }
-
-
+            else if (path.isRegExpLiteral()) {
+                path.replaceWith(
+                    callExpression(identifier('__mockedRegExp'), [
+                        stringLiteral(path.node.pattern),
+                        stringLiteral(path.node.flags)
+                    ])
+                );
+                path.skip();
+            }
         }
     });
 
