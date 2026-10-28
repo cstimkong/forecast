@@ -4,7 +4,7 @@ This is the repository for `Forecast`, a tool for detecting prototype pollution 
 
 For the information of prototype pollution, please refer to [Snyk.io](https://learn.snyk.io/lesson/prototype-pollution/)
 
-### Overall framework
+## Overall framework
 
 The `Forecast` framework comprises three phases:
 
@@ -15,7 +15,7 @@ The `Forecast` framework comprises three phases:
 - Exploit Generation, which generates the exploit with the placeholders in the function call templates filled with concrete values
 
 
-### Usage
+## Usage
 
 Use `npm run dist` to build a standalone executable JavaScript file in `dist` directory.
 
@@ -40,13 +40,21 @@ to show the help information. The supported options are listed as follows.
 
 Note that the dependencies of the library should be installed first.
 
-### Requirements
+For example, you can use the following command:
+
+```bash
+node dist/forecast.js --path ./benchmark1/packages/arr-flatten-unflatten-1.1.4
+```
+
+to find the exploits and sinks for the library [arr-flatten-unflatten](https://www.npmjs.com/package/arr-flatten-unflatten) and output the results.
+
+## Requirements
 
 - Node.js v20 and later
 
 - TypeScript compiler (version 5.9.x tested)
 
-### Other Supplementaries
+## Other Supplementaries
 
 - `benchmark1` directory contains the NPM packages that are from prior works and the detected results.
 
@@ -54,11 +62,11 @@ Note that the dependencies of the library should be installed first.
 
 - `zero_days` directory contains the discovered zero-day vulnerabilities by Forecast.
 
-### Publication
+## Publication
 
 Effective Fuzzing-based Prototype Pollution Detection via Forced Execution and Template Synthesis, in ACM Transactions on Software Engineering and Methodology, accepted in 2026.
 
-### References
+## References
 
 - [ObjLupAnsys](https://github.com/song-li/objlupansys)
 

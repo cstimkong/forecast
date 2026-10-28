@@ -1,0 +1,1 @@
+console.error('You should not use Forecast pragmatically.');
