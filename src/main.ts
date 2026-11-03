@@ -111,13 +111,17 @@ if (isMainThread) {
                 await runWorker();
             }
         });
+        worker.on('error', async (err) => {
+            logger.info('Error occured, start another worker');
+            await runWorker();
+        });
 
         worker.on('exit', async (code) => {
             if (code !== 0) {
                 logger.info('Start another worker');
                 await runWorker();
             }
-        })
+        });
     }
 
     runWorker();
@@ -175,7 +179,7 @@ else {
         let successResultMap = new Map();
         for (let r of filteredResults) {
             logger.debug(`Start to deal with the path ${stringifyPath(r.callPath)}`);
-            let filledCallPaths = fillCallPath(r.callPath);
+            let filledCallPaths = fillCallPath(r.callPath, argv.usingMetaTemplates);
             for (let c of filledCallPaths) {
                 makeExploit(c);
             }

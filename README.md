@@ -34,17 +34,26 @@ to show the help information. The supported options are listed as follows.
 | `-p`,`--path`  | The path to a JavaScript library, represented as a relative or absolute path (e.g., `./path/to/lib` or `/path/to/lib/file.js`) |
 | `--max-execution-time` | Max count of forced execution of a function |
 | `--max-api-calls` | Max number of the API calls in an exploit |
-| `--candidate-only` | Only output candidate API call paths |
-| `--debug`  | Output debug information | 
+| `-c`, `--candidate-only` | Only output candidate API call paths |
+| `--using-meta-templates` | Using meta templates (`true` by default) |
+| `--debug`  | Output debug information |
 | `--log-file` | Output the logs to a specific file |
 
 Note that the dependencies of the library should be installed first.
 
-For example, you can use the following command:
+For example, you can use the following command with working directory set to the project root:
 
 ```bash
-node dist/forecast.js --path ./benchmark1/packages/arr-flatten-unflatten-1.1.4
+node ./dist/forecast.js --path ./benchmark1/packages/arr-flatten-unflatten-1.1.4
 ```
+
+or 
+
+```
+node .\dist\forecast.js --path .\benchmark1\packages\arr-flatten-unflatten-1.1.4
+```
+(on Windows)
+
 
 to find the exploits and sinks for the library [arr-flatten-unflatten](https://www.npmjs.com/package/arr-flatten-unflatten) and output the results.
 

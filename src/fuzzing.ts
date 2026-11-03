@@ -147,7 +147,7 @@ export function stringifyPath(p: CallPath) {
  */
 export function stringifyArgument(obj: any, maxDepth: number) {
     if (maxDepth === 0) {
-        return '[...]';
+        return '[[...]]';
     }
 
     else if (obj === null) {
@@ -181,12 +181,12 @@ export function stringifyArgument(obj: any, maxDepth: number) {
         for (let x of Object.keys(obj)) {
             let k = JSON.stringify(x);
             let v = stringifyArgument(obj[x], maxDepth - 1);
-            s += k + ":" + v + ',';
+            s += k + ": " + v + ',';
         }
         if (s.endsWith(',')) {
             s = s.substring(0, s.length - 1);
         }
-        s += "}";
+        s += '}';
         return s;
     }
 }
