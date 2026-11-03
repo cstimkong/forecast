@@ -19,7 +19,7 @@ The `Forecast` framework comprises three phases:
 
 ### Production Use
 
-Installing the package `forecast-tool` from the offical NPM repository is recommended for production use:
+Installing the package [forecast-tool](https://www.npmjs.com/package/forecast-tool) from the offical NPM repository is recommended for production use:
 
 ```bash
 npm install forecast-tool
