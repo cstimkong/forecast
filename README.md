@@ -17,6 +17,18 @@ The `Forecast` framework comprises three phases:
 
 ## Usage
 
+### Production Use
+
+Installing the package `forecast-tool` from the offical NPM repository is recommended for production use:
+
+```bash
+npm install forecast-tool
+```
+
+After installation, you can run `forecast` (if installed globally) or `npm exec forecast` with proper options to launch Forecast.
+
+### Experimental Use
+
 Use `npm run dist` to build a standalone executable JavaScript file in `dist` directory.
 
 Then use the following command:
