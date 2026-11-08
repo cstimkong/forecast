@@ -17,12 +17,13 @@ import { mockEnv, ModifyPrototypeSignal } from './helper.js';
 import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
 import { Worker, isMainThread, workerData, parentPort } from 'worker_threads';
 import { defaultOptionValues } from './defaults.js';
+import { existsSync } from 'fs';
 
 function loadLibrary(path: string): any {
     let revert = addHook((code, filename) => {
         let instrumentedCode = instrument(code, { filename, maxLoop: defaultOptionValues.maxLoop });
         return instrumentedCode;
-    }, { exts: ['.js', '.cjs'], ignoreNodeModules: true });
+    }, { exts: ['.js', '.cjs'], ignoreNodeModules: false });
 
     mockEnv();
     let require = createRequire('file://' + cwd() + '/');
@@ -57,7 +58,7 @@ if (isMainThread) {
         })
         .option('max-execution-time', {
             type: 'number',
-            default: 1000,
+            default: defaultOptionValues.maxExecutionTime,
             description: 'Max forced execution time'
         })
         .option('max-api-calls', {
@@ -84,6 +85,16 @@ if (isMainThread) {
         .demandOption(['path'])
         .help().parse();
     
+    if (!argv.path) {
+        console.error('You have not specified a valid library path.');
+        process.exit(-1);
+    }
+
+    if (!existsSync(argv.path)) {
+        console.error('Library path does not exists');
+        process.exit(-1);
+    }
+
     let logger = winston.createLogger({
         level: argv.debug ? 'debug' : 'info',
         format: winston.format.combine(
@@ -112,6 +123,7 @@ if (isMainThread) {
             }
         });
         worker.on('error', async (err) => {
+            console.log(err);
             logger.info('Error occured, start another worker');
             await runWorker();
         });

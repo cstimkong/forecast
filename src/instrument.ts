@@ -198,7 +198,7 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                             ),
                             [identifier('__loopguard__')]
                         ),
-                        (path.get('test') as NodePath<Expression>).node
+                        (path.get('test') as NodePath<Expression>).node || identifier('true')
                     )
                 );
                 (path.get('body') as NodePath<Statement>).replaceWith(
