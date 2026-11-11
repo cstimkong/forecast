@@ -27,9 +27,14 @@ function loadLibrary(path: string): any {
 
     mockEnv();
     let require = createRequire('file://' + cwd() + '/');
-    let lib = require(path);
-    revert();
-    return lib;
+    try {
+        let lib = require(path);
+        revert();
+        return lib;
+    } catch (e) {
+        throw new Error(`Error in loading the library ${path}`);
+    }
+    
 }
 
 
@@ -123,7 +128,7 @@ if (isMainThread) {
             }
         });
         worker.on('error', async (err) => {
-            console.log(err);
+            console.error(err);
             logger.info('Error occured, start another worker');
             await runWorker();
         });

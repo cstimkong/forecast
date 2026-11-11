@@ -6,6 +6,7 @@
 
 import { isProxyString, proxyString } from "./proxy.js";
 import { defaultOptionValues } from "./defaults.js";
+import { isProxy } from 'util/types'
 
 export function makeArbitraryString(): string {
     let length = Math.floor(Math.random() * 10) + 1;
@@ -244,6 +245,22 @@ function mockedRegExp(pattern: string, flags?: string) {
     });
 
 }
+mockedRegExp.prototype.exec = function() {
+    if (!isProxy(this)) {
+        return RegExp.prototype.exec.apply(this, arguments as any);
+    } else {
+        return this.exec(...arguments);
+    }
+}
+
+mockedRegExp.prototype.test = function() {
+    if (!isProxy(this)) {
+        return RegExp.prototype.test.apply(this, arguments as any);
+    } else {
+        return this.test(...arguments);
+    }
+}
+
 
 export function mockEnv() {
     (globalThis as any).__mockedCompare = mockedCompare;

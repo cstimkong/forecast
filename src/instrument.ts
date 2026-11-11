@@ -27,7 +27,9 @@ import {
     variableDeclarator,
     Statement,
     Expression,
-    Identifier
+    Identifier,
+    arrayExpression,
+    memberExpression
 } from '@babel/types';
 import babelGenerator from '@babel/generator';
 import { defaultOptionValues } from './defaults.js'
@@ -39,6 +41,8 @@ const mockTypeofExprTemplate = babelTemplate.expression('(function(x) { return t
 const mockComparisonTemplate = babelTemplate.expression('__mockedCompare(%%left%%, %%right%%, %%cmpop%%)');
 
 const mockPropertyAccessTemplate = babelTemplate.expression('__mockedPropertyAccess(%%expr%%, %%prop%%)');
+
+const mockPropertyAccessCallTemplate = babelTemplate.expression('(function(_this, _prop, _argArray) { return __mockedPropertyAccess(_this, _prop).apply(_this, _argArray) })(%%obj%%, %%prop%%, %%argArray%%)');
 
 const mockPropertyWriteTemplate = babelTemplate.expression('__mockedPropertyWrite(%%expr%%, %%prop%%, %%value%%, {line: %%startline%%, column: %%startcolumn%%})');
 
@@ -90,8 +94,8 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                     path.node.callee.property.name === 'keys') {
                     path.replaceWith(
                         callExpression(
-                        identifier('__mockedObjectKeys'), 
-                        path.node.arguments)
+                            identifier('__mockedObjectKeys'),
+                            path.node.arguments)
                     );
                 }
 
@@ -127,6 +131,16 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                         )
                     );
                 }
+                else if (path.node.callee.type === 'MemberExpression' && path.node.callee.computed) {
+                    path.replaceWith(
+                        mockPropertyAccessCallTemplate({
+                            obj: path.node.callee.object,
+                            prop: path.node.callee.property,
+                            argArray: arrayExpression((path.get('arguments') as NodePath<Expression>[]).map(x => x.node))
+                        })
+                    );
+                    path.skip();
+                }
 
                 path.skip();
             }
@@ -143,9 +157,14 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                 }
             }
 
-            else if (path.isMemberExpression() && path.node.computed && !(path.parentPath.isAssignmentExpression() && path.parentKey === 'left')) {
+            else if (path.isMemberExpression() && path.node.computed && !(path.parentPath.isAssignmentExpression() && path.parentKey === 'left')
+                && !(path.parentPath.isCallExpression() && path.parentKey === 'callee')) {
                 path.replaceWith(mockPropertyAccessTemplate({ expr: path.node.object, prop: path.node.property }));
                 path.skip();
+            }
+
+            else if (path.isMemberExpression() && path.node.object.type === 'Identifier' && path.node.object.name === 'RegExp') {
+                path.replaceWith(memberExpression(identifier('__mockedRegExp'), path.node.property, path.node.computed));
             }
 
             else if (path.isAssignmentExpression() && path.node.operator === '=' && path.node.left.type === 'MemberExpression') {
@@ -167,6 +186,13 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                         startline: numericLiteral(path.node.loc!.start.line),
                         startcolumn: numericLiteral(path.node.loc!.start.column)
                     }));
+                    path.skip();
+                }
+            }
+
+            else if (path.isNewExpression()) {
+                if (path.node.callee.type  === 'Identifier' && path.node.callee.name === 'RegExp') {
+                    path.replaceWith(newExpression(identifier('__mockedRegExp'), path.node.arguments));
                     path.skip();
                 }
             }
