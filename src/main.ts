@@ -4,8 +4,7 @@
  * 
  */
 
-import { createRequire } from 'module';
-import { argv, cwd } from 'process'
+
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 import { run, stringifyPath } from './fuzzing.js';
@@ -18,22 +17,16 @@ import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
 import { Worker, isMainThread, workerData, parentPort } from 'worker_threads';
 import { defaultOptionValues } from './defaults.js';
 import { existsSync } from 'fs';
+import { loadModuleSync } from './module-loader.js';
 
 function loadLibrary(path: string): any {
-    let revert = addHook((code, filename) => {
-        let instrumentedCode = instrument(code, { filename, maxLoop: defaultOptionValues.maxLoop });
-        return instrumentedCode;
-    }, { exts: ['.js', '.cjs'], ignoreNodeModules: false });
-
     mockEnv();
-    let require = createRequire('file://' + cwd() + '/');
-    try {
-        let lib = require(path);
-        revert();
-        return lib;
-    } catch (e) {
-        throw new Error(`Error in loading the library ${path}`);
-    }
+    return loadModuleSync(path, {
+        instrumentFunc: function (sourceCode, filename) {
+            return instrument(sourceCode, { filename, maxLoop: defaultOptionValues.maxLoop })
+        },
+        globalThis: globalThis
+    });
     
 }
 

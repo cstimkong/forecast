@@ -262,19 +262,20 @@ mockedRegExp.prototype.test = function() {
 }
 
 
-export function mockEnv() {
-    (globalThis as any).__mockedCompare = mockedCompare;
-    (globalThis as any).__mockedPropertyAccess = mockedPropertyAccess;
-    (globalThis as any).__mockedPropertyWrite = mockedPropertyWrite;
-    (globalThis as any).__mockedInExpression = mockedInExpression;
-    (globalThis as any).__mockedObjectKeys = mockedObjectKeys;
-    (globalThis as any).__mockedEncodeURIComponent = mockedEncodeURIComponent;
-    (globalThis as any).__mockedEncodeURI = mockedEncodeURI;
-    (globalThis as any).__mockedDecodeURIComponent = mockedDecodeURIComponent;
-    (globalThis as any).__mockedEscape = mockedEscape;
-    (globalThis as any).__mockedDecodeURI = mockedDecodeURI;
-    (globalThis as any).__mockedRegExp = mockedRegExp;
-    (globalThis as any).window = new Proxy({}, {
+export function mockEnv(global?: any) {
+    if (!global) global = globalThis;
+    (global as any).__mockedCompare = mockedCompare;
+    (global as any).__mockedPropertyAccess = mockedPropertyAccess;
+    (global as any).__mockedPropertyWrite = mockedPropertyWrite;
+    (global as any).__mockedInExpression = mockedInExpression;
+    (global as any).__mockedObjectKeys = mockedObjectKeys;
+    (global as any).__mockedEncodeURIComponent = mockedEncodeURIComponent;
+    (global as any).__mockedEncodeURI = mockedEncodeURI;
+    (global as any).__mockedDecodeURIComponent = mockedDecodeURIComponent;
+    (global as any).__mockedEscape = mockedEscape;
+    (global as any).__mockedDecodeURI = mockedDecodeURI;
+    (global as any).__mockedRegExp = mockedRegExp;
+    (global as any).window = new Proxy({}, {
         get: function (target, p) {
             if (p === Symbol.toPrimitive) {
                 return function () {

@@ -7,7 +7,7 @@ import vm from 'vm';
 import { existsSync, readFileSync, statSync } from 'fs';
 import path from 'path';
 import Module from 'module';
-import { pathToFileURL, URL } from 'url';
+import { URL } from 'url';
 import { parse } from '@babel/parser';
 import traverse, {Node, NodePath} from '@babel/traverse';
 import babelGenerator from '@babel/generator';
@@ -29,97 +29,7 @@ function isNodeJSModule(modulePath: string): boolean {
     return false;
 }
 
-/**
- * Transform `import.meta` structure in the source code into `__importmeta`
- * 
- */
-function transformImportMeta(ast: Node) {
-    traverse.default(ast, {
-        MetaProperty: {
-            exit(path: NodePath) {
-                path.replaceWith(identifier('__importmeta'));
-                path.skip();
-            }
-        },
-        Import: {
-            exit(path: NodePath) {
-                path.replaceWith(identifier('__import'));
-                path.skip();
-            }
-        }
-    });
-    return ast;
-}
 
-/**
- * 
- * @param subPathSpec `exports` spec of the subpath
- * @param modulePath path of the Node.js module (containing a package.json file)
- * @returns null or the real subpath
- */
-function getRealSubPath(subPathSpec: NodeJS.Dict<any> | string, modulePath: string) {
-    let realSubPath = null;
-    if (Array.isArray(subPathSpec)) {
-        for (let spec of subPathSpec) {
-            if (typeof spec === 'object') {
-                if (spec.require) {
-                    if (typeof spec.require === 'string') {
-                        realSubPath = spec.require;
-                    }
-                    else if (typeof spec.require === 'object' && typeof spec.require.default === 'string') {
-                        realSubPath = spec.require.default;
-                    }
-                }
-                else if (spec.default) {
-                    if (typeof spec.default === 'string') {
-                        realSubPath = spec.default;
-                    }
-                }
-                else if (spec.import) {
-                    if (typeof spec.import === 'string') {
-                        realSubPath = spec.import;
-                    }
-                    else if (typeof spec.import === 'object' && typeof spec.import.default === 'string') {
-                        realSubPath = spec.import.default;
-                    }
-                }
-                if (existsSync(path.join(modulePath, realSubPath.replace('/', path.sep)))) {
-                    break;
-                }
-            }
-            else if (typeof spec === 'string') {
-                realSubPath = spec;
-                if (existsSync(path.join(modulePath, realSubPath.replace('/', path.sep)))) {
-                    break;
-                }
-            }
-        }
-    }
-
-    else if (typeof subPathSpec === 'string') {
-        return subPathSpec;
-    }
-
-    else if (typeof subPathSpec === 'object') {
-        if (typeof subPathSpec.require === 'string') {
-            realSubPath = subPathSpec.require;
-        }
-        if (typeof subPathSpec.require === 'object' && subPathSpec.require.default) {
-            realSubPath = subPathSpec.require.default;
-        }
-        else if (typeof subPathSpec.default === 'string') {
-            realSubPath = subPathSpec.default;
-        }
-        else if (typeof subPathSpec.import === 'string') {
-            realSubPath = subPathSpec.import;
-        }
-        if (typeof subPathSpec.import === 'object' && subPathSpec.import.default) {
-            realSubPath = subPathSpec.import.default;
-        }
-    }
-    console.log(realSubPath)
-    return realSubPath;
-}
 
 export type LoadOptions = {
     instrumentFunc?: (sourceCode: string, filename: string) => string,
