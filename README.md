@@ -1,5 +1,9 @@
 # Forecast
 
+[![NPM Version](http://img.shields.io/npm/v/forecast-tool.svg?style=flat)](https://www.npmjs.org/package/forecast-tool)
+[![NPM Downloads](https://img.shields.io/npm/dm/forecast-tool.svg?style=flat)](https://npmcharts.com/compare/forecast-tool?minimal=true)
+[![License](https://img.shields.io/github/license/cstimkong/forecast)](LICENSE)
+
 This is the repository for `Forecast`, a tool for detecting prototype pollution vulnerability ([CWE-1321](https://cwe.mitre.org/data/definitions/1321.html)).
 
 For the information of prototype pollution, please refer to [Snyk.io](https://learn.snyk.io/lesson/prototype-pollution/).
@@ -85,7 +89,7 @@ The directory `zero_days` in the repository lists the discovered zero-day vulner
 
 ## Publication
 
-Effective Fuzzing-based Prototype Pollution Detection via Forced Execution and Template Synthesis, in ACM Transactions on Software Engineering and Methodology, accepted in 2026.
+[Effective Fuzzing-based Prototype Pollution Detection via Forced Execution and Template Synthesis](https://dl.acm.org/doi/10.1145/3848632), in ACM Transactions on Software Engineering and Methodology, accepted in 2026.
 
 ## References
 
