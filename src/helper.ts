@@ -144,13 +144,14 @@ export function mockedPropertyWrite(e: any, p: any, v: any, loc: { line: number,
             throw new ModifyPrototypeSignal('Map.prototype', loc, p);
     }
 
-    if (typeof p === 'string') {
-        e[p] = v;
-    }
     else if (isProxyString(p)) {
         e[defaultOptionValues.proxyStringLiteral] = v;
     }
 
+    else {
+        e[p] = v;
+    }
+    
     return v;
 }
 
@@ -238,6 +239,9 @@ function mockedRegExp(pattern: string, flags?: string) {
                     }
                 }
             }
+            else if (p === '__regex') {
+                return target;
+            }
             else {
                 return (target as any)[p];
             }
@@ -261,6 +265,54 @@ mockedRegExp.prototype.test = function() {
     }
 }
 
+function mockedString(this: any) {
+    if (!new.target)
+        return (String as Function).apply(this, arguments);
+    else
+        return Reflect.construct(String, arguments);
+}
+
+for (let x of ['fromCharCode', 'fromCodePoint', 'raw']) {
+    (mockedString as any)[x] = function() {
+        return (String as any)[x].apply(undefined, arguments);
+    }
+}
+
+for (let x of Object.getOwnPropertyNames(String.prototype)) {
+    if (typeof (String.prototype as any)[x] === 'function') {
+        (mockedString.prototype as any)[x] = (String.prototype as any)[x]
+    }
+    let names = ['charAt', 'substring', 'substr', 'slice', 'replace', 'trim', 'trimLeft', 'trimRight', 'toUpperCase', 'toLowerCase', 'toLocaleUpperCase', 'toLocaleLowerCase', 'toString'];
+    for (let n of names) {
+        mockedString.prototype[n] = function() {
+            if (typeof this === 'string') {
+                return ((String.prototype as any)[n] as any).apply(this, arguments);
+            }
+            else if (isProxyString(this)) {
+                return proxyString;
+            }
+        }
+    }
+    mockedString.prototype.replace = function() {
+        if (typeof this === 'string') {
+            let args = [];
+            for (let i = 0; i < arguments.length; i++) {
+                args.push(arguments[i]);
+            }
+            if (isProxy(args[0])) {
+                args[0] = args[0].__regex;
+            }
+
+            let result = (String.prototype.replace as Function).apply(this, args);
+            return result;
+        }
+        else if (isProxyString(this)) {
+            return proxyString;
+        }
+    }
+    
+}
+
 
 export function mockEnv(global?: any) {
     if (!global) global = globalThis;
@@ -275,6 +327,7 @@ export function mockEnv(global?: any) {
     (global as any).__mockedEscape = mockedEscape;
     (global as any).__mockedDecodeURI = mockedDecodeURI;
     (global as any).__mockedRegExp = mockedRegExp;
+    (global as any).__mockedString = mockedString;
     (global as any).window = new Proxy({}, {
         get: function (target, p) {
             if (p === Symbol.toPrimitive) {

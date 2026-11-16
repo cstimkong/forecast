@@ -145,11 +145,16 @@ export function loadModuleSync(modulePath: string, options?: LoadOptions): any {
                 });
 
                 instrumentedCode = babelGenerator.default(ast).code;
-
-                let compiledFunction = vm.runInNewContext(instrumentedCode,
-                    context,
-                    { filename: path.resolve(modulePath) }
-                );
+                let compiledFunction;
+                if (context === globalThis) {
+                    compiledFunction = vm.runInNewContext(instrumentedCode,
+                        context,
+                        { filename: path.resolve(modulePath) }
+                    );
+                }
+                else {
+                    compiledFunction = vm.runInThisContext(instrumentedCode, {filename: path.resolve(modulePath)});
+                }
 
                 let m = new MockedModule();
                 if (loadingModules) {

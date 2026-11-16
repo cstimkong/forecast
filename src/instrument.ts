@@ -88,6 +88,12 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                 path.skip();
 
             }
+
+            else if (path.isMemberExpression() && path.node.object.type === 'Identifier' && path.node.object.name === 'String') {
+                path.get('object').replaceWith(identifier('__mockedString'));
+                path.get('object').skip();
+            }
+
             else if (path.isCallExpression()) {
                 if (path.node.callee.type === 'MemberExpression' && path.node.callee.object.type === 'Identifier'
                     && path.node.callee.object.name === 'Object' && path.node.callee.property.type === 'Identifier' &&
@@ -130,6 +136,7 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                             path.node.arguments
                         )
                     );
+                    path.skip();
                 }
                 else if (path.node.callee.type === 'MemberExpression' && path.node.callee.computed) {
                     path.replaceWith(
@@ -141,8 +148,6 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                     );
                     path.skip();
                 }
-
-                path.skip();
             }
 
             else if (path.isBinaryExpression()) {

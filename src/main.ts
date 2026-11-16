@@ -30,7 +30,6 @@ function loadLibrary(path: string): any {
     
 }
 
-
 if (isMainThread) {
     let argv: any = yargs(hideBin(process.argv))
         .usage('Forecast tool for prototype pollution detection').option('path', {
