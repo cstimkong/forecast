@@ -12,9 +12,9 @@ import winston from "winston";
 import objectHash from "object-hash";
 import { instrument } from "./instrument.js";
 import {
-  enableMockedFunctions,
-  mockEnv,
-  ModifyPrototypeSignal
+    enableMockedFunctions,
+    mockEnv,
+    ModifyPrototypeSignal
 } from "./helper.js";
 import { executeCallPath, fillCallPath, makeExploit } from "./exploitation.js";
 import { Worker, isMainThread, workerData, parentPort } from "worker_threads";
@@ -25,234 +25,233 @@ import { createRequire } from "module";
 import { cwd } from "process";
 
 function loadLibrary(path: string): any {
-  let revert = addHook(
-    (code, filename) => {
-      let instrumentedCode = instrument(code, {
-        filename,
-        maxLoop: defaultOptionValues.maxLoop
-      });
-      return instrumentedCode;
-    },
-    { exts: [".js", ".cjs"], ignoreNodeModules: false }
-  );
+    let revert = addHook(
+        (code, filename) => {
+            let instrumentedCode = instrument(code, {
+                filename,
+                maxLoop: defaultOptionValues.maxLoop
+            });
+            return instrumentedCode;
+        },
+        { exts: [".js", ".cjs"], ignoreNodeModules: false }
+    );
 
-  mockEnv();
-  let require = createRequire("file://" + cwd() + "/");
-  try {
-    let lib = require(path);
-    revert();
-    return lib;
-  } catch (e) {
-    throw new Error(`Error in loading the library ${path}`);
-  }
+    mockEnv();
+    let require = createRequire("file://" + cwd() + "/");
+    try {
+        let lib = require(path);
+        revert();
+        return lib;
+    } catch (e) {
+        throw new Error(`Error in loading the library ${path}`);
+    }
 }
 
 if (isMainThread) {
-  let argv: any = yargs(hideBin(process.argv))
-    .usage("Forecast tool for prototype pollution detection")
-    .option("path", {
-      alias: "p",
-      type: "string",
-      description: "JavaScript library path (used in require call)"
-    })
-    .option("max-loop", {
-      type: "number",
-      description: "Max number of for/while iteration (0 for not limited)"
-    })
-    .option("all", {
-      alias: "a",
-      type: "boolean",
-      default: false,
-      description: "Try to detect all paths"
-    })
-    .option("candidate-only", {
-      alias: "c",
-      type: "boolean",
-      default: false,
-      description:
-        "Only detect the candidate vulnerability, without actual exploitation"
-    })
-    .option("max-execution-time", {
-      type: "number",
-      default: defaultOptionValues.maxExecutionTime,
-      description: "Max forced execution time"
-    })
-    .option("max-api-calls", {
-      type: "number",
-      default: 4,
-      description: "Max number of API calls in an exploit"
-    })
-    .option("using-meta-templates", {
-      type: "boolean",
-      default: true,
-      description: "Whether to use meta templates"
-    })
-    .option("debug", {
-      type: "boolean",
-      default: false,
-      description: "Show debug information"
-    })
-    .option("log-file", {
-      type: "string",
-      description: "Path to the log file"
-    })
-    .demandOption(["path"])
-    .help()
-    .parse();
+    let argv: any = yargs(hideBin(process.argv))
+        .usage("Forecast tool for prototype pollution detection")
+        .option("path", {
+            alias: "p",
+            type: "string",
+            description: "JavaScript library path (used in require call)"
+        })
+        .option("max-loop", {
+            type: "number",
+            description: "Max number of for/while iteration (0 for not limited)"
+        })
+        .option("all", {
+            alias: "a",
+            type: "boolean",
+            default: false,
+            description: "Try to detect all paths"
+        })
+        .option("candidate-only", {
+            alias: "c",
+            type: "boolean",
+            default: false,
+            description:
+                "Only detect the candidate vulnerability, without actual exploitation"
+        })
+        .option("max-execution-time", {
+            type: "number",
+            default: defaultOptionValues.maxExecutionTime,
+            description: "Max forced execution time"
+        })
+        .option("max-api-calls", {
+            type: "number",
+            default: 4,
+            description: "Max number of API calls in an exploit"
+        })
+        .option("using-meta-templates", {
+            type: "boolean",
+            default: true,
+            description: "Whether to use meta templates"
+        })
+        .option("debug", {
+            type: "boolean",
+            default: false,
+            description: "Show debug information"
+        })
+        .option("log-file", {
+            type: "string",
+            description: "Path to the log file"
+        })
+        .demandOption(["path"])
+        .help()
+        .parse();
 
-  if (!argv.path) {
-    console.error("You have not specified a valid library path.");
-    process.exit(-1);
-  }
+    if (!argv.path) {
+        console.error("You have not specified a valid library path.");
+        process.exit(-1);
+    }
 
-  if (!existsSync(argv.path)) {
-    console.error("Library path does not exists");
-    process.exit(-1);
-  }
+    if (!existsSync(argv.path)) {
+        console.error("Library path does not exists");
+        process.exit(-1);
+    }
 
-  let logger = winston.createLogger({
-    level: argv.debug ? "debug" : "info",
-    format: winston.format.combine(
-      winston.format.label({ label: "Forecast" }),
-      winston.format.timestamp(),
-      winston.format.printf(({ level, message, label, timestamp }) => {
-        return `${timestamp} [${label}] ${level}: ${message}`;
-      })
-    ),
-    transports: [
-      argv.logFile !== undefined
-        ? new winston.transports.File({ filename: argv.logFile })
-        : new winston.transports.Stream({ stream: process.stdout })
-    ]
-  });
-
-  async function runWorker() {
-    let worker = new Worker(import.meta.filename, { workerData: argv });
-    worker.on("message", async res => {
-      if (res.size > 0) {
-        logger.info("-------- Results -----------");
-        for (let h of res.keys()) {
-          let r: any = res.get(h);
-          logger.info(
-            `Location: ${JSON.stringify(r.location)}\nOne exploit: ${
-              r.exploits[0]
-            }\n`
-          );
-        }
-      } else {
-        logger.info("Start another worker");
-        await runWorker();
-      }
-    });
-    worker.on("error", async err => {
-      console.error(err);
-      logger.info("Error occured, start another worker");
-      await runWorker();
+    let logger = winston.createLogger({
+        level: argv.debug ? "debug" : "info",
+        format: winston.format.combine(
+            winston.format.label({ label: "Forecast" }),
+            winston.format.timestamp(),
+            winston.format.printf(({ level, message, label, timestamp }) => {
+                return `${timestamp} [${label}] ${level}: ${message}`;
+            })
+        ),
+        transports: [
+            argv.logFile !== undefined
+                ? new winston.transports.File({ filename: argv.logFile })
+                : new winston.transports.Stream({ stream: process.stdout })
+        ]
     });
 
-    worker.on("exit", async code => {
-      if (code !== 0) {
-        logger.info("Start another worker");
-        await runWorker();
-      }
-    });
-  }
+    async function runWorker() {
+        let worker = new Worker(import.meta.filename, { workerData: argv });
+        worker.on("message", async res => {
+            if (res.size > 0) {
+                logger.info("-------- Results -----------");
+                for (let h of res.keys()) {
+                    let r: any = res.get(h);
+                    logger.info(
+                        `Location: ${JSON.stringify(r.location)}\nOne exploit: ${r.exploits[0]
+                        }\n`
+                    );
+                }
+            } else {
+                logger.info("Start another worker");
+                await runWorker();
+            }
+        });
+        worker.on("error", async err => {
+            console.error(err);
+            logger.info("Error occured, start another worker");
+            await runWorker();
+        });
 
-  runWorker();
+        worker.on("exit", async code => {
+            if (code !== 0) {
+                logger.info("Start another worker");
+                await runWorker();
+            }
+        });
+    }
+
+    runWorker();
 } else {
-  let argv = workerData;
-  let logger = winston.createLogger({
-    level: argv.debug ? "debug" : "info",
-    format: winston.format.combine(
-      winston.format.label({ label: "Forecast Worker" }),
-      winston.format.timestamp(),
-      winston.format.printf(({ level, message, label, timestamp }) => {
-        return `${timestamp} [${label}] ${level}: ${message}`;
-      })
-    ),
-    transports: [
-      argv.logFile !== undefined
-        ? new winston.transports.File({ filename: argv.logFile })
-        : new winston.transports.Stream({ stream: process.stdout })
-    ]
-  });
+    let argv = workerData;
+    let logger = winston.createLogger({
+        level: argv.debug ? "debug" : "info",
+        format: winston.format.combine(
+            winston.format.label({ label: "Forecast Worker" }),
+            winston.format.timestamp(),
+            winston.format.printf(({ level, message, label, timestamp }) => {
+                return `${timestamp} [${label}] ${level}: ${message}`;
+            })
+        ),
+        transports: [
+            argv.logFile !== undefined
+                ? new winston.transports.File({ filename: argv.logFile })
+                : new winston.transports.Stream({ stream: process.stdout })
+        ]
+    });
 
-  let lib = loadLibrary(argv.path);
-  enableMockedFunctions(globalThis);
+    let lib = loadLibrary(argv.path);
+    enableMockedFunctions(globalThis);
 
-  async function main() {
-    let opts: any = {};
-    if (argv.maxExecutionTime) {
-      opts.maxExecutionTime = argv.maxExecution as number;
-    }
-    if (argv.maxApiCalls) {
-      opts.maxApiCalls = argv.maxApiCalls as number;
-    }
-
-    opts.logger = logger;
-    logger.info(`Start to test the library ${argv.path}`);
-    let fuzzingResults = await run(lib, opts);
-    if (fuzzingResults.length === 0) {
-      logger.info("No candidate exploit path is found.");
-    }
-
-    logger.info(`Number of candidate paths: ${fuzzingResults.length}`);
-
-    let hashValueSet = new Set();
-    let filteredResults = [];
-    for (let r of fuzzingResults) {
-      let v = objectHash(r);
-      if (!hashValueSet.has(v)) {
-        filteredResults.push(r);
-        hashValueSet.add(v);
-      }
-    }
-
-    logger.info(
-      `Number of candidate paths after filtering: ${filteredResults.length}`
-    );
-
-    if (argv.candidateOnly) {
-      process.exit(0);
-    }
-
-    let successResultMap = new Map();
-    for (let r of filteredResults) {
-      logger.debug(`Start to deal with the path ${stringifyPath(r.callPath)}`);
-      let filledCallPaths = fillCallPath(r.callPath, argv.usingMetaTemplates);
-      for (let c of filledCallPaths) {
-        makeExploit(c);
-      }
-      for (let p of filledCallPaths) {
-        let sp = stringifyPath(p);
-        logger.info(`Start to execute the path ${sp}`);
-        try {
-          await executeCallPath(lib, p);
-        } catch (e) {
-          if (e instanceof ModifyPrototypeSignal) {
-            let h = e.location.column + "," + e.location.line;
-            if (!successResultMap.has(h)) {
-              successResultMap.set(h, { location: e.location, exploits: [] });
-            }
-            successResultMap.get(h).exploits.push(sp);
-            logger.info(
-              `Success exploit: ${sp}\nLocation: ${JSON.stringify(e.location)}`
-            );
-
-            if (!argv.all) {
-              logger.info("Successfully find an exploit and exit.");
-              return successResultMap;
-            }
-          } else if (e instanceof Error) {
-            logger.debug(`Error occured in the execution: ${e.message}`);
-          }
+    async function main() {
+        let opts: any = {};
+        if (argv.maxExecutionTime) {
+            opts.maxExecutionTime = argv.maxExecution as number;
         }
-      }
-    }
-    return successResultMap;
-  }
+        if (argv.maxApiCalls) {
+            opts.maxApiCalls = argv.maxApiCalls as number;
+        }
 
-  main().then(res => {
-    parentPort?.postMessage(res);
-  });
+        opts.logger = logger;
+        logger.info(`Start to test the library ${argv.path}`);
+        let fuzzingResults = await run(lib, opts);
+        if (fuzzingResults.length === 0) {
+            logger.info("No candidate exploit path is found.");
+        }
+
+        logger.info(`Number of candidate paths: ${fuzzingResults.length}`);
+
+        let hashValueSet = new Set();
+        let filteredResults = [];
+        for (let r of fuzzingResults) {
+            let v = objectHash(r);
+            if (!hashValueSet.has(v)) {
+                filteredResults.push(r);
+                hashValueSet.add(v);
+            }
+        }
+
+        logger.info(
+            `Number of candidate paths after filtering: ${filteredResults.length}`
+        );
+
+        if (argv.candidateOnly) {
+            process.exit(0);
+        }
+
+        let successResultMap = new Map();
+        for (let r of filteredResults) {
+            logger.debug(`Start to deal with the path ${stringifyPath(r.callPath)}`);
+            let filledCallPaths = fillCallPath(r.callPath, argv.usingMetaTemplates);
+            for (let c of filledCallPaths) {
+                makeExploit(c);
+            }
+            for (let p of filledCallPaths) {
+                let sp = stringifyPath(p);
+                logger.info(`Start to execute the path ${sp}`);
+                try {
+                    await executeCallPath(lib, p);
+                } catch (e) {
+                    if (e instanceof ModifyPrototypeSignal) {
+                        let h = e.location.column + "," + e.location.line;
+                        if (!successResultMap.has(h)) {
+                            successResultMap.set(h, { location: e.location, exploits: [] });
+                        }
+                        successResultMap.get(h).exploits.push(sp);
+                        logger.info(
+                            `Success exploit: ${sp}\nLocation: ${JSON.stringify(e.location)}`
+                        );
+
+                        if (!argv.all) {
+                            logger.info("Successfully find an exploit and exit.");
+                            return successResultMap;
+                        }
+                    } else if (e instanceof Error) {
+                        logger.debug(`Error occured in the execution: ${e.message}`);
+                    }
+                }
+            }
+        }
+        return successResultMap;
+    }
+
+    main().then(res => {
+        parentPort?.postMessage(res);
+    });
 }
