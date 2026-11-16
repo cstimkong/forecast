@@ -102,6 +102,9 @@ export function mockedCompare(a: any, b: any, op: string) {
 }
 
 export function mockedPropertyAccess(e: any, p: any) {
+    if (!(globalThis as any).__enabledMockedFunctions) {
+        return e[p];
+    }
     if (isProxyString(p)) {
         if (typeof e === 'object' || typeof e === 'function') {
             return randomChoice([
@@ -116,6 +119,10 @@ export function mockedPropertyAccess(e: any, p: any) {
 }
 
 export function mockedPropertyWrite(e: any, p: any, v: any, loc: { line: number, column: number }) {
+    if (!(globalThis as any).__enabledMockedFunctions) {
+        e[p] = v;
+        return v;
+    }
     if (e === Object.prototype) {
         if (isProxyString(p))
             throw new ModifyPrototypeSignal('Object.prototype', loc);
@@ -155,6 +162,9 @@ export function mockedPropertyWrite(e: any, p: any, v: any, loc: { line: number,
 }
 
 export function mockedInExpression(a: any, b: any) {
+    if (!(globalThis as any).__enabledMockedFunctions) {
+        return a in b;
+    }
     if (typeof b !== 'object' && typeof b !== 'function') {
         throw new Error('Unallowed operation');
     }
@@ -292,4 +302,17 @@ export function mockEnv(global?: any) {
             return (globalThis as any).window;
         }
     });;
+}
+
+export function enableMockedFunctions(global?: any) {
+    if (global === undefined)
+        global = globalThis;
+    (global as any).__enabledMockedFunctions = true;
+
+}
+
+export function disableMockedFunctions(global?: any) {
+    if (global === undefined)
+        global = globalThis;
+    delete global.__enabledMockedFunctions;
 }

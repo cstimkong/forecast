@@ -17,19 +17,6 @@ import { identifier, blockStatement, functionExpression, parenthesizedExpression
 const _require = Module.createRequire('file://' + path.resolve(process.cwd()) + '/');
 const internalModules: readonly string[] = Module.builtinModules;
 
-/**
- * Whether a path refers to a Node.js module
- * @param modulePath the path to a Node.js module
- */
-function isNodeJSModule(modulePath: string): boolean {
-    let p = path.resolve(modulePath);
-    if (existsSync(path.join(p, 'package.json'))) {
-        return true;
-    }
-    return false;
-}
-
-
 
 export type LoadOptions = {
     instrumentFunc?: (sourceCode: string, filename: string) => string,
