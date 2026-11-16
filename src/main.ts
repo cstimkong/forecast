@@ -12,7 +12,7 @@ import { addHook } from 'pirates';
 import winston from 'winston';
 import objectHash from 'object-hash';
 import { instrument } from './instrument.js';
-import { mockEnv, ModifyPrototypeSignal } from './helper.js';
+import { enableMockedFunctions, mockEnv, ModifyPrototypeSignal } from './helper.js';
 import { executeCallPath, fillCallPath, makeExploit } from './exploitation.js';
 import { Worker, isMainThread, workerData, parentPort } from 'worker_threads';
 import { defaultOptionValues } from './defaults.js';
@@ -23,7 +23,8 @@ function loadLibrary(path: string): any {
     mockEnv();
     return loadModuleSync(path, {
         instrumentFunc: function (sourceCode, filename) {
-            return instrument(sourceCode, { filename, maxLoop: defaultOptionValues.maxLoop })
+            let instrumentedCode = instrument(sourceCode, { filename, maxLoop: defaultOptionValues.maxLoop });
+            return instrumentedCode;
         },
         globalThis: globalThis
     });
@@ -150,6 +151,7 @@ else {
     });
 
     let lib = loadLibrary(argv.path);
+    enableMockedFunctions(globalThis);
 
     async function main() {
         let opts: any = {};
