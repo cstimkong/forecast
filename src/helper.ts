@@ -106,7 +106,7 @@ export function mockedPropertyAccess(e: any, p: any) {
         return e[p];
     }
     if (isProxyString(p)) {
-        if (typeof e === 'object' || typeof e === 'function') {
+        if ((typeof e === 'object' && !isProxyString(e)) || typeof e === 'function' ) {
             return randomChoice([
                 function () { return Object.getPrototypeOf(e); },
                 function () { return undefined; },
@@ -114,6 +114,13 @@ export function mockedPropertyAccess(e: any, p: any) {
             ])
 
         }
+    }
+    if (Array.isArray(p) && p.length === 1 && isProxy(p[0])) {
+        return randomChoice([
+            function() { return Object.getPrototypeOf(e); },
+            function() { return undefined; },
+            function () { return e[defaultOptionValues.proxyStringLiteral] }
+        ]);
     }
     return e[p];
 }
@@ -126,7 +133,7 @@ export function mockedPropertyWrite(e: any, p: any, v: any, loc: { line: number,
     if (e === Object.prototype) {
         if (isProxyString(p))
             throw new ModifyPrototypeSignal('Object.prototype', loc);
-        else if (typeof p === 'string')
+        else if (typeof p === 'string' || isProxyString(p))
             throw new ModifyPrototypeSignal('Object.prototype', loc, p);
     }
 
@@ -171,6 +178,12 @@ export function mockedInExpression(a: any, b: any) {
     }
     if (isProxyString(b)) {
         throw new Error('Unallowed operation');
+    }
+    if (isProxyString(a)) {
+        return randomChoice([
+            function() { return true; },
+            function() { return false; }
+        ])
     }
     return a in b;
 }

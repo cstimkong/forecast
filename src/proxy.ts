@@ -16,6 +16,9 @@ export function makeProxyArray(): Array<any> {
         array.push(randomChoice<any>([
             function () { return makeProxyObject(); },
             function () { return proxyString; },
+            function() { return [proxyString] },
+            function() { return [proxyString, proxyString] },
+            function() { return [makeProxyObject(), proxyString] }
         ]));
     }
     return array;
@@ -225,6 +228,9 @@ export function makeProxyObject() {
             else {
                 return Object.getOwnPropertyDescriptor(target, p);
             }
+        },
+        getPrototypeOf() {
+            return Object.prototype;
         }
 
     });
