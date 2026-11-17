@@ -38,7 +38,11 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
         if (logger)
             logger.info(`Added function (library itself).`);
     }
-    for (let x of Object.getOwnPropertyNames(lib)) {
+    let names = Object.getOwnPropertyNames(lib);
+    if (Object.getPrototypeOf(lib) !== Object.prototype && Object.getPrototypeOf(lib) !== null) {
+        names = names.concat(Object.getOwnPropertyNames(Object.getPrototypeOf(lib)));
+    }
+    for (let x of names) {
         if (typeof lib[x] === 'function') {
             candidates.push({path: [x], ref: lib[x], thisArg: lib});
             if (logger)
