@@ -1,3 +1,4 @@
 [submodule "benchmark1"]
 	path = benchmark1
 	url = https://github.com/cstimkong/proto-pollution-benchmarks
+	branch = main
