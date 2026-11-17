@@ -29,7 +29,8 @@ import {
     Expression,
     Identifier,
     arrayExpression,
-    memberExpression
+    memberExpression,
+    labeledStatement
 } from '@babel/types';
 import babelGenerator from '@babel/generator';
 import { defaultOptionValues } from './defaults.js'
@@ -245,17 +246,36 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
                         ]
                     )
                 );
-                let newBlock = blockStatement([
-                    variableDeclaration("let", [
-                        variableDeclarator(
-                            identifier('__loopguard__'),
-                            numericLiteral(0)
-                        )
-                    ]),
-                    path.node
-                ]);
-                path.replaceWith(newBlock);
-                path.skip();
+                let newBlock;
+                if (path.parentPath.isLabeledStatement()) {
+                    newBlock = blockStatement([
+                        variableDeclaration("let", [
+                            variableDeclarator(
+                                identifier('__loopguard__'),
+                                numericLiteral(0)
+                            )
+                        ]),
+                        labeledStatement(path.parentPath.node.label, path.node)
+                    ]);
+                } else {
+                    newBlock = blockStatement([
+                        variableDeclaration("let", [
+                            variableDeclarator(
+                                identifier('__loopguard__'),
+                                numericLiteral(0)
+                            )
+                        ]),
+                        path.node
+                    ]);
+                }
+                if (path.parentPath.isLabeledStatement()) {
+                    path.parentPath.replaceWith(newBlock);
+                    path.parentPath.skip();
+                } else {
+                    path.replaceWith(newBlock);
+                    path.skip();
+                }
+                
             }
             else if (path.isRegExpLiteral()) {
                 path.replaceWith(

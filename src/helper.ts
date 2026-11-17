@@ -351,23 +351,6 @@ export function mockEnv(global?: any) {
     (global as any).__mockedDecodeURI = mockedDecodeURI;
     (global as any).__mockedRegExp = mockedRegExp;
     (global as any).__mockedString = mockedString;
-    (global as any).window = new Proxy({}, {
-        get: function (target, p) {
-            if (p === Symbol.toPrimitive) {
-                return function () {
-                    return makeArbitraryString();
-                }
-            }
-            return (globalThis as any).window;
-        },
-
-        apply: function () {
-            return (globalThis as any).window;
-        },
-        construct: function () {
-            return (globalThis as any).window;
-        }
-    });;
 }
 
 export function enableMockedFunctions(global?: any) {
