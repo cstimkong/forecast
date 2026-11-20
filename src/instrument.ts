@@ -54,10 +54,18 @@ export function instrument(source: string, opts?: { maxLoop?: number, filename?:
     opts.maxLoop = opts.maxLoop !== undefined ? opts.maxLoop : defaultOptionValues.maxLoop;
     let ast;
     if (opts.filename) {
-        ast = parse(source, { sourceFilename: opts.filename });
+        try {
+            ast = parse(source, { sourceFilename: opts.filename });
+        } catch (e) {
+            ast = parse(source, { sourceFilename: opts.filename, sourceType: 'module'})
+        }
     }
     else {
-        ast = parse(source);
+        try {
+            ast = parse(source);
+        } catch (e) {
+            ast = parse(source, { sourceType: 'module' });
+        }
     }
 
     babelTraverse.default(ast, {
