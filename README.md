@@ -60,13 +60,13 @@ Note that the dependencies of the library should be installed first.
 For example, you can use the following command with working directory set to the project root:
 
 ```bash
-node ./dist/forecast.js --path ./benchmark1/packages/arr-flatten-unflatten-1.1.4
+node ./dist/forecast.js --path ./benchmarks/old-packages/arr-flatten-unflatten-1.1.4
 ```
 
 or 
 
 ```
-node .\dist\forecast.js --path .\benchmark1\packages\arr-flatten-unflatten-1.1.4
+node .\dist\forecast.js --path .\benchmarks\old-packages\arr-flatten-unflatten-1.1.4
 ```
 (on Windows)
 
