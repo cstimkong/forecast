@@ -217,7 +217,7 @@ if (isMainThread) {
 
         let successResultMap = new Map();
         for (let r of filteredResults) {
-            logger.debug(`Start to deal with the path ${stringifyPath(r.callPath)}`);
+            logger.debug(`Start to deal with the candidate path ${stringifyPath(r.callPath)}`);
             let filledCallPaths = fillCallPath(r.callPath, argv.usingMetaTemplates);
             for (let c of filledCallPaths) {
                 makeExploit(c);

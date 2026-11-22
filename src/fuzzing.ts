@@ -1,6 +1,6 @@
 /**
  * 
- * This file is part of Forecast
+ * This file is part of Forecast.
  * 
  */
 
@@ -39,7 +39,7 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
             logger.info(`Added function (library itself).`);
     }
     let names = Object.getOwnPropertyNames(lib);
-    if (Object.getPrototypeOf(lib) !== Object.prototype && Object.getPrototypeOf(lib) !== null) {
+    if (Object.getPrototypeOf(lib) !== Object.prototype && Object.getPrototypeOf(lib) !== null && Object.getPrototypeOf(lib) !== Function.prototype) {
         names = names.concat(Object.getOwnPropertyNames(Object.getPrototypeOf(lib)));
     }
     for (let x of names) {
@@ -62,7 +62,7 @@ export async function run(lib: any, options?: {maxExecutionTime?: number, iterat
 
         iter++;
         for (let i = 0; i < maxExecutionTime; i++) {
-            let argCount = randomChoice([0, 1, 2, 3, 4].map(x => function() { return x; }));
+            let argCount = randomChoice([0, 1, 2, 3].map(x => function() { return x; }));
             let result;
             try {
                 result = await forcedExecution(p!.ref, argCount, p!.thisArg);
