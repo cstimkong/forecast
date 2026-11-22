@@ -57,7 +57,7 @@ to show the help information. The supported options are listed as follows.
 
 Note that the dependencies of the library should be installed first.
 
-For example, you can use the following command with working directory set to the project root:
+For example, you can use the following command with working directory set to the  root of the repository:
 
 ```bash
 node ./dist/forecast.js --path ./benchmarks/old-packages/arr-flatten-unflatten-1.1.4
@@ -75,7 +75,7 @@ to find the exploits and sinks for the library [arr-flatten-unflatten](https://w
 
 ## Requirements
 
-- [Node.js](https://nodejs.org) version 20 and later
+- [Node.js](https://nodejs.org) version 20 or later
 
 - [TypeScript compiler](https://www.npmjs.com/package/typescript) (version 5.9.x tested)
 
