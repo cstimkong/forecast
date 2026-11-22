@@ -79,13 +79,9 @@ to find the exploits and sinks for the library [arr-flatten-unflatten](https://w
 
 - [TypeScript compiler](https://www.npmjs.com/package/typescript) (version 5.9.x tested)
 
-## Benchmark and Results
+## Benchmarks
 
-- The directory `benchmark1` contains the NPM packages that are from prior works and the detected results.
-
-- The directory `benchmark2` contains the package list that are used in our evaluation and the detected results.
-
-The directory `zero_days` in the repository lists the discovered zero-day vulnerabilities by Forecast.
+The benchmarks are in the repository [proto-pollution-benchmarks](https://github.com/cstimkong/proto-pollution-benchmarks). For experimental use, you should clone it as a submodule.
 
 ## Publication
 
